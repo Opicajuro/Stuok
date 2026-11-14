@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Študijný Quest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!--
+  ŠTUDIJNÝ QUEST – ako pridať ďalší predmet
+  ==========================================
+  Súbory: style.css (vzhľad), core.js (registre SUBJECTS, GEN, PICS a pomocné funkcie),
+  subjects/<id>.js (jeden súbor na predmet), game.js (logika hry).
+  Nový predmet = nový súbor subjects/<id>.js + riadok <script src="subjects/<id>.js"> nižšie
+  (medzi core.js a game.js). Súbor predmetu volá SUBJECTS.push({...}) s tvarom:
+
+  {
+    id: "ma1",                      // krátke unikátne id (kľúč pre uložený postup)
+    name: "Matematika 1",
+    note: "krátky popis",
+    chapters: [{ name: "Kapitola 1 · názov testu", note: "rozsah",
+                 exam: { n: 15, minutes: 35, points: [0, ..., 11] } }],   // exam: null = kapitola bez skúšobného testu; points[i] = body za i správnych
+    levels: [{
+      id: "l1", ch: 0,              // ch = index do chapters
+      title: "Názov levelu", sub: "podtitul",
+      // medzi odseky výkladu sa dá vložiť nákres síl: { fig: { slope, forces: [[uhol, "popis", dĺžka]], acc, axes }, cap: "popis" } (pozri funkciu fbd)
+      lesson: [{ h: "1. Nadpis časti", p: ["odsek výkladu", "ďalší odsek; vzorec na vlastný riadok: <span class=\"fm\">F = ma</span>"],
+                 c: "kontrolná otázka", a: "odpoveď (skrytá, kým ju hráč neodkryje)" }],   // podrobný výklad
+      theory: [{ h: "Nadpis", items: ["odrážka (HTML: <b>, <sub>, <sup>)", ...] }],   // stručné zhrnutie pod výkladom
+      traps: ["chyták", ...],
+      examples: [{ t: "Zadanie", s: ["krok 1", "krok 2"] }],
+      formulas: [{ n: "Názov", f: "vzorec", w: "kedy sa používa" }],
+      quiz: [{ q: "Otázka", o: ["SPRÁVNA odpoveď", "zlá", "zlá", "zlá"], e: "vysvetlenie", b: true }]
+      // Voliteľné: počítacie úlohy s náhodnými číslami sú v tom istom súbore ako GEN.<id> = { <idLevelu>: [...] },
+      // pole funkcií; každá vráti mk(otázka, správnaHodnota, "jednotka", [zléHodnoty], "vysvetlenie").
+      // Hotové ilustrácie { pic: "názov", cap } pridáva súbor predmetu cez Object.assign(PICS, { názov: `<svg>…` }).
+    }],
+    boss: [ rovnaký tvar ako quiz, bez b; voliteľne lv: "l7" = otázka patrí len ku kapitole s týmto levelom ]
+  }
+
+  Pravidlá: v poli o je VŽDY prvá možnosť správna (hra možnosti sama zamieša);
+  b: true označuje boss otázku (20 XP namiesto 10). Znak < v texte píš ako &lt;.
+  Postup hráča je v localStorage pod kľúčom "studyquest.v2".
+-->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="app"></main>
+<script src="core.js"></script>
+<script src="subjects/fyzika1.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
