@@ -133,7 +133,7 @@ function render(){
   if (r === "chyby") return renderMiss();
   if (r === "trening") return renderTrening();
   const lvl = subj().levels.find(l => l.id === r);
-  if (lvl && unlocked(lvl)) return renderLevel(lvl);
+  if (lvl) return renderLevel(lvl);
   if (lvl) ui.route = "mapa";
   renderMap();
 }
@@ -157,11 +157,11 @@ function renderMap(){
     h += `<div><div class="day">${c.name}</div>${c.note ? `<p class="muted small">${c.note}</p>` : ""}</div><div class="levels">`;
     s.levels.filter(l => l.ch === ci).forEach(l => {
       const n = s.levels.indexOf(l) + 1, p = lvlPct(l);
-      if (!unlocked(l)) {
-        h += `<button class="lvl locked" disabled>
+      if (!unlocked(l)) {   // výklad a vzorce sú otvorené, zamknutý je len kvíz
+        h += `<button class="lvl qlock" data-act="go" data-id="${l.id}">
           <span class="no">L${n}</span>
-          <span><span class="t">${l.title}</span><br><span class="muted small">Zamknuté. Najprv sprav kvíz L${n - 1} na 100 %.</span></span>
-          <span class="pct">zamknuté</span></button>`;
+          <span><span class="t">${l.title}</span><br><span class="muted small">Výklad je otvorený. Kvíz sa odomkne po 100 % v kvíze L${n - 1}.</span></span>
+          <span class="pct"></span></button>`;
         return;
       }
       h += `<button class="lvl ${isDone(l) ? "done" : ""}" data-act="go" data-id="${l.id}">
@@ -189,7 +189,7 @@ function renderMap(){
         <button class="btn sec" data-act="go" data-id="trening">Nastaviť</button></div>`;
   h += `<div class="card row spread"><div><h3>Denník chýb</h3><p class="muted small">${d.miss.length ? d.miss.length + " otázok na zopakovanie" : "Zatiaľ prázdny. Sem padnú otázky, v ktorých sa pomýliš."}</p></div>
         <button class="btn sec" data-act="go" data-id="chyby">Otvoriť</button></div>`;
-  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Ďalší level sa odomkne, až keď kvíz predošlého spravíš na 100 % v jednom pokuse. Skúšobný test kapitoly sa odomkne po všetkých jej leveloch a beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš. Každý kvíz má 3 životy: chyba vezme jeden a po treťom kvíz skončí. Skúšobný test životy nemá. Nápoveda v kvíze ukáže postup, správna odpoveď s ňou dá polovicu XP a neráta sa do 100 %. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
+  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Výklad a vzorce všetkých levelov sú otvorené. Kvíz ďalšieho levelu sa odomkne, až keď kvíz predošlého spravíš na 100 % v jednom pokuse. Skúšobný test kapitoly sa odomkne po všetkých jej leveloch a beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš. Každý kvíz má 3 životy: chyba vezme jeden a po treťom kvíz skončí. Skúšobný test životy nemá. Nápoveda v kvíze ukáže postup, správna odpoveď s ňou dá polovicu XP a neráta sa do 100 %. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
   h += `<div class="card small"><h3>Ďalší predmet</h3><p class="muted">Priamo v hre sa prednášky nahrať nedajú. Pošli ich Claudovi do chatu a nový predmet sa tu objaví ako ďalšie tlačidlo hore.</p></div>`;
   app.innerHTML = h;
 }
@@ -253,10 +253,15 @@ function renderLevel(l){
       l.formulas.map((f, i) => {
         return `<div class="fcard"><span class="n">${f.n}</span><span class="f">${f.f}</span><span class="w">${f.w}</span></div>`;
       }).join("") + `</div>`;
+  } else if (!unlocked(l)) {
+    const prev = subj().levels[n - 2];
+    h += `<div class="card q"><h2>🔒 Kvíz je zamknutý</h2>
+      <p class="muted">Kvíz sa odomkne, keď spravíš kvíz L${n - 1} · ${prev.title} na 100 % v jednom pokuse. Výklad a vzorce si môžeš prejsť už teraz.</p>
+      <button class="btn wide" data-act="go" data-id="${prev.id}">Prejsť na L${n - 1}</button></div>`;
   } else {
     const max = lvlMax(l), best = sd().best[l.id] || 0;
     h += `<div class="card q"><h2>Kvíz</h2>
-      <p class="muted">Každý pokus je iný: časť otázok sa losuje a počítacie úlohy dostanú nové čísla. Po každej odpovedi uvidíš vysvetlenie. Ďalší level sa odomkne pri 100 %. Tvoj najlepší pokus: ${best} %.</p>
+      <p class="muted">Každý pokus je iný: časť otázok sa losuje a počítacie úlohy dostanú nové čísla. Po každej odpovedi uvidíš vysvetlenie. Kvíz ďalšieho levelu sa odomkne pri 100 %. Tvoj najlepší pokus: ${best} %.</p>
       <button class="btn wide" data-act="quiz" data-id="${l.id}">Spustiť kvíz</button></div>`;
   }
   app.innerHTML = h;
@@ -316,7 +321,7 @@ function renderResult(){
   } else {
     const l = subj().levels.find(x => x.id === z.lid), full = z.right === n, p = Math.floor(100 * z.xp / qMax(z));
     h += `<div class="day">${l.title}</div><div class="big num">${p} %</div><h2>${full ? "Level zvládnutý" : "Ešte to chce tréning"}</h2>
-      <p>${z.right} z ${n} správne. ${full ? "Ďalší level je odomknutý." : "Ďalší level sa odomkne pri 100 %. Pozri si chyby v denníku a skús to znova."}</p>`;
+      <p>${z.right} z ${n} správne. ${full ? "Kvíz ďalšieho levelu je odomknutý." : "Kvíz ďalšieho levelu sa odomkne pri 100 %. Pozri si chyby v denníku a skús to znova."}</p>`;
   }
   if (z.hinted) h += `<p class="muted small">S nápovedou: ${z.hinted}. Tieto otázky sa vrátia v opakovaní, aby si ich skúsil sám.</p>`;
   if (z.lives === 0) h +=`<p class="verdict no">Došli ti životy na otázke ${z.i + 1} z ${n}.</p>`;
@@ -375,7 +380,7 @@ app.addEventListener("click", ev => {
   else if (act === "flip") { const i = +id; ui.open = ui.open.includes(i) ? ui.open.filter(x => x !== i) : ui.open.concat(i); render(); }
   else if (act === "showall") { ui.open = s.levels.find(l => l.id === ui.route).formulas.map((_, i) => i); render(); }
   else if (act === "hideall") { ui.open = []; render(); }
-  else if (act === "quiz") { startQuiz("level", id, drawLevel(s.levels.find(x => x.id === id))); }
+  else if (act === "quiz") { const l = s.levels.find(x => x.id === id); if (unlocked(l)) startQuiz("level", id, drawLevel(l)); }
   else if (act === "boss") { if (bossUnlocked(id)) startQuiz("boss", +id, drawBoss(+id)); }
   else if (act === "missquiz") { startQuiz("chyby", null, drawMiss()); }
   else if (act === "rep") { const dr = drawRep(); if (dr.ids.length) startQuiz("opak", null, dr); else render(); }

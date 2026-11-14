@@ -88,7 +88,7 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .lvl .no::before{content:"#"; font-size:1.35rem; font-weight:500; color:var(--muted)}
 .lvl .no::after{content:""; position:absolute; right:-3px; bottom:-1px; width:9px; height:9px; border-radius:50%; background:var(--warn); box-shadow:0 0 0 2.5px var(--paper)}
 .lvl.done .no::after{background:var(--good)}
-.lvl:not(.done):not(.locked)::before{content:""; position:absolute; left:-10px; top:50%; width:4px; height:10px; margin-top:-5px; border-radius:0 4px 4px 0; background:var(--ink)}
+.lvl:not(.done):not(.locked):not(.qlock)::before{content:""; position:absolute; left:-10px; top:50%; width:4px; height:10px; margin-top:-5px; border-radius:0 4px 4px 0; background:var(--ink)}
 .lvl .t{font-weight:700; font-size:1rem}
 .lvl.done .t{color:var(--muted); font-weight:600}
 .lvl .bar{height:3px; background:var(--raised); border-radius:2px; margin-top:6px; overflow:hidden}
@@ -98,6 +98,9 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .lvl.locked{opacity:.55; cursor:not-allowed}
 .lvl.locked .no::before{content:"🔒"; font-size:.95rem}
 .lvl.locked .no::after{display:none}
+.lvl.qlock .no::before{content:"🔒"; font-size:.95rem}
+.lvl.qlock .no::after{display:none}
+.lvl.qlock .t{color:var(--muted)}
 .lvl.boss{margin-top:6px; background:var(--card)}
 .lvl.boss .no::before{content:"🏆"; font-size:1.1rem}
 .lvl.boss .no::after{display:none}
