@@ -7,7 +7,6 @@ Gamifikovaná študijná hra na prípravu na písomky: levely s výkladom, vzorc
 ## Ako sa hrá
 
 - **Level** má tri karty: *Výklad* (s kontrolnými otázkami a nákresmi), *Vzorce* a *Kvíz*.
-- **Výklad je rozhovor s Quest botom**: pred každou časťou si tipneš odpoveď na jeho otázku, potom príde vysvetlenie. Tip sa dá preskočiť alebo zobraziť celý výklad naraz.
 - **Vysvetli vlastnými slovami**: na konci výkladu napíšeš vysvetlenie a porovnáš ho s kľúčovými myšlienkami. Text sa uloží.
 - **Nápoveda** v kvíze ukáže postup bez výsledku. Správna odpoveď s ňou dá polovicu XP, neráta sa do 100 % a otázka sa vráti v opakovaní.
 - **Kvíz** je pri každom pokuse iný: časť otázok sa losuje a počítacie úlohy dostanú nové čísla. Po každej odpovedi vidíš vysvetlenie. Každý kvíz má **3 životy**: chyba vezme jeden a po treťom kvíz skončí.

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
 :root{
   /* Vzhľad „komunitný chat“: grafitové vrstvy, mätový akcent, mapa ako zoznam kanálov s pruhom predmetov,
-     výklad a kvíz ako správy od Quest bota. Tmavý režim je hlavný, svetlý ho zrkadlí. */
+     výklad a vzorce ako vložené karty. Tmavý režim je hlavný, svetlý ho zrkadlí. */
   --rail-w:60px;
   --rail:#e3e5e8; --paper:#f2f3f5; --card:#ffffff; --raised:#e8eaed; --hover:#dfe1e5;
   --ink:#1f2124; --muted:#5b5f67; --line:#d6d9de;
@@ -125,25 +125,11 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .tab[role="tab"]::before{content:"# "; font-weight:500; opacity:.7}
 .tab[aria-selected="true"]{background:var(--raised); color:var(--ink)}
 
-/* ---------- výklad ako správy od Quest bota ---------- */
+/* ---------- výklad ---------- */
 .theory{display:flex; flex-direction:column; gap:12px}
 .theory ul{margin:8px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:6px}
 .theory li{max-width:65ch}
-.lesson{position:relative; display:flex; flex-direction:column; gap:10px; background:none; border-radius:0; padding:2px 0 2px 50px}
-.lesson:first-child,.ask{padding-top:24px}
-.lesson:first-child::before,.ask::before{content:"QB"; position:absolute; left:0; top:2px; width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:var(--accent-ink); font-weight:800; font-size:.8rem}
-.lesson:first-child::after,.ask::after{content:"Quest bot"; position:absolute; left:50px; top:0; font-weight:800; color:var(--accent)}
-.lesson + .lesson{border-top:1px solid var(--line); padding-top:12px}
-/* rozhovor vo výklade: otázka bota, tip hráča, reakcia bota */
-.ask{position:relative; padding-left:50px; margin-top:8px}
-.ask p{font-weight:600; font-size:1.05rem; max-width:60ch}
-.opts.tip{margin-left:50px}
-.tip-skip{margin-left:50px}
-.me{align-self:flex-end; max-width:80%; background:var(--accent); color:var(--accent-ink); padding:8px 14px; border-radius:16px 16px 4px 16px; font-weight:600}
-.me.skip{background:var(--raised); color:var(--muted); font-weight:500}
-.botsays{margin-left:50px; font-weight:700}
-.botsays.ok{color:var(--good)} .botsays.no{color:var(--bad)}
+.lesson{display:flex; flex-direction:column; gap:10px}
 /* nápoveda v kvíze */
 .hint{background:var(--card); border-left:4px solid var(--accent-2); border-radius:4px; padding:10px 14px; display:flex; flex-direction:column; gap:4px}
 /* vysvetli vlastnými slovami */
@@ -156,8 +142,7 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .key.got::before{content:"☑ "}
 .lesson p{max-width:65ch}
 .lesson h2{font-size:1.05rem}
-.theory > section.card:not(.lesson){margin-left:50px; background:var(--card); border-left:4px solid var(--line); border-radius:4px; padding:12px 14px}
-.theory > .day{margin-left:50px}
+.theory > section.card:not(.lesson){background:var(--card); border-left:4px solid var(--line); border-radius:4px; padding:12px 14px}
 .traps{border-left-color:var(--bad) !important}
 .ex{border-left-color:var(--accent) !important}
 .ex ol{margin:8px 0 0; padding-left:22px; display:flex; flex-direction:column; gap:4px}
@@ -194,11 +179,7 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 
 /* ---------- kvíz: otázka ako správa, odpovede ako tlačidlá ---------- */
 .q{display:flex; flex-direction:column; gap:12px}
-.q:has(> .meta){position:relative; background:none; padding:2px 0 2px 50px}
-.q:has(> .meta)::before{content:"QB"; position:absolute; left:0; top:2px; width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:var(--accent-ink); font-weight:800; font-size:.8rem}
 .q .meta{font-size:.78rem; color:var(--muted); margin-bottom:-6px}
-.q .meta > span:first-child::before{content:"Quest bot"; font-size:1rem; font-weight:800; color:var(--accent); margin-right:8px}
 .tag{display:inline-flex; align-items:center; gap:6px; font-size:.75rem; font-weight:700; padding:2px 8px; border-radius:4px; background:var(--raised); color:var(--ink)}
 .tag::before{content:""; width:9px; height:9px; border-radius:50%; background:var(--warn)}
 .q .text{font-size:1.08rem; font-weight:500; max-width:60ch}
