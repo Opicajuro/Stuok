@@ -15,3 +15,13 @@ Na písomke sa dá v hárku vrátiť a odpoveď opraviť. Skúšobný test doter
 
 ## Prístupy
 Zvažované: (a) iba prezeranie bez zmeny odpovede, (b) prezeranie so zmenou odpovede. Študent zvolil (b), lebo zodpovedá ostrému testu.
+
+# 3 životy v kvíze
+
+Schválené študentom 14. 11. 2026: „Každý test má 3 životy“ (variant A, životy na jeden kvíz).
+
+- Každý kvíz okrem skúšobného testu začína s 3 životmi (`LIVES` v `game.js`); chyba vezme jeden.
+- Pri 0 životoch tlačidlo po vysvetlení ukáže „Došli životy · zobraziť výsledok“ a kvíz skončí; výsledok spomenie, na ktorej otázke.
+- Nezobrazené otázky sa nerátajú do denníka chýb; percentá levelu sa rátajú zo všetkých otázok kvízu.
+- Skúšobný test životy nemá, lebo správnosť ukazuje až po odovzdaní.
+- Zamietnuté: spoločné srdcia pre celú hru s dobíjaním (variant B) — riziko zablokovania pred testom.
