@@ -96,16 +96,14 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .lvl.done .bar i{background:var(--good)}
 .lvl .pct{font-family:var(--mono); font-size:.8rem; color:var(--muted)}
 .lvl.locked{opacity:.55; cursor:not-allowed}
-.lvl.locked .no::before{content:"🔒"; font-size:.95rem}
 .lvl.locked .no::after{display:none}
-.lvl.qlock .no::before{content:"🔒"; font-size:.95rem}
 .lvl.qlock .no::after{display:none}
 .lvl.qlock .t{color:var(--muted)}
 .lvl.boss{margin-top:6px; background:var(--card)}
 .lvl.boss .no::before{content:"🏆"; font-size:1.1rem}
 .lvl.boss .no::after{display:none}
 .lvl.boss.locked{background:none}
-.lvl.boss.locked .no::before{content:"🔒"; font-size:.95rem}
+.lvl.boss.locked .no::before{content:"#"; font-size:1.35rem}
 
 /* ---------- tlačidlá ---------- */
 .btn{border:0; background:var(--accent); color:var(--accent-ink); border-radius:8px; padding:11px 16px; font-weight:700; transition:filter .12s ease}

@@ -231,7 +231,7 @@ function renderLevel(l){
       }).join("") + `</div>`;
   } else if (!unlocked(l)) {
     const prev = subj().levels[n - 2];
-    h += `<div class="card q"><h2>🔒 Kvíz je zamknutý</h2>
+    h += `<div class="card q"><h2>Kvíz je zamknutý</h2>
       <p class="muted">Kvíz sa odomkne, keď spravíš kvíz L${n - 1} · ${prev.title} na 100 % v jednom pokuse. Výklad a vzorce si môžeš prejsť už teraz.</p>
       <button class="btn wide" data-act="go" data-id="${prev.id}">Prejsť na L${n - 1}</button></div>`;
   } else {
