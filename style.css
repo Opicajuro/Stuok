@@ -1,100 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
 :root{
-  /* layout: jeden stĺpec do 720px, mapa levelov zoskupená podľa dní, milimetrový papier ako pozadie */
-  --paper:#eef3f7; --grid:#d5e0ea; --card:#ffffff; --ink:#13233a; --muted:#566a82;
-  --line:#c3d0dd; --accent:#1b4fd6; --accent-ink:#ffffff; --mark:#ffd23f; --mark-ink:#3a2c00;
-  --good:#12805c; --good-bg:#dff5ec; --bad:#c2332f; --bad-bg:#fde6e4;
-  --display:"Chakra Petch","Trebuchet MS",sans-serif;
-  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  /* Vzhľad „komunitný chat“: grafitové vrstvy, mätový akcent, mapa ako zoznam kanálov s pruhom predmetov,
+     výklad a kvíz ako správy od Quest bota. Tmavý režim je hlavný, svetlý ho zrkadlí. */
+  --rail-w:60px;
+  --rail:#e3e5e8; --paper:#f2f3f5; --card:#ffffff; --raised:#e8eaed; --hover:#dfe1e5;
+  --ink:#1f2124; --muted:#5b5f67; --line:#d6d9de;
+  --accent:#0a7c64; --accent-2:#1d6fd1; --accent-ink:#ffffff;
+  --mark:#0a7c64; --mark-ink:#ffffff;
+  --good:#1b7f45; --good-solid:#1f8a4c; --good-bg:#e1f3e8; --bad:#c42b30; --bad-solid:#c9353a; --bad-bg:#fbe3e4; --warn:#a86b00;
+  --display:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme:dark;
-    --paper:#0f1924; --grid:#182737; --card:#16232f; --ink:#e6eef6; --muted:#96a9bd;
-    --line:#2a3d50; --accent:#6f9bff; --accent-ink:#071224; --mark:#ffd23f; --mark-ink:#2b2100;
-    --good:#4fd1a1; --good-bg:#11362c; --bad:#ff8a84; --bad-bg:#3d1c1c;
+    --rail:#111214; --paper:#1b1c20; --card:#24262b; --raised:#2d2f35; --hover:#33363c;
+    --ink:#e9eaed; --muted:#a2a5ad; --line:#34363c;
+    --accent:#2fd6ae; --accent-2:#38a8ff; --accent-ink:#04211a;
+    --mark:#2fd6ae; --mark-ink:#04211a;
+    --good:#4fd68b; --good-solid:#238a50; --good-bg:#17301f; --bad:#ff7b7f; --bad-solid:#c7383d; --bad-bg:#3a1d1f; --warn:#f3b94a;
   }
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
-  --paper:#0f1924; --grid:#182737; --card:#16232f; --ink:#e6eef6; --muted:#96a9bd;
-  --line:#2a3d50; --accent:#6f9bff; --accent-ink:#071224; --mark:#ffd23f; --mark-ink:#2b2100;
-  --good:#4fd1a1; --good-bg:#11362c; --bad:#ff8a84; --bad-bg:#3d1c1c;
+  --rail:#111214; --paper:#1b1c20; --card:#24262b; --raised:#2d2f35; --hover:#33363c;
+  --ink:#e9eaed; --muted:#a2a5ad; --line:#34363c;
+  --accent:#2fd6ae; --accent-2:#38a8ff; --accent-ink:#04211a;
+  --mark:#2fd6ae; --mark-ink:#04211a;
+  --good:#4fd68b; --good-solid:#238a50; --good-bg:#17301f; --bad:#ff7b7f; --bad-solid:#c7383d; --bad-bg:#3a1d1f; --warn:#f3b94a;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{
-  margin:0; color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.5;
-  background-color:var(--paper);
-  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:20px 20px;
-}
-main{max-width:720px; margin:0 auto; padding:16px 16px 56px; display:flex; flex-direction:column; gap:16px}
-h1,h2,h3{font-family:var(--display); margin:0; text-wrap:balance; line-height:1.15}
-h1{font-size:1.7rem; letter-spacing:.01em}
-h2{font-size:1.25rem}
+body{margin:0; color:var(--ink); font-family:var(--body); font-size:16.5px; line-height:1.55; background:var(--paper)}
+main{max-width:720px; margin:0 auto; padding:14px 14px 64px; display:flex; flex-direction:column; gap:14px}
+h1,h2,h3{font-family:var(--display); margin:0; text-wrap:balance; line-height:1.2; font-weight:800}
+h1{font-size:1.6rem}
+h2{font-size:1.15rem}
 h3{font-size:1rem}
 p{margin:0}
+b{font-weight:700}
 sub,sup{font-size:.72em; line-height:0}
-button{font:inherit; color:inherit; cursor:pointer}
-button:focus-visible,a:focus-visible{outline:3px solid var(--mark); outline-offset:2px}
-.card{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:16px}
-.row{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+button{font:inherit; color:inherit; cursor:pointer; -webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid var(--accent-2); outline-offset:2px}
+.card{background:var(--card); border-radius:8px; padding:16px}
+.row{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
 .spread{justify-content:space-between}
 .muted{color:var(--muted)}
-.small{font-size:.875rem}
+.small{font-size:.875rem; line-height:1.45}
 .num{font-variant-numeric:tabular-nums}
 
-/* hlavička s XP */
-.hud{display:flex; flex-direction:column; gap:10px}
-.hud .eyebrow{font-family:var(--mono); font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
-.xpbar{height:14px; border:1px solid var(--line); border-radius:7px; background:var(--paper); overflow:hidden}
-.xpbar i{display:block; height:100%; background:var(--mark); transition:width .5s ease}
-.rank{font-family:var(--display); font-weight:700; color:var(--accent)}
+/* ---------- mapa: pruh predmetov vľavo, profil, zoznam kanálov ---------- */
+main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
+.hud + .chips{position:fixed; left:0; top:0; bottom:0; width:var(--rail-w); z-index:6; background:var(--rail);
+  flex-direction:column; flex-wrap:nowrap; align-items:center; gap:8px; padding:12px 0}
+.hud + .chips .chip{position:relative; width:44px; height:44px; padding:0; border:0; border-radius:50%; font-size:0;
+  display:grid; place-items:center; place-content:center; background:var(--card); color:var(--ink); transition:border-radius .15s ease, background .15s ease}
+.hud + .chips .chip::before{content:attr(data-id); line-height:1; font-size:.78rem; font-weight:800; text-transform:uppercase}
+.hud + .chips .chip:hover{border-radius:14px}
+.hud + .chips .chip[aria-pressed="true"]{border-radius:14px; background:var(--accent); color:var(--accent-ink)}
+.hud + .chips .chip[aria-pressed="true"]::after{content:""; position:absolute; left:-8px; top:8px; bottom:8px; width:4px; border-radius:0 4px 4px 0; background:var(--ink)}
+
+.hud{display:flex; flex-direction:column; gap:8px; padding-top:76px; overflow:hidden; position:relative;
+  background:linear-gradient(120deg,var(--accent),var(--accent-2)) top/100% 60px no-repeat, var(--card)}
+.hud .eyebrow{font-size:.75rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
+.hud h1{font-size:1.7rem}
+.xpbar{height:8px; border-radius:4px; background:var(--raised); overflow:hidden}
+.xpbar i{display:block; height:100%; border-radius:4px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); transition:width .5s ease}
+.rank{display:inline-flex; align-items:center; gap:6px; font-size:.8rem; font-weight:600; padding:2px 8px; border-radius:4px; background:var(--raised); color:var(--ink)}
+.rank::before{content:""; width:10px; height:10px; border-radius:50%; background:var(--accent)}
 
 .chips{display:flex; gap:8px; flex-wrap:wrap}
-.chip{border:1px solid var(--line); background:var(--card); border-radius:999px; padding:6px 14px; font-weight:500}
-.chip[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:var(--accent-ink)}
-.chip.ghost{border-style:dashed; color:var(--muted); cursor:default}
+.chip{border:0; background:var(--raised); border-radius:999px; padding:7px 14px; font-weight:600}
+.chip:hover{background:var(--hover)}
+.chip[aria-pressed="true"]{background:var(--accent); color:var(--accent-ink)}
+.chip.ghost{color:var(--muted); cursor:default}
 
-.day{font-family:var(--mono); font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-top:4px}
-.levels{display:flex; flex-direction:column; gap:10px}
-.lvl{display:grid; grid-template-columns:52px 1fr auto; gap:12px; align-items:center; text-align:left; width:100%;
-  background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px}
-.lvl:hover{border-color:var(--accent)}
-.lvl .no{font-family:var(--display); font-weight:700; font-size:1.15rem; width:52px; height:52px; display:grid; place-items:center;
-  border:2px solid var(--ink); border-radius:8px}
-.lvl.done .no{background:var(--mark); color:var(--mark-ink); border-color:var(--mark)}
-.lvl .t{font-weight:600}
-.lvl .bar{height:6px; background:var(--paper); border-radius:3px; margin-top:6px; overflow:hidden; border:1px solid var(--line)}
-.lvl .bar i{display:block; height:100%; background:var(--accent)}
-.lvl .pct{font-family:var(--mono); font-size:.85rem}
-.lvl.boss{border:2px solid var(--ink)}
-.lvl.boss .no{background:var(--ink); color:var(--paper)}
+.day{font-size:.75rem; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin-top:8px}
+.day::before{content:"⌄ "; font-weight:600}
 
-.btn{border:1px solid var(--accent); background:var(--accent); color:var(--accent-ink); border-radius:8px; padding:10px 16px; font-weight:600}
-.btn.sec{background:transparent; color:var(--accent)}
+.levels{display:flex; flex-direction:column; gap:2px}
+.lvl{position:relative; display:grid; grid-template-columns:24px 1fr auto; gap:10px; align-items:center; text-align:left; width:100%;
+  background:none; border:0; border-radius:6px; padding:8px 10px}
+.lvl:not(:disabled):hover{background:var(--hover)}
+.lvl > span:nth-child(2){line-height:1.3}
+.lvl .no{position:relative; font-size:0; display:grid; place-items:center}
+.lvl .no::before{content:"#"; font-size:1.35rem; font-weight:500; color:var(--muted)}
+.lvl .no::after{content:""; position:absolute; right:-3px; bottom:-1px; width:9px; height:9px; border-radius:50%; background:var(--warn); box-shadow:0 0 0 2.5px var(--paper)}
+.lvl.done .no::after{background:var(--good)}
+.lvl:not(.done):not(.locked)::before{content:""; position:absolute; left:-10px; top:50%; width:4px; height:10px; margin-top:-5px; border-radius:0 4px 4px 0; background:var(--ink)}
+.lvl .t{font-weight:700; font-size:1rem}
+.lvl.done .t{color:var(--muted); font-weight:600}
+.lvl .bar{height:3px; background:var(--raised); border-radius:2px; margin-top:6px; overflow:hidden}
+.lvl .bar i{display:block; height:100%; background:var(--warn)}
+.lvl.done .bar i{background:var(--good)}
+.lvl .pct{font-family:var(--mono); font-size:.8rem; color:var(--muted)}
+.lvl.locked{opacity:.55; cursor:not-allowed}
+.lvl.locked .no::before{content:"🔒"; font-size:.95rem}
+.lvl.locked .no::after{display:none}
+.lvl.boss{margin-top:6px; background:var(--card)}
+.lvl.boss .no::before{content:"🏆"; font-size:1.1rem}
+.lvl.boss .no::after{display:none}
+.lvl.boss.locked{background:none}
+.lvl.boss.locked .no::before{content:"🔒"; font-size:.95rem}
+
+/* ---------- tlačidlá ---------- */
+.btn{border:0; background:var(--accent); color:var(--accent-ink); border-radius:8px; padding:11px 16px; font-weight:700; transition:filter .12s ease}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{filter:brightness(.92)}
+.btn:disabled{opacity:.5; cursor:not-allowed}
+.btn.sec{background:var(--raised); color:var(--ink)}
 .btn.wide{width:100%}
-.back{border:0; background:none; padding:4px 0; color:var(--accent); font-weight:600; align-self:flex-start}
+.back{border:0; background:none; padding:4px 0; color:var(--muted); font-weight:700; align-self:flex-start}
+.back:hover{color:var(--ink)}
 
-.tabs{display:flex; gap:2px; border-bottom:2px solid var(--line); position:sticky; top:0; z-index:5; background:var(--paper); margin:0 -16px; padding:4px 16px 0}
-.tab{border:0; background:none; padding:10px 12px; font-weight:600; color:var(--muted); border-bottom:3px solid transparent; margin-bottom:-2px}
-.tab[aria-selected="true"]{color:var(--ink); border-bottom-color:var(--accent)}
+/* ---------- hlavička kanála (lepivá lišta) ---------- */
+.tabs{display:flex; gap:4px; position:sticky; top:0; z-index:5; margin:0 -14px; padding:8px 14px; background:var(--paper);
+  box-shadow:0 1px 0 var(--line),0 2px 6px rgba(0,0,0,.08); overflow-x:auto; scrollbar-width:none}
+.tab{border:0; background:none; padding:7px 10px; border-radius:6px; font-weight:700; color:var(--muted); white-space:nowrap}
+.tab:hover{background:var(--hover); color:var(--ink)}
+.tab[role="tab"]::before{content:"# "; font-weight:500; opacity:.7}
+.tab[aria-selected="true"]{background:var(--raised); color:var(--ink)}
 
-.theory{display:flex; flex-direction:column; gap:14px}
-.theory ul{margin:6px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:6px}
+/* ---------- výklad ako správy od Quest bota ---------- */
+.theory{display:flex; flex-direction:column; gap:12px}
+.theory ul{margin:8px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:6px}
 .theory li{max-width:65ch}
-.traps{border-left:5px solid var(--bad); }
-.ex{border-left:5px solid var(--accent)}
-.ex ol{margin:6px 0 0; padding-left:22px; display:flex; flex-direction:column; gap:4px}
-.lesson{display:flex; flex-direction:column; gap:10px}
+.lesson{position:relative; display:flex; flex-direction:column; gap:10px; background:none; border-radius:0; padding:2px 0 2px 50px}
+.lesson:first-child{padding-top:24px}
+.lesson:first-child::before{content:"QB"; position:absolute; left:0; top:2px; width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:var(--accent-ink); font-weight:800; font-size:.8rem}
+.lesson:first-child::after{content:"Quest bot"; position:absolute; left:50px; top:0; font-weight:800; color:var(--accent)}
+.lesson + .lesson{border-top:1px solid var(--line); padding-top:12px}
 .lesson p{max-width:65ch}
-.fm{display:block; font-family:var(--mono); font-size:.95rem; background:var(--paper); border-left:3px solid var(--accent); border-radius:4px; padding:8px 12px; margin:8px 0; overflow-wrap:anywhere}
-.check{border:1px dashed var(--line); border-radius:8px; padding:10px 12px; background:var(--paper)}
-.check summary{cursor:pointer; font-weight:600}
-.check summary span{display:block; font-family:var(--mono); font-size:.75rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); font-weight:500}
-.check p{margin-top:8px}
-.fig{margin:4px 0; display:flex; flex-direction:column; align-items:center; gap:4px}
+.lesson h2{font-size:1.05rem}
+.theory > section.card:not(.lesson){margin-left:50px; background:var(--card); border-left:4px solid var(--line); border-radius:4px; padding:12px 14px}
+.theory > .day{margin-left:50px}
+.traps{border-left-color:var(--bad) !important}
+.ex{border-left-color:var(--accent) !important}
+.ex ol{margin:8px 0 0; padding-left:22px; display:flex; flex-direction:column; gap:4px}
+.fm{display:block; font-family:var(--mono); font-size:.9rem; background:var(--card); border:1px solid var(--line); border-radius:6px; padding:9px 12px; margin:8px 0; overflow-wrap:anywhere}
+.check{border-left:4px solid var(--accent-2); border-radius:4px; padding:10px 12px; background:var(--card)}
+.check summary{cursor:pointer; font-weight:700; list-style:none}
+.check summary::-webkit-details-marker{display:none}
+.check summary span{display:block; width:fit-content; font-size:.72rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase;
+  padding:2px 6px; border-radius:4px; background:var(--raised); color:var(--muted); margin-bottom:6px}
+.check p{margin-top:8px; padding:8px 10px; border-radius:4px; background:var(--raised)}
+
+.fig{margin:4px 0; display:flex; flex-direction:column; align-items:center; gap:4px; background:var(--card); border-radius:8px; padding:10px}
 .fig svg{width:100%; max-width:330px; height:auto}
 .fig figcaption{font-size:.85rem; color:var(--muted); text-align:center; max-width:42ch}
 .fig .sf{stroke:var(--ink); stroke-width:2; fill:none} .fig .th{stroke:var(--ink); stroke-width:1.5; fill:none}
@@ -108,31 +161,39 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--mark); outline-offs
 .fig .dash{stroke:var(--muted); stroke-width:1.5; stroke-dasharray:4 3; fill:none}
 .fig text{font-family:var(--mono); font-size:14px; fill:var(--ink); text-anchor:middle; dominant-baseline:middle}
 .fig text.m{fill:var(--muted); font-size:12px} .fig text.r{fill:var(--bad)}
-.lvl.locked{opacity:.55; cursor:not-allowed; border-style:dashed}
-.lvl.locked:hover{border-color:var(--line)}
 
-.fgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:10px}
-.fcard{text-align:left; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:12px; display:flex; flex-direction:column; gap:6px; min-height:104px}
-.fcard .n{font-weight:600}
+/* ---------- vzorce ako vložené karty ---------- */
+.fgrid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:8px}
+.fcard{text-align:left; background:var(--card); border-left:4px solid var(--accent); border-radius:4px; padding:12px 14px; display:flex; flex-direction:column; gap:4px; min-height:96px}
+.fcard .n{font-weight:700}
 .fcard .f{font-family:var(--mono); font-size:.95rem; overflow-wrap:anywhere}
 .fcard .w{font-size:.85rem; color:var(--muted)}
 .fcard .hint{font-family:var(--mono); font-size:.8rem; color:var(--accent)}
 
-.q{display:flex; flex-direction:column; gap:14px}
-.q .meta{font-family:var(--mono); font-size:.8rem; color:var(--muted)}
-.tag{display:inline-block; font-family:var(--mono); font-size:.75rem; padding:2px 8px; border-radius:4px; background:var(--ink); color:var(--paper)}
-.q .text{font-size:1.1rem; font-weight:500; max-width:60ch}
-.opts{display:flex; flex-direction:column; gap:8px}
-.opt{text-align:left; background:var(--card); border:1px solid var(--line); border-radius:8px; padding:12px 14px; width:100%; overflow-wrap:anywhere}
-.opt:not(:disabled):hover{border-color:var(--accent)}
-.opt:disabled{cursor:default}
-.opt.ok{background:var(--good-bg); border-color:var(--good); font-weight:600}
-.opt.no{background:var(--bad-bg); border-color:var(--bad)}
-.verdict{font-family:var(--display); font-weight:700}
+/* ---------- kvíz: otázka ako správa, odpovede ako tlačidlá ---------- */
+.q{display:flex; flex-direction:column; gap:12px}
+.q:has(> .meta){position:relative; background:none; padding:2px 0 2px 50px}
+.q:has(> .meta)::before{content:"QB"; position:absolute; left:0; top:2px; width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:var(--accent-ink); font-weight:800; font-size:.8rem}
+.q .meta{font-size:.78rem; color:var(--muted); margin-bottom:-6px}
+.q .meta > span:first-child::before{content:"Quest bot"; font-size:1rem; font-weight:800; color:var(--accent); margin-right:8px}
+.tag{display:inline-flex; align-items:center; gap:6px; font-size:.75rem; font-weight:700; padding:2px 8px; border-radius:4px; background:var(--raised); color:var(--ink)}
+.tag::before{content:""; width:9px; height:9px; border-radius:50%; background:var(--warn)}
+.q .text{font-size:1.08rem; font-weight:500; max-width:60ch}
+.opts{display:flex; flex-direction:column; gap:6px}
+.opt{text-align:left; background:var(--raised); border:0; border-radius:8px; padding:12px 14px; width:100%; min-height:48px; font-weight:600; overflow-wrap:anywhere}
+.opt:not(:disabled):hover{background:var(--hover)}
+.opt:disabled{cursor:default; opacity:.75}
+.opt.ok{background:var(--good-solid); color:#fff; opacity:1}
+.opt.no{background:var(--bad-solid); color:#fff; opacity:1}
+.opts + div{background:var(--card); border-left:4px solid var(--line); border-radius:4px; padding:10px 14px; display:flex; flex-direction:column; gap:4px}
+.opts + div:has(.verdict.ok){border-left-color:var(--good)}
+.opts + div:has(.verdict.no){border-left-color:var(--bad)}
+.verdict{font-weight:800}
 .verdict.ok{color:var(--good)} .verdict.no{color:var(--bad)}
-.big{font-family:var(--display); font-weight:700; font-size:2.4rem; line-height:1}
+.big{font-family:var(--display); font-weight:800; font-size:3rem; line-height:1; background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
 .miss{display:flex; flex-direction:column; gap:4px}
-.miss .a{color:var(--good); font-weight:600}
-.pop{animation:pop .35s ease}
-@keyframes pop{from{transform:scale(.97); opacity:.6} to{transform:none; opacity:1}}
-@media (prefers-reduced-motion: reduce){ .pop{animation:none} .xpbar i{transition:none} }
+.miss .a{color:var(--good); font-weight:700}
+.pop{animation:pop .2s ease-out}
+@keyframes pop{from{transform:translateY(4px); opacity:.7} to{transform:none; opacity:1}}
+@media (prefers-reduced-motion: reduce){ .pop{animation:none} .xpbar i,.chip,.btn{transition:none} }
