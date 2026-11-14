@@ -28,7 +28,7 @@ let ui = { route: "mapa", tab: "teoria", quiz: null, open: [], sel: [], cnt: 10 
 const app = document.getElementById("app");
 
 function subj(){ return SUBJECTS.find(s => s.id === save.subject) || SUBJECTS[0]; }
-function sd(){ const s = subj(); if (!save.data[s.id]) save.data[s.id] = { best: {}, boss: 0, miss: [] }; const d = save.data[s.id]; if (!d.gq) d.gq = {}; if (!d.exam) d.exam = {}; if (!d.rep) d.rep = {}; return d; }
+function sd(){ const s = subj(); if (!save.data[s.id]) save.data[s.id] = { best: {}, boss: 0, miss: [] }; const d = save.data[s.id]; if (!d.gq) d.gq = {}; if (!d.exam) d.exam = {}; if (!d.rep) d.rep = {}; if (!d.explain) d.explain = {}; if (!d.chat) d.chat = {}; return d; }
 function lvlMax(l){ return l.quiz.reduce((a, q) => a + (q.b ? 20 : 10), 0); }
 function lvlPct(l){ return sd().best[l.id] || 0; }
 function isDone(l){ return lvlPct(l) >= 100; }
@@ -53,7 +53,7 @@ function shuffle(n){ const a = [...Array(n).keys()]; for (let i = n - 1; i > 0; 
 
 function go(route){ ui.route = route; ui.open = []; if (route !== "kviz") ui.quiz = null; try { if (/^https?:$/.test(location.protocol)) location.hash = route; } catch (e) {} render(); window.scrollTo(0, 0); }
 function startQuiz(kind, lid, draw){
-  ui.quiz = { kind, lid, gen: draw.gen || {}, items: shuffle(draw.ids.length).map(k => ({ id: draw.ids[k], order: shuffle(4), pick: null })), i: 0, picked: null, xp: 0, right: 0, wrong: [], done: false, lives: kind === "boss" ? null : LIVES };
+  ui.quiz = { kind, lid, gen: draw.gen || {}, items: shuffle(draw.ids.length).map(k => ({ id: draw.ids[k], order: shuffle(4), pick: null })), i: 0, picked: null, xp: 0, right: 0, hinted: 0, wrong: [], done: false, lives: kind === "boss" ? null : LIVES };
   if (kind === "boss" && exam(lid).minutes) ui.quiz.end = Date.now() + exam(lid).minutes * 60000;
   ui.route = "kviz"; render(); window.scrollTo(0, 0);
 }
@@ -189,9 +189,44 @@ function renderMap(){
         <button class="btn sec" data-act="go" data-id="trening">Nastaviť</button></div>`;
   h += `<div class="card row spread"><div><h3>Denník chýb</h3><p class="muted small">${d.miss.length ? d.miss.length + " otázok na zopakovanie" : "Zatiaľ prázdny. Sem padnú otázky, v ktorých sa pomýliš."}</p></div>
         <button class="btn sec" data-act="go" data-id="chyby">Otvoriť</button></div>`;
-  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Ďalší level sa odomkne, až keď kvíz predošlého spravíš na 100 % v jednom pokuse. Skúšobný test kapitoly sa odomkne po všetkých jej leveloch a beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš. Každý kvíz má 3 životy: chyba vezme jeden a po treťom kvíz skončí. Skúšobný test životy nemá. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
+  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Ďalší level sa odomkne, až keď kvíz predošlého spravíš na 100 % v jednom pokuse. Skúšobný test kapitoly sa odomkne po všetkých jej leveloch a beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš. Každý kvíz má 3 životy: chyba vezme jeden a po treťom kvíz skončí. Skúšobný test životy nemá. Nápoveda v kvíze ukáže postup, správna odpoveď s ňou dá polovicu XP a neráta sa do 100 %. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
   h += `<div class="card small"><h3>Ďalší predmet</h3><p class="muted">Priamo v hre sa prednášky nahrať nedajú. Pošli ich Claudovi do chatu a nový predmet sa tu objaví ako ďalšie tlačidlo hore.</p></div>`;
   app.innerHTML = h;
+}
+
+/* výklad ako rozhovor: pred časťou s otázkou ask si hráč tipne, ďalšie časti sa odkryjú až po tipe (alebo preskočení) */
+function lessonChat(l){
+  const picks = sd().chat[l.id] || [];
+  let h = "", done = true;
+  (l.lesson || []).forEach((s, i) => {
+    if (!done) return;
+    if (s.ask) {
+      h += `<div class="ask"><p>${s.ask.q}</p></div>`;
+      const p = picks[i];
+      if (p == null) {
+        const n = s.ask.o.length, order = [...Array(n).keys()].map(k => (k + 2 * i + 1) % n);
+        h += `<div class="opts tip">` + order.map(oi => `<button class="opt" data-act="tip" data-id="${i}:${oi}">${s.ask.o[oi]}</button>`).join("") +
+          `</div><button class="back tip-skip" data-act="tip" data-id="${i}:-1">Preskočiť tip</button>`;
+        done = false; return;
+      }
+      h += p < 0 ? `<p class="me skip">Tip preskočený</p>` :
+        `<p class="me">${s.ask.o[p]}</p><p class="botsays ${p === 0 ? "ok" : "no"}">${p === 0 ? "Presne tak." : "Nie celkom. Správne je: " + s.ask.o[0] + "."}</p>`;
+    }
+    h += `<section class="card lesson"><h2>${s.h}</h2>${s.p.map(x => typeof x === "string" ? `<p>${x}</p>` : figure(x)).join("")}` +
+      (s.c ? `<details class="check"><summary><span>Over si · ťukni pre odpoveď</span>${s.c}</summary>${s.af ? figure({ fig: s.af, cap: s.afc }) : ""}<p>${s.a}</p></details>` : "") + `</section>`;
+  });
+  return { h, done };
+}
+/* vysvetli vlastnými slovami: hráč napíše vysvetlenie a sám si odškrtne kľúčové myšlienky zo vzoru */
+function explainCard(l){
+  if (!l.explain) return "";
+  const e = sd().explain[l.id] || { text: "", got: null }, esc = t => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  let h = `<section class="card explain"><h3>Vysvetli vlastnými slovami</h3><p>${l.explain.q}</p>
+    <textarea id="exp" data-lid="${l.id}" rows="5" placeholder="Napíš to tak, aby to pochopil spolužiak, ktorý chýbal.">${esc(e.text)}</textarea>`;
+  if (!e.got) return h + `<button class="btn sec wide" data-act="exp-check" data-id="${l.id}">Porovnať so vzorom</button></section>`;
+  const n = e.got.filter(Boolean).length;
+  return h + `<p class="muted small">Odškrtni, čo tvoje vysvetlenie obsahuje. Čo ostane neodškrtnuté, doplň si. Máš ${n} z ${e.got.length}.</p><div class="keys">` +
+    l.explain.keys.map((k, i) => `<button class="key${e.got[i] ? " got" : ""}" aria-pressed="${!!e.got[i]}" data-act="exp-key" data-id="${l.id}:${i}">${k}</button>`).join("") + `</div></section>`;
 }
 
 function renderLevel(l){
@@ -201,14 +236,16 @@ function renderLevel(l){
     <div class="tabs" role="tablist"><button class="tab" data-act="go" data-id="mapa" aria-label="Späť na mapu levelov">← Mapa</button>` +
     [["teoria", "Výklad"], ["vzorce", "Vzorce"], ["kviz", "Kvíz"]].map(t => `<button class="tab" role="tab" aria-selected="${tab === t[0]}" data-act="tab" data-id="${t[0]}">${t[1]}</button>`).join("") + `</div>`;
   if (tab === "teoria") {
-    h += `<div class="theory">`;
-    h += (l.lesson || []).map(s => `<section class="card lesson"><h2>${s.h}</h2>${s.p.map(x => typeof x === "string" ? `<p>${x}</p>` : figure(x)).join("")}` +
-      (s.c ? `<details class="check"><summary><span>Over si · ťukni pre odpoveď</span>${s.c}</summary>${s.af ? figure({ fig: s.af, cap: s.afc }) : ""}<p>${s.a}</p></details>` : "") + `</section>`).join("");
+    const chat = lessonChat(l);
+    h += `<div class="theory">` + chat.h;
+    if (!chat.done) { app.innerHTML = h + `</div><button class="btn sec wide" data-act="chat-all">Zobraziť celý výklad bez tipov</button>`; return; }
     if (l.lesson) h += `<div class="day">Zhrnutie na opakovanie</div>`;
     h += l.theory.map(s => `<section class="card"><h3>${s.h}</h3><ul>${s.items.map(i => `<li>${i}</li>`).join("")}</ul></section>`).join("");
     h += `<section class="card traps"><h3>Chytáky</h3><ul>${l.traps.map(i => `<li>${i}</li>`).join("")}</ul></section>`;
     h += l.examples.map(e => `<section class="card ex"><h3>Vzorový príklad</h3><p>${e.t}</p><ol>${e.s.map(i => `<li>${i}</li>`).join("")}</ol></section>`).join("");
-    h += `</div><button class="btn wide" data-act="tab" data-id="kviz">Pokračovať na kvíz</button>`;
+    h += explainCard(l);
+    h += `</div><button class="btn wide" data-act="tab" data-id="kviz">Pokračovať na kvíz</button>
+      <button class="back" data-act="chat-reset">Prejsť výklad znova s tipmi</button>`;
   } else if (tab === "vzorce") {
     const all = ui.open.length === l.formulas.length;
     h += `<div class="row spread"><p class="muted small">Na teste nebudeš mať žiadne pomôcky, vzorce treba vedieť naspamäť.</p><button class="btn sec" data-act="fquiz" data-id="${l.id}">Skúšať vzorce</button>
@@ -236,6 +273,7 @@ function renderQuiz(){
       ${z.kind === "boss" ? `<div class="qnav">${z.items.map((x, k) => `<button class="qn${x.pick !== null ? " ans" : ""}" data-act="goq" data-id="${k}" aria-label="Otázka ${k + 1}${x.pick !== null ? ", zodpovedaná" : ""}"${k === z.i ? ` aria-current="true"` : ""}>${k + 1}</button>`).join("")}</div>` : ""}
       ${q.b ? `<span><span class="tag">BOSS · dvojnásobné body</span></span>` : ""}
       <p class="text">${q.q}</p>
+      ${it.hinted ? `<div class="hint"><b>Nápoveda</b><p>${q.h}</p><p class="muted small">Správna odpoveď s nápovedou dá polovicu XP, neráta sa do 100 % a otázka sa vráti v opakovaní.</p></div>` : ""}
       <div class="opts">` +
       it.order.map((oi, pos) => {
         let c = "";
@@ -243,6 +281,7 @@ function renderQuiz(){
         else if (pos === it.pick) c = "sel";
         return `<button class="opt ${c}" data-act="pick" data-id="${pos}" ${answered ? "disabled" : ""}>${q.o[oi]}</button>`;
       }).join("") + `</div>`;
+  if (q.h && !answered && !it.hinted && z.kind !== "boss") h += `<button class="btn sec" data-act="hint">Nápoveda</button>`;
   if (z.kind === "boss") {
     const left = z.items.filter(x => x.pick === null).length;
     h += `<div class="row spread"><button class="btn sec" data-act="goq" data-id="${z.i - 1}" ${z.i === 0 ? "disabled" : ""}>← Predošlá</button>
@@ -279,7 +318,8 @@ function renderResult(){
     h += `<div class="day">${l.title}</div><div class="big num">${p} %</div><h2>${full ? "Level zvládnutý" : "Ešte to chce tréning"}</h2>
       <p>${z.right} z ${n} správne. ${full ? "Ďalší level je odomknutý." : "Ďalší level sa odomkne pri 100 %. Pozri si chyby v denníku a skús to znova."}</p>`;
   }
-  if (z.lives === 0) h += `<p class="verdict no">Došli ti životy na otázke ${z.i + 1} z ${n}.</p>`;
+  if (z.hinted) h += `<p class="muted small">S nápovedou: ${z.hinted}. Tieto otázky sa vrátia v opakovaní, aby si ich skúsil sám.</p>`;
+  if (z.lives === 0) h +=`<p class="verdict no">Došli ti životy na otázke ${z.i + 1} z ${n}.</p>`;
   if (z.wrong.length && z.kind !== "chyby") h += `<p class="muted small">${z.wrong.length} otázok je v denníku chýb.</p>`;
   h += nextBtn(z) + (z.wrong.length ? `<button class="btn wide" data-act="retrywrong">Precvičiť len chybné otázky (${z.wrong.length})</button>` : "") + `<div class="row">${(z.kind === "chyby" && !sd().miss.length) || (z.kind === "opak" && !repDue().length) ? "" : `<button class="btn" data-act="again">Skúsiť znova</button>`}
     ${sd().miss.length ? `<button class="btn sec" data-act="go" data-id="chyby">Denník chýb</button>` : ""}
@@ -315,7 +355,8 @@ function renderTrening(){
 /* vyhodnotí jednu odpoveď (pos = null znamená nezodpovedané) a zapíše denník chýb a opakovanie */
 function grade(z, it, pos){
   const q = getQ(it.id), d = sd();
-  if (pos !== null && it.order[pos] === 0) { z.right++; z.xp += q.b ? 20 : 10; d.miss = d.miss.filter(x => x !== it.id); delete d.gq[it.id]; repOk(it.id); }
+  if (pos !== null && it.order[pos] === 0 && it.hinted) { z.hinted++; z.xp += q.b ? 10 : 5; if (it.id[0] === "g") d.gq[it.id] = q; repBad(it.id); }   // s nápovedou: polovičné XP, samostatnosť sa overí v opakovaní
+  else if (pos !== null && it.order[pos] === 0) { z.right++; z.xp += q.b ? 20 : 10; d.miss = d.miss.filter(x => x !== it.id); delete d.gq[it.id]; repOk(it.id); }
   else { z.wrong.push(it.id); if (!d.miss.includes(it.id)) d.miss.push(it.id); if (it.id[0] === "g") d.gq[it.id] = q; repBad(it.id); }
 }
 function finishQuiz(){
@@ -344,6 +385,12 @@ app.addEventListener("click", ev => {
   else if (act === "cnt") { ui.cnt = +id; render(); }
   else if (act === "trenuj") { if (ui.sel.length) startQuiz("vlastny", null, drawCustom(ui.sel, ui.cnt)); }
   else if (act === "pick" && z && z.kind === "boss") { z.items[z.i].pick = +id; if (z.i + 1 < z.items.length) z.i++; render(); window.scrollTo(0, 0); }
+  else if (act === "hint" && z) { z.items[z.i].hinted = true; render(); }
+  else if (act === "tip") { const [i, oi] = id.split(":").map(Number), c = sd().chat; c[ui.route] = c[ui.route] || []; c[ui.route][i] = oi; persist(); render(); }
+  else if (act === "chat-all") { const c = sd().chat, a = c[ui.route] = c[ui.route] || []; s.levels.find(l => l.id === ui.route).lesson.forEach((x, i) => { if (x.ask && a[i] == null) a[i] = -1; }); persist(); render(); }
+  else if (act === "chat-reset") { delete sd().chat[ui.route]; persist(); render(); window.scrollTo(0, 0); }
+  else if (act === "exp-check") { const e = sd().explain[id] = sd().explain[id] || { text: "" }; e.got = s.levels.find(l => l.id === id).explain.keys.map(() => false); persist(); render(); }
+  else if (act === "exp-key") { const [lid, i] = id.split(":"), e = sd().explain[lid]; e.got[+i] = !e.got[+i]; persist(); render(); }
   else if (act === "goq" && z) { z.i = +id; render(); window.scrollTo(0, 0); }
   else if (act === "submit" && z) { const left = +b.dataset.left; if (left && !confirm(`Nezodpovedané otázky: ${left}. Odovzdať test aj tak?`)) return; finishQuiz(); }
   else if (act === "pick" && z && z.picked === null) { const it = z.items[z.i]; z.picked = +id; grade(z, it, z.picked); if (it.order[z.picked] !== 0) z.lives--; persist(); render(); }
@@ -352,6 +399,11 @@ app.addEventListener("click", ev => {
     startQuiz(z.kind, z.lid, z.kind === "opak" ? drawRep() : z.kind === "oprava" ? { ids: z.items.map(x => x.id), gen: z.gen } : z.kind === "vzorce" ? drawFormulas(s.levels.find(x => x.id === z.lid)) : z.kind === "chyby" ? drawMiss() : z.kind === "boss" ? drawBoss(z.lid) : z.kind === "vlastny" ? drawCustom(ui.sel, ui.cnt) : drawLevel(s.levels.find(x => x.id === z.lid)));
   }
   else if (act === "quit") { const lv = z && (z.kind === "level" || z.kind === "vzorce"); ui.tab = z && z.kind === "vzorce" ? "vzorce" : "kviz"; go(lv ? z.lid : "mapa"); }
+});
+/* text vlastného vysvetlenia sa ukladá priebežne, bez prekreslenia stránky */
+app.addEventListener("input", ev => {
+  if (ev.target.id !== "exp") return;
+  const d = sd(), lid = ev.target.dataset.lid; d.explain[lid] = d.explain[lid] || { text: "", got: null }; d.explain[lid].text = ev.target.value; persist();
 });
 window.addEventListener("hashchange", () => {
   const h = location.hash.replace("#", "");

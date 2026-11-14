@@ -25,3 +25,11 @@ Schválené študentom 14. 11. 2026: „Každý test má 3 životy“ (variant A
 - Nezobrazené otázky sa nerátajú do denníka chýb; percentá levelu sa rátajú zo všetkých otázok kvízu.
 - Skúšobný test životy nemá, lebo správnosť ukazuje až po odovzdaní.
 - Zamietnuté: spoločné srdcia pre celú hru s dobíjaním (variant B) — riziko zablokovania pred testom.
+
+# Výklad ako rozhovor, nápoveda, vysvetli vlastnými slovami
+
+Schválené študentom 14. 11. 2026 („Všetko znie dobre“, „Urob všetky“). Inšpirované skillmi z Lockinu (OpenMAIC): learning-to-learn (tip pred vysvetlením), zone-of-proximal-development (nápoveda, overenie bez nej), feynman-learning (vysvetli vlastnými slovami).
+
+- **Rozhovor:** časť výkladu môže mať `ask: { q, o }` (správna prvá). Bot sa spýta, hráč si tipne alebo tip preskočí, potom sa odkryje časť. Ďalšie časti, zhrnutie a „vysvetli“ sú skryté, kým nie je výklad prejdený; „Zobraziť celý výklad bez tipov“ odkryje všetko. Postup sa ukladá (`chat`), „Prejsť výklad znova s tipmi“ ho vynuluje.
+- **Nápoveda:** pole `h` pri otázke kvízu, `boss` aj pri generovaných úlohách (`hint(h, mk(...))`). Tlačidlo pred odpoveďou; správne s nápovedou = polovičné XP, nie je to „správne“ pre 100 %, otázka ide do opakovania, nie do denníka chýb. Skúšobný test nápovedu nemá.
+- **Vysvetli vlastnými slovami:** `explain: { q, keys }` na level. Text sa ukladá priebežne (`explain`), po „Porovnať so vzorom“ si hráč odškrtáva kľúčové myšlienky. Nehodnotí sa, neovplyvňuje odomykanie.

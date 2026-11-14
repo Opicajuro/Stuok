@@ -127,11 +127,30 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .theory ul{margin:8px 0 0; padding-left:20px; display:flex; flex-direction:column; gap:6px}
 .theory li{max-width:65ch}
 .lesson{position:relative; display:flex; flex-direction:column; gap:10px; background:none; border-radius:0; padding:2px 0 2px 50px}
-.lesson:first-child{padding-top:24px}
-.lesson:first-child::before{content:"QB"; position:absolute; left:0; top:2px; width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
+.lesson:first-child,.ask{padding-top:24px}
+.lesson:first-child::before,.ask::before{content:"QB"; position:absolute; left:0; top:2px; width:38px; height:38px; border-radius:50%; display:grid; place-items:center;
   background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:var(--accent-ink); font-weight:800; font-size:.8rem}
-.lesson:first-child::after{content:"Quest bot"; position:absolute; left:50px; top:0; font-weight:800; color:var(--accent)}
+.lesson:first-child::after,.ask::after{content:"Quest bot"; position:absolute; left:50px; top:0; font-weight:800; color:var(--accent)}
 .lesson + .lesson{border-top:1px solid var(--line); padding-top:12px}
+/* rozhovor vo výklade: otázka bota, tip hráča, reakcia bota */
+.ask{position:relative; padding-left:50px; margin-top:8px}
+.ask p{font-weight:600; font-size:1.05rem; max-width:60ch}
+.opts.tip{margin-left:50px}
+.tip-skip{margin-left:50px}
+.me{align-self:flex-end; max-width:80%; background:var(--accent); color:var(--accent-ink); padding:8px 14px; border-radius:16px 16px 4px 16px; font-weight:600}
+.me.skip{background:var(--raised); color:var(--muted); font-weight:500}
+.botsays{margin-left:50px; font-weight:700}
+.botsays.ok{color:var(--good)} .botsays.no{color:var(--bad)}
+/* nápoveda v kvíze */
+.hint{background:var(--card); border-left:4px solid var(--accent-2); border-radius:4px; padding:10px 14px; display:flex; flex-direction:column; gap:4px}
+/* vysvetli vlastnými slovami */
+.theory > section.explain{border-left-color:var(--accent-2); display:flex; flex-direction:column; gap:10px}
+.explain textarea{width:100%; font:inherit; color:var(--ink); background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:10px 12px; resize:vertical}
+.keys{display:flex; flex-direction:column; gap:6px}
+.key{text-align:left; border:0; border-left:4px solid var(--warn); background:var(--raised); border-radius:4px; padding:10px 12px; font-weight:600}
+.key::before{content:"☐ "; font-weight:500}
+.key.got{border-left-color:var(--good); background:var(--good-bg)}
+.key.got::before{content:"☑ "}
 .lesson p{max-width:65ch}
 .lesson h2{font-size:1.05rem}
 .theory > section.card:not(.lesson){margin-left:50px; background:var(--card); border-left:4px solid var(--line); border-radius:4px; padding:12px 14px}
