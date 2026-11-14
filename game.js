@@ -52,7 +52,7 @@ function shuffle(n){ const a = [...Array(n).keys()]; for (let i = n - 1; i > 0; 
 
 function go(route){ ui.route = route; ui.open = []; if (route !== "kviz") ui.quiz = null; try { if (/^https?:$/.test(location.protocol)) location.hash = route; } catch (e) {} render(); window.scrollTo(0, 0); }
 function startQuiz(kind, lid, draw){
-  ui.quiz = { kind, lid, gen: draw.gen || {}, items: shuffle(draw.ids.length).map(k => ({ id: draw.ids[k], order: shuffle(4) })), i: 0, picked: null, xp: 0, right: 0, wrong: [], done: false };
+  ui.quiz = { kind, lid, gen: draw.gen || {}, items: shuffle(draw.ids.length).map(k => ({ id: draw.ids[k], order: shuffle(4), pick: null })), i: 0, picked: null, xp: 0, right: 0, wrong: [], done: false };
   if (kind === "boss" && exam(lid).minutes) ui.quiz.end = Date.now() + exam(lid).minutes * 60000;
   ui.route = "kviz"; render(); window.scrollTo(0, 0);
 }
@@ -232,14 +232,22 @@ function renderQuiz(){
   let h = `<button class="back" data-act="quit">← Ukončiť</button>
     <div class="card q pop">
       <div class="row spread meta"><span>${title} · otázka ${z.i + 1}/${z.items.length}</span><span class="num" id="timer">${z.kind === "boss" && z.end ? clock(z.end - Date.now()) : z.right + " správne"}</span></div>
+      ${z.kind === "boss" ? `<div class="qnav">${z.items.map((x, k) => `<button class="qn${x.pick !== null ? " ans" : ""}" data-act="goq" data-id="${k}" aria-label="Otázka ${k + 1}${x.pick !== null ? ", zodpovedaná" : ""}"${k === z.i ? ` aria-current="true"` : ""}>${k + 1}</button>`).join("")}</div>` : ""}
       ${q.b ? `<span><span class="tag">BOSS · dvojnásobné body</span></span>` : ""}
       <p class="text">${q.q}</p>
       <div class="opts">` +
       it.order.map((oi, pos) => {
         let c = "";
         if (answered) c = oi === 0 ? "ok" : (pos === z.picked ? "no" : "");
+        else if (pos === it.pick) c = "sel";
         return `<button class="opt ${c}" data-act="pick" data-id="${pos}" ${answered ? "disabled" : ""}>${q.o[oi]}</button>`;
       }).join("") + `</div>`;
+  if (z.kind === "boss") {
+    const left = z.items.filter(x => x.pick === null).length;
+    h += `<div class="row spread"><button class="btn sec" data-act="goq" data-id="${z.i - 1}" ${z.i === 0 ? "disabled" : ""}>← Predošlá</button>
+      <button class="btn sec" data-act="goq" data-id="${z.i + 1}" ${z.i + 1 === z.items.length ? "disabled" : ""}>Ďalšia →</button></div>
+      <button class="btn wide" data-act="submit" data-left="${left}">Odovzdať test${left ? ` · nezodpovedané: ${left}` : ""}</button>`;
+  }
   if (answered) {
     const ok = it.order[z.picked] === 0;
     h += `<div><p class="verdict ${ok ? "ok" : "no"}">${ok ? "Správne" : "Nesprávne"}</p><p>${q.e}</p></div>
@@ -302,8 +310,15 @@ function renderTrening(){
 }
 
 /* ---------- udalosti ---------- */
+/* vyhodnotí jednu odpoveď (pos = null znamená nezodpovedané) a zapíše denník chýb a opakovanie */
+function grade(z, it, pos){
+  const q = getQ(it.id), d = sd();
+  if (pos !== null && it.order[pos] === 0) { z.right++; z.xp += q.b ? 20 : 10; d.miss = d.miss.filter(x => x !== it.id); delete d.gq[it.id]; repOk(it.id); }
+  else { z.wrong.push(it.id); if (!d.miss.includes(it.id)) d.miss.push(it.id); if (it.id[0] === "g") d.gq[it.id] = q; repBad(it.id); }
+}
 function finishQuiz(){
   const z = ui.quiz, d = sd(); z.done = true;
+  if (z.kind === "boss") z.items.forEach(it => grade(z, it, it.pick));
   if (z.kind === "level") d.best[z.lid] = Math.max(d.best[z.lid] || 0, z.right === z.items.length ? 100 : Math.min(99, Math.floor(100 * z.xp / qMax(z))));
   if (z.kind === "boss") d.exam[z.lid] = Math.max(d.exam[z.lid] || 0, z.right);
   persist(); render(); window.scrollTo(0, 0);
@@ -326,13 +341,10 @@ app.addEventListener("click", ev => {
   else if (act === "sel") { ui.sel = ui.sel.includes(id) ? ui.sel.filter(x => x !== id) : ui.sel.concat(id); render(); }
   else if (act === "cnt") { ui.cnt = +id; render(); }
   else if (act === "trenuj") { if (ui.sel.length) startQuiz("vlastny", null, drawCustom(ui.sel, ui.cnt)); }
-  else if (act === "pick" && z && z.picked === null) {
-    const it = z.items[z.i], q = getQ(it.id), d = sd(); z.picked = +id;
-    if (it.order[z.picked] === 0) { z.right++; z.xp += q.b ? 20 : 10; d.miss = d.miss.filter(x => x !== it.id); delete d.gq[it.id]; repOk(it.id); }
-    else { z.wrong.push(it.id); if (!d.miss.includes(it.id)) d.miss.push(it.id); if (it.id[0] === "g") d.gq[it.id] = q; repBad(it.id); }
-    if (z.kind === "boss") { persist(); if (z.i + 1 === z.items.length) return finishQuiz(); z.i++; z.picked = null; render(); window.scrollTo(0, 0); return; }
-    persist(); render();
-  }
+  else if (act === "pick" && z && z.kind === "boss") { z.items[z.i].pick = +id; if (z.i + 1 < z.items.length) z.i++; render(); window.scrollTo(0, 0); }
+  else if (act === "goq" && z) { z.i = +id; render(); window.scrollTo(0, 0); }
+  else if (act === "submit" && z) { const left = +b.dataset.left; if (left && !confirm(`Nezodpovedané otázky: ${left}. Odovzdať test aj tak?`)) return; finishQuiz(); }
+  else if (act === "pick" && z && z.picked === null) { z.picked = +id; grade(z, z.items[z.i], z.picked); persist(); render(); }
   else if (act === "next" && z) { if (z.i + 1 === z.items.length) finishQuiz(); else { z.i++; z.picked = null; render(); window.scrollTo(0, 0); } }
   else if (act === "again" && z) {
     startQuiz(z.kind, z.lid, z.kind === "opak" ? drawRep() : z.kind === "oprava" ? { ids: z.items.map(x => x.id), gen: z.gen } : z.kind === "vzorce" ? drawFormulas(s.levels.find(x => x.id === z.lid)) : z.kind === "chyby" ? drawMiss() : z.kind === "boss" ? drawBoss(z.lid) : z.kind === "vlastny" ? drawCustom(ui.sel, ui.cnt) : drawLevel(s.levels.find(x => x.id === z.lid)));

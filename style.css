@@ -184,9 +184,14 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .opt{text-align:left; background:var(--raised); border:0; border-radius:8px; padding:12px 14px; width:100%; min-height:48px; font-weight:600; overflow-wrap:anywhere}
 .opt:not(:disabled):hover{background:var(--hover)}
 .opt:disabled{cursor:default; opacity:.75}
+.opt.sel{background:var(--hover); box-shadow:inset 0 0 0 2px var(--accent-2)}
+.qnav{display:flex; flex-wrap:wrap; gap:6px}
+.qn{min-width:36px; height:36px; padding:0 6px; border:0; border-radius:6px; background:var(--raised); color:var(--muted); font-family:var(--mono); font-weight:500}
+.qn.ans{background:var(--accent); color:var(--accent-ink)}
+.qn[aria-current="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 4px var(--ink)}
 .opt.ok{background:var(--good-solid); color:#fff; opacity:1}
 .opt.no{background:var(--bad-solid); color:#fff; opacity:1}
-.opts + div{background:var(--card); border-left:4px solid var(--line); border-radius:4px; padding:10px 14px; display:flex; flex-direction:column; gap:4px}
+.opts + div:has(.verdict){background:var(--card); border-left:4px solid var(--line); border-radius:4px; padding:10px 14px; display:flex; flex-direction:column; gap:4px}
 .opts + div:has(.verdict.ok){border-left-color:var(--good)}
 .opts + div:has(.verdict.no){border-left-color:var(--bad)}
 .verdict{font-weight:800}
