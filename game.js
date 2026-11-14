@@ -28,7 +28,7 @@ let ui = { route: "mapa", tab: "teoria", quiz: null, open: [], sel: [], cnt: 10 
 const app = document.getElementById("app");
 
 function subj(){ return SUBJECTS.find(s => s.id === save.subject) || SUBJECTS[0]; }
-function sd(){ const s = subj(); if (!save.data[s.id]) save.data[s.id] = { best: {}, boss: 0, miss: [] }; const d = save.data[s.id]; if (!d.gq) d.gq = {}; if (!d.exam) d.exam = {}; if (!d.rep) d.rep = {}; if (!d.explain) d.explain = {}; if (!d.chat) d.chat = {}; return d; }
+function sd(){ const s = subj(); if (!save.data[s.id]) save.data[s.id] = { best: {}, boss: 0, miss: [] }; const d = save.data[s.id]; if (!d.gq) d.gq = {}; if (!d.exam) d.exam = {}; if (!d.rep) d.rep = {}; if (!d.explain) d.explain = {}; return d; }
 function lvlMax(l){ return l.quiz.reduce((a, q) => a + (q.b ? 20 : 10), 0); }
 function lvlPct(l){ return sd().best[l.id] || 0; }
 function isDone(l){ return lvlPct(l) >= 100; }
@@ -194,29 +194,6 @@ function renderMap(){
   app.innerHTML = h;
 }
 
-/* výklad ako rozhovor: pred časťou s otázkou ask si hráč tipne, ďalšie časti sa odkryjú až po tipe (alebo preskočení) */
-function lessonChat(l){
-  const picks = sd().chat[l.id] || [];
-  let h = "", done = true;
-  (l.lesson || []).forEach((s, i) => {
-    if (!done) return;
-    if (s.ask) {
-      h += `<div class="ask"><p>${s.ask.q}</p></div>`;
-      const p = picks[i];
-      if (p == null) {
-        const n = s.ask.o.length, order = [...Array(n).keys()].map(k => (k + 2 * i + 1) % n);
-        h += `<div class="opts tip">` + order.map(oi => `<button class="opt" data-act="tip" data-id="${i}:${oi}">${s.ask.o[oi]}</button>`).join("") +
-          `</div><button class="back tip-skip" data-act="tip" data-id="${i}:-1">Preskočiť tip</button>`;
-        done = false; return;
-      }
-      h += p < 0 ? `<p class="me skip">Tip preskočený</p>` :
-        `<p class="me">${s.ask.o[p]}</p><p class="botsays ${p === 0 ? "ok" : "no"}">${p === 0 ? "Presne tak." : "Nie celkom. Správne je: " + s.ask.o[0] + "."}</p>`;
-    }
-    h += `<section class="card lesson"><h2>${s.h}</h2>${s.p.map(x => typeof x === "string" ? `<p>${x}</p>` : figure(x)).join("")}` +
-      (s.c ? `<details class="check"><summary><span>Over si · ťukni pre odpoveď</span>${s.c}</summary>${s.af ? figure({ fig: s.af, cap: s.afc }) : ""}<p>${s.a}</p></details>` : "") + `</section>`;
-  });
-  return { h, done };
-}
 /* vysvetli vlastnými slovami: hráč napíše vysvetlenie a sám si odškrtne kľúčové myšlienky zo vzoru */
 function explainCard(l){
   if (!l.explain) return "";
@@ -236,16 +213,15 @@ function renderLevel(l){
     <div class="tabs" role="tablist"><button class="tab" data-act="go" data-id="mapa" aria-label="Späť na mapu levelov">← Mapa</button>` +
     [["teoria", "Výklad"], ["vzorce", "Vzorce"], ["kviz", "Kvíz"]].map(t => `<button class="tab" role="tab" aria-selected="${tab === t[0]}" data-act="tab" data-id="${t[0]}">${t[1]}</button>`).join("") + `</div>`;
   if (tab === "teoria") {
-    const chat = lessonChat(l);
-    h += `<div class="theory">` + chat.h;
-    if (!chat.done) { app.innerHTML = h + `</div><button class="btn sec wide" data-act="chat-all">Zobraziť celý výklad bez tipov</button>`; return; }
+    h += `<div class="theory">`;
+    h += (l.lesson || []).map(s => `<section class="card lesson"><h2>${s.h}</h2>${s.p.map(x => typeof x === "string" ? `<p>${x}</p>` : figure(x)).join("")}` +
+      (s.c ? `<details class="check"><summary><span>Over si · ťukni pre odpoveď</span>${s.c}</summary>${s.af ? figure({ fig: s.af, cap: s.afc }) : ""}<p>${s.a}</p></details>` : "") + `</section>`).join("");
     if (l.lesson) h += `<div class="day">Zhrnutie na opakovanie</div>`;
     h += l.theory.map(s => `<section class="card"><h3>${s.h}</h3><ul>${s.items.map(i => `<li>${i}</li>`).join("")}</ul></section>`).join("");
     h += `<section class="card traps"><h3>Chytáky</h3><ul>${l.traps.map(i => `<li>${i}</li>`).join("")}</ul></section>`;
     h += l.examples.map(e => `<section class="card ex"><h3>Vzorový príklad</h3><p>${e.t}</p><ol>${e.s.map(i => `<li>${i}</li>`).join("")}</ol></section>`).join("");
     h += explainCard(l);
-    h += `</div><button class="btn wide" data-act="tab" data-id="kviz">Pokračovať na kvíz</button>
-      <button class="back" data-act="chat-reset">Prejsť výklad znova s tipmi</button>`;
+    h += `</div><button class="btn wide" data-act="tab" data-id="kviz">Pokračovať na kvíz</button>`;
   } else if (tab === "vzorce") {
     const all = ui.open.length === l.formulas.length;
     h += `<div class="row spread"><p class="muted small">Na teste nebudeš mať žiadne pomôcky, vzorce treba vedieť naspamäť.</p><button class="btn sec" data-act="fquiz" data-id="${l.id}">Skúšať vzorce</button>
@@ -391,9 +367,6 @@ app.addEventListener("click", ev => {
   else if (act === "trenuj") { if (ui.sel.length) startQuiz("vlastny", null, drawCustom(ui.sel, ui.cnt)); }
   else if (act === "pick" && z && z.kind === "boss") { z.items[z.i].pick = +id; if (z.i + 1 < z.items.length) z.i++; render(); window.scrollTo(0, 0); }
   else if (act === "hint" && z) { z.items[z.i].hinted = true; render(); }
-  else if (act === "tip") { const [i, oi] = id.split(":").map(Number), c = sd().chat; c[ui.route] = c[ui.route] || []; c[ui.route][i] = oi; persist(); render(); }
-  else if (act === "chat-all") { const c = sd().chat, a = c[ui.route] = c[ui.route] || []; s.levels.find(l => l.id === ui.route).lesson.forEach((x, i) => { if (x.ask && a[i] == null) a[i] = -1; }); persist(); render(); }
-  else if (act === "chat-reset") { delete sd().chat[ui.route]; persist(); render(); window.scrollTo(0, 0); }
   else if (act === "exp-check") { const e = sd().explain[id] = sd().explain[id] || { text: "" }; e.got = s.levels.find(l => l.id === id).explain.keys.map(() => false); persist(); render(); }
   else if (act === "exp-key") { const [lid, i] = id.split(":"), e = sd().explain[lid]; e.got[+i] = !e.got[+i]; persist(); render(); }
   else if (act === "goq" && z) { z.i = +id; render(); window.scrollTo(0, 0); }

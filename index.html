@@ -25,8 +25,7 @@
       id: "l1", ch: 0,              // ch = index do chapters
       title: "Názov levelu", sub: "podtitul",
       // medzi odseky výkladu sa dá vložiť nákres síl: { fig: { slope, forces: [[uhol, "popis", dĺžka]], acc, axes }, cap: "popis" } (pozri funkciu fbd)
-      // ask (voliteľné): tip pred časťou výkladu, ďalšie časti sa odkryjú až po ňom; o[0] je správna
-      lesson: [{ h: "1. Nadpis časti", ask: { q: "Otázka bota pred výkladom", o: ["SPRÁVNA", "zlá", "zlá"] }, p: ["odsek výkladu", "ďalší odsek; vzorec na vlastný riadok: <span class=\"fm\">F = ma</span>"],
+      lesson: [{ h: "1. Nadpis časti", p: ["odsek výkladu", "ďalší odsek; vzorec na vlastný riadok: <span class=\"fm\">F = ma</span>"],
                  c: "kontrolná otázka", a: "odpoveď (skrytá, kým ju hráč neodkryje)" }],   // podrobný výklad
       theory: [{ h: "Nadpis", items: ["odrážka (HTML: <b>, <sub>, <sup>)", ...] }],   // stručné zhrnutie pod výkladom
       traps: ["chyták", ...],

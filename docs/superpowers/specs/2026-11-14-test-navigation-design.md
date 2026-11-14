@@ -33,3 +33,9 @@ Schválené študentom 14. 11. 2026 („Všetko znie dobre“, „Urob všetky�
 - **Rozhovor:** časť výkladu môže mať `ask: { q, o }` (správna prvá). Bot sa spýta, hráč si tipne alebo tip preskočí, potom sa odkryje časť. Ďalšie časti, zhrnutie a „vysvetli“ sú skryté, kým nie je výklad prejdený; „Zobraziť celý výklad bez tipov“ odkryje všetko. Postup sa ukladá (`chat`), „Prejsť výklad znova s tipmi“ ho vynuluje.
 - **Nápoveda:** pole `h` pri otázke kvízu, `boss` aj pri generovaných úlohách (`hint(h, mk(...))`). Tlačidlo pred odpoveďou; správne s nápovedou = polovičné XP, nie je to „správne“ pre 100 %, otázka ide do opakovania, nie do denníka chýb. Skúšobný test nápovedu nemá.
 - **Vysvetli vlastnými slovami:** `explain: { q, keys }` na level. Text sa ukladá priebežne (`explain`), po „Porovnať so vzorom“ si hráč odškrtáva kľúčové myšlienky. Nehodnotí sa, neovplyvňuje odomykanie.
+
+**Zmena 15. 11. 2026:** výklad ako rozhovor s Quest botom (pole `ask`, avatar a meno bota vo výklade aj v kvíze) študent zamietol („ten quest bot je blbosť“) a bol celý odstránený. Výklad sa zobrazuje celý naraz ako predtým. Nápoveda a „vysvetli vlastnými slovami“ ostávajú.
+
+# Otvorené levely
+
+Schválené študentom 15. 11. 2026: výklad a vzorce všetkých levelov sú otvorené, zamknutý je len kvíz, kým kvíz predošlého levelu nie je na 100 % v jednom pokuse. Skúšobný test sa odomyká ako predtým.
