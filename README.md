@@ -1,1 +1,51 @@
-# Stuok
+# Študijný Quest
+
+Gamifikovaná študijná hra na prípravu na písomky: levely s výkladom, vzorcami a kvízmi, skúšobný test na čas a opakovanie chýb. Zatiaľ obsahuje predmet **Fyzika 1** (BPC-FY1, FEKT VUT).
+
+**Hrať:** https://opicajuro.github.io/Stuok/
+
+## Ako sa hrá
+
+- **Level** má tri karty: *Výklad* (s kontrolnými otázkami a nákresmi), *Vzorce* a *Kvíz*.
+- **Kvíz** je pri každom pokuse iný: časť otázok sa losuje a počítacie úlohy dostanú nové čísla. Po každej odpovedi vidíš vysvetlenie.
+- **Ďalší level** sa odomkne, až keď kvíz predošlého spravíš na 100 % v jednom pokuse.
+- **Skúšobný test kapitoly** sa odomkne po všetkých jej leveloch. Beží na čas, bez vysvetlení, s počtom otázok a bodmi ako na ostrom teste. Na otázky sa dá vrátiť a odpoveď zmeniť až do odovzdania.
+- **Denník chýb** zbiera otázky, v ktorých si sa pomýlil. **Opakovanie na dnes** ich vracia hneď, na druhý deň a po troch dňoch, kým nemajú tri správne odpovede.
+- **Vlastný tréning**: vyber si témy a počet otázok, bez vplyvu na odomykanie.
+
+Postup sa ukladá v prehliadači (`localStorage`, kľúč `studyquest.v2`), teda zvlášť pre každé zariadenie a adresu.
+
+## Štruktúra
+
+Statická stránka bez buildu, stačí otvoriť `index.html`.
+
+| Súbor | Obsah |
+| --- | --- |
+| `index.html` | Kostra stránky a **schéma predmetu** v komentári na začiatku |
+| `style.css` | Vzhľad (svetlý aj tmavý režim) |
+| `core.js` | Registre `SUBJECTS`, `GEN`, `PICS` a pomocné funkcie pre nákresy a počítacie úlohy |
+| `subjects/<id>.js` | Jeden súbor na predmet: levely, ilustrácie, generátory úloh |
+| `game.js` | Logika hry |
+
+## Pridanie predmetu
+
+1. Vytvor `subjects/<id>.js` podľa schémy v komentári v `index.html` (`SUBJECTS.push({...})`, voliteľne `GEN.<id>` a `PICS`).
+2. Pridaj riadok `<script src="subjects/<id>.js"></script>` do `index.html` medzi `core.js` a `game.js`.
+
+Pravidlá obsahu: v kvíze je správna odpoveď vždy **prvá** v poli `o` (hra možnosti zamieša), počítacie úlohy majú čísla počítateľné z hlavy, texty po slovensky s českými termínmi v zátvorke.
+
+S Claude Code stačí nahrať prednášky a povedať „pridaj predmet“. Postup vedú skilly v `.claude/skills/`:
+
+| Skill | Na čo |
+| --- | --- |
+| `brainstorming` | Návrh najprv, až potom stavanie |
+| `curriculum-planner` | Plán levelov z prednášok so schválením, potom stavba level po leveli |
+| `understanding-by-design` | Čo do kapitoly patrí, odvodené od testu |
+| `zone-of-proximal-development` | Kvízy, precvičovanie a opakovanie |
+| `learning-to-learn` | Učebné stratégie vo výklade |
+| `feynman-learning` | Vysvetľovanie vlastnými slovami v chate |
+| `fact-check` | Kontrola vzorcov, čísel a správnych odpovedí |
+
+## Licencie
+
+Skilly `fact-check`, `zone-of-proximal-development`, `learning-to-learn`, `feynman-learning`, `understanding-by-design` a `curriculum-planner` sú upravené zo skillov projektu [OpenMAIC](https://github.com/THU-MAIC/OpenMAIC) (MIT, © 2026 THU-MAIC), pozri `.claude/skills/LICENSE-OpenMAIC`. Skill `brainstorming` pochádza z [obra/superpowers](https://github.com/obra/superpowers).
