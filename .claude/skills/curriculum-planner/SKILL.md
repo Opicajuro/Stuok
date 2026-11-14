@@ -1,6 +1,6 @@
 ---
 name: curriculum-planner
-description: "Plánovanie a stavba nového predmetu alebo novej kapitoly v Študijnom Queste z Arturových prednášok: zoznam levelov so schválením pred stavaním, potom stavba level po leveli. Použi, keď Artur nahrá prednášky nového predmetu alebo ďalšiu várku do existujúceho („pridaj predmet“, „nové prednášky“, „ďalšia kapitola“). Nie na úpravu jedného existujúceho levelu."
+description: "Plánovanie a stavba nového predmetu alebo novej kapitoly v Študijnom Queste z Arturových prednášok: zoznam levelov so schválením pred stavaním, potom stavba level po leveli. Použi, keď Artur nahrá prednášky nového predmetu alebo ďalšiu várku do existujúceho („pridaj predmet“, „nové prednášky“, „ďalšia kapitola“). Nie na úpravu jedného existujúceho levelu. Keywords: add subject, new lectures, plan levels, curriculum, course outline."
 ---
 
 # Plán a stavba predmetu alebo kapitoly

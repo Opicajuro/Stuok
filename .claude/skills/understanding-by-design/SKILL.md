@@ -1,6 +1,6 @@
 ---
 name: understanding-by-design
-description: "Spätný návrh (Understanding by Design) kapitoly alebo levelu v Študijnom Queste: najprv čo má Artur na teste vedieť, potom ako to hra overí (skúšobný test, boss, kvíz, GEN), až nakoniec výklad. Použi pri navrhovaní novej kapitoly či levelu z prednášok, keď treba rozhodnúť, čo do levelu patrí a čo nie, alebo keď level pôsobí ako zoznam faktov bez pointy."
+description: "Spätný návrh (Understanding by Design) kapitoly alebo levelu v Študijnom Queste: najprv čo má Artur na teste vedieť, potom ako to hra overí (skúšobný test, boss, kvíz, GEN), až nakoniec výklad. Použi pri navrhovaní novej kapitoly či levelu z prednášok, keď treba rozhodnúť, čo do levelu patrí a čo nie, alebo keď level pôsobí ako zoznam faktov bez pointy. Keywords: backward design, UbD, plan chapter, exam scope, enduring understanding."
 ---
 
 # Spätný návrh kapitoly

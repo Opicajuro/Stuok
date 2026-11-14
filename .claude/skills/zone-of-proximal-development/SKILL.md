@@ -1,6 +1,6 @@
 ---
 name: zone-of-proximal-development
-description: "Návrh kvízov, precvičovania a opakovania v Študijnom Queste podľa zóny najbližšieho vývoja: samostatný pokus, cielená pomoc, nová úloha bez nápovedy a ďalší krok podľa skutočného výkonu. Použi pri písaní alebo úprave quiz, boss, traps, examples a GEN pre level, pri návrhu herných mechaník okolo kvízu a opakovania, alebo keď si Artur chce v chate precvičiť jednu úlohu („precvič ma“, „daj mi príklad“). Jednu otázku na teóriu nerozťahuj na celý cyklus."
+description: "Návrh kvízov, precvičovania a opakovania v Študijnom Queste podľa zóny najbližšieho vývoja: samostatný pokus, cielená pomoc, nová úloha bez nápovedy a ďalší krok podľa skutočného výkonu. Použi pri písaní alebo úprave quiz, boss, traps, examples a GEN pre level, pri návrhu herných mechaník okolo kvízu a opakovania, alebo keď si Artur chce v chate precvičiť jednu úlohu („precvič ma“, „daj mi príklad“). Jednu otázku na teóriu nerozťahuj na celý cyklus. Keywords: quiz design, practice, scaffolding, spaced repetition, drill me, exercise."
 ---
 
 # Precvičovanie podľa zóny najbližšieho vývoja

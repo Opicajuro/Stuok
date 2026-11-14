@@ -1,6 +1,6 @@
 ---
 name: learning-to-learn
-description: "Zabudovanie učebných stratégií do výkladu a kvízov levelu v Študijnom Queste ako vedľajší cieľ popri látke: vybavovanie z pamäte, vysvetlenie vlastnými slovami, tip pred odhalením odpovede, kontrola, či naozaj rozumiem, rozložené opakovanie. Použi pri písaní alebo úprave lesson (najmä kontrolných otázok c/a), theory a kvízov, alebo keď Artur chce, aby ho hra učila aj „ako sa učiť“. Nie na samostatný level o študijných metódach."
+description: "Zabudovanie učebných stratégií do výkladu a kvízov levelu v Študijnom Queste ako vedľajší cieľ popri látke: vybavovanie z pamäte, vysvetlenie vlastnými slovami, tip pred odhalením odpovede, kontrola, či naozaj rozumiem, rozložené opakovanie. Použi pri písaní alebo úprave lesson (najmä kontrolných otázok c/a), theory a kvízov, alebo keď Artur chce, aby ho hra učila aj „ako sa učiť“. Nie na samostatný level o študijných metódach. Keywords: study strategies, retrieval practice, self-explanation, metacognition, spaced review."
 ---
 
 # Učiť sa, ako sa učiť

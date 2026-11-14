@@ -1,6 +1,6 @@
 ---
 name: feynman-learning
-description: "Feynmanov cyklus v chate s Arturom: najprv on vysvetlí pojem vlastnými slovami, potom nájdeme najmenšiu medzeru, doplníme ju otázkami, zbavíme sa odborných slov, otestujeme prirovnanie a prenesieme pojem do novej situácie. Použi, keď Artur chce látku „vysvetliť“, „povedať vlastnými slovami“, „overiť, či tomu naozaj rozumiem“, alebo pri návrhu takejto aktivity do hry. Nie keď je Feynmanova metóda len téma rozhovoru."
+description: "Feynmanov cyklus v chate s Arturom: najprv on vysvetlí pojem vlastnými slovami, potom nájdeme najmenšiu medzeru, doplníme ju otázkami, zbavíme sa odborných slov, otestujeme prirovnanie a prenesieme pojem do novej situácie. Použi, keď Artur chce látku „vysvetliť“, „povedať vlastnými slovami“, „overiť, či tomu naozaj rozumiem“, alebo pri návrhu takejto aktivity do hry. Nie keď je Feynmanova metóda len téma rozhovoru. Keywords: Feynman technique, teach-back, explain in my own words, check understanding."
 ---
 
 # Feynmanov cyklus

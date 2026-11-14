@@ -1,6 +1,6 @@
 ---
 name: fact-check
-description: "Kontrola vecnej správnosti obsahu predmetu v Študijnom Queste: vzorce, definície, konštanty, číselné výsledky príkladov, správne odpovede kvízu a matematika generátorov GEN. Použi po napísaní nového predmetu alebo levelu, pred odovzdaním, alebo keď Artur povie „over“, „skontroluj fakty“, „je to správne?“. Pri tvorbe opraví zjavné chyby sám; pri kontrole existujúceho obsahu najprv dá krátku správu a nechá Artura vybrať, čo opraviť. Nie na štýl, gramatiku ani vzhľad. Kombinuj s /deep-research, keď treba overiť veľa údajov z prednášok."
+description: "Kontrola vecnej správnosti obsahu predmetu v Študijnom Queste: vzorce, definície, konštanty, číselné výsledky príkladov, správne odpovede kvízu a matematika generátorov GEN. Použi po napísaní nového predmetu alebo levelu, pred odovzdaním, alebo keď Artur povie „over“, „skontroluj fakty“, „je to správne?“. Pri tvorbe opraví zjavné chyby sám; pri kontrole existujúceho obsahu najprv dá krátku správu a nechá Artura vybrať, čo opraviť. Nie na štýl, gramatiku ani vzhľad. Kombinuj s /deep-research, keď treba overiť veľa údajov z prednášok. Keywords: fact-check, verify formulas, check answers, accuracy review, hallucination check."
 ---
 
 # Kontrola faktov v obsahu predmetu
