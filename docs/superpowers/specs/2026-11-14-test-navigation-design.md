@@ -1,6 +1,6 @@
 # Prezeranie a oprava odpovedí v skúšobnom teste
 
-Schválené Arturom 14. 11. 2026 (malá zmena, krátky dizajn).
+Schválené študentom 14. 11. 2026 (malá zmena, krátky dizajn).
 
 ## Prečo
 Na písomke sa dá v hárku vrátiť a odpoveď opraviť. Skúšobný test doteraz po odpovedi hneď skočil ďalej a späť sa nedalo.
@@ -14,4 +14,22 @@ Na písomke sa dá v hárku vrátiť a odpoveď opraviť. Skúšobný test doter
 - Obrazovka výsledku ostáva rovnaká.
 
 ## Prístupy
-Zvažované: (a) iba prezeranie bez zmeny odpovede, (b) prezeranie so zmenou odpovede. Artur zvolil (b), lebo zodpovedá ostrému testu.
+Zvažované: (a) iba prezeranie bez zmeny odpovede, (b) prezeranie so zmenou odpovede. Študent zvolil (b), lebo zodpovedá ostrému testu.
+
+# 3 životy v kvíze
+
+Schválené študentom 14. 11. 2026: „Každý test má 3 životy“ (variant A, životy na jeden kvíz).
+
+- Každý kvíz okrem skúšobného testu začína s 3 životmi (`LIVES` v `game.js`); chyba vezme jeden.
+- Pri 0 životoch tlačidlo po vysvetlení ukáže „Došli životy · zobraziť výsledok“ a kvíz skončí; výsledok spomenie, na ktorej otázke.
+- Nezobrazené otázky sa nerátajú do denníka chýb; percentá levelu sa rátajú zo všetkých otázok kvízu.
+- Skúšobný test životy nemá, lebo správnosť ukazuje až po odovzdaní.
+- Zamietnuté: spoločné srdcia pre celú hru s dobíjaním (variant B) — riziko zablokovania pred testom.
+
+# Výklad ako rozhovor, nápoveda, vysvetli vlastnými slovami
+
+Schválené študentom 14. 11. 2026 („Všetko znie dobre“, „Urob všetky“). Inšpirované skillmi z Lockinu (OpenMAIC): learning-to-learn (tip pred vysvetlením), zone-of-proximal-development (nápoveda, overenie bez nej), feynman-learning (vysvetli vlastnými slovami).
+
+- **Rozhovor:** časť výkladu môže mať `ask: { q, o }` (správna prvá). Bot sa spýta, hráč si tipne alebo tip preskočí, potom sa odkryje časť. Ďalšie časti, zhrnutie a „vysvetli“ sú skryté, kým nie je výklad prejdený; „Zobraziť celý výklad bez tipov“ odkryje všetko. Postup sa ukladá (`chat`), „Prejsť výklad znova s tipmi“ ho vynuluje.
+- **Nápoveda:** pole `h` pri otázke kvízu, `boss` aj pri generovaných úlohách (`hint(h, mk(...))`). Tlačidlo pred odpoveďou; správne s nápovedou = polovičné XP, nie je to „správne“ pre 100 %, otázka ide do opakovania, nie do denníka chýb. Skúšobný test nápovedu nemá.
+- **Vysvetli vlastnými slovami:** `explain: { q, keys }` na level. Text sa ukladá priebežne (`explain`), po „Porovnať so vzorom“ si hráč odškrtáva kľúčové myšlienky. Nehodnotí sa, neovplyvňuje odomykanie.

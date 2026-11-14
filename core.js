@@ -50,6 +50,7 @@ function num(x, sig){
   }
   return neg + String(+ax.toPrecision(sig)).replace(".", ",");
 }
+function hint(h, q){ q.h = h; return q; }   // nápoveda k vygenerovanej úlohe
 function mk(q, val, unit, wrong, e, sig){
   const opts = [num(val, sig)];
   wrong.concat([val * 2, val / 2, val * 3, val / 4, val * 1.5, val * 5]).forEach(w => { const s = num(w, sig); if (opts.length < 4 && isFinite(w) && !opts.includes(s)) opts.push(s); });

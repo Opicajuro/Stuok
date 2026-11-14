@@ -1,17 +1,17 @@
 ---
 name: learning-to-learn
-description: "Zabudovanie učebných stratégií do výkladu a kvízov levelu v Študijnom Queste ako vedľajší cieľ popri látke: vybavovanie z pamäte, vysvetlenie vlastnými slovami, tip pred odhalením odpovede, kontrola, či naozaj rozumiem, rozložené opakovanie. Použi pri písaní alebo úprave lesson (najmä kontrolných otázok c/a), theory a kvízov, alebo keď Artur chce, aby ho hra učila aj „ako sa učiť“. Nie na samostatný level o študijných metódach. Keywords: study strategies, retrieval practice, self-explanation, metacognition, spaced review."
+description: "Zabudovanie učebných stratégií do výkladu a kvízov levelu v Študijnom Queste ako vedľajší cieľ popri látke: vybavovanie z pamäte, vysvetlenie vlastnými slovami, tip pred odhalením odpovede, kontrola, či naozaj rozumiem, rozložené opakovanie. Použi pri písaní alebo úprave lesson (najmä kontrolných otázok c/a), theory a kvízov, alebo keď študent chce, aby ho hra učila aj „ako sa učiť“. Nie na samostatný level o študijných metódach. Keywords: study strategies, retrieval practice, self-explanation, metacognition, spaced review."
 ---
 
 # Učiť sa, ako sa učiť
 
-Učebné stratégie sú **vedľajší cieľ** levelu: nemenia, čo sa Artur učí (látku na test), menia, ako ju prežíva, kontroluje a upevňuje.
+Učebné stratégie sú **vedľajší cieľ** levelu: nemenia, čo sa študent učí (látku na test), menia, ako ju prežíva, kontroluje a upevňuje.
 
 ## Najprv dva ciele
 
 Pred písaním levelu si ujasni:
 
-1. **Cieľ látky**: čo má Artur na teste vedieť vysvetliť alebo vypočítať.
+1. **Cieľ látky**: čo má študent na teste vedieť vysvetliť alebo vypočítať.
 2. **Cieľ učenia**: ktorú učebnú činnosť si precvičí a podľa čoho sa pozná, že sa stala.
 
 Každá stratégia musí odpovedať na „ktorej látke slúži?“. Ak nevie, vyhoď ju. Vyber 1–2 stratégie, ktoré k levelu sedia; nevypisuj celý katalóg.
@@ -30,7 +30,7 @@ Každá stratégia musí odpovedať na „ktorej látke slúži?“. Ak nevie, v
 
 Nie sú to nové sekcie, len miesta v existujúcich dátach:
 
-1. **Začiatok výkladu** (`lesson[0]`): predtým, než príde vysvetlenie, nech si Artur vybaví, čo už vie, alebo si tipne výsledok.
+1. **Začiatok výkladu** (`lesson[0]`): predtým, než príde vysvetlenie, nech si študent vybaví, čo už vie, alebo si tipne výsledok.
 2. **Po vysvetlení pojmu** (`c`/`a` pri časti výkladu): kontrolná otázka „prečo“, nie len „koľko“. Odpoveď `a` je skrytá, kým ju neodkryje — to je tip pred odhalením.
 3. **Kvíz a GEN**: najprv odpoveď, potom spätná väzba `e`. Chyba nie je slepá ulička: vysvetlenie, návrat do opakovania, nový pokus s inými číslami.
 4. **Vzorce**: skúšanie vzorcov je vybavovanie z pamäte, nie čítanie ťaháka.
@@ -39,7 +39,7 @@ Nie sú to nové sekcie, len miesta v existujúcich dátach:
 ## Kontrola kvality
 
 - Cieľ látky a cieľ učenia sú v pláne oddelene.
-- Artur aspoň raz v leveli naozaj niečo vybaví z pamäte, vysvetlí alebo tipne — nie len číta o tom, že by mal.
+- Študent aspoň raz v leveli naozaj niečo vybaví z pamäte, vysvetlí alebo tipne — nie len číta o tom, že by mal.
 - Po chybe vždy existuje vysvetlenie a cesta späť.
 - Viditeľný text neobsahuje plánovacie slová.
 - Nesľubuj „zázračnú metódu“. Keď sa odvolávaš na výskum o učení, over zdroj.
