@@ -210,8 +210,8 @@ function renderLevel(l){
   const n = subj().levels.indexOf(l) + 1, tab = ui.tab;
   let h = `<button class="back" data-act="go" data-id="mapa">← Mapa levelov</button>
     <div><div class="day">Level ${n} · najlepší pokus ${lvlPct(l)} %</div><h1>${l.title}</h1></div>
-    <div class="tabs" role="tablist"><button class="tab" data-act="go" data-id="mapa" aria-label="Späť na mapu levelov">← Mapa</button>` +
-    [["teoria", "Výklad"], ["vzorce", "Vzorce"], ["kviz", "Kvíz"]].map(t => `<button class="tab" role="tab" aria-selected="${tab === t[0]}" data-act="tab" data-id="${t[0]}">${t[1]}</button>`).join("") + `</div>`;
+    <div class="tabs"><button class="tab" data-act="go" data-id="mapa" aria-label="Späť na mapu levelov">← Mapa</button><div class="tablist" role="tablist" aria-label="Časti levelu">` +
+    [["teoria", "Výklad"], ["vzorce", "Vzorce"], ["kviz", "Kvíz"]].map(t => `<button class="tab" role="tab" aria-label="${t[1]}" aria-selected="${tab === t[0]}" data-act="tab" data-id="${t[0]}">${t[1]}</button>`).join("") + `</div></div>`;
   if (tab === "teoria") {
     h += `<div class="theory">`;
     h += (l.lesson || []).map(s => `<section class="card lesson"><h2>${s.h}</h2>${s.p.map(x => typeof x === "string" ? `<p>${x}</p>` : figure(x)).join("")}` +
