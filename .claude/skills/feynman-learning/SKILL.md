@@ -1,17 +1,17 @@
 ---
 name: feynman-learning
-description: "Feynmanov cyklus v chate s Arturom: najprv on vysvetlí pojem vlastnými slovami, potom nájdeme najmenšiu medzeru, doplníme ju otázkami, zbavíme sa odborných slov, otestujeme prirovnanie a prenesieme pojem do novej situácie. Použi, keď Artur chce látku „vysvetliť“, „povedať vlastnými slovami“, „overiť, či tomu naozaj rozumiem“, alebo pri návrhu takejto aktivity do hry. Nie keď je Feynmanova metóda len téma rozhovoru. Keywords: Feynman technique, teach-back, explain in my own words, check understanding."
+description: "Feynmanov cyklus v chate so študentom: najprv on vysvetlí pojem vlastnými slovami, potom nájdeme najmenšiu medzeru, doplníme ju otázkami, zbavíme sa odborných slov, otestujeme prirovnanie a prenesieme pojem do novej situácie. Použi, keď študent chce látku „vysvetliť“, „povedať vlastnými slovami“, „overiť, či tomu naozaj rozumiem“, alebo pri návrhu takejto aktivity do hry. Nie keď je Feynmanova metóda len téma rozhovoru. Keywords: Feynman technique, teach-back, explain in my own words, check understanding."
 ---
 
 # Feynmanov cyklus
 
-Stredobodom nie je učebnica, ale Arturovo aktuálne vysvetlenie. Musí prejsť krokmi: vysvetliť najprv sám, odhaliť medzeru, sám ju doplniť, povedať to inak, použiť to inde. Na konci ostane krátky záznam a cieľ na ďalšie kolo.
+Stredobodom nie je učebnica, ale študentovo aktuálne vysvetlenie. Musí prejsť krokmi: vysvetliť najprv sám, odhaliť medzeru, sám ju doplniť, povedať to inak, použiť to inde. Na konci ostane krátky záznam a cieľ na ďalšie kolo.
 
 Hra nevie hodnotiť voľný text, preto tento cyklus beží hlavne **v chate**. Do hry sa z neho dá preniesť len kostra: kontrolná otázka `c` typu „vysvetli“, so skrytou vzorovou odpoveďou `a` na samokontrolu. Netvrď, že hra vysvetlenie oznámkuje.
 
 ## Princípy
 
-1. **Artur hovorí prvý.** Pred definíciou, výkladom z hry alebo vzorovým riešením chci jeho vysvetlenie. Bez neho nie je cyklus.
+1. **Študent hovorí prvý.** Pred definíciou, výkladom z hry alebo vzorovým riešením chci jeho vysvetlenie. Bez neho nie je cyklus.
 2. **Opravuj jednu-dve najmenšie medzery.** Nesyp naňho celý výklad.
 3. **Otázka pred odpoveďou.** Najprv sa snaž, aby si príčinnú reťaz doplnil sám. Fakt povedz až keď ani po niekoľkých otázkach nepostúpi.
 4. **Porozumenie musí prežiť preformulovanie a prenos.** Vedieť termín nie je rozumieť.
@@ -22,16 +22,16 @@ Hra nevie hodnotiť voľný text, preto tento cyklus beží hlavne **v chate**. 
 Ujasni si (a ak to z požiadavky nevyplýva, spýtaj sa jednou otázkou):
 
 - **hranica pojmu**: čo presne vysvetľujeme a čo už nie;
-- **poslucháč**: komu to Artur vysvetľuje (spolužiak, ktorý chýbal; stredoškolák);
+- **poslucháč**: komu to študent vysvetľuje (spolužiak, ktorý chýbal; stredoškolák);
 - **pravidlo nápovedy**: smiem po neúspešných otázkach povedať odpoveď?
 
 ## Kroky
 
 1. **Vysvetli to niekomu, kto to nepozná.** Bez pozerania do materiálov, vlastnými slovami.
-2. **Kde sa to zasekne?** Rozlož vysvetlenie na nutné prvky (napr. pri Gaussovej vete: tok, uzavretá plocha, uzavretý náboj, prečo vonkajšie náboje neprispievajú). Nájdi 1–2 kľúčové skoky, zámeny alebo chýbajúce príčiny. Nech Artur sám povie, kde sa to láme.
+2. **Kde sa to zasekne?** Rozlož vysvetlenie na nutné prvky (napr. pri Gaussovej vete: tok, uzavretá plocha, uzavretý náboj, prečo vonkajšie náboje neprispievajú). Nájdi 1–2 kľúčové skoky, zámeny alebo chýbajúce príčiny. Nech študent sám povie, kde sa to láme.
 3. **Otázky na doplnenie.** Každá otázka cieli na jednu medzeru: „prečo?“, „čo keby sa podmienka zmenila?“. Pred každou si ujasni, aká odpoveď ukáže, že medzera je zaplnená.
 4. **Ešte raz.** Druhá verzia vysvetlenia; nápoveda len o štruktúre príčin, nie hotová odpoveď. Zapamätaj si rozdiel oproti prvej verzii.
-5. **Bez odborných slov.** Vyber termíny, ktoré Artur *naozaj použil*, a nech to vysvetlí bez nich, alebo daj protipríklad, ktorý odhalí naučenú frázu.
+5. **Bez odborných slov.** Vyber termíny, ktoré študent *naozaj použil*, a nech to vysvetlí bez nich, alebo daj protipríklad, ktorý odhalí naučenú frázu.
 6. **Kde prirovnanie neplatí?** Nech dá prirovnanie a povie, v čom sedí a v čom nie. Aspoň jedno miesto, kde prestane platiť, musí nájsť on.
 7. **Nová situácia.** Pojem v kontexte, ktorý ešte nepadol, ideálne s okrajovou podmienkou alebo protipríkladom (napr. typ úlohy z testu).
 8. **Záznam** jeho slovami:

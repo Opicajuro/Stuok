@@ -1,6 +1,6 @@
 # Prezeranie a oprava odpovedí v skúšobnom teste
 
-Schválené Arturom 14. 11. 2026 (malá zmena, krátky dizajn).
+Schválené študentom 14. 11. 2026 (malá zmena, krátky dizajn).
 
 ## Prečo
 Na písomke sa dá v hárku vrátiť a odpoveď opraviť. Skúšobný test doteraz po odpovedi hneď skočil ďalej a späť sa nedalo.
@@ -14,4 +14,4 @@ Na písomke sa dá v hárku vrátiť a odpoveď opraviť. Skúšobný test doter
 - Obrazovka výsledku ostáva rovnaká.
 
 ## Prístupy
-Zvažované: (a) iba prezeranie bez zmeny odpovede, (b) prezeranie so zmenou odpovede. Artur zvolil (b), lebo zodpovedá ostrému testu.
+Zvažované: (a) iba prezeranie bez zmeny odpovede, (b) prezeranie so zmenou odpovede. Študent zvolil (b), lebo zodpovedá ostrému testu.

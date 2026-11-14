@@ -1,11 +1,11 @@
 ---
 name: zone-of-proximal-development
-description: "Návrh kvízov, precvičovania a opakovania v Študijnom Queste podľa zóny najbližšieho vývoja: samostatný pokus, cielená pomoc, nová úloha bez nápovedy a ďalší krok podľa skutočného výkonu. Použi pri písaní alebo úprave quiz, boss, traps, examples a GEN pre level, pri návrhu herných mechaník okolo kvízu a opakovania, alebo keď si Artur chce v chate precvičiť jednu úlohu („precvič ma“, „daj mi príklad“). Jednu otázku na teóriu nerozťahuj na celý cyklus. Keywords: quiz design, practice, scaffolding, spaced repetition, drill me, exercise."
+description: "Návrh kvízov, precvičovania a opakovania v Študijnom Queste podľa zóny najbližšieho vývoja: samostatný pokus, cielená pomoc, nová úloha bez nápovedy a ďalší krok podľa skutočného výkonu. Použi pri písaní alebo úprave quiz, boss, traps, examples a GEN pre level, pri návrhu herných mechaník okolo kvízu a opakovania, alebo keď si študent chce v chate precvičiť jednu úlohu („precvič ma“, „daj mi príklad“). Jednu otázku na teóriu nerozťahuj na celý cyklus. Keywords: quiz design, practice, scaffolding, spaced repetition, drill me, exercise."
 ---
 
 # Precvičovanie podľa zóny najbližšieho vývoja
 
-Hra nemá len generovať otázky. Má zistiť, kde Artur zatiaľ samostatne nevie, dať mu presne tú pomoc, ktorá ho posunie, a potom to overiť novou úlohou bez nápovedy.
+Hra nemá len generovať otázky. Má zistiť, kde študent zatiaľ samostatne nevie, dať mu presne tú pomoc, ktorá ho posunie, a potom to overiť novou úlohou bez nápovedy.
 
 Zóna najbližšieho vývoja (Vygotskij) je teoretický pojem o vzťahu medzi tým, čo človek zvládne sám, a tým, čo zvládne s pomocou. Kroky nižšie (samostatný pokus, opora, jej odobratie) sú didaktický návrh inšpirovaný touto teóriou, nie Vygotského postup. Jeden kvíz ukáže výkon v danej úlohe a s danou pomocou, nie trvalú „úroveň“.
 
@@ -30,7 +30,7 @@ Zóna najbližšieho vývoja (Vygotskij) je teoretický pojem o vzťahu medzi t�
 
 ## Precvičovanie v chate
 
-Keď si Artur chce precvičiť priamo v rozhovore:
+Keď si študent chce precvičiť priamo v rozhovore:
 
 1. Daj jednu krátku úlohu k cieľu a popros o odpoveď aj s dôvodom kľúčového kroku. Pred pokusom nedávaj postup ani výsledok.
 2. Spoj dôkaz s výkladom: „Napísal si…, to môže znamenať…“. Ak rôzne vysvetlenia vedú k rôznej pomoci, polož jednu otázku, ktorá ich rozlíši. V tej istej správe neprezraď odpoveď na ňu.

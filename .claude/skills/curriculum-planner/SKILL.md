@@ -1,17 +1,17 @@
 ---
 name: curriculum-planner
-description: "Plánovanie a stavba nového predmetu alebo novej kapitoly v Študijnom Queste z Arturových prednášok: zoznam levelov so schválením pred stavaním, potom stavba level po leveli. Použi, keď Artur nahrá prednášky nového predmetu alebo ďalšiu várku do existujúceho („pridaj predmet“, „nové prednášky“, „ďalšia kapitola“). Nie na úpravu jedného existujúceho levelu. Keywords: add subject, new lectures, plan levels, curriculum, course outline."
+description: "Plánovanie a stavba nového predmetu alebo novej kapitoly v Študijnom Queste z študentových prednášok: zoznam levelov so schválením pred stavaním, potom stavba level po leveli. Použi, keď študent nahrá prednášky nového predmetu alebo ďalšiu várku do existujúceho („pridaj predmet“, „nové prednášky“, „ďalšia kapitola“). Nie na úpravu jedného existujúceho levelu. Keywords: add subject, new lectures, plan levels, curriculum, course outline."
 ---
 
 # Plán a stavba predmetu alebo kapitoly
 
-Predmet je séria levelov, ktoré Artur prechádza po poradí; kapitola je úsek, ktorý končí jedným testom. Jednotkou práce je stále jeden level. Tvoja úloha: ujasniť zadanie, dostať súhlas so *zoznamom* levelov a doviesť sériu od prvého levelu po posledný bez straty nite.
+Predmet je séria levelov, ktoré študent prechádza po poradí; kapitola je úsek, ktorý končí jedným testom. Jednotkou práce je stále jeden level. Tvoja úloha: ujasniť zadanie, dostať súhlas so *zoznamom* levelov a doviesť sériu od prvého levelu po posledný bez straty nite.
 
 Súvisiace skilly: `brainstorming` (návrh najprv, povinný pred každou novou prácou), `understanding-by-design` (čo do kapitoly patrí), `zone-of-proximal-development` a `learning-to-learn` (kvízy a výklad), `fact-check` a `/deep-research` (overenie).
 
 ## Krok 1 — Ujasnenie, ale návrh najprv
 
-Artur chce postup „návrh najprv“: predlož konkrétny návrh a nech povie, čo sa mu páči a nepáči. Otázky len tam, kde sa návrh bez odpovede urobiť nedá.
+Študent chce postup „návrh najprv“: predlož konkrétny návrh a nech povie, čo sa mu páči a nepáči. Otázky len tam, kde sa návrh bez odpovede urobiť nedá.
 
 - Čo sa dá rozumne predpokladať, **povedz ako rozhodnutie, ktoré môže zmeniť**: „Výklad po slovensky, české termíny v zátvorke, skúšobný test podľa pravidiel predmetu — ak to chceš inak, povedz.“
 - Typicky naozaj otvorené: dátum a pravidlá testu (počet otázok, čas, bodová tabuľka), rozsah kapitoly, či má predmet počítacie úlohy.
@@ -20,14 +20,14 @@ Artur chce postup „návrh najprv“: predlož konkrétny návrh a nech povie, 
 
 ## Krok 2 — Overenie pred súhlasom
 
-Ešte pred návrhom zoznamu spusti `/deep-research` na vzorce, definície a číselné výsledky z nových materiálov. Arturove materiály majú prednosť pri značení a rozsahu; výskum ich kontroluje a dopĺňa. Plán, ktorý Artur schváli, musíš potom postaviť — nech stojí na overených faktoch.
+Ešte pred návrhom zoznamu spusti `/deep-research` na vzorce, definície a číselné výsledky z nových materiálov. Študentove materiály majú prednosť pri značení a rozsahu; výskum ich kontroluje a dopĺňa. Plán, ktorý študent schváli, musíš potom postaviť — nech stojí na overených faktoch.
 
 ## Krok 3 — Súhlas so zoznamom
 
-**Nestavaj nič, kým Artur neschváli celý zoznam.** V chate ukáž:
+**Nestavaj nič, kým študent neschváli celý zoznam.** V chate ukáž:
 
 - názov predmetu/kapitoly, `id` predmetu a počet levelov;
-- **každý level na jeden riadok**: názov a jednou vetou, čo po ňom Artur vie;
+- **každý level na jeden riadok**: názov a jednou vetou, čo po ňom študent vie;
 - kapitolu a jej `exam` (n, minúty, body), ak je známy;
 - čo si rozhodol za neho a s čím môže nesúhlasiť: poradie, obtiažnosť, čo si vynechal.
 
