@@ -5,8 +5,9 @@ name: "Fyzika 1",
 note: "BPC-FY1 · 7 prednášok: mechanika a elektrostatika",
 /* kapitola = úsek látky, ktorý končí jedným testom; pravidlá skúšobného testu patria kapitole, nie predmetu */
 chapters: [
- { name: "Kapitola 1 · Písomný test 1", note: "Mechanika, gravitačné a tiažové pole, elektrina s Gaussovou vetou. Potenciál je tu pre istotu.",
-   exam: { n: 15, minutes: 35, points: [0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 8, 9, 9, 10, 11] } }   // points[i] = body za i správnych odpovedí
+ { name: "Kapitola 1 · Písomný test 1", note: "Mechanika, gravitačné a tiažové pole, elektrina s Gaussovou vetou.",
+   exam: { n: 15, minutes: 35, points: [0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 8, 9, 9, 10, 11] } },   // points[i] = body za i správnych odpovedí
+ { name: "Kapitola 2 · ďalší test", note: "Potenciál a napätie. Do Písomného testu 1 nepatrí. Pravidlá ďalšieho testu sa doplnia s ďalšími prednáškami.", exam: null }
 ],
 levels: [
 /* ---------------------------------- L1 ---------------------------------- */
@@ -789,7 +790,7 @@ quiz: [
 },
 /* ---------------------------------- L7 ---------------------------------- */
 {
-id: "l7", ch: 0, title: "Potenciál a napätie", sub: "energia v elektrickom poli · nie je isté, či bude v teste 1",
+id: "l7", ch: 1, title: "Potenciál a napätie", sub: "energia v elektrickom poli",
 lesson: [
  { h: "1. Elektrická potenciálna energia", p: [
   "Začnime tým, čo poznáš z mechaniky. Keď zdvihneš kameň, konáš prácu proti tiažovej sile a kameň získa potenciálnu energiu mgh. Keď ho pustíš, pole mu ju vráti ako pohybovú.",
