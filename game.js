@@ -296,7 +296,7 @@ function renderResult(){
   } else if (z.kind === "chyby") {
     h += `<div class="day">Denník chýb</div><div class="big num">${z.right} / ${n}</div><p>Správne zodpovedané otázky sa z denníka odstránili.</p>`;
   } else {
-    const l = subj().levels.find(x => x.id === z.lid), full = z.right === n, p = Math.floor(100 * z.xp / qMax(z));
+    const l = subj().levels.find(x => x.id === z.lid), full = z.right === n && !z.hinted, p = Math.floor(100 * z.xp / qMax(z));
     h += `<div class="day">${l.title}</div><div class="big num">${p} %</div><h2>${full ? "Level zvládnutý" : z.lives > 0 ? "Kvíz prejdený" : "Ešte to chce tréning"}</h2>
       <p>${z.right} z ${n} správne. ${full ? "Kvíz ďalšieho levelu je odomknutý." : z.lives > 0 ? "Kvíz ďalšieho levelu je odomknutý. Na zlatú značku a skúšobný test treba 100 %." : "Došli ti životy. Kvíz ďalšieho levelu sa odomkne, keď kvíz dokončíš aspoň s 1 životom."}</p>`;
   }
@@ -337,7 +337,7 @@ function renderTrening(){
 /* vyhodnotí jednu odpoveď (pos = null znamená nezodpovedané) a zapíše denník chýb a opakovanie */
 function grade(z, it, pos){
   const q = getQ(it.id), d = sd();
-  if (pos !== null && it.order[pos] === 0 && it.hinted) { z.hinted++; z.xp += q.b ? 10 : 5; if (it.id[0] === "g") d.gq[it.id] = q; repBad(it.id); }   // s nápovedou: polovičné XP, samostatnosť sa overí v opakovaní
+  if (pos !== null && it.order[pos] === 0 && it.hinted) { z.right++; z.hinted++; z.xp += q.b ? 10 : 5; if (it.id[0] === "g") d.gq[it.id] = q; repBad(it.id); }   // s nápovedou: polovičné XP, samostatnosť sa overí v opakovaní
   else if (pos !== null && it.order[pos] === 0) { z.right++; z.xp += q.b ? 20 : 10; d.miss = d.miss.filter(x => x !== it.id); delete d.gq[it.id]; repOk(it.id); }
   else { z.wrong.push(it.id); if (!d.miss.includes(it.id)) d.miss.push(it.id); if (it.id[0] === "g") d.gq[it.id] = q; repBad(it.id); }
 }
@@ -345,7 +345,7 @@ function finishQuiz(){
   const z = ui.quiz, d = sd(); z.done = true;
   if (z.kind === "boss") z.items.forEach(it => grade(z, it, it.pick));
   if (z.kind === "level" && z.lives > 0) d.pass[z.lid] = true;
-  if (z.kind === "level") d.best[z.lid] = Math.max(d.best[z.lid] || 0, z.right === z.items.length ? 100 : Math.min(99, Math.floor(100 * z.xp / qMax(z))));
+  if (z.kind === "level") d.best[z.lid] = Math.max(d.best[z.lid] || 0, z.right === z.items.length && !z.hinted ? 100 : Math.min(99, Math.floor(100 * z.xp / qMax(z))));
   if (z.kind === "boss") d.exam[z.lid] = Math.max(d.exam[z.lid] || 0, z.right);
   persist(); render(); window.scrollTo(0, 0);
 }
