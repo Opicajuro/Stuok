@@ -186,12 +186,13 @@ main:has(> .hud){padding-left:calc(var(--rail-w) + 14px)}
 .opt{text-align:left; background:var(--raised); border:0; border-radius:8px; padding:12px 14px; width:100%; min-height:48px; font-weight:600; overflow-wrap:anywhere}
 .opt:not(:disabled):hover{background:var(--hover)}
 .opt:disabled{cursor:default; opacity:.75}
-.lives{font-size:1.1rem; letter-spacing:2px; color:var(--bad)}
-.lives s{text-decoration:none; color:var(--muted); opacity:.4}
 .opt.sel{background:var(--hover); box-shadow:inset 0 0 0 2px var(--accent-2)}
 .qnav{display:flex; flex-wrap:wrap; gap:6px}
 .qn{min-width:36px; height:36px; padding:0 6px; border:0; border-radius:6px; background:var(--raised); color:var(--muted); font-family:var(--mono); font-weight:500}
 .qn.ans{background:var(--accent); color:var(--accent-ink)}
+.qn.good{background:var(--good-solid); color:#fff}
+.qn.bad{background:var(--bad-solid); color:#fff}
+.qn:disabled{opacity:.35; cursor:default}
 .qn[aria-current="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 4px var(--ink)}
 .opt.ok{background:var(--good-solid); color:#fff; opacity:1}
 .opt.no{background:var(--bad-solid); color:#fff; opacity:1}
