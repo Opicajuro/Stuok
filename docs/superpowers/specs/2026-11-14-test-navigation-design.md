@@ -41,3 +41,4 @@ Schválené študentom 14. 11. 2026 („Všetko znie dobre“, „Urob všetky�
 Schválené študentom 15. 11. 2026: výklad a vzorce všetkých levelov sú otvorené, zamknutý je len kvíz, kým kvíz predošlého levelu nie je na 100 % v jednom pokuse. Skúšobný test sa odomyká ako predtým.
 
 **Zmena 15. 11. 2026 („Dajme životy preč a dáme to na 80 % z kvízu“):** životy sú zrušené. Kvíz ďalšieho levelu sa odomkne pri 80 % v kvíze predošlého (`PASS` v `game.js`), 100 % bez nápovedy je zlatá značka. Skúšobný test sa odomkne, keď sú všetky levely kapitoly aspoň na 80 %. Vo všetkých kvízoch je rad čísel otázok (dobre/zle) a dá sa vrátiť na zodpovedané otázky; mimo skúšobného testu len na prezeranie.
+- 15. 11. 2026: hranica na odomknutie kvízu a skúšobného testu znížená z 80 % na 75 % (študent: „Dajme to na 75 %“).
