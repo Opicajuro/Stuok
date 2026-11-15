@@ -28,11 +28,12 @@ let ui = { route: "mapa", tab: "teoria", quiz: null, open: [], sel: [], cnt: 10 
 const app = document.getElementById("app");
 
 function subj(){ return SUBJECTS.find(s => s.id === save.subject) || SUBJECTS[0]; }
-function sd(){ const s = subj(); if (!save.data[s.id]) save.data[s.id] = { best: {}, boss: 0, miss: [] }; const d = save.data[s.id]; if (!d.gq) d.gq = {}; if (!d.exam) d.exam = {}; if (!d.rep) d.rep = {}; if (!d.explain) d.explain = {}; return d; }
+function sd(){ const s = subj(); if (!save.data[s.id]) save.data[s.id] = { best: {}, boss: 0, miss: [] }; const d = save.data[s.id]; if (!d.gq) d.gq = {}; if (!d.exam) d.exam = {}; if (!d.rep) d.rep = {}; if (!d.explain) d.explain = {}; if (!d.pass) d.pass = {}; return d; }
 function lvlMax(l){ return l.quiz.reduce((a, q) => a + (q.b ? 20 : 10), 0); }
 function lvlPct(l){ return sd().best[l.id] || 0; }
 function isDone(l){ return lvlPct(l) >= 100; }
-function unlocked(l){ const ls = subj().levels, i = ls.indexOf(l); return i <= 0 || isDone(ls[i - 1]); }
+function passed(l){ return isDone(l) || !!sd().pass[l.id]; }   // kvíz dokončený aspoň s 1 životom
+function unlocked(l){ const ls = subj().levels, i = ls.indexOf(l); return i <= 0 || passed(ls[i - 1]); }
 function exam(ci){ const s = subj(), c = s.chapters[ci]; return Object.assign({ levels: s.levels.filter(l => l.ch === +ci).map(l => l.id) }, c.exam); }
 function bossUnlocked(ci){ return subj().levels.filter(l => l.ch === +ci).every(isDone); }
 function clock(ms){ const t = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); }
@@ -160,7 +161,7 @@ function renderMap(){
       if (!unlocked(l)) {   // výklad a vzorce sú otvorené, zamknutý je len kvíz
         h += `<button class="lvl qlock" data-act="go" data-id="${l.id}">
           <span class="no">L${n}</span>
-          <span><span class="t">${l.title}</span><br><span class="muted small">Výklad je otvorený. Kvíz sa odomkne po 100 % v kvíze L${n - 1}.</span></span>
+          <span><span class="t">${l.title}</span><br><span class="muted small">Výklad je otvorený. Kvíz sa odomkne po prejdení kvízu L${n - 1}.</span></span>
           <span class="pct"></span></button>`;
         return;
       }
@@ -189,7 +190,7 @@ function renderMap(){
         <button class="btn sec" data-act="go" data-id="trening">Nastaviť</button></div>`;
   h += `<div class="card row spread"><div><h3>Denník chýb</h3><p class="muted small">${d.miss.length ? d.miss.length + " otázok na zopakovanie" : "Zatiaľ prázdny. Sem padnú otázky, v ktorých sa pomýliš."}</p></div>
         <button class="btn sec" data-act="go" data-id="chyby">Otvoriť</button></div>`;
-  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Výklad a vzorce všetkých levelov sú otvorené. Kvíz ďalšieho levelu sa odomkne, až keď kvíz predošlého spravíš na 100 % v jednom pokuse. Skúšobný test kapitoly sa odomkne po všetkých jej leveloch a beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš. Každý kvíz má 3 životy: chyba vezme jeden a po treťom kvíz skončí. Skúšobný test životy nemá. Nápoveda v kvíze ukáže postup, správna odpoveď s ňou dá polovicu XP a neráta sa do 100 %. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
+  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Výklad a vzorce všetkých levelov sú otvorené. Kvíz je prejdený, keď ho dokončíš a ostane ti aspoň 1 život; vtedy sa odomkne kvíz ďalšieho levelu. 100 % v jednom pokuse je zlatá značka „zvládnuté“. Skúšobný test kapitoly sa odomkne, keď máš všetky jej levely zvládnuté na 100 %, a beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš. Každý kvíz má 3 životy: chyba vezme jeden a po treťom kvíz skončí. Skúšobný test životy nemá. Nápoveda v kvíze ukáže postup, správna odpoveď s ňou dá polovicu XP a neráta sa do 100 %. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
   h += `<div class="card small"><h3>Ďalší predmet</h3><p class="muted">Priamo v hre sa prednášky nahrať nedajú. Pošli ich Claudovi do chatu a nový predmet sa tu objaví ako ďalšie tlačidlo hore.</p></div>`;
   app.innerHTML = h;
 }
@@ -232,12 +233,12 @@ function renderLevel(l){
   } else if (!unlocked(l)) {
     const prev = subj().levels[n - 2];
     h += `<div class="card q"><h2>Kvíz je zamknutý</h2>
-      <p class="muted">Kvíz sa odomkne, keď spravíš kvíz L${n - 1} · ${prev.title} na 100 % v jednom pokuse. Výklad a vzorce si môžeš prejsť už teraz.</p>
+      <p class="muted">Kvíz sa odomkne, keď prejdeš kvíz L${n - 1} · ${prev.title}: dokončíš ho a ostane ti aspoň 1 život. Výklad a vzorce si môžeš prejsť už teraz.</p>
       <button class="btn wide" data-act="go" data-id="${prev.id}">Prejsť na L${n - 1}</button></div>`;
   } else {
     const max = lvlMax(l), best = sd().best[l.id] || 0;
     h += `<div class="card q"><h2>Kvíz</h2>
-      <p class="muted">Každý pokus je iný: časť otázok sa losuje a počítacie úlohy dostanú nové čísla. Po každej odpovedi uvidíš vysvetlenie. Kvíz ďalšieho levelu sa odomkne pri 100 %. Tvoj najlepší pokus: ${best} %.</p>
+      <p class="muted">Každý pokus je iný: časť otázok sa losuje a počítacie úlohy dostanú nové čísla. Po každej odpovedi uvidíš vysvetlenie. Máš 3 životy. Keď kvíz dokončíš aspoň s 1 životom, odomkne sa kvíz ďalšieho levelu; 100 % je zlatá značka a podmienka skúšobného testu. Tvoj najlepší pokus: ${best} %.</p>
       <button class="btn wide" data-act="quiz" data-id="${l.id}">Spustiť kvíz</button></div>`;
   }
   app.innerHTML = h;
@@ -296,8 +297,8 @@ function renderResult(){
     h += `<div class="day">Denník chýb</div><div class="big num">${z.right} / ${n}</div><p>Správne zodpovedané otázky sa z denníka odstránili.</p>`;
   } else {
     const l = subj().levels.find(x => x.id === z.lid), full = z.right === n, p = Math.floor(100 * z.xp / qMax(z));
-    h += `<div class="day">${l.title}</div><div class="big num">${p} %</div><h2>${full ? "Level zvládnutý" : "Ešte to chce tréning"}</h2>
-      <p>${z.right} z ${n} správne. ${full ? "Kvíz ďalšieho levelu je odomknutý." : "Kvíz ďalšieho levelu sa odomkne pri 100 %. Pozri si chyby v denníku a skús to znova."}</p>`;
+    h += `<div class="day">${l.title}</div><div class="big num">${p} %</div><h2>${full ? "Level zvládnutý" : z.lives > 0 ? "Kvíz prejdený" : "Ešte to chce tréning"}</h2>
+      <p>${z.right} z ${n} správne. ${full ? "Kvíz ďalšieho levelu je odomknutý." : z.lives > 0 ? "Kvíz ďalšieho levelu je odomknutý. Na zlatú značku a skúšobný test treba 100 %." : "Došli ti životy. Kvíz ďalšieho levelu sa odomkne, keď kvíz dokončíš aspoň s 1 životom."}</p>`;
   }
   if (z.hinted) h += `<p class="muted small">S nápovedou: ${z.hinted}. Tieto otázky sa vrátia v opakovaní, aby si ich skúsil sám.</p>`;
   if (z.lives === 0) h +=`<p class="verdict no">Došli ti životy na otázke ${z.i + 1} z ${n}.</p>`;
@@ -343,6 +344,7 @@ function grade(z, it, pos){
 function finishQuiz(){
   const z = ui.quiz, d = sd(); z.done = true;
   if (z.kind === "boss") z.items.forEach(it => grade(z, it, it.pick));
+  if (z.kind === "level" && z.lives > 0) d.pass[z.lid] = true;
   if (z.kind === "level") d.best[z.lid] = Math.max(d.best[z.lid] || 0, z.right === z.items.length ? 100 : Math.min(99, Math.floor(100 * z.xp / qMax(z))));
   if (z.kind === "boss") d.exam[z.lid] = Math.max(d.exam[z.lid] || 0, z.right);
   persist(); render(); window.scrollTo(0, 0);
