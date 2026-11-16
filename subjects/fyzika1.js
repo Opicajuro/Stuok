@@ -53,13 +53,13 @@ lesson: [
   "Na kružnici je pohodlnejšie merať uhol než dráhu. Poloha je uhol φ v radiánoch, <b>uhlová rýchlosť</b> ω = dφ/dt hovorí, o koľko radiánov sa bod otočí za sekundu, a <b>uhlové zrýchlenie</b> ε = dω/dt, ako rýchlo sa otáčanie zrýchľuje.",
   "Medzi uhlovými a obvodovými veličinami je vždy ten istý prevod: vynásob polomerom.<span class=\"fm\">s = Rφ,   v = ωR,   a<sub>t</sub> = εR,   a<sub>n</sub> = v²/R = ω²R</span>Body ďalej od osi majú pri rovnakom ω väčšiu rýchlosť. Preto sa okraj kolotoča hýbe rýchlejšie než jeho stred.",
   { pic: "kruznica", cap: "Rýchlosť je vždy po dotyčnici, normálové zrýchlenie mieri do stredu." },
-  "Rovnice pre rovnomerne zrýchlené otáčanie sú presnou kópiou priamočiarych, len s inými písmenami: ω = ω₀ + εt a φ = φ₀ + ω₀t + ½εt². Perióda jedného obehu je T = 2π/ω.",
+  "Rovnice pre rovnomerne zrýchlené otáčanie sú presnou kópiou priamočiarych, len s inými písmenami: ω = ω₀ + εt a φ = φ₀ + ω₀t + ½εt². Perióda jedného obehu je T = 2πR/v = 2π/ω a frekvencia f = 1/T = ω/(2π).",
   "Príklad z prednášky: auto sa rozbieha z pokoja po kružnici R = 30 m s a<sub>t</sub> = 0,5 m/s². Po 15 s má rýchlosť v = 0,5·15 = 7,5 m/s, normálové zrýchlenie 7,5²/30 = 1,875 m/s² a celkové √(0,5² + 1,875²) ≈ 1,94 m/s². Celkové zrýchlenie zviera s rýchlosťou uhol, pre ktorý tg θ = a<sub>n</sub>/a<sub>t</sub> = 3,75, teda asi 75°."
  ], c: "Koleso s polomerom 0,3 m sa otáča 10 rad/s. Aká je rýchlosť bodu na obvode a jeho normálové zrýchlenie?", a: "v = ωR = 3 m/s, a_n = ω²R = 100·0,3 = 30 m/s²." },
  { h: "8. Dve úlohy kinematiky", p: [
   "<b>Prvá úloha</b>: poznám polohu r(t) a chcem rýchlosť a zrýchlenie. Stačí derivovať. Je to vždy jednoznačné.",
   "<b>Druhá úloha</b>: poznám zrýchlenie a(t) a chcem rýchlosť a polohu. Treba integrovať a pri každej integrácii pribudne neznáma konštanta. Tie určia <b>počiatočné podmienky</b>, teda poloha a rýchlosť na začiatku. Bez nich úloha nemá jednoznačné riešenie. Ak viem len to, že a = 0, teleso môže stáť aj letieť stálou rýchlosťou ľubovoľným smerom.",
-  "Príkladom druhej úlohy je pád v odporujúcom prostredí, kde odpor rastie s rýchlosťou: a = g − kv. Na začiatku je v = 0 a teleso zrýchľuje s g. Ako rýchlosť rastie, zrýchlenie klesá, až kým pri v<sub>m</sub> = g/k nie je nulové. Túto <b>medznú rýchlosť</b> už teleso neprekročí. Preto parašutista nepadá stále rýchlejšie."
+  "Príkladom druhej úlohy je pád v odporujúcom prostredí, kde odpor rastie s rýchlosťou: a = g − βv. Na začiatku je v = 0 a teleso zrýchľuje s g. Ako rýchlosť rastie, zrýchlenie klesá, až kým pri v<sub>m</sub> = g/β nie je nulové. Riešením je v(t) = (g/β)(1 − e<sup>−βt</sup>), rýchlosť sa k v<sub>m</sub> len blíži. Túto <b>medznú rýchlosť</b> už teleso neprekročí. Preto parašutista nepadá stále rýchlejšie."
  ], c: "Poznáš a(t) = 6t a vieš, že v(0) = 2 m/s. Aká je rýchlosť v(t)?", a: "Integráciou v = 3t² + C. Z podmienky v(0) = 2 vyjde C = 2, teda v(t) = 3t² + 2." },
  { h: "9. Vrhy v tiažovom poli", p: [
   "Blízko povrchu Zeme má každé voľne letiace teleso rovnaké zrýchlenie g ≈ 9,81 m/s² smerom nadol, bez ohľadu na hmotnosť (odpor vzduchu zanedbávame). Kľúčová myšlienka: <b>vodorovný a zvislý pohyb sú nezávislé</b>. Vodorovne sa nedeje nič (rovnomerný pohyb), zvislo ide o rovnomerne zrýchlený pohyb.",
@@ -101,7 +101,7 @@ theory: [
  { h: "Dve úlohy kinematiky", items: [
   "1. Poznám r(t) → <b>derivujem</b> → v(t), a(t).",
   "2. Poznám a(t) → <b>integrujem</b> → v(t), r(t), ale potrebujem počiatočné podmienky. Zo samotného a = 0 polohu neurčíš (pokoj aj rovnomerný pohyb).",
-  "Odporujúce prostredie: a = g − kv, rýchlosť sa blíži k medznej hodnote v<sub>m</sub> = g/k."
+  "Odporujúce prostredie: a = g − βv, rýchlosť sa blíži k medznej hodnote v<sub>m</sub> = g/β."
  ]},
  { h: "Pohyb v tiažovom poli", items: [
   "Voľný pád: v = gt, h = ½gt².",
@@ -156,8 +156,12 @@ formulas: [
  { n: "Vodorovný vrh", f: "t = √(2h/g),  D = v₀√(2h/g)", w: "výstrel vodorovne z výšky h" },
  { n: "Šikmý vrh – dolet", f: "D = v₀² sin 2α / g", w: "dopad v rovnakej výške" },
  { n: "Šikmý vrh – výška a doba letu", f: "H = v₀² sin²α/(2g),  T = 2v₀ sin α/g", w: "dopad v rovnakej výške" },
- { n: "Medzná rýchlosť", f: "v<sub>m</sub> = g/k  (z a = g − kv)", w: "pád v odporujúcom prostredí" },
- { n: "Konštanty", f: "g ≈ 9,81 m/s² (v úlohách z hlavy 10 m/s²)", w: "tiažové zrýchlenie pri povrchu Zeme" }
+ { n: "Medzná rýchlosť", f: "v<sub>m</sub> = g/β,  v(t) = (g/β)(1 − e<sup>−βt</sup>)  (z a = g − βv)", w: "pád v odporujúcom prostredí" },
+ { n: "Konštanty", f: "g ≈ 9,81 m/s² (v úlohách z hlavy 10 m/s²)", w: "tiažové zrýchlenie pri povrchu Zeme" },
+ { n: "Voľný pád", f: "v = gt,  h = ½gt²", w: "pád z pokoja, odpor zanedbaný" },
+ { n: "Perióda a frekvencia", f: "T = 2πR/v = 2π/ω,  f = 1/T = ω/(2π)", w: "rovnomerný pohyb po kružnici" },
+ { n: "Veľkosť rýchlosti", f: "|v| = √(v<sub>x</sub>² + v<sub>y</sub>² + v<sub>z</sub>²)", w: "zo zložiek vektora" },
+ { n: "Šikmý vrh – súradnice", f: "x = v₀t cos α,  y = v₀t sin α − ½gt²", w: "poloha v čase t" }
 ],
 explain: { q: "Vysvetli spolužiakovi, prečo má auto, ktoré ide zákrutou stálou rýchlosťou, zrýchlenie, a kam toto zrýchlenie mieri.", keys: ["Rýchlosť je vektor a v zákrute sa mení jej smer", "Tečné zrýchlenie je nulové, lebo veľkosť rýchlosti sa nemení", "Normálové zrýchlenie a<sub>n</sub> = v²/R mení smer rýchlosti", "Mieri kolmo na rýchlosť, do stredu oblúka"] },
 quiz: [
@@ -202,6 +206,7 @@ lesson: [
   "V úlohách sa stále opakuje päť síl. <b>Tiažová</b> G = mg mieri zvislo nadol. <b>Normálová</b> N je tlak podložky a je na ňu vždy kolmá. <b>Trecia</b> F<sub>t</sub> = f·N mieri proti pohybu, f je koeficient trenia. Kým teleso stojí, statické trenie je presne také veľké, aké treba, najviac f<sub>s</sub>N. <b>Ťahová</b> T je sila lana; ideálne lano a kladka ju prenášajú nezmenenú. <b>Pružná</b> F = −kx vracia pružinu do rovnovážnej polohy, k je tuhosť.",
   "Postup, ktorý funguje na každú úlohu: 1. nakresli teleso a všetky sily, ktoré naň pôsobia; 2. zvoľ osi, jednu v smere pohybu; 3. napíš F = ma pre každú os zvlášť; 4. vyrieš rovnice.",
   "Ukážka na naklonenej rovine s uhlom α a trením f. Os x dáme pozdĺž roviny nadol, os y kolmo na ňu. Tiaž rozložíme na mg sin α pozdĺž roviny a mg cos α kolmo. V osi y sa nič nehýbe: N = mg cos α. V osi x: mg sin α − fN = ma. Po dosadení:<span class=\"fm\">a = g(sin α − f cos α)</span>Hmotnosť sa vykrátila, takže ťažké aj ľahké teleso kĺžu rovnako. Teleso sa vôbec pohne len vtedy, keď tg α je väčší než koeficient statického trenia.",
+  "<b>Dostredivá sila</b> (dostředivá síla). Ak má teleso ísť rovnomerne po kružnici s polomerom R, výslednica síl musí mieriť do stredu a mať veľkosť<span class=\"fm\">F<sub>d</sub> = m·a<sub>d</sub> = mv²/R = mω²R</span>Nie je to nová sila: je to úloha, ktorú hrá ťah lana, trenie pod pneumatikou alebo gravitácia. Auto v zákrute s polomerom 50 m pri 20 m/s potrebuje na každý kilogram 400/50 = 8 N.",
   { fig: { slope: 30, forces: [[270, "G", 68], [120, "N", 58], [30, "Fₜ", 46]], acc: 210, axes: [210, 120], alt: "Teleso kĺže nadol po naklonenej rovine: tiaž zvislo nadol, normálová sila kolmo na rovinu, trenie pozdĺž roviny nahor" }, cap: "Kĺzanie nadol: trenie mieri po rovine nahor, proti pohybu. Os x je pozdĺž roviny nadol, os y kolmo na ňu. Tiaž treba rozložiť do oboch osí." }
  ], c: "Debnu s hmotnosťou 10 kg ťaháš po vodorovnej podlahe (f = 0,3) silou 50 N vodorovne. Aké má zrýchlenie?", a: "<b>1. Sily:</b> tiaž mg nadol, normálová N nahor, ťah F = 50 N dopredu, trenie F<sub>t</sub> dozadu. <b>2. Osi:</b> x v smere pohybu, y nahor. <b>3. Rovnice:</b> os y: N − mg = 0; os x: F − fN = ma. <b>4. Výpočet:</b> N = 10·9,81 = 98,1 N, trenie 0,3·98,1 ≈ 29,4 N, a = (50 − 29,4)/10 ≈ 2,1 m/s². Os y treba kvôli N: pri ťahu šikmo nahor by N už nebolo mg.", af: { forces: [[0, "F", 86], [180, "Fₜ", 52], [90, "N", 62], [270, "G", 62]], acc: 0, axes: [0, 90], alt: "Debna na vodorovnej podlahe: ťah doprava, trenie doľava, normálová sila nahor, tiaž nadol" }, afc: "Vektorovo: F + Fₜ + N + G = ma. Do osí: x: F − Fₜ = ma, y: N − G = 0." },
  { h: "5. Impulz sily", p: [
@@ -326,7 +331,8 @@ formulas: [
  { n: "Zachovanie mechanickej energie", f: "E<sub>k</sub> + E<sub>p</sub> = konšt.", w: "len konzervatívne sily" },
  { n: "Zachovanie hybnosti", f: "m₁v₁ + m₂v₂ = konšt.", w: "izolovaná sústava, zrážky" },
  { n: "Balistické kyvadlo", f: "v = ((m + M)/m)·√(2gh)", w: "hybnosť cez náraz, energia cez výkyv" },
- { n: "Konštanty", f: "g ≈ 9,81 m/s² (v úlohách z hlavy 10 m/s²)", w: "tiaž G = mg, voľný pád, energia mgh" }
+ { n: "Konštanty", f: "g ≈ 9,81 m/s² (v úlohách z hlavy 10 m/s²)", w: "tiaž G = mg, voľný pád, energia mgh" },
+ { n: "Dostredivá sila", f: "F<sub>d</sub> = mv²/R = mω²R", w: "rovnomerný pohyb po kružnici, mieri do stredu" }
 ],
 explain: { q: "Vysvetli, prečo sa sily akcie a reakcie nikdy navzájom nerušia a prečo lopta po kopnutí odletí, hoci rovnako veľká sila pôsobí aj na tvoju nohu.", keys: ["Akcia a reakcia sú rovnako veľké a opačného smeru", "Pôsobia na dve rôzne telesá, preto ich nesčítavame", "Rušiť sa môžu len sily pôsobiace na to isté teleso", "Zrýchlenie je a = F/m: lopta má malú hmotnosť, preto veľké zrýchlenie"] },
 quiz: [
@@ -365,7 +371,7 @@ lesson: [
   "Pohyb tuhého telesa sa dá vždy rozložiť na dva jednoduché. Pri <b>translácii</b> (posuvnom pohybe) majú všetky body v každom okamihu rovnakú rýchlosť, napríklad kabína výťahu. Pri <b>rotácii</b> okolo pevnej osi opisujú body kružnice okolo osi a všetky majú rovnakú uhlovú rýchlosť ω, napríklad dvere alebo koleso na stojane. Valiace sa koleso robí oboje naraz."
  ], c: "Kabínka ruského kolesa zostáva stále zvislo. Koná transláciu, alebo rotáciu?", a: "Transláciu. Všetky jej body sa pohybujú po rovnakých kružniciach s rovnakou rýchlosťou a kabínka sa nenatáča. Translácia nemusí byť priamočiara." },
  { h: "2. Ťažisko", p: [
-  "<b>Ťažisko (těžiště)</b>, presnejšie hmotný stred, je bod, ktorý zastupuje celé teleso pri posuvnom pohybe. Jeho poloha je vážený priemer polôh všetkých častí, kde váhou je hmotnosť:<span class=\"fm\">r<sub>T</sub> = (m₁r₁ + m₂r₂ + …) / (m₁ + m₂ + …)</span>",
+  "<b>Ťažisko (těžiště)</b>, presnejšie hmotný stred, je bod, ktorý zastupuje celé teleso pri posuvnom pohybe. Jeho poloha je vážený priemer polôh všetkých častí, kde váhou je hmotnosť:<span class=\"fm\">r* = (m₁r₁ + m₂r₂ + …) / (m₁ + m₂ + …)</span>",
   "Ťažisko sa pohybuje tak, akoby v ňom bola sústredená celá hmotnosť a pôsobila naň výslednica vonkajších síl. Hodený kľúč sa vo vzduchu divoko točí, ale jeho ťažisko letí po obyčajnej parabole.",
   "Ťažisko nemusí ležať v materiáli telesa: pri obruči je v strede, kde nič nie je. Od polohy ťažiska závisí stabilita. Teleso zavesené v ťažisku zostane v akejkoľvek polohe. Teleso stojace na podložke sa prevráti, keď zvislica z ťažiska vyjde mimo podstavy."
  ], c: "Na ľahkej tyči sú závažia 2 kg v bode x = 0 a 6 kg v bode x = 2 m. Kde je ťažisko?", a: "x = (2·0 + 6·2)/(2 + 6) = 1,5 m, teda bližšie k ťažšiemu závažiu." },
@@ -379,7 +385,7 @@ lesson: [
   "Pri posuvnom pohybe sa teleso bráni zrýchleniu svojou hmotnosťou. Pri otáčaní hrá túto úlohu <b>moment zotrvačnosti (moment setrvačnosti) J</b>. Nezávisí len od hmotnosti, ale aj od toho, ako ďaleko od osi je hmota rozložená:<span class=\"fm\">J = Σ m<sub>i</sub> r<sub>i</sub>² = ∫ r² dm</span>",
   "Vzdialenosť je v druhej mocnine, takže hmota ďaleko od osi sa počíta oveľa viac. Obruč a plný disk s rovnakou hmotnosťou a polomerom sa neroztáčajú rovnako ľahko: obruč má všetku hmotu na okraji (J = mR²), disk ju má aj pri strede (J = ½mR²).",
   "Hodnoty, ktoré sa oplatí vedieť: tenká tyč okolo stredu mL²/12, okolo konca mL²/3, obruč mR², plný valec alebo disk ½mR², plná guľa (2/5)mR², tenkostenná dutá guľa (2/3)mR².",
-  "J závisí od polohy osi. Ak poznáš J<sub>T</sub> pre os cez ťažisko (os cez ťažisko je <b>centrálna os</b> a J<sub>T</sub> sa volá aj centrálny moment zotrvačnosti J₀), pre rovnobežnú os posunutú o d platí <b>Steinerova veta</b>:<span class=\"fm\">J = J<sub>T</sub> + m·d²</span>Kontrola na tyči: os na konci je posunutá o L/2, takže J = mL²/12 + m(L/2)² = mL²/3. Sedí. Z vety tiež vidno, že najmenší moment zotrvačnosti má teleso vždy okolo osi cez ťažisko.",
+  "J závisí od polohy osi. Ak poznáš J<sub>T</sub> pre os cez ťažisko (os cez ťažisko je <b>centrálna os</b> a J<sub>T</sub> sa volá aj centrálny moment zotrvačnosti J₀), pre rovnobežnú os posunutú o a platí <b>Steinerova veta</b>:<span class=\"fm\">J<sub>a</sub> = J<sub>T</sub> + m·a²</span>Kontrola na tyči: os na konci je posunutá o L/2, takže J = mL²/12 + m(L/2)² = mL²/3. Sedí. Z vety tiež vidno, že najmenší moment zotrvačnosti má teleso vždy okolo osi cez ťažisko.",
   { pic: "steiner", cap: "Os na konci tyče je od osi cez ťažisko posunutá o d = L/2." }
  ], c: "Aký je moment zotrvačnosti plného disku (m, R) okolo osi kolmej na disk, ktorá prechádza jeho okrajom?", a: "Steinerova veta s d = R: J = ½mR² + mR² = (3/2)mR²." },
  { h: "5. Pohybová rovnica rotácie a analógie", p: [
@@ -389,13 +395,13 @@ lesson: [
  ], c: "Zotrvačník s J = 2 kg·m² sa má roztočiť z pokoja na 30 rad/s za 6 s. Aký stály moment treba?", a: "ε = 30/6 = 5 rad/s², M = Jε = 10 N·m." },
  { h: "6. Energia rotácie a valenie", p: [
   "Otáčajúce sa teleso má kinetickú energiu E<sub>k</sub> = ½Jω², aj keď jeho ťažisko stojí.",
-  "Keď sa teleso zároveň posúva aj otáča, sčítajú sa obe časti. To je <b>Königova veta</b>:<span class=\"fm\">E<sub>k</sub> = ½mv<sub>T</sub>² + ½J<sub>T</sub>ω²</span>Prvý člen je pohyb ťažiska, druhý otáčanie okolo ťažiska. Pri <b>valení bez kĺzania</b> sú obe rýchlosti zviazané podmienkou v<sub>T</sub> = ωR, lebo bod dotyku s podložkou sa v danom okamihu nehýbe.",
+  "Keď sa teleso zároveň posúva aj otáča, sčítajú sa obe časti. To je <b>Königova veta</b>:<span class=\"fm\">E<sub>k</sub> = ½mv*² + ½J<sub>T</sub>ω²</span>Prvý člen je pohyb ťažiska, druhý otáčanie okolo ťažiska. Pri <b>valení bez kĺzania</b> sú obe rýchlosti zviazané podmienkou v* = ωR, lebo bod dotyku s podložkou sa v danom okamihu nehýbe.",
   { pic: "valenie", cap: "Valenie bez kĺzania: bod dotyku stojí, ťažisko má v, vrchný bod 2v." },
   "Príklad: plný valec sa valí z výšky h. Zachovanie energie: mgh = ½mv² + ½·(½mR²)·(v/R)² = ¾mv². Odtiaľ v = √(4gh/3). Keby kĺzal bez otáčania, bolo by to √(2gh), teda viac. Časť energie totiž „zhltne“ rotácia.",
   "Čím väčší je podiel J/(mR²), tým viac energie ide do rotácie a tým pomalšie teleso dole dorazí. Poradie pri pretekoch zo svahu je preto guľa (0,4), valec (0,5), obruč (1). Hmotnosť ani polomer na výsledok nemajú vplyv."
  ], c: "Obruč sa valí bez kĺzania rýchlosťou v. Aká je jej celková kinetická energia?", a: "Posuv ½mv², rotácia ½·mR²·(v/R)² = ½mv². Spolu mv², teda dvakrát viac než pri kĺzaní." },
  { h: "7. Moment hybnosti a jeho zachovanie", p: [
-  "<b>Moment hybnosti</b> L = Jω je rotačná obdoba hybnosti. Mení ho len moment vonkajších síl: M = dL/dt.",
+  "<b>Moment hybnosti</b> jedného bodu je L = r × p = r × mv. Pre teleso rotujúce okolo pevnej osi sa sčíta na L = Jω, rotačnú obdobu hybnosti p = mv. Mení ho len moment vonkajších síl: M = dL/dt.",
   "Ak je moment vonkajších síl nulový, moment hybnosti sa zachováva:<span class=\"fm\">J₁ω₁ = J₂ω₂</span>Na rozdiel od hmotnosti sa moment zotrvačnosti dá meniť za pohybu, stačí premiestniť časti tela. Krasokorčuliarka pritiahne ruky k telu, zmenší J a jej otáčanie sa zrýchli. Skokan do vody sa zbalí do klbka, aby stihol saltá, a pred dopadom sa vystrie, aby rotáciu spomalil.",
   "Príklad: J klesne zo 4,0 na 1,6 kg·m² pri počiatočnej ω = 2,0 rad/s. Nová uhlová rýchlosť je 4,0·2,0/1,6 = 5,0 rad/s. Zaujímavé je, že kinetická energia pritom vzrástla z 8 J na 20 J. Rozdiel dodali svaly, ktoré ťahali ruky dovnútra. Zachováva sa moment hybnosti, nie energia."
  ], c: "Človek na otočnej stoličke má J = 6 kg·m² a točí sa 1 rad/s. Pritiahne činky a J klesne na 2 kg·m². Aká bude uhlová rýchlosť?", a: "6·1 = 2·ω, teda ω = 3 rad/s." }
@@ -403,7 +409,7 @@ lesson: [
 theory: [
  { h: "Tuhé teleso a ťažisko", items: [
   "Tuhé teleso má pevné vzdialenosti medzi bodmi. Okrem posúvania sa môže otáčať.",
-  "<b>Ťažisko (těžiště)</b>: r<sub>T</sub> = Σm<sub>i</sub>r<sub>i</sub> / Σm<sub>i</sub>. Pohybuje sa, akoby v ňom bola celá hmotnosť. Nemusí ležať v telese (obruč).",
+  "<b>Ťažisko (těžiště)</b>: r* = Σm<sub>i</sub>r<sub>i</sub> / Σm<sub>i</sub>. Pohybuje sa, akoby v ňom bola celá hmotnosť. Nemusí ležať v telese (obruč).",
   "Stabilita: v stabilnej polohe ťažisko pri vychýlení stúpa, v labilnej klesá."
  ]},
  { h: "Translácia a rotácia", items: [
@@ -415,12 +421,12 @@ theory: [
  { h: "Moment zotrvačnosti", items: [
   "<b>J = Σm<sub>i</sub>r<sub>i</sub>² = ∫r² dm</b> [kg·m²]. Závisí od rozloženia hmoty a od polohy osi.",
   "Tyč okolo stredu: mL²/12. Tyč okolo konca: mL²/3. Obruč: mR². Plný valec alebo disk: ½mR². Plná guľa: (2/5)mR².",
-  "<b>Steinerova veta: J = J<sub>T</sub> + md²</b> pre os rovnobežnú s osou cez ťažisko vo vzdialenosti d."
+  "<b>Steinerova veta: J<sub>a</sub> = J<sub>T</sub> + ma²</b> pre os rovnobežnú s osou cez ťažisko vo vzdialenosti a."
  ]},
  { h: "Energia a moment hybnosti", items: [
   "Kinetická energia rotácie E<sub>k</sub> = ½Jω².",
-  "<b>Königova veta</b>: E<sub>k</sub> = ½mv<sub>T</sub>² + ½J<sub>T</sub>ω² (posuv ťažiska + rotácia okolo neho).",
-  "Valenie bez kĺzania: v<sub>T</sub> = ωR.",
+  "<b>Königova veta</b>: E<sub>k</sub> = ½mv*² + ½J<sub>T</sub>ω² (posuv ťažiska + rotácia okolo neho).",
+  "Valenie bez kĺzania: v* = ωR.",
   "<b>Moment hybnosti L = Jω</b>. Bez vonkajšieho momentu síl platí J₁ω₁ = J₂ω₂ – krasokorčuliarka pritiahne ruky a zrýchli rotáciu."
  ]},
  { h: "Analógie posuv ↔ rotácia", items: [
@@ -448,26 +454,28 @@ examples: [
   "Energia vzrástla o 12 J. Nezachováva sa, dodali ju svaly, ktoré ťahali ruky k telu. Zachováva sa len moment hybnosti L = 8 kg·m²/s." ]}
 ],
 formulas: [
- { n: "Ťažisko", f: "r<sub>T</sub> = Σm<sub>i</sub>r<sub>i</sub> / Σm<sub>i</sub>", w: "sústava bodov" },
+ { n: "Ťažisko", f: "r* = Σm<sub>i</sub>r<sub>i</sub> / Σm<sub>i</sub>", w: "sústava bodov" },
  { n: "Moment sily", f: "M = r × F,  M = F·d", w: "otáčavý účinok sily" },
  { n: "Pohybová rovnica rotácie", f: "M = Jε", w: "rotácia okolo pevnej osi" },
  { n: "Moment zotrvačnosti", f: "J = Σm<sub>i</sub>r<sub>i</sub>² = ∫r² dm", w: "definícia" },
  { n: "J tyče (stred / koniec)", f: "mL²/12  /  mL²/3", w: "os kolmá na tyč" },
  { n: "J obruče, disku, gule", f: "mR²,  ½mR²,  (2/5)mR²", w: "os cez ťažisko" },
- { n: "Steinerova veta", f: "J = J<sub>T</sub> + md²", w: "rovnobežne posunutá os" },
+ { n: "Steinerova veta", f: "J<sub>a</sub> = J<sub>T</sub> + ma²", w: "rovnobežne posunutá os" },
  { n: "Kinetická energia rotácie", f: "E<sub>k</sub> = ½Jω²", w: "rotácia okolo pevnej osi" },
- { n: "Königova veta", f: "E<sub>k</sub> = ½mv<sub>T</sub>² + ½J<sub>T</sub>ω²", w: "valenie, všeobecný rovinný pohyb" },
- { n: "Valenie bez kĺzania", f: "v<sub>T</sub> = ωR", w: "bod dotyku stojí" },
+ { n: "Königova veta", f: "E<sub>k</sub> = ½mv*² + ½J<sub>T</sub>ω²", w: "valenie, všeobecný rovinný pohyb" },
+ { n: "Valenie bez kĺzania", f: "v* = ωR", w: "bod dotyku stojí" },
  { n: "Moment hybnosti", f: "L = Jω,  M = dL/dt", w: "rotácia" },
  { n: "Zachovanie momentu hybnosti", f: "J₁ω₁ = J₂ω₂", w: "nulový vonkajší moment síl" },
  { n: "Dutá guľa (tenkostenná)", f: "J = (2/3)mR²", w: "os cez stred; hmota na povrchu" },
  { n: "Impulzové vety", f: "ΣF<sub>ext</sub> = dP/dt,  ΣM<sub>ext</sub> = dL/dt", w: "1.: pohyb ťažiska, 2.: rotácia (pevná os: ΣM = Jε)" },
- { n: "Konštanty", f: "g ≈ 9,81 m/s² (v úlohách z hlavy 10 m/s²)", w: "tiaž mg, energia mgh pri valení" }
+ { n: "Konštanty", f: "g ≈ 9,81 m/s² (v úlohách z hlavy 10 m/s²)", w: "tiaž mg, energia mgh pri valení" },
+ { n: "Moment hybnosti bodu", f: "L = r × p = r × mv,  M = dL/dt", w: "jeden hmotný bod" },
+ { n: "Hmotnosť a hustota", f: "m = Σm<sub>i</sub> = ∫dm = ∫ρ dV,  ρ = dm/dV", w: "spojité teleso" }
 ],
 explain: { q: "Vysvetli, prečo plný valec, ktorý sa valí z kopca, príde dole pomalšie, než keby z rovnakej výšky bez trenia kĺzal.", keys: ["Potenciálna energia mgh sa mení na kinetickú", "Pri valení sa kinetická energia delí na posuvnú ½mv² a rotačnú ½Jω²", "Podmienka valenia v = ωR zviaže obe časti", "Časť energie ide do rotácie, na posuvný pohyb ostane menej"] },
 quiz: [
  { q: "Aký je moment zotrvačnosti tenkej tyče okolo osi kolmej na tyč cez jej stred?", o: ["mL²/12", "mL²", "mL²/3", "½mL²"], e: "Moment zotrvačnosti závisí od toho, ako ďaleko od osi je hmota. Pri osi cez stred tyče je na každej strane polovica hmoty a najďalej je len L/2, preto J = mL²/12. Pri osi na konci je hmota ďalej, J = mL²/3, štyrikrát viac. mL² by platilo, keby bola celá hmota vo vzdialenosti L.", h: "Patrí medzi hodnoty, ktoré sa oplatí vedieť naspamäť: tyč okolo stredu." },
- { q: "Ako dostaneš moment zotrvačnosti tyče okolo jej konca pomocou Steinerovej vety?", o: ["mL²/12 + m(L/2)²", "mL²/12 + mL²", "mL²/12 − m(L/2)²", "m(L/2)²"], e: "Steinerova veta: J = J<sub>T</sub> + m·d², kde J<sub>T</sub> je moment pre os cez ťažisko a d vzdialenosť novej osi od ťažiska. Ťažisko tyče je v strede, koniec je od neho vzdialený d = L/2: J = mL²/12 + m(L/2)² = mL²/12 + 3mL²/12 = mL²/3. Člen md² sa vždy pripočítava, nikdy neodpočítava, lebo najmenší moment má os cez ťažisko.", h: "Steinerova veta: J = J<sub>T</sub> + m·d², kde d je vzdialenosť osi od ťažiska." },
+ { q: "Ako dostaneš moment zotrvačnosti tyče okolo jej konca pomocou Steinerovej vety?", o: ["mL²/12 + m(L/2)²", "mL²/12 + mL²", "mL²/12 − m(L/2)²", "m(L/2)²"], e: "Steinerova veta: J = J<sub>T</sub> + m·a², kde J<sub>T</sub> je moment pre os cez ťažisko a d vzdialenosť novej osi od ťažiska. Ťažisko tyče je v strede, koniec je od neho vzdialený a = L/2: J = mL²/12 + m(L/2)² = mL²/12 + 3mL²/12 = mL²/3. Člen ma² sa vždy pripočítava, nikdy neodpočítava, lebo najmenší moment má os cez ťažisko.", h: "Steinerova veta: J = J<sub>T</sub> + m·a², kde a je vzdialenosť osi od ťažiska." },
  { q: "Sila 20 N pôsobí kolmo na rameno dlhé 0,5 m. Aký je moment sily?", o: ["10 N·m", "40 N·m", "5 N·m", "0 N·m"], e: "Moment sily je M = F·d, kde d je rameno: kolmá vzdialenosť osi od priamky, na ktorej sila leží. Sila pôsobí kolmo na rameno 0,5 m, takže M = 20·0,5 = 10 N·m. 40 N·m vznikne delením namiesto násobenia. Nulový moment by bol, keby sila mierila do osi.", h: "M = F·d, sila je kolmá na rameno." },
  { q: "Krasokorčuliarka zmenší svoj moment zotrvačnosti na polovicu. Čo sa stane?", o: ["ω aj kinetická energia sa zdvojnásobia", "ω sa zdvojnásobí, energia sa nezmení", "ω aj energia klesnú na polovicu", "ω aj energia vzrastú 4-krát"], e: "Moment hybnosti L = Jω sa zachováva, lebo na korčuliarku nepôsobí vonkajší moment sily. Keď J klesne na polovicu, ω sa zdvojnásobí. Kinetická energia rotácie je E<sub>k</sub> = ½Jω² = L²/(2J): L je rovnaké a J polovičné, takže energia je dvojnásobná. Energia sa teda nezachováva, prírastok dodali svaly, ktoré ťahali ruky k telu.", h: "Zachovanie momentu hybnosti J₁ω₁ = J₂ω₂, potom E<sub>k</sub> = ½Jω² = ½Lω." },
  { q: "Plný disk sa valí bez kĺzania rýchlosťou v. Aká je jeho celková kinetická energia?", o: ["¾mv²", "½mv²", "mv²", "¼mv²"], e: "Valiace sa teleso sa posúva aj otáča a energie sa sčítajú (Königova veta): E<sub>k</sub> = ½mv² + ½Jω². Pre disk J = ½mR² a pri valení bez kĺzania ω = v/R, takže rotačná časť je ½·½mR²·v²/R² = ¼mv². Spolu ½mv² + ¼mv² = ¾mv². ½mv² je len posuvná časť bez rotácie.", h: "Königova veta: ½mv² + ½Jω², pre disk J = ½mR² a ω = v/R." },
@@ -547,7 +555,7 @@ formulas: [
  { n: "Gravitačné zrýchlenie na povrchu", f: "a<sub>g</sub> = GM/R²", w: "nerotujúca guľová Zem" },
  { n: "Gravitačné zrýchlenie vo výške h", f: "a<sub>g</sub>(h) = GM/(R + h)²", w: "nad povrchom" },
  { n: "Tiažové zrýchlenie na rovníku", f: "g = a<sub>g</sub> − ω²R", w: "vplyv rotácie Zeme" },
- { n: "Zem – hmotnosť a polomer", f: "M = 5,98·10²⁴ kg,  R = 6,37·10⁶ m", w: "číselné úlohy" },
+ { n: "Zem – hmotnosť a polomer", f: "M ≈ 6·10²⁴ kg (presnejšie 5,98·10²⁴),  R = 6 371 km = 6,37·10⁶ m", w: "číselné úlohy" },
  { n: "Uhlová rýchlosť Zeme", f: "ω = 2π/(24 h) ≈ 7,27·10⁻⁵ rad/s", w: "vplyv rotácie na rovníku: ω²R ≈ 0,034 m/s²" },
  { n: "Tiažové zrýchlenie g", f: "pól ≈ 9,83 m/s²,  rovník ≈ 9,78 m/s²,  bežne 9,81 m/s²", w: "namerané g; gravitačné a<sub>g</sub> na povrchu ≈ 9,83 m/s² (HRW)" }
 ],
@@ -571,8 +579,8 @@ id: "l5", ch: 0, title: "Elektrický náboj a pole", sub: "Coulombov zákon, int
 lesson: [
  { h: "1. Elektrický náboj", p: [
   "<b>Elektrický náboj</b> je vlastnosť častíc, podobne ako hmotnosť. Na rozdiel od hmotnosti má dva druhy, kladný a záporný. Súhlasné náboje sa odpudzujú, opačné priťahujú. Kladný náboj nesú protóny, záporný elektróny.",
-  "Náboj je <b>kvantovaný</b>: nedá sa deliť donekonečna. Najmenší možný je elementárny náboj e = 1,602·10⁻¹⁹ C a každý náboj je jeho celý násobok, Q = n·e. Náboj 2,4·10⁻¹⁹ C preto nemôže existovať, lebo je to jeden a pol elementárneho náboja.",
-  "Platí <b>zákon zachovania náboja</b>: náboj nevzniká ani nezaniká, len sa presúva. Keď trieš balónik o vlasy, elektróny prejdú z vlasov na balónik. Balónik získa záporný náboj, vlasy rovnako veľký kladný. To je <b>zelektrovanie</b>.",
+  "Náboj je <b>kvantovaný</b>: nedá sa deliť donekonečna. Najmenší možný je elementárny náboj e = 1,602·10⁻¹⁹ C a každý náboj je jeho celý násobok, Q = n·e. Náboj 2,4·10⁻¹⁹ C preto nemôže existovať, lebo je to jeden a pol elementárneho náboja. Jednotkou náboja je coulomb, 1 C = 1 A·s: náboj, ktorý prejde prierezom vodiča za 1 s pri prúde 1 A.",
+  "Platí <b>zákon zachovania náboja</b>: náboj nevzniká ani nezaniká, len sa presúva. Keď trieš balónik o vlasy, elektróny prejdú z vlasov na balónik. Balónik získa záporný náboj, vlasy rovnako veľký kladný. To je <b>zelektrovanie</b>. Tretí zákon je <b>invariantnosť náboja</b>: veľkosť náboja nezávisí od rýchlosti, ktorou sa jeho nosič pohybuje.",
   "Podľa toho, ako ľahko sa v nich náboj pohybuje, delíme látky na <b>vodiče</b> (kovy, majú voľné elektróny), <b>izolanty</b> (sklo, plast) a <b>polovodiče</b> (kremík)."
  ], c: "Teleso má náboj −3,2·10⁻¹⁸ C. Koľko elektrónov má navyše?", a: "n = 3,2·10⁻¹⁸ / 1,602·10⁻¹⁹ ≈ 20 elektrónov." },
  { h: "2. Coulombov zákon", p: [
@@ -595,13 +603,13 @@ lesson: [
  ], c: "Na náboj 2 μC pôsobí v istom bode sila 0,01 N. Aká je tam intenzita poľa?", a: "E = F/Q = 0,01/2·10⁻⁶ = 5 000 N/C." },
  { h: "5. Dipól a spojite rozložený náboj", p: [
   "<b>Elektrický dipól</b> sú dva rovnako veľké opačné náboje +Q a −Q vo vzdialenosti d. Opisuje ho <b>dipólový moment</b> p = Q·d, vektor mieriaci od záporného ku kladnému náboju. Dipólom je napríklad molekula vody.",
-  "Ďaleko od dipólu sa polia oboch nábojov takmer vyrušia, lebo sú skoro na tom istom mieste. Zostane len malý zvyšok, ktorý na osi dipólu klesá ako E = p/(2πε₀z³). Pole dipólu teda slabne s treťou mocninou vzdialenosti, rýchlejšie než pole jedného náboja.",
-  "Skutočné nabité telesá nemajú náboj v bodoch, ale rozložený spojite. Vtedy teleso rozdelíme na malé kúsky s nábojom dQ, pre každý napíšeme pole bodového náboja a všetko (vektorovo) sčítame integrálom. Rozloženie opisujeme hustotou: dĺžkovou λ = dQ/dl (C/m) pre vlákna, plošnou σ = dQ/dS (C/m²) pre plochy a objemovou ρ = dQ/dV (C/m³) pre telesá."
- ], c: "Tyč dlhá 2 m nesie rovnomerne rozložený náboj 6 μC. Aká je jej dĺžková hustota náboja?", a: "λ = Q/l = 3 μC/m." },
+  "Ďaleko od dipólu sa polia oboch nábojov takmer vyrušia, lebo sú skoro na tom istom mieste. Zostane len malý zvyšok, ktorý na osi dipólu klesá ako E = p/(2πε₀r³). Pole dipólu teda slabne s treťou mocninou vzdialenosti, rýchlejšie než pole jedného náboja.",
+  "Skutočné nabité telesá nemajú náboj v bodoch, ale rozložený spojite. Vtedy teleso rozdelíme na malé kúsky s nábojom dQ, pre každý napíšeme pole bodového náboja a všetko (vektorovo) sčítame integrálom. Rozloženie opisujeme hustotou: dĺžkovou τ = dQ/dl (C/m) pre vlákna, plošnou σ = dQ/dS (C/m²) pre plochy a objemovou ρ = dQ/dV (C/m³) pre telesá."
+ ], c: "Tyč dlhá 2 m nesie rovnomerne rozložený náboj 6 μC. Aká je jej dĺžková hustota náboja?", a: "τ = Q/l = 3 μC/m." },
  { h: "6. Náboj v elektrickom poli", p: [
   "Druhá úloha je opačná: pole poznáme a pýtame sa, čo urobí s nábojom, ktorý doň vložíme. Odpoveď je jednoduchá:<span class=\"fm\">F = Q·E</span>Kladný náboj je ťahaný v smere E, záporný proti nemu.",
   "V <b>homogénnom poli</b> (všade rovnaké E, napríklad medzi dvoma nabitými doskami) je sila stála, takže aj zrýchlenie a = QE/m je stále. Pohyb náboja je potom presnou obdobou vrhu v tiažovom poli, len namiesto g vystupuje QE/m.",
-  "Na tom funguje atramentová tlačiareň. Nabitá kvapka vletí rýchlosťou v medzi dosky dĺžky L. Vodorovne letí rovnomerne, takže medzi doskami strávi čas t = L/v. Zvislo ju pole zrýchľuje, vychýli sa o y = ½at² = QEL²/(2mv²). Nábojom kvapky sa riadi, kam na papier dopadne."
+  "Na tom funguje atramentová tlačiareň. Nabitá kvapka vletí rýchlosťou v medzi dosky dĺžky d. Vodorovne letí rovnomerne, takže medzi doskami strávi čas t = d/v. Zvislo ju pole zrýchľuje, vychýli sa o y = ½at² = QEd²/(2mv²). Nábojom kvapky sa riadi, kam na papier dopadne."
  ], c: "Elektrón (m = 9,11·10⁻³¹ kg) je v poli 1 000 N/C. Aké má zrýchlenie a ktorým smerom?", a: "a = eE/m = 1,602·10⁻¹⁶/9,11·10⁻³¹ ≈ 1,76·10¹⁴ m/s², proti smeru intenzity, lebo má záporný náboj." },
  { h: "7. Dipól v elektrickom poli", p: [
   "Vložme dipól do homogénneho poľa. Na kladný náboj pôsobí sila QE v smere poľa, na záporný rovnako veľká proti nemu. <b>Výsledná sila je nulová</b>, dipól sa ako celok nikam neposunie.",
@@ -633,18 +641,18 @@ theory: [
   "<b>E = F/Q₀</b> [N/C = V/m]. Nezávisí od skúšobného náboja.",
   "Bodový náboj: E = Q/(4πε₀r²), smer od kladného a ku zápornému náboju.",
   "<b>Siločiary</b> začínajú na kladných a končia na záporných nábojoch, dotyčnica udáva smer E, hustota veľkosť. Nikdy sa nepretínajú.",
-  "Spojitý náboj: dĺžková hustota λ [C/m], plošná σ [C/m²], objemová ρ [C/m³]."
+  "Spojitý náboj: dĺžková hustota τ [C/m], plošná σ [C/m²], objemová ρ [C/m³]."
  ]},
  { h: "Dipól", items: [
   "Dva náboje +Q a −Q vo vzdialenosti d. <b>Dipólový moment p = Qd</b>, mieri od − k +.",
-  "Na osi ďaleko od dipólu: E = p/(2πε₀z³), klesá s 1/r³.",
+  "Na osi ďaleko od dipólu: E = p/(2πε₀r³), klesá s 1/r³.",
   "V homogénnom poli je výsledná sila nulová, ale pôsobí moment <b>M = p × E</b>, ktorý dipól natáča do smeru poľa. Energia E<sub>p</sub> = −p·E.",
   "Mikrovlnná rúra: striedavé pole otáča dipólové molekuly vody, ich zrážky dávajú teplo."
  ]},
  { h: "Náboj v poli", items: [
   "<b>F = QE</b>. Elektrón sa pohybuje proti smeru E.",
   "V homogénnom poli je zrýchlenie a = QE/m stále, pohyb je obdobou vrhu.",
-  "Atramentová tlačiareň: vychýlenie kvapky y = QEL²/(2mv²)."
+  "Atramentová tlačiareň: vychýlenie kvapky y = QEd²/(2mv²)."
  ]}
 ],
 traps: [
@@ -682,13 +690,14 @@ formulas: [
  { n: "Intenzita poľa", f: "E = F/Q₀", w: "definícia" },
  { n: "Pole bodového náboja", f: "E = Q/(4πε₀r²)", w: "od + / k −" },
  { n: "Dipólový moment", f: "p = Q·d", w: "od − k +" },
- { n: "Pole dipólu na osi", f: "E = p/(2πε₀z³)", w: "ďaleko od dipólu" },
- { n: "Hustoty náboja", f: "λ = dQ/dl,  σ = dQ/dS,  ρ = dQ/dV", w: "spojité rozloženie" },
+ { n: "Pole dipólu na osi", f: "E = p/(2πε₀r³)", w: "ďaleko od dipólu" },
+ { n: "Hustoty náboja", f: "τ = dQ/dl,  σ = dQ/dS,  ρ = dQ/dV", w: "spojité rozloženie" },
  { n: "Sila na náboj v poli", f: "F = QE,  a = QE/m", w: "homogénne pole" },
- { n: "Vychýlenie v tlačiarni", f: "y = QEL²/(2mv²)", w: "prelet medzi doskami dĺžky L" },
+ { n: "Vychýlenie v tlačiarni", f: "y = QEd²/(2mv²)", w: "prelet medzi doskami dĺžky d" },
  { n: "Dipól v poli", f: "M = p × E,  E<sub>p</sub> = −p·E", w: "homogénne pole" },
  { n: "Permitivita prostredia", f: "F = Q₁Q₂/(4πε<sub>r</sub>ε₀r²),  ε = ε<sub>r</sub>ε₀", w: "náboje v látke; vákuum ε<sub>r</sub> = 1, voda ≈ 80" },
- { n: "Zrýchlenie náboja v poli", f: "a = F/m = QE/m", w: "záporný náboj (elektrón) zrýchľuje proti smeru E" }
+ { n: "Zrýchlenie náboja v poli", f: "a = F/m = QE/m", w: "záporný náboj (elektrón) zrýchľuje proti smeru E" },
+ { n: "Vlastnosti náboja", f: "zachovanie,  kvantovanie Q = n·e,  invariantnosť;  1 C = 1 A·s", w: "tri zákony z prednášky" }
 ],
 explain: { q: "Vysvetli, čo je intenzita elektrického poľa a prečo nezávisí od skúšobného náboja, ktorým ju meriame.", keys: ["Intenzita je sila na jednotkový kladný náboj: E = F/Q₀", "Dvojnásobný skúšobný náboj cíti dvojnásobnú silu, podiel ostane rovnaký", "E je vlastnosť poľa v danom bode, pole vytvára iný náboj", "Smer E: od kladného náboja, k zápornému", "Pre bodový náboj E = kQ/r²"] },
 quiz: [
@@ -697,11 +706,11 @@ quiz: [
  { q: "Koľkokrát je v atóme vodíka elektrická sila väčšia než gravitačná?", o: ["asi 10³⁹-krát", "asi 10⁹-krát", "asi 10²⁰-krát", "je menšia, asi 10⁻³⁹-krát"], e: "V atóme vodíka je elektrická sila F<sub>e</sub> = ke²/r² ≈ 8,2·10⁻⁸ N a gravitačná F<sub>g</sub> = Gm<sub>e</sub>m<sub>p</sub>/r² ≈ 3,6·10⁻⁴⁷ N. Vzdialenosť sa v pomere vykráti a ostane asi 2·10³⁹. Preto v mikrosvete gravitáciu vôbec neuvažujeme. V bežnom živote elektrickú silu necítime len preto, že telesá majú rovnako kladných ako záporných nábojov.", h: "Elektrická sila je 8,2·10⁻⁸ N, gravitačná 3,6·10⁻⁴⁷ N. Vydeľ ich." },
  { q: "Kladné náboje Q₁ a Q₂ = 4Q₁ sú vo vzdialenosti L. Kde je na tretí náboj nulová sila?", o: ["vo vzdialenosti L/3 od Q₁", "v strede medzi nimi", "vo vzdialenosti L/3 od Q₂", "vo vzdialenosti L/5 od Q₁"], e: "Tretí náboj vo vzdialenosti x od Q₁ musí cítiť rovnako veľké sily od oboch: kQ₁Q₃/x² = k·4Q₁Q₃/(L − x)². Q₃ aj k sa vykrátia, ostane (L − x)² = 4x² a po odmocnení L − x = 2x, teda x = L/3. Bod je bližšie k menšiemu náboju, lebo slabší náboj musí byť bližšie, aby jeho sila vyrovnala silnejší. V strede by prevládol väčší náboj.", h: "Q₁/x² = Q₂/(L − x)². Po odmocnení 1/x = 2/(L − x)." },
  { q: "Čo platí pre elektrické siločiary?", o: ["nikdy sa nepretínajú", "môžu sa pretínať", "začínajú na záporných nábojoch", "sú to vždy uzavreté krivky"], e: "Smer siločiary v každom bode udáva smer intenzity E a ten je v danom bode jediný. Keby sa dve siločiary pretli, náboj v bode pretnutia by mal dva smery sily naraz, čo nejde. Preto sa siločiary nepretínajú. Začínajú na kladných nábojoch a končia na záporných (alebo v nekonečne), takže elektrostatické siločiary nie sú uzavreté krivky.", h: "Keby sa dve siločiary pretli, aký smer by mala sila na náboj v bode pretnutia?" },
- { q: "Ako klesá pole dipólu na jeho osi vo veľkej vzdialenosti?", o: ["ako 1/r³", "ako 1/r", "ako 1/r²", "ako 1/r⁴"], e: "Dipól sú dva opačné náboje tesne pri sebe. Ďaleko od neho sú oba náboje skoro na tom istom mieste, ich polia (každé klesá ako 1/r²) sa takmer vyrušia a zostane len malý rozdiel. Ten na osi klesá ako E = p/(2πε₀z³), teda s treťou mocninou vzdialenosti, rýchlejšie než pole jedného náboja.", h: "Pole jedného náboja klesá ako 1/r². Pri dipóle sa polia oboch nábojov takmer vyrušia a zostane rýchlejšie klesajúci zvyšok." },
+ { q: "Ako klesá pole dipólu na jeho osi vo veľkej vzdialenosti?", o: ["ako 1/r³", "ako 1/r", "ako 1/r²", "ako 1/r⁴"], e: "Dipól sú dva opačné náboje tesne pri sebe. Ďaleko od neho sú oba náboje skoro na tom istom mieste, ich polia (každé klesá ako 1/r²) sa takmer vyrušia a zostane len malý rozdiel. Ten na osi klesá ako E = p/(2πε₀r³), teda s treťou mocninou vzdialenosti, rýchlejšie než pole jedného náboja.", h: "Pole jedného náboja klesá ako 1/r². Pri dipóle sa polia oboch nábojov takmer vyrušia a zostane rýchlejšie klesajúci zvyšok." },
  { q: "Dipól je v homogénnom elektrickom poli, natočený šikmo. Čo naň pôsobí?", o: ["nulová sila, nenulový moment", "nenulová sila, nulový moment", "nič", "nenulová sila aj moment"], e: "V homogénnom poli pôsobí na +Q sila QE v smere poľa a na −Q rovnako veľká sila proti poľu. Výsledná sila je nulová, dipól sa ako celok neposunie. Sily však pôsobia v rôznych bodoch a tvoria dvojicu síl s momentom M = pE sin θ, ktorý dipól natáča do smeru poľa. Nenulová sila by pôsobila len v nehomogénnom poli.", h: "Sily na +Q a −Q sú rovnako veľké a opačné, ale pôsobia v rôznych bodoch." },
  { q: "Aká je intenzita poľa náboja 1,0 nC vo vzdialenosti 1,0 m?", o: ["9,0 N/C", "90 N/C", "0,9 N/C", "9·10⁹ N/C"], e: "Intenzita bodového náboja: E = kQ/r² = 9·10⁹·1·10⁻⁹/1² = 9 N/C. Pomôže, že k·10⁻⁹ = 9, takže pri nanocoulomboch stačí násobiť deviatimi. 90 N/C a 0,9 N/C vzniknú chybou v mocnine desiatich, 9·10⁹ N/C zabudnutím na nC.", h: "E = kQ/r², k = 9·10⁹ N·m²/C², 1 nC = 10⁻⁹ C." },
  { q: "Aké zrýchlenie má elektrón v poli s intenzitou 1000 N/C?", o: ["1,76·10¹⁴ m/s²", "9,6·10¹⁰ m/s²", "1,6·10⁻¹⁶ m/s²", "5,7·10⁻¹⁵ m/s²"], e: "Sila na elektrón je F = eE = 1,6·10⁻¹⁹·1000 = 1,6·10⁻¹⁶ N. Zrýchlenie a = F/m = 1,6·10⁻¹⁶/9,11·10⁻³¹ ≈ 1,76·10¹⁴ m/s². Je obrovské, lebo elektrón má nepatrnú hmotnosť. 9,6·10¹⁰ m/s² by mal protón, ktorý je asi 1 840-krát ťažší. 1,6·10⁻¹⁶ je sila v N, nie zrýchlenie.", b: true, h: "a = eE/m, e = 1,6·10⁻¹⁹ C, m<sub>e</sub> = 9,1·10⁻³¹ kg." },
- { q: "V atramentovej tlačiarni zdvojnásobíme rýchlosť kvapky. Vychýlenie y bude…", o: ["štvrtinové", "polovičné", "dvojnásobné", "štvornásobné"], e: "Kvapka letí medzi doskami vodorovne rýchlosťou v, čas medzi doskami je t = L/v. Zvislo ju pole zrýchľuje a = QE/m, takže vychýlenie y = ½at² = QEL²/(2mv²). y je úmerné 1/v²: pri dvojnásobnej rýchlosti strávi kvapka medzi doskami polovičný čas a vychýli sa štvrtinovo. Polovičné by bolo, keby y záviselo od 1/v.", b: true, h: "y = QEL²/(2mv²). Ako y závisí od v?" },
+ { q: "V atramentovej tlačiarni zdvojnásobíme rýchlosť kvapky. Vychýlenie y bude…", o: ["štvrtinové", "polovičné", "dvojnásobné", "štvornásobné"], e: "Kvapka letí medzi doskami vodorovne rýchlosťou v, čas medzi doskami je t = d/v. Zvislo ju pole zrýchľuje a = QE/m, takže vychýlenie y = ½at² = QEd²/(2mv²). y je úmerné 1/v²: pri dvojnásobnej rýchlosti strávi kvapka medzi doskami polovičný čas a vychýli sa štvrtinovo. Polovičné by bolo, keby y záviselo od 1/v.", b: true, h: "y = QEd²/(2mv²). Ako y závisí od v?" },
  { q: "V dvoch protiľahlých vrcholoch štvorca sú náboje Q₁, v zvyšných dvoch náboje Q₂. Kedy je výsledná sila na každý náboj Q₁ nulová?", o: ["Q₁ = −2√2·Q₂", "Q₁ = −Q₂", "Q₁ = +2√2·Q₂", "Q₁ = −√2·Q₂"], e: "Na Q₁ pôsobia tri sily. Druhé Q₁ na uhlopriečke (vzdialenosť a√2) ho odpudzuje silou kQ₁²/(2a²) pozdĺž uhlopriečky. Dva náboje Q₂ (každý vo vzdialenosti a) pôsobia silami kQ₁Q₂/a² pozdĺž strán, ich výslednica mieri tiež po uhlopriečke a má veľkosť √2·kQ₁Q₂/a². Sily sa vyrušia, ak Q₁/2 + √2·Q₂ = 0, teda Q₁ = −2√2·Q₂. Mínus znamená, že Q₂ musí mať opačné znamienko a Q₁ priťahovať.", h: "Sila od druhého Q₁ (vzdialenosť a√2) sa musí vyrušiť s výslednicou dvoch kolmých síl od Q₂ (každý vo vzdialenosti a)." },
  { q: "Dajú sa náboje Q₁, Q₁, Q₂, Q₂ vo vrcholoch štvorca zvoliť tak, aby bola nulová sila na všetky štyri naraz?", o: ["nie, podmienky si odporujú", "áno, ak Q₁ = Q₂", "áno, ak Q₁ = −Q₂", "áno, ak Q₁ = −2√2·Q₂"], e: "Pre nulovú silu na náboje Q₁ musí platiť Q₁ = −2√2·Q₂. Rovnakou úvahou pre náboje Q₂ vyjde Q₂ = −2√2·Q₁. Po dosadení Q₁ = 8Q₁, čo platí len pre Q₁ = 0. Obe podmienky naraz teda splniť nejde, štvorica nábojov nemôže byť v rovnováhe celá.", h: "Napíš rovnakú podmienku aj pre náboj Q₂ a porovnaj ju s podmienkou pre Q₁." },
  { q: "Dva náboje presunieme z vákua do vody (ε<sub>r</sub> ≈ 80) a vzdialenosť ponecháme. Ako sa zmení sila medzi nimi?", o: ["zmenší sa asi 80-krát", "zväčší sa asi 80-krát", "nezmení sa", "zmenší sa asi 9-krát"], e: "V látke sa permitivita vákua ε₀ nahradí permitivitou prostredia ε = ε<sub>r</sub>ε₀, takže F = Q₁Q₂/(4πε<sub>r</sub>ε₀r²). ε<sub>r</sub> je v menovateli, preto je sila ε<sub>r</sub>-krát menšia: vo vode s ε<sub>r</sub> ≈ 80 asi 80-krát. Voda svojou polarizáciou náboje čiastočne odtieni. Vzdialenosť sa nemení, takže 9-krát (√80) by bola chyba.", h: "k = 1/(4πε<sub>r</sub>ε₀). Kde vo vzorci je ε<sub>r</sub>?" }
@@ -713,7 +722,7 @@ id: "l6", ch: 0, title: "Gaussov zákon elektrostatiky", sub: "tok intenzity, sy
 lesson: [
  { h: "1. Čo je tok", p: [
   "<b>Tok</b> meria, koľko poľa prechádza danou plochou. Pomôže predstava obruče ponorenej do potoka: množstvo vody, ktoré ňou pretečie, závisí od rýchlosti prúdu, od veľkosti obruče a od jej natočenia. Keď obruč otočíš bokom k prúdu, nepretečie ňou nič.",
-  "Aby sme vedeli opísať natočenie, robíme z plochy vektor. <b>Vektor plochy</b> S má veľkosť rovnú obsahu a smer kolmý na plochu (smer normály). Tok homogénneho poľa cez rovinnú plochu je potom:<span class=\"fm\">Φ = E·S = E·S·cos α</span>α je uhol medzi intenzitou a normálou. Pole kolmé na plochu (α = 0) dáva najväčší tok, pole kĺzajúce po ploche (α = 90°) nulový.",
+  "Aby sme vedeli opísať natočenie, robíme z plochy vektor. <b>Vektor plochy</b> S má veľkosť rovnú obsahu a smer kolmý na plochu (smer normály). Tok homogénneho poľa cez rovinnú plochu je potom:<span class=\"fm\">Φ = E·S = E·S·cos θ</span>θ je uhol medzi intenzitou a normálou. Pole kolmé na plochu (θ = 0) dáva najväčší tok, pole kĺzajúce po ploche (θ = 90°) nulový.",
   "Ak je plocha zakrivená alebo pole nie je všade rovnaké, rozdelíme plochu na malé kúsky dS, pre každý spočítame E·dS a sčítame: Φ = ∫E·dS. Jednotkou toku je N·m²/C."
  ], c: "Homogénne pole 200 N/C prechádza plochou 0,5 m², ktorej normála zviera s poľom uhol 60°. Aký je tok?", a: "Φ = 200·0,5·cos 60° = 50 N·m²/C." },
  { h: "2. Uzavretá plocha a znamienko toku", p: [
@@ -740,14 +749,14 @@ lesson: [
   "Intenzita vnútri rastie priamo úmerne vzdialenosti od stredu. V strede je nulová, na povrchu najväčšia a odtiaľ von klesá s 1/r²."
  ], c: "Aká je intenzita v strede rovnomerne nabitej nevodivej gule a prečo?", a: "Nulová. Gaussova plocha s nulovým polomerom neobsahuje žiadny náboj; zo symetrie sa tiež príspevky zo všetkých strán rušia." },
  { h: "6. Nekonečné vlákno a nekonečná doska", p: [
-  "<b>Vlákno</b> s dĺžkovou hustotou λ. Pole mieri kolmo od vlákna a závisí len od vzdialenosti r. Gaussovou plochou je valec s polomerom r a dĺžkou L okolo vlákna. Podstavami tok neprechádza (pole po nich kĺže), plášťom prejde E·2πrL. Vnútri je náboj λL:<span class=\"fm\">ε₀·E·2πrL = λL   →   E = λ/(2πε₀r)</span>Pole vlákna klesá s prvou mocninou vzdialenosti, pomalšie než pole bodového náboja.",
+  "<b>Vlákno</b> s dĺžkovou hustotou τ. Pole mieri kolmo od vlákna a závisí len od vzdialenosti r. Gaussovou plochou je valec s polomerom r a dĺžkou L okolo vlákna. Podstavami tok neprechádza (pole po nich kĺže), plášťom prejde E·2πrL. Vnútri je náboj τL:<span class=\"fm\">ε₀·E·2πrL = τL   →   E = τ/(2πε₀r)</span>Pole vlákna klesá s prvou mocninou vzdialenosti, pomalšie než pole bodového náboja.",
   "<b>Nevodivá doska</b> s plošnou hustotou σ. Pole mieri kolmo od dosky na obe strany. Gaussovou plochou je „krabička“ prestrčená cez dosku, s podstavami S rovnobežnými s doskou. Tok prejde oboma podstavami, spolu 2ES. Vnútri je náboj σS:<span class=\"fm\">ε₀·2ES = σS   →   E = σ/(2ε₀)</span>",
   "Výsledok vôbec neobsahuje vzdialenosť. Pole nekonečnej dosky je všade rovnaké, homogénne. V praxi to platí blízko veľkej dosky, ďaleko od jej okrajov."
  ], c: "Vo vzdialenosti 2 cm od dlhého nabitého vlákna je intenzita 900 N/C. Aká je vo vzdialenosti 6 cm?", a: "Pole klesá ako 1/r, trikrát ďalej je trikrát slabšie: 300 N/C." },
  { h: "7. Nabitý vodič", p: [
   "Vo vodiči sa náboje môžu voľne pohybovať. Keby vnútri vodiča bolo elektrické pole, pôsobilo by na ne silou a ony by sa hýbali. V ustálenom stave sa už nehýbu, takže <b>vnútri vodiča je E = 0</b>.",
   "Zvoľme Gaussovu plochu tesne pod povrchom vodiča. Všade na nej je E = 0, tok je nulový, takže vnútri nej nie je žiadny náboj. <b>Všetok prebytočný náboj je na povrchu.</b>",
-  "Tesne nad povrchom je pole kolmé na povrch (inak by posúvalo náboje po povrchu). Krabička cez povrch má jednu podstavu vo vodiči, kde je E = 0, takže tok prejde len vonkajšou podstavou:<span class=\"fm\">ε₀·ES = σS   →   E = σ/ε₀</span>To je dvakrát viac než pri nevodivej doske, kde sa tok delil na dve strany. Túto dvojku si treba strážiť.",
+  "Tesne nad povrchom je pole kolmé na povrch (inak by posúvalo náboje po povrchu). Krabička cez povrch má jednu podstavu vo vodiči, kde je E = 0, takže tok prejde len vonkajšou podstavou:<span class=\"fm\">ε₀·ES = σS   →   E = σ/ε₀</span>V prednáške sa tento vzťah volá <b>Coulombova veta</b>. Je to dvakrát viac než pri nevodivej doske, kde sa tok delil na dve strany. Túto dvojku si treba strážiť.",
   "Pre nabitú vodivú guľu z toho vyplýva: vnútri E = 0, vonku rovnaké pole ako od bodového náboja v strede."
  ], c: "Povrch vodiča má plošnú hustotu náboja 8,854·10⁻⁸ C/m². Aká je intenzita tesne nad povrchom a aká tesne pod ním?", a: "Nad povrchom E = σ/ε₀ = 10 000 N/C, kolmo na povrch. Pod povrchom, vo vodiči, je nulová." },
  { h: "8. Úlohy z cvičení: tok bez počítania integrálu", p: [
@@ -758,7 +767,6 @@ lesson: [
   "Bodový náboj Q je vo výške d/2 presne nad stredom štvorca so stranou d. Trik: štvorec si predstav ako jednu stenu kocky s hranou d. Náboj je potom v strede kocky, celkový tok je Q/ε₀ a jednou stenou prejde šestina: Φ = Q/(6ε₀). Gaussovu plochu si vymýšľame sami tak, aby sa nám to hodilo."
  ], c: "Kocka bez náboja je v homogénnom poli. Piatimi stenami spolu vchádza tok −200 N·m²/C. Aký tok prechádza šiestou stenou?", a: "+200 N·m²/C. Celkový tok uzavretou plochou bez náboja musí byť nulový." },
  { h: "9. Úlohy z cvičení: valec, guľa v šupke, doska", p: [
-  "V cvičeniach sa dĺžková hustota náboja značí <b>τ</b> namiesto λ. Pole nabitej tyčinky je teda E = τ/(2πε₀r), odvodenie je rovnaké.",
   "Nekonečne dlhý valec s polomerom R nabitý v celom objeme hustotou ρ (HRW 24.31). Gaussova plocha je valec s polomerom r a dĺžkou h. Vnútri (r &lt; R) obsahuje náboj ρ·πr²h: ε₀E·2πrh = ρπr²h, teda E = ρr/(2ε₀). Pole rastie lineárne od osi. Vonku (r &gt; R) obsahuje celý náboj ρ·πR²h, teda E = ρR²/(2ε₀r).",
   "Nevodivá guľa s polomerom a a nábojom +Q vo vodivej guľovej vrstve (vnútorný polomer b, vonkajší c) s nábojom −Q (HRW 24.53). Postupne od stredu:<span class=\"fm\">r &lt; a:  E = Qr/(4πε₀a³)<br>a &lt; r &lt; b:  E = Q/(4πε₀r²)<br>b &lt; r &lt; c (vo vodiči):  E = 0<br>r &gt; c:  E = 0</span>Vo vodiči musí byť pole nulové, takže Gaussova plocha vedená vodičom obsahuje nulový celkový náboj. Na vnútornej stene vrstvy preto sedí náboj −Q, ktorý vyváži +Q gule. Na vonkajšej stene nezostane nič a pole vonku je nulové.",
   { pic: "supkavodic", cap: "Štyri oblasti od stredu von a intenzita v každej z nich." },
@@ -771,7 +779,7 @@ theory: [
  { h: "Tok intenzity", items: [
   "Tok hovorí, koľko poľa prechádza plochou.",
   "<b>Plocha ako vektor</b>: dS má smer normály. Pri uzavretej ploche normála mieri vždy von.",
-  "<b>Φ = ∫E·dS</b> [N·m²/C]. Pre homogénne pole a rovinnú plochu Φ = ES cos α.",
+  "<b>Φ = ∫E·dS</b> [N·m²/C]. Pre homogénne pole a rovinnú plochu Φ = ES cos θ.",
   "Siločiary vychádzajúce von dávajú kladný tok, vchádzajúce dnu záporný.",
   "Uzavretý valec v homogénnom poli: jednou podstavou −ES, druhou +ES, plášťom 0. Spolu Φ = 0."
  ]},
@@ -783,7 +791,7 @@ theory: [
  ]},
  { h: "Výsledky, ktoré treba vedieť", items: [
   "Nevodivá guľa s polomerom R, rovnomerne nabitá: vnútri E = Qr/(4πε₀R³) (rastie s r), vonku E = Q/(4πε₀r²).",
-  "Nekonečné vlákno: E = λ/(2πε₀r).",
+  "Nekonečné vlákno: E = τ/(2πε₀r).",
   "Nekonečná tenká nevodivá doska: E = σ/(2ε₀), nezávisí od vzdialenosti.",
   "Nabitý izolovaný vodič: náboj je len na povrchu, vnútri E = 0, tesne pri povrchu E = σ/ε₀ kolmo na povrch.",
   "Vodivá guľa: vnútri 0, vonku ako bodový náboj.",
@@ -796,10 +804,10 @@ traps: [
  "Vnútri nevodivej gule pole rastie s r, vnútri vodivej je nulové."
 ],
 examples: [
- { t: "Vlákno s λ = 2,0 μC/m. Aká je intenzita vo vzdialenosti 0,10 m?", s: [
-  "Použi z Vzorcov: <b>Nekonečné vlákno</b> E = λ/(2πε₀r). Konštanty: 1/(2πε₀) = 2k ≈ 1,8·10¹⁰ N·m²/C².",
-  "Odvodenie (Gaussov zákon): valec okolo vlákna, tok len plášťom E·2πrL = λL/ε₀, teda E = λ/(2πε₀r).",
-  "Dosaď: E = 2k·λ/r = 1,8·10¹⁰·2,0·10⁻⁶/0,10 = 3,6·10⁵ N/C.",
+ { t: "Vlákno s τ = 2,0 μC/m. Aká je intenzita vo vzdialenosti 0,10 m?", s: [
+  "Použi z Vzorcov: <b>Nekonečné vlákno</b> E = τ/(2πε₀r). Konštanty: 1/(2πε₀) = 2k ≈ 1,8·10¹⁰ N·m²/C².",
+  "Odvodenie (Gaussov zákon): valec okolo vlákna, tok len plášťom E·2πrL = τL/ε₀, teda E = τ/(2πε₀r).",
+  "Dosaď: E = 2k·τ/r = 1,8·10¹⁰·2,0·10⁻⁶/0,10 = 3,6·10⁵ N/C.",
   "Kontrola: pole vlákna klesá ako 1/r, pri 0,20 m by bolo polovičné." ]},
  { t: "Náboj 1,0 μC je vnútri uzavretej plochy. Aký je celkový tok a koľko prejde jednou stenou, ak je náboj v strede kocky?", s: [
   "Použi z Vzorcov: <b>Gaussov zákon</b> Φ = Q<sub>vnútri</sub>/ε₀ a <b>Tok stenou kocky</b> Φ/6. Konštanta ε₀ = 8,854·10⁻¹² C²/(N·m²).",
@@ -807,13 +815,13 @@ examples: [
   "Kocka má 6 rovnakých stien a náboj je v strede, takže každou prejde šestina: 1,13·10⁵/6 ≈ 1,9·10⁴ N·m²/C." ]}
 ],
 formulas: [
- { n: "Tok intenzity", f: "Φ = ∫E·dS  (homogénne: ES cos α)", w: "definícia" },
+ { n: "Tok intenzity", f: "Φ = ∫E·dS  (homogénne: ES cos θ)", w: "definícia" },
  { n: "Gaussov zákon", f: "ε₀∮E·dS = Q<sub>vnútri</sub>", w: "uzavretá plocha" },
  { n: "Bodový náboj", f: "E = Q/(4πε₀r²)", w: "guľová Gaussova plocha" },
  { n: "Nevodivá guľa – vnútri", f: "E = Qr/(4πε₀R³)", w: "r &lt; R" },
- { n: "Nekonečné vlákno", f: "E = λ/(2πε₀r)", w: "valcová Gaussova plocha" },
+ { n: "Nekonečné vlákno", f: "E = τ/(2πε₀r)", w: "valcová Gaussova plocha" },
  { n: "Nekonečná nevodivá doska", f: "E = σ/(2ε₀)", w: "nezávisí od vzdialenosti" },
- { n: "Pri povrchu vodiča", f: "E = σ/ε₀,  vnútri E = 0", w: "nabitý izolovaný vodič" },
+ { n: "Pri povrchu vodiča (Coulombova veta)", f: "E = σ/ε₀,  vnútri E = 0", w: "nabitý izolovaný vodič" },
  { n: "Tok stenou kocky", f: "Φ = Q/(6ε₀)", w: "náboj v strede kocky" },
  { n: "Gaussov zákon v látke", f: "∮E·dS = Q/(ε₀ε<sub>r</sub>)", w: "zápis z prednášky; vo vákuu ε<sub>r</sub> = 1" },
  { n: "Konštanty", f: "ε₀ = 8,854·10⁻¹² C²/(N·m²),  k = 1/(4πε₀) ≈ 9·10⁹,  1/(2πε₀) = 2k", w: "dosadzovanie do Gaussovho zákona a polí" }
@@ -825,12 +833,12 @@ quiz: [
  { q: "Náboj Q je v strede kocky. Aký tok prechádza jednou jej stenou?", o: ["Q/(6ε₀)", "Q/ε₀", "Q/(4πε₀)", "nulový"], e: "Celkový tok povrchom kocky je podľa Gaussovho zákona Q/ε₀. Náboj je v strede, takže všetkých šesť stien je voči nemu rovnako umiestnených a každou prejde rovnaký diel: Q/(6ε₀). Q/ε₀ je tok celou kockou, nie jednou stenou. Q/(4πε₀) nie je tok, je to časť vzorca pre potenciál.", h: "Celkový tok je Q/ε₀ a všetkých šesť stien je voči náboju rovnako umiestnených." },
  { q: "Čo platí pre nabitý izolovaný vodič v rovnováhe?", o: ["E vnútri je nulové, náboj je na povrchu", "náboj je rozložený v celom objeme", "E vnútri je σ/ε₀", "potenciál vnútri je nulový"], e: "Vo vodiči sa náboje môžu voľne hýbať. Keby vnútri bolo pole, hýbali by sa, takže v ustálenom stave je vnútri E = 0. Gaussova plocha tesne pod povrchom má nulový tok, preto vnútri nej nie je náboj: všetok prebytočný náboj je na povrchu. Potenciál vnútri je všade rovnaký, ale nie nulový. σ/ε₀ je pole tesne nad povrchom.", h: "Keby bolo vo vodiči pole, voľné náboje by sa hýbali. Čo platí v ustálenom stave?" },
  { q: "Aká je intenzita poľa nekonečnej nevodivej dosky s plošnou hustotou σ?", o: ["σ/(2ε₀)", "σ/ε₀", "σ/(2πε₀r)", "klesá ako 1/r²"], e: "Gaussova plocha je krabička prestrčená cez dosku. Pole mieri kolmo od dosky na obe strany, takže tok prejde oboma podstavami: 2ES. Vnútri je náboj σS, z Gaussovho zákona 2ES = σS/ε₀, teda E = σ/(2ε₀). Vzdialenosť vo výsledku nie je: pole nekonečnej dosky je všade rovnaké. σ/ε₀ platí pre povrch vodiča, kde tok ide len jednou stranou.", h: "Krabička cez dosku: tok prejde oboma podstavami, ε₀·2ES = σS." },
- { q: "Vzdialenosť od nekonečného nabitého vlákna sa zdvojnásobí. Intenzita bude…", o: ["polovičná", "štvrtinová", "rovnaká", "dvojnásobná"], e: "Gaussova plocha je valec okolo vlákna s polomerom r a dĺžkou L. Tok prejde len plášťom: E·2πrL = λL/ε₀, teda E = λ/(2πε₀r). Pole vlákna klesá s prvou mocninou vzdialenosti, takže pri dvojnásobnej vzdialenosti je polovičné. Štvrtinové by bolo pre bodový náboj (1/r²), rovnaké pre nekonečnú dosku.", h: "Pole vlákna: E = λ/(2πε₀r)." },
+ { q: "Vzdialenosť od nekonečného nabitého vlákna sa zdvojnásobí. Intenzita bude…", o: ["polovičná", "štvrtinová", "rovnaká", "dvojnásobná"], e: "Gaussova plocha je valec okolo vlákna s polomerom r a dĺžkou L. Tok prejde len plášťom: E·2πrL = τL/ε₀, teda E = τ/(2πε₀r). Pole vlákna klesá s prvou mocninou vzdialenosti, takže pri dvojnásobnej vzdialenosti je polovičné. Štvrtinové by bolo pre bodový náboj (1/r²), rovnaké pre nekonečnú dosku.", h: "Pole vlákna: E = τ/(2πε₀r)." },
  { q: "Rovnomerne nabitá nevodivá guľa: aká je intenzita v polovici polomeru oproti povrchu?", o: ["polovičná", "štvornásobná", "dvojnásobná", "nulová"], e: "Vnútri rovnomerne nabitej nevodivej gule obopína Gaussova guľa s polomerom r len časť náboja, úmernú objemu: Q·r³/R³. Z Gaussovho zákona E·4πr² = Q r³/(ε₀R³), teda E = Qr/(4πε₀R³): pole rastie priamo úmerne r. V polovici polomeru je teda polovičné oproti povrchu. Nulové by bolo vo vodivej guli.", h: "Vnútri gule je E = Qr/(4πε₀R³), teda priamo úmerné r." },
  { q: "Náboj leží mimo uzavretej plochy. Čo platí?", o: ["celkový tok je 0, ale E na ploche nie je nulové", "tok aj E sú nulové", "tok je Q/ε₀", "tok je záporný"], e: "Ak náboj leží mimo uzavretej plochy, každá jeho siločiara, ktorá do plochy vojde, z nej aj vyjde. Príspevky sa vyrušia a celkový tok je 0. Pole na ploche však existuje, len sa jeho tok spočítaný cez celú plochu vynuluje. Preto „tok aj E sú nulové“ je zlé: nulový tok neznamená nulové pole.", h: "Siločiary vonkajšieho náboja plochou vojdú aj vyjdú. Znamená to, že na ploche nie je pole?" },
- { q: "Vlákno má λ = 2,0 μC/m. Aká je intenzita vo vzdialenosti 0,10 m?", o: ["3,6·10⁵ N/C", "1,8·10⁵ N/C", "7,2·10⁵ N/C", "1,1·10⁶ N/C"], e: "Pole vlákna je E = λ/(2πε₀r). Pohodlnejšie s k: 1/(2πε₀) = 2k, takže E = 2kλ/r = 2·9·10⁹·2·10⁻⁶/0,1 = 3,6·10⁵ N/C. 1,8·10⁵ vznikne zámenou 2π za 4π (zabudnutá dvojka), 7,2·10⁵ s dvojkou navyše.", b: true, h: "E = λ/(2πε₀r) = 2kλ/r, k = 9·10⁹ N·m²/C²." },
+ { q: "Vlákno má τ = 2,0 μC/m. Aká je intenzita vo vzdialenosti 0,10 m?", o: ["3,6·10⁵ N/C", "1,8·10⁵ N/C", "7,2·10⁵ N/C", "1,1·10⁶ N/C"], e: "Pole vlákna je E = τ/(2πε₀r). Pohodlnejšie s k: 1/(2πε₀) = 2k, takže E = 2kτ/r = 2·9·10⁹·2·10⁻⁶/0,1 = 3,6·10⁵ N/C. 1,8·10⁵ vznikne zámenou 2π za 4π (zabudnutá dvojka), 7,2·10⁵ s dvojkou navyše.", b: true, h: "E = τ/(2πε₀r) = 2kτ/r, k = 9·10⁹ N·m²/C²." },
  { q: "Vnútri uzavretej plochy je náboj 1,0 μC, mimo nej 5,0 μC. Aký je celkový tok?", o: ["1,13·10⁵ N·m²/C", "6,8·10⁵ N·m²/C", "nulový", "nedá sa určiť"], e: "Do celkového toku sa počíta len náboj vnútri plochy: Φ = Q<sub>vnútri</sub>/ε₀ = 1,0·10⁻⁶/8,85·10⁻¹² ≈ 1,13·10⁵ N·m²/C. Náboj 5 μC mimo plochy mení pole na ploche, ale k celkovému toku neprispeje. 6,8·10⁵ vznikne, keď omylom sčítaš oba náboje.", b: true, h: "Ráta sa len náboj vnútri: Φ = Q/ε₀, ε₀ = 8,85·10⁻¹² C²/(N·m²)." },
- { q: "Pologuľa s polomerom R je v homogénnom poli E kolmom na jej základňu; siločiary vstupujú základňou. Aký je tok základňou?", o: ["−πR²E", "+πR²E", "nulový", "−2πR²E"], e: "Tok rovinnou plochou je Φ = E·S·cos α, kde α je uhol medzi poľom a normálou. Pri pologuli ako uzavretej ploche mieri normála základne von, preč od pologule. Pole do základne vchádza, teda mieri opačne ako normála, α = 180° a cos α = −1. Tok je −E·πR². Kladný by bol, keby pole základňou vychádzalo.", h: "Pole do základne vchádza a normála mieri von z objemu. Aké znamienko má tok?" },
+ { q: "Pologuľa s polomerom R je v homogénnom poli E kolmom na jej základňu; siločiary vstupujú základňou. Aký je tok základňou?", o: ["−πR²E", "+πR²E", "nulový", "−2πR²E"], e: "Tok rovinnou plochou je Φ = E·S·cos θ, kde θ je uhol medzi poľom a normálou. Pri pologuli ako uzavretej ploche mieri normála základne von, preč od pologule. Pole do základne vchádza, teda mieri opačne ako normála, θ = 180° a cos θ = −1. Tok je −E·πR². Kladný by bol, keby pole základňou vychádzalo.", h: "Pole do základne vchádza a normála mieri von z objemu. Aké znamienko má tok?" },
  { q: "Pologuľa (R) v homogénnom poli E, siločiary vstupujú základňou. Aký je tok jej guľovým povrchom?", o: ["+πR²E", "−πR²E", "+2πR²E", "nulový"], e: "Pologuľa je uzavretá plocha a vnútri nie je náboj, takže celkový tok je nulový: tok základňou + tok guľovým povrchom = 0. Základňou vošlo −πR²E, preto guľovým povrchom musí vyjsť +πR²E. Integrál cez zakrivenú plochu netreba počítať. 2πR²E je obsah guľovej plochy krát E, ale pole na ňu nie je všade kolmé.", h: "Vnútri nie je náboj, celkový tok je nula. Koľko musí vyjsť guľovým povrchom, keď základňou vošlo πR²E?" },
  { q: "Bodový náboj Q je vo výške d/2 presne nad stredom štvorca so stranou d. Aký tok prechádza štvorcom?", o: ["Q/(6ε₀)", "Q/ε₀", "Q/(4ε₀)", "Q/(2ε₀)"], e: "Doplň štvorec na kocku so stranou d tak, aby náboj ležal v jej strede. Náboj je vo výške d/2 nad stredom štvorca, takže je presne v strede kocky. Celkový tok kockou je Q/ε₀ a zo symetrie sa delí rovnako na šesť stien, štvorcom teda prejde Q/(6ε₀). Q/(2ε₀) by platilo pre nekonečnú rovinu pod nábojom.", h: "Doplň štvorec na kocku so stranou d, v ktorej strede leží náboj." },
  { q: "Nekonečne dlhý valec s polomerom R je nabitý v objeme hustotou ρ. Aká je intenzita vo vnútri, vo vzdialenosti r &lt; R od osi?", o: ["ρr/(2ε₀)", "ρR²/(2ε₀r)", "ρ/(2πε₀r)", "nulová"], e: "Gaussova plocha je valec s polomerom r &lt; R a dĺžkou h. Obsahuje náboj ρ·πr²h. Tok prejde len plášťom: ε₀·E·2πrh = ρπr²h, teda E = ρr/(2ε₀). Vnútri pole rastie lineárne od osi. ρR²/(2ε₀r) platí mimo valca, kde Gaussova plocha obsahuje celý náboj ρπR²h.", h: "Gaussov valec s polomerom r obsahuje náboj ρπr²h a plášťom prejde tok E·2πrh." },
@@ -1025,7 +1033,7 @@ Object.assign(PICS, (() => {
     kruznica: S(180, "Pohyb po kružnici: rýchlosť po dotyčnici, normálové zrýchlenie do stredu", ci(150, 95, 60, "ol") + ln(150, 95, 202, 65, "dash") + t(170, 72, "R", "m") + arrow(202, 65, 174.5, 17.4, "fa") + t(162, 14, "v") + arrow(202, 65, 172, 82.3, "ac") + t(196, 92, "aₙ", "r") + ci(150, 95, 3, "bd") + ci(202, 65, 5, "bd") + t(140, 112, "ω", "m")),
     vodorovny: S(172, "Vodorovný vrh z veže: počiatočná rýchlosť vodorovne, dráha je polovica paraboly", ln(20, 150, 290, 150, "sf") + `<rect x="30" y="50" width="30" height="100" class="bd"/><path d="M60,50 Q160,50 230,150" class="dash"/>` + ln(18, 50, 18, 150, "dash") + t(9, 100, "h", "m") + arrow(60, 50, 106, 50, "fa") + t(86, 37, "v₀") + ci(60, 50, 5, "bd") + ci(230, 150, 4, "bd") + t(145, 163, "D = v₀·t", "m")),
     moment: S(150, "Tyč otočná okolo osi, sila pôsobí na konci, rameno je vzdialenosť od osi", ln(50, 90, 240, 90, "sf") + ci(50, 90, 7, "bd") + arrow(240, 90, 240, 136, "fa") + t(255, 122, "F") + ln(50, 70, 240, 70, "dash") + t(145, 58, "d (rameno)", "m") + t(50, 112, "os", "s") + t(150, 26, "M = F·d")),
-    steiner: S(150, "Tyč s osou cez ťažisko a rovnobežnou osou na konci vo vzdialenosti d", ln(40, 100, 260, 100, "sf") + ln(150, 42, 150, 126, "dash") + t(150, 30, sub("J", "T")) + ln(40, 42, 40, 126, "gs") + t(40, 30, "J") + ln(40, 122, 150, 122, "ax") + t(95, 137, "d = L/2", "m") + t(215, 60, "J = " + sub("J", "T") + `<tspan dy="-4"> + md²</tspan>`)),
+    steiner: S(150, "Tyč s osou cez ťažisko a rovnobežnou osou na konci vo vzdialenosti a", ln(40, 100, 260, 100, "sf") + ln(150, 42, 150, 126, "dash") + t(150, 30, sub("J", "T")) + ln(40, 42, 40, 126, "gs") + t(40, 30, "J") + ln(40, 122, 150, 122, "ax") + t(95, 137, "a = L/2", "m") + t(215, 60, "J = " + sub("J", "T") + `<tspan dy="-4"> + ma²</tspan>`)),
     valenie: S(172, "Valiace sa koleso: ťažisko má rýchlosť v, vrchný bod dvojnásobnú, bod dotyku stojí", ln(20, 150, 290, 150, "sf") + ci(150, 95, 55, "ol") + arrow(150, 95, 205, 95, "fa") + t(214, 84, sub("v", "T")) + arrow(150, 40, 258, 40, "fa") + t(272, 30, sub("2v", "T")) + ci(150, 95, 3, "bd") + ci(150, 150, 4, "bd") + t(150, 163, "bod dotyku: v = 0", "m") + t(124, 78, "ω", "m")),
     supka: S(172, "Teleso mimo guľovej šupky je priťahované k stredu, vnútri šupky je sila nulová", ci(72, 85, 45, "ol") + ci(72, 85, 2.5, "bd") + ci(140, 85, 5, "bd") + arrow(134, 85, 96, 85, "fa") + t(128, 70, "F") + t(80, 152, "mimo: ako bod v strede", "s") + ci(228, 85, 45, "ol") + ci(242, 70, 5, "bd") + t(226, 98, "F = 0") + t(228, 152, "vnútri šupky", "s")),
     vyska: S(172, "Zem s polomerom R a teleso vo výške h nad povrchom", ci(105, 112, 58, "bd") + ci(105, 112, 2.5, "bd") + ln(105, 112, 105, 54, "dash") + t(116, 86, "R", "m") + ln(105, 54, 105, 20, "gs") + t(116, 36, "h", "m") + ci(105, 18, 5, "bd") + t(105, 130, "Zem", "s") + t(228, 60, sub("a", "g") + `<tspan dy="-4"> = GM/(R + h)²</tspan>`) + t(232, 90, "R + h sa meria", "s") + t(232, 104, "od stredu Zeme", "s")),
@@ -1113,7 +1121,7 @@ GEN.fy1 = {
  ],
  l6: [
   () => { const E = rnd([100, 200, 400]), S = rnd([0.5, 2]), al = rnd([0, 60]), F = E * S * (al ? 0.5 : 1);
-    return hint("Φ = E·S·cos α.", mk(`Homogénne pole ${E} N/C prechádza rovinnou plochou ${num(S)} m². Normála plochy zviera s poľom uhol ${al}°. Aký je tok?`, F, "N·m²/C", [E * S * 0.866, E / S, 0], `Φ = ES cos α = ${E}·${num(S)}·${al ? "0,5" : "1"} = ${num(F)} N·m²/C.`)); },
+    return hint("Φ = E·S·cos θ.", mk(`Homogénne pole ${E} N/C prechádza rovinnou plochou ${num(S)} m². Normála plochy zviera s poľom uhol ${al}°. Aký je tok?`, F, "N·m²/C", [E * S * 0.866, E / S, 0], `Φ = ES cos θ = ${E}·${num(S)}·${al ? "0,5" : "1"} = ${num(F)} N·m²/C.`)); },
   () => { const F0 = rnd([300, 600, 1200]), k = rnd([2, 3, 4]);
     return hint("Tok závisí len od náboja vnútri, nie od veľkosti plochy.", mk(`Uzavretou plochou s nábojom Q vnútri prechádza tok ${F0} N·m²/C. Aký bude tok, ak náboj vnútri zväčšíme ${k}-krát a plochu zdvojnásobíme?`, F0 * k, "N·m²/C", [F0 * k * 2, F0 * k / 2, F0], `Tok závisí len od náboja vnútri, nie od veľkosti plochy: ${k}·${F0} = ${F0 * k} N·m²/C.`)); },
   () => { const F0 = rnd([600, 1200, 3000]);
