@@ -10,8 +10,9 @@ chapters: [
  { name: "Kapitola 1 · Zloženie a štruktúra látok", note: "Atómy, väzby, kryštály, poruchy, pásový model.", exam: null },
  { name: "Kapitola 2 · Vodivé a odporové materiály", note: "Vodivosť kovov, supravodivosť, termoelektrina, kovy v praxi.", exam: null },
  { name: "Kapitola 3 · Magnetické materiály", note: "Magnetizácia, permeabilita, hysterézia a straty.", exam: null },
- { name: "Kapitola 4 · Polovodiče", note: "Vlastný a prímesový polovodič, vedenie prúdu. Skúšobný test je z celého predmetu.",
-   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9", "l10", "l11", "l12"] } }
+ { name: "Kapitola 4 · Polovodiče", note: "Vlastný a prímesový polovodič, vedenie prúdu.", exam: null },
+ { name: "Kapitola 5 · Dielektriká a izolanty", note: "Polarizácia, vodivosť, straty a prieraz izolantov. Skúšobný test je z celého predmetu.",
+   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9", "l10", "l11", "l12", "l13", "l14"] } }
 ],
 levels: [
 
@@ -768,12 +769,183 @@ quiz: [
  { q: "Aká je tepelná rýchlosť elektrónov v polovodiči pri 300 K?", o: ["rádovo 100 km/s", "rádovo mm/s", "rádovo m/s", "rýchlosť svetla"], e: "v<sub>t</sub> = √(3kT/m<sub>n</sub>) ≈ 10⁵ m/s. Drift je oveľa pomalší.", h: "Kinetická energia ≈ 3/2 kT." },
  { q: "Kam ide energia, ktorú nosič získa od elektrického poľa?", o: ["pri zrážkach ju odovzdá mriežke, polovodič sa zahrieva", "nosič ju natrvalo uchová", "vyžiari sa ako svetlo vždy", "zmení sa na magnetické pole"], e: "To je Joulovo teplo.", h: "Prečo sa súčiastky zahrievajú?", b: true }
 ]
+},
+/* ---------- L13 ---------- */
+{
+id: "l13", ch: 4, title: "Polarizácia dielektrík", sub: "D, P, ε<sub>r</sub>, kondenzátory a mechanizmy",
+lesson: [
+ { h: "1. Dielektrikum a izolant", p: [
+  "V kapitole 1 bol izolant látka so širokým zakázaným pásom, teda bez voľných nosičov. V elektrickom poli sa v ňom predsa niečo deje: <b>vázané náboje</b> sa posunú. Ideálne dielektrikum má len vázané náboje, reálne aj trochu voľných. Fyzikálne javy: <b>polarizácia</b> (posun vázaných nábojov), <b>vodivosť</b> (pohyb voľných), <b>dielektrické straty</b> a <b>elektrický výboj</b>.",
+  "Pojmy: <b>dielektrikum</b> zdôrazňuje schopnosť polarizovať sa a akumulovať energiu poľa (kondenzátor), <b>izolant</b> schopnosť oddeliť vodiče s rôznym potenciálom. Každý izolant je dielektrikum, ale nie každé dielektrikum je izolant (aj Si a Ge sú dielektriká).",
+  "Molekuly sú <b>nepolárne</b> (symetrické, ťažiská nábojov splývajú; pole v nich indukuje dipól) alebo <b>polárne</b> (dipólové, majú stály dipólový moment aj bez poľa; pole ich natáča). Mikroskopická jednotka dipólového momentu je debye, 1 D = ⅓·10⁻²⁹ C·m."
+ ]},
+ { h: "2. Polarizácia a permitivita", p: [
+  "Indukovaný dipólový moment častice je úmerný lokálnemu poľu, konštanta je <b>polarizovateľnosť</b> α: μ<sub>i</sub> = α·E<sub>lok</sub>. <b>Polarizácia</b> P (C/m²) je dipólový moment objemovej jednotky; podľa <b>Clausiovej rovnice</b> P = n·α·E<sub>lok</sub> (n koncentrácia polarizovateľných častíc).",
+  "Makroskopicky: kondenzátor s dielektrikom má kapacitu ε<sub>r</sub>-krát väčšiu než vákuový (C = ε<sub>r</sub>C₀), lebo na doskách okrem voľného náboja Q₀ pribudne náboj, ktorý vyrovná vázaný náboj Q<sub>v</sub> na povrchu dielektrika. Indukcia a polarizácia:<span class=\"fm\">D = ε₀ε<sub>r</sub>E = ε₀E + P,   P = ε₀(ε<sub>r</sub> − 1)E = κ·ε₀E</span>κ = ε<sub>r</sub> − 1 je <b>dielektrická susceptibilita</b>, vždy kladná, vo vákuu nulová. V skriptách sa relatívna permitivita značí ε′.",
+  "<b>Paraelektriká</b> majú κ od nepatrne nad nulou do asi 100, <b>feroelektriká</b> 10² až 10⁴."
+ ], c: "Dielektrikum s ε<sub>r</sub> = 5 je v poli 10⁶ V/m. Aká je polarizácia?", a: "P = ε₀(ε<sub>r</sub> − 1)E = 8,854·10⁻¹²·4·10⁶ = 3,54·10⁻⁵ C/m²." },
+ { h: "3. Kondenzátory s dielektrikom", p: [
+  "Doskový kondenzátor s plochou S a hrúbkou h:<span class=\"fm\">C = ε₀ε<sub>r</sub>·S/h</span>Vrstvy dielektrika nad sebou sú kondenzátory v sérii: 1/C = Σ 1/C<sub>i</sub>. Indukcia D je vo všetkých vrstvách rovnaká, takže najväčšie pole je vo vrstve s najmenšou permitivitou (vzduchová medzera).",
+  "Koaxiálny kábel je valcový kondenzátor (vnútorný vodič a tienenie):<span class=\"fm\">C = 2π·ε₀ε<sub>r</sub>·l / ln(r₂/r₁)</span>",
+  "Vloženie dielektrika, ktoré vyplní celú medzeru: ak je <b>zdroj pripojený</b>, U a teda E = U/h ostanú, D = σ narastie ε<sub>r</sub>-krát (zdroj dodá náboj). Ak je <b>zdroj odpojený</b>, náboj nemá kam ujsť: σ = D ostanú a E klesne ε<sub>r</sub>-krát."
+ ], c: "Vákuový kondenzátor nabiješ, odpojíš a vložíš sľudu (ε<sub>r</sub> = 5,4). Čo sa stane s napätím?", a: "Náboj ostane, D aj σ ostanú, E klesne 5,4-krát, a s ním aj napätie U = E·h." },
+ { h: "4. Polarizačné mechanizmy", p: [
+  "<b>Rýchle (pružné)</b>, bez strát a nezávislé od frekvencie: <b>elektrónová</b> (posun elektrónového obalu voči jadru, u všetkých dielektrík, 10⁻¹⁶–10⁻¹⁴ s, nezávisí od teploty) a <b>iónová pružná</b> (posun iónov v iónových kryštáloch, 10⁻¹³–10⁻¹² s, závisí od teploty).",
+  "<b>Pomalé (relaxačné)</b>, so stratami, závislé od teploty aj frekvencie, s exponenciálnym nábehom a relaxačnou dobou τ: <b>dipólová</b> (natáčanie polárnych molekúl, 10⁻¹²–10⁻⁸ s, pri makromolekulách oveľa dlhšie) a <b>iónová relaxačná</b> (netesne uložené ióny v skle a keramike).",
+  "<b>Zvláštne</b>: <b>medzivrstvová (migračná)</b> v nehomogénnych látkach (plnivá, lamináty, pórovité), najpomalšia, len pri veľmi nízkych frekvenciách; <b>spontánna</b> vo feroelektrikách (domény, hysterézia, maximum permitivity v Curieovom bode, nad ním Curieho–Weissov zákon ε = C/(T − T<sub>CW</sub>), napr. titaničitan bárnatý); <b>trvalá</b> v elektretoch; <b>rezonančná</b> v optickej oblasti."
+ ]},
+ { h: "5. Elektrostrikcia, piezo- a pyroelektrina", p: [
+  "<b>Elektrostrikcia</b> je zmena rozmerov každého dielektrika pri polarizácii, Δl ~ E². <b>Piezoelektrický jav</b> majú len anizotropné kryštály bez stredu súmernosti (kremeň, turmalín, keramika): priamy (deformácia vytvorí náboj) aj obrátený (pole deformuje), Δl ~ E. Všetky feroelektriká sú piezoelektrické, nie naopak.",
+  "<b>Pyroelektrický jav</b>: spontánne polarizované kryštály menia polarizáciu so zmenou teploty."
+ ]}
+],
+theory: [
+ { h: "Pojmy", items: ["Dielektrikum (polarizácia, energia) vs. izolant (oddelenie potenciálov).", "Nepolárne a polárne molekuly; 1 D = ⅓·10⁻²⁹ C·m.", "μ<sub>i</sub> = αE<sub>lok</sub>, P = nαE<sub>lok</sub> (Clausius)."] },
+ { h: "Vzťahy", items: ["D = ε₀ε<sub>r</sub>E = ε₀E + P, P = ε₀(ε<sub>r</sub> − 1)E, κ = ε<sub>r</sub> − 1.", "C = ε₀ε<sub>r</sub>S/h; vrstvy v sérii; koax C = 2πε₀ε<sub>r</sub>l/ln(r₂/r₁).", "Zdroj pripojený: E stále, D rastie ε<sub>r</sub>-krát; odpojený: D stále, E klesá ε<sub>r</sub>-krát.", "Paraelektriká κ do 100, feroelektriká 10²–10⁴."] },
+ { h: "Mechanizmy", items: ["Pružné: elektrónová (všetky, 10⁻¹⁶ s), iónová (10⁻¹³ s) – bez strát.", "Relaxačné: dipólová, iónová relaxačná – so stratami.", "Zvláštne: medzivrstvová, spontánna (feroelektriká), trvalá (elektrety), rezonančná.", "Elektrostrikcia Δl ~ E² (všetky), piezo Δl ~ E (acentrické kryštály)."] }
+],
+traps: ["Pri sériových vrstvách sa sčítajú prevrátené hodnoty kapacít.", "Zdroj pripojený vs. odpojený: raz ostáva E, raz D.", "V koaxe je prirodzený logaritmus a polomer vnútorného vodiča z prierezu r₁ = √(S/π).", "Elektrostrikcia je u všetkých dielektrík, piezoelektrina len u kryštálov bez stredu súmernosti."],
+examples: [
+ { t: "Dielektriká, cvičenie 1: medzi doskami 15,0 × 18,0 cm sú dve vrstvy drážkovej izolácie: lepenka 0,300 mm (ε<sub>r</sub> = 2,60) a PET fólia 40,0 μm (ε<sub>r</sub> = 3,80, dané v zadaní). Aká je kapacita?", s: [
+  "Vzorce <b>Doskový kondenzátor</b> a <b>Vrstvy v sérii</b>.",
+  "S = 0,15·0,18 = 2,7·10⁻² m².",
+  "C₁ (lepenka) = 8,854·10⁻¹²·2,6·0,027/0,3·10⁻³ = 2,07 nF; C₂ (PET) = 8,854·10⁻¹²·3,8·0,027/40·10⁻⁶ = 22,71 nF.",
+  "„Dve vrstvy izolácie“ = 2× lepenka + 2× fólia: 1/C = 2/C₁ + 2/C₂ → C = 949 pF. (Pri jednej lepenke a jednej fólii by vyšlo 1,90 nF.) Bežná PET fólia má ε<sub>r</sub> okolo 3,2; v úlohe platí zadaných 3,80."] },
+ { t: "Dielektriká, cvičenie 2: koaxiálny kábel s izoláciou z PTFE (ε<sub>r</sub> = 2,1) hrúbky 1,5 mm, prierez vnútorného vodiča 0,80 mm², dĺžka 1,2 m.", s: [
+  "Vzorec <b>Koaxiálny kábel</b>.",
+  "r₁ = √(S/π) = √(0,8·10⁻⁶/π) = 5,05·10⁻⁴ m; r₂ = r₁ + 1,5·10⁻³ = 2,005·10⁻³ m.",
+  "ln(r₂/r₁) = 1,379.",
+  "C = 2π·8,854·10⁻¹²·2,1·1,2/1,379 = 1,02·10⁻¹⁰ F = 102 pF."] },
+ { t: "Dielektriká, cvičenie 3: doskový vákuový kondenzátor, U = 1 000 V, d = 4,00 mm. E, D, σ; potom vloženie sľudy (ε<sub>r</sub> = 5,40) so zdrojom pripojeným a odpojeným.", s: [
+  "Vákuum: E = U/h = 2,50·10⁵ V/m; D = σ = ε₀E = 2,21·10⁻⁶ C/m².",
+  "Zdroj pripojený: U a E ostanú 2,50·10⁵ V/m; D = σ = ε₀ε<sub>r</sub>E = 1,20·10⁻⁵ C/m² (5,4-krát viac).",
+  "Zdroj odpojený: D = σ ostanú 2,21·10⁻⁶ C/m²; E = D/(ε₀ε<sub>r</sub>) = 4,63·10⁴ V/m (5,4-krát menej).",
+  "Rozmery dosiek na E, D a σ netreba, len na C alebo Q."] },
+ { t: "Dielektriká, cvičenie 4: elektrolytický kondenzátor, S = 400 cm², C = 8,00 μF, U = 10,0 V, ε<sub>r</sub> (Al₂O₃) = 8,00. Pole v oxide a celkový indukovaný dipólový moment.", s: [
+  "Hrúbka oxidu nie je daná: z C = ε₀ε<sub>r</sub>S/h je h = ε₀ε<sub>r</sub>S/C = 354 nm.",
+  "E = U/h = C·U/(ε₀ε<sub>r</sub>S) = 8·10⁻⁶·10/(8,854·10⁻¹²·8·0,04) = 2,82·10⁷ V/m.",
+  "P = ε₀(ε<sub>r</sub> − 1)E; celkový moment μ<sub>celk</sub> = P·S·h = ε₀(ε<sub>r</sub> − 1)·U·S (lebo E·h = U).",
+  "μ<sub>celk</sub> = 8,854·10⁻¹²·7·10·0,04 = 2,48·10⁻¹¹ C·m."] }
+],
+formulas: [
+ { n: "Polarizácia", f: "P = D − ε₀E = ε₀(ε<sub>r</sub> − 1)E = κ·ε₀E", w: "κ = ε<sub>r</sub> − 1 dielektrická susceptibilita" },
+ { n: "Indukcia", f: "D = ε₀ε<sub>r</sub>E = ε₀E + P", w: "ε<sub>r</sub> v skriptách ε′" },
+ { n: "Clausiova rovnica", f: "μ<sub>i</sub> = α·E<sub>lok</sub>,   P = n·α·E<sub>lok</sub>", w: "α polarizovateľnosť" },
+ { n: "Doskový kondenzátor", f: "C = ε₀ε<sub>r</sub>·S/h,   C = ε<sub>r</sub>·C₀", w: "" },
+ { n: "Vrstvy v sérii", f: "1/C = Σ 1/C<sub>i</sub>", w: "D je vo vrstvách rovnaké" },
+ { n: "Koaxiálny kábel", f: "C = 2π·ε₀ε<sub>r</sub>·l / ln(r₂/r₁)", w: "r₁ = √(S/π) z prierezu" },
+ { n: "Vloženie dielektrika", f: "zdroj pripojený: U, E stále, D·ε<sub>r</sub> · odpojený: Q, D, σ stále, E/ε<sub>r</sub>", w: "dielektrikum vyplní celú medzeru" },
+ { n: "Dipólový moment vrstvy", f: "μ<sub>celk</sub> = P·V = ε₀(ε<sub>r</sub> − 1)·U·S", w: "homogénna polarizácia" },
+ { n: "Curieho–Weissov zákon", f: "ε = C<sub>CW</sub>/(T − T<sub>CW</sub>)", w: "feroelektriká nad Curieovým bodom" },
+ { n: "Permitivity", f: "PTFE 2,1 · lepenka 2,6 · sľuda 5,4 · Al₂O₃ 8 · voda 80 · Si 11,7 · Ge 16,3", w: "zo zadaní a tab. 4.1" },
+ { n: "Konštanty", f: "ε₀ = 8,854·10⁻¹² F/m,  1 D = ⅓·10⁻²⁹ C·m", w: "" }
+],
+explain: { q: "Vysvetli, prečo vloženie dielektrika medzi dosky zväčší kapacitu kondenzátora.", keys: ["Pole posunie vázané náboje, dielektrikum sa polarizuje", "Na povrchu dielektrika vznikne vázaný náboj opačný k náboju dosky", "Ten čiastočne vyrovná pole od dosiek, pri rovnakom náboji je napätie menšie", "C = Q/U preto narastie ε<sub>r</sub>-krát"] },
+quiz: [
+ { q: "Aký je vzťah medzi polarizáciou a intenzitou poľa?", o: ["P = ε₀(ε<sub>r</sub> − 1)E", "P = ε₀ε<sub>r</sub>E", "P = ε₀E/ε<sub>r</sub>", "P = (ε<sub>r</sub> − 1)E"], e: "P = D − ε₀E = ε₀ε<sub>r</sub>E − ε₀E. Druhá možnosť je D.", h: "P = D − D₀." },
+ { q: "Zdroj je pripojený a medzi dosky vložíš dielektrikum s ε<sub>r</sub> = 4. Čo sa stane s intenzitou poľa?", o: ["nezmení sa", "klesne 4-krát", "stúpne 4-krát", "klesne na nulu"], e: "Zdroj drží U, takže E = U/h ostane. Narastie D a σ.", h: "Čo drží pripojený zdroj?" },
+ { q: "Zdroj je odpojený a vložíš dielektrikum s ε<sub>r</sub> = 4. Čo sa stane s indukciou D?", o: ["nezmení sa", "stúpne 4-krát", "klesne 4-krát", "zdvojnásobí sa"], e: "Náboj nemá kam ujsť, σ = D ostanú; E klesne 4-krát.", h: "Q = konšt." },
+ { q: "Ktorá polarizácia je u všetkých dielektrík a prebieha bez strát?", o: ["elektrónová", "dipólová", "medzivrstvová", "spontánna"], e: "Elektrónová: posun obalu voči jadru, 10⁻¹⁶–10⁻¹⁴ s, bez strát a nezávislá od teploty.", h: "Každý atóm má elektrónový obal." },
+ { q: "Ktorá polarizácia je najpomalšia a prejaví sa len pri veľmi nízkych frekvenciách?", o: ["medzivrstvová (migračná)", "elektrónová", "iónová pružná", "rezonančná"], e: "Je podmienená pohybom voľných nábojov k rozhraniam nehomogénnej látky.", h: "Vyskytuje sa v laminátoch a plnených látkach." },
+ { q: "Čím sa líši elektrostrikcia od piezoelektrického javu?", o: ["elektrostrikcia je u všetkých dielektrík a Δl ~ E², piezo len u acentrických kryštálov a Δl ~ E", "nijako", "elektrostrikcia je len u kovov", "piezo je u všetkých dielektrík"], e: "Piezoelektrický jav má aj obrátený smer (deformácia → náboj).", h: "Závislosť od E a výskyt." },
+ { q: "Dve rovnaké vrstvy s kapacitou po 2 nF sú v sérii. Aká je celková kapacita?", o: ["1 nF", "4 nF", "2 nF", "0,5 nF"], e: "1/C = 1/2 + 1/2 = 1 → C = 1 nF.", h: "Sériovo sa sčítajú prevrátené hodnoty." },
+ { q: "Aký rozsah dielektrickej susceptibility majú feroelektriká?", o: ["10² až 10⁴", "do 1", "do 100", "záporný"], e: "Paraelektriká do asi 100, feroelektriká 10²–10⁴ (napr. titaničitan bárnatý).", h: "Feroelektriká majú obrovskú permitivitu.", b: true }
+]
+},
+
+/* ---------- L14 ---------- */
+{
+id: "l14", ch: 4, title: "Vodivosť, straty a prieraz izolantov", sub: "tg δ, komplexná permitivita, výboje, prehľad izolantov",
+lesson: [
+ { h: "1. Vodivosť izolantov", p: [
+  "Polarizácia z predošlého levelu je posun vázaných nábojov. Reálny izolant má aj málo voľných nosičov, a teda malú vodivosť. Rovnako ako pri kovoch J<sub>v</sub> = n·q·v = γ<sub>v</sub>E, γ<sub>v</sub> = nqμ je <b>vnútorná konduktivita</b>, ρ<sub>v</sub> = 1/γ<sub>v</sub> <b>vnútorná rezistivita</b> (Ω·m). Na povrchu tuhých látok je navyše <b>povrchová konduktivita</b> γ<sub>p</sub> (S) a <b>povrchová rezistivita</b> ρ<sub>p</sub> (Ω).",
+  "Vodivosť môže byť iónová (ióny nečistôt a vlastnej látky), elektrónová (len v silných poliach a pri vysokej teplote) a elektroforetická (koloidné častice v kvapalinách, <b>elektroforéza</b>; na rozdiel od elektrolýzy sa na elektródach nevylučujú nové látky).",
+  "Vnútorná konduktivita tuhých izolantov silne rastie s teplotou, lebo rastie počet nosičov: γ<sub>v</sub> = A·e<sup>−b/T</sup>. V silných poliach rastie podľa Pooleho (nekryštalické látky) alebo Frenkela (kryštalické). <b>Povrchovú</b> vodivosť určuje hlavne vlhkosť: tenký vodný film stačí. Hydrofóbne látky (vodu odpudzujú) majú malú povrchovú vodivosť, hydrofilné veľkú; čistý a hladký povrch ju znižuje.",
+  "<b>Plyny</b> sú dobré izolanty, kým ich niečo neionizuje: náraz (W<sub>kin</sub> ≥ W<sub>i</sub>), žiarenie (h·f ≥ W<sub>i</sub>) alebo teplo. Pri <b>nesamostatnej</b> vodivosti treba vonkajší ionizátor, pri <b>samostatnej</b> pole urýchli nosiče natoľko, že ionizujú nárazom samy."
+ ]},
+ { h: "2. Dielektrické straty", p: [
+  "Pri striedavom napätí kondenzátor s ideálnym dielektrikom posúva prúd pred napätie o 90°. V reálnom je fázový posun φ menší a doplnok δ = 90° − φ je <b>stratový uhol</b>. Straty sú <b>vodivostné</b> (Joulovo teplo, pri jednosmernom aj striedavom napätí), <b>polarizačné</b> (pri relaxačných polarizáciách a feroelektrikách; elektrónová a iónová pružná ich prakticky nemajú) a <b>ionizačné</b> (v plynoch a plynových dutinkách po prekročení prahu ionizácie).",
+  "Mierou strát je <b>stratový činiteľ</b> tg δ, <b>stratové číslo</b> ε″ = ε′·tg δ a merný stratový výkon. Pre paralelné náhradné zapojenie (C<sub>p</sub>, R<sub>p</sub>):<span class=\"fm\">tg δ = 1/(ω·R<sub>p</sub>·C<sub>p</sub>),   P<sub>z</sub> = U²·ω·C<sub>p</sub>·tg δ</span>pre sériové tg δ = ω·R<sub>s</sub>·C<sub>s</sub> a C<sub>s</sub> = C<sub>p</sub>(1 + tg²δ). U je efektívna hodnota napätia.",
+  "<b>Komplexná permitivita</b> zahrnie straty do jedného čísla:<span class=\"fm\">ε* = ε′ − j·ε″ = ε′(1 − j·tg δ)</span>Podľa Debyeho teórie s jednou relaxačnou dobou τ: ε* = ε<sub>∞</sub> + (ε<sub>s</sub> − ε<sub>∞</sub>)/(1 + jωτ); ε′ klesá zo statickej hodnoty ε<sub>s</sub> na optickú ε<sub>∞</sub> a ε″ má maximum pri ωτ = 1. tg δ závisí od teploty a frekvencie u všetkých dielektrík, od intenzity poľa u feroelektrík a pri ionizačných stratách."
+ ], c: "Kondenzátor 1 μF s tg δ = 0,01 je na 230 V, 50 Hz. Aký je stratový výkon?", a: "P = U²ωC·tg δ = 230²·314·10⁻⁶·0,01 = 0,166 W." },
+ { h: "3. Prieraz izolantov", p: [
+  "Pri prekročení kritického poľa vznikne <b>výboj</b>, náhla dokonale vodivá cesta. V tuhom izolante je to <b>prieraz</b> (poškodenie je trvalé), v plyne alebo kvapaline <b>preskok</b> (zhoršenie býva dočasné). Napätie, pri ktorom nastane, je <b>prierazné napätie</b> U<sub>p</sub>; <b>elektrická pevnosť</b> E<sub>p</sub> = U<sub>p</sub>/h (V/m).",
+  "Charakter prierazu: <b>čisto elektrický</b> (nárazová ionizácia, laviny) a <b>tepelný</b> (straty ohrejú izolant, pribudnú nosiče, ešte viac tepla).",
+  "V plynoch opisuje vznik samostatného výboja <b>Townsendova teória</b> elektrónových lavín s podmienkou γ(e<sup>αh</sup> − 1) = 1. <b>Paschenov zákon</b>: ak sa vzdialenosť elektród n-krát zmenší a tlak n-krát zväčší, prierazné napätie sa nezmení; prierazné napätie závisí od súčinu p·h a má minimum (Stoletovov jav). Druhy výbojov: doutnavý (nízky tlak), korónový, iskrový, oblúkový."
+ ]},
+ { h: "4. Prehľad izolantov", p: [
+  "<b>Plynné</b>: bežné (N₂, H₂, CO₂, vzduch), vzácne (Ne, Ar, Xe) a elektronegatívne s vysokou pevnosťou (SF₆). <b>Kvapalné</b>: minerálne oleje (transformátorové, káblové, kondenzátorové), rastlinné (ricínový, ľanový) a syntetické (silikónové oleje, fluórované uhľovodíky).",
+  "<b>Tuhé organické</b>: vosky (parafín), živice (kalafuna, šelak), celulózové (papier, lepenka), kaučuk, a syntetické plasty: <b>termoplasty</b> (PE, PP, PS, PVC, PTFE, PMMA, polyamidy, polykarbonáty), <b>reaktoplasty</b> (fenoplasty, aminoplasty, epoxidy, nenasýtené polyestery), <b>elastoméry</b> (silikónový kaučuk) a teplovzdorné (silikóny, polyimidy). <b>Tuhé anorganické</b>: kremeň, sľuda, azbest, sklá a keramika (porcelán, steatit, korund, titaničitá keramika, nitridy, karbidy)."
+ ]}
+],
+theory: [
+ { h: "Vodivosť", items: ["J<sub>v</sub> = γ<sub>v</sub>E, ρ<sub>v</sub> (Ω·m); povrchová ρ<sub>p</sub> (Ω).", "Iónová, elektrónová, elektroforetická.", "γ<sub>v</sub> = A·e<sup>−b/T</sup>; povrchová závisí od vlhkosti (hydrofóbne/hydrofilné).", "Plyny: ionizácia nárazová, fotoionizácia, tepelná; nesamostatná a samostatná vodivosť."] },
+ { h: "Straty", items: ["δ = 90° − φ; vodivostné, polarizačné, ionizačné.", "Paralelne: tg δ = 1/(ωR<sub>p</sub>C<sub>p</sub>), P<sub>z</sub> = U²ωC<sub>p</sub>tg δ.", "Sériovo: tg δ = ωR<sub>s</sub>C<sub>s</sub>, C<sub>s</sub> = C<sub>p</sub>(1 + tg²δ).", "ε* = ε′ − jε″, ε″ = ε′tg δ; Debye: ε″ max pri ωτ = 1."] },
+ { h: "Prieraz", items: ["Prieraz (tuhé, trvalý) a preskok (plyny, kvapaliny).", "E<sub>p</sub> = U<sub>p</sub>/h; elektrický a tepelný prieraz.", "Townsend: γ(e<sup>αh</sup> − 1) = 1; Paschen: U<sub>p</sub> = f(p·h)."] }
+],
+traps: ["Stratový výkon počítaj s efektívnou hodnotou napätia.", "Elektrónová a iónová pružná polarizácia prakticky nemajú straty.", "Paschen: rovnaký súčin p·h, rovnaké prierazné napätie.", "Povrchová rezistivita je v Ω, vnútorná v Ω·m."],
+examples: [
+ { t: "Stratový výkon a paralelný odpor kondenzátora: C<sub>p</sub> = 100 nF, tg δ = 2·10⁻³, U = 1 000 V, f = 50 Hz.", s: [
+  "Vzorce <b>Stratový činiteľ</b> a <b>Stratový výkon</b>.",
+  "ω = 2π·50 = 314 s⁻¹.",
+  "P<sub>z</sub> = U²ωC<sub>p</sub>tg δ = 10⁶·314·10⁻⁷·2·10⁻³ = 0,0628 W.",
+  "R<sub>p</sub> = 1/(ωC<sub>p</sub>tg δ) = 1/(314·10⁻⁷·2·10⁻³) = 1,59·10⁷ Ω."] },
+ { t: "Elektrická pevnosť: fólia hrúbky 50 μm prerazí pri 10 kV.", s: [
+  "E<sub>p</sub> = U<sub>p</sub>/h = 10⁴/50·10⁻⁶ = 2·10⁸ V/m = 200 kV/mm."] }
+],
+formulas: [
+ { n: "Vnútorná a povrchová vodivosť", f: "J<sub>v</sub> = γ<sub>v</sub>E, γ<sub>v</sub> = nqμ, ρ<sub>v</sub> = 1/γ<sub>v</sub> [Ω·m];  J<sub>p</sub> = γ<sub>p</sub>E, ρ<sub>p</sub> [Ω]", w: "" },
+ { n: "Teplotná závislosť", f: "γ<sub>v</sub> = A·e<sup>−b/T</sup>", w: "tuhé izolanty" },
+ { n: "Stratový uhol", f: "δ = 90° − φ", w: "φ fázový posun prúdu pred napätím" },
+ { n: "Stratový činiteľ", f: "paralelne tg δ = 1/(ωR<sub>p</sub>C<sub>p</sub>) · sériovo tg δ = ωR<sub>s</sub>C<sub>s</sub>", w: "C<sub>s</sub> = C<sub>p</sub>(1 + tg²δ)" },
+ { n: "Stratový výkon", f: "P<sub>z</sub> = U²·ω·C<sub>p</sub>·tg δ", w: "U efektívna hodnota" },
+ { n: "Komplexná permitivita", f: "ε* = ε′ − jε″,  ε″ = ε′·tg δ", w: "ε″ stratové číslo" },
+ { n: "Debyeho vzťah", f: "ε* = ε<sub>∞</sub> + (ε<sub>s</sub> − ε<sub>∞</sub>)/(1 + jωτ)", w: "jedna relaxačná doba τ" },
+ { n: "Elektrická pevnosť", f: "E<sub>p</sub> = U<sub>p</sub>/h", w: "V/m" },
+ { n: "Townsendova podmienka", f: "γ·(e<sup>αh</sup> − 1) = 1", w: "samostatný výboj v plyne" },
+ { n: "Paschenov zákon", f: "U<sub>p</sub> = f(p·h)", w: "n-krát menšia vzdialenosť a n-krát väčší tlak → rovnaké U<sub>p</sub>" }
+],
+explain: { q: "Vysvetli, prečo sa kondenzátor so stratovým dielektrikom pri striedavom napätí zahrieva a od čoho tie straty závisia.", keys: ["Reálne dielektrikum má malú vodivosť: vodivostné straty", "Relaxačné polarizácie nestíhajú pole a energia sa mení na teplo", "Mierou je stratový činiteľ tg δ, δ = 90° − φ", "P = U²ωC·tg δ, závisí od frekvencie a teploty"] },
+quiz: [
+ { q: "Aký je stratový výkon kondenzátora v paralelnom náhradnom zapojení?", o: ["P = U²·ω·C·tg δ", "P = U²/(ωC·tg δ)", "P = U·ω·C", "P = U²·C·tg δ"], e: "P<sub>z</sub> = U²ωC<sub>p</sub>tg δ, U efektívna hodnota.", h: "Jalový výkon U²ωC krát tg δ." },
+ { q: "Čo je stratový uhol δ?", o: ["doplnok fázového posunu do 90°", "fázový posun medzi prúdom a napätím", "uhol medzi E a D", "uhol hysteréznej slučky"], e: "δ = 90° − φ; ideálny kondenzátor má φ = 90°, δ = 0.", h: "Miera nedokonalosti dielektrika." },
+ { q: "Ktoré straty sa vyskytujú aj pri jednosmernom napätí?", o: ["vodivostné", "polarizačné", "rezonančné", "len ionizačné"], e: "Vodivostné straty sú Joulovo teplo z prúdu voľných nosičov.", h: "Jednosmerne nič nepolarizuje stále dokola." },
+ { q: "Čo hovorí Paschenov zákon?", o: ["prierazné napätie plynu závisí od súčinu tlaku a vzdialenosti elektród", "prierazné napätie rastie s teplotou", "plyn neprerazí pri nízkom tlaku", "prierazné napätie nezávisí od tlaku"], e: "n-krát menšia vzdialenosť a n-krát väčší tlak dajú rovnaké U<sub>p</sub>.", h: "U<sub>p</sub> = f(p·h)." },
+ { q: "Čo najviac ovplyvňuje povrchovú vodivosť tuhého izolantu?", o: ["vlhkosť a schopnosť látky viazať vodu", "hrúbka izolantu", "permitivita", "magnetické pole"], e: "Tenký vodný film (γ vody 10⁻⁴–10⁻⁵ S/m) stačí; hydrofóbne látky sú lepšie.", h: "Čo sa usádza na povrchu?" },
+ { q: "Ako súvisí stratové číslo so stratovým činiteľom?", o: ["ε″ = ε′·tg δ", "ε″ = ε′/tg δ", "ε″ = tg δ", "ε″ = ε′ + tg δ"], e: "ε* = ε′(1 − j·tg δ).", h: "tg δ = ε″/ε′." },
+ { q: "Do ktorej skupiny patrí PTFE (teflón)?", o: ["termoplasty", "reaktoplasty", "elastoméry", "anorganické izolanty"], e: "Termoplasty: PE, PP, PS, PVC, PTFE, PMMA… Reaktoplasty: fenoplasty, epoxidy.", h: "Dá sa opakovane taviť." },
+ { q: "Čím sa líši prieraz od preskoku?", o: ["prieraz je v tuhom izolante a poškodenie je trvalé, preskok v plyne či kvapaline a býva dočasný", "nijako", "preskok je len v tuhých látkach", "prieraz nastáva len pri nízkom napätí"], e: "Skriptá: prieraz (tuhé), preskok (plynné, kvapalné).", h: "Plyn sa po výboji „zahojí“.", b: true }
+]
 }
 ],
-boss: []
+boss: [
+ { q: "Kremík (diamantová mriežka, a = 0,543 nm) má 5,0·10²⁸ atómov/m³. Pridáš 10⁻⁶ % fosforu (plná ionizácia). Aká je koncentrácia elektrónov?", o: ["5,0·10²⁰ m⁻³", "5,0·10²² m⁻³", "1,45·10¹⁶ m⁻³", "5,0·10¹⁸ m⁻³"], e: "N<sub>D</sub> = (10⁻⁶/100)·5·10²⁸ = 5·10²⁰ m⁻³ ≫ n<sub>i</sub>, teda n<sub>n</sub> ≈ N<sub>D</sub>.", h: "Percentá deľ 100, potom plná ionizácia.", lv: "l11" },
+ { q: "Prečo rezistivita kovu s teplotou rastie, ale rezistivita čistého polovodiča klesá?", o: ["v kove sa počet nosičov nemení a klesá pohyblivosť; v polovodiči exponenciálne rastie počet nosičov", "v kove rastie počet nosičov", "v polovodiči klesá šírka zakázaného pásu na nulu", "kov je supravodič"], e: "Kov: n = konšt., rozptyl na mriežke rastie. Polovodič: n<sub>i</sub> ~ e<sup>−W<sub>g</sub>/2kT</sup>.", h: "Čo sa mení s teplotou: počet nosičov alebo pohyblivosť?", lv: "l10" },
+ { q: "Jadro transformátora pri 50 Hz má hysterézne straty 1,0 W/kg a vírivé 0,4 W/kg. Pri 100 Hz (rovnaké B) to bude…", o: ["3,6 W/kg", "2,8 W/kg", "5,6 W/kg", "1,4 W/kg"], e: "2·1,0 + 4·0,4 = 3,6 W/kg.", h: "Hysterézne ×2, vírivé ×4.", lv: "l9" },
+ { q: "Vrstva vzduchu a vrstva sľudy rovnakej hrúbky sú v sérii medzi doskami. Kde je väčšie elektrické pole?", o: ["vo vzduchu", "v sľude", "rovnaké", "nulové v oboch"], e: "D je spojité, E = D/(ε₀ε<sub>r</sub>), takže väčšie pole je vo vrstve s menšou permitivitou.", h: "D je vo vrstvách rovnaké.", lv: "l13" },
+ { q: "Medená cievka má pri 20 °C odpor 50 Ω a pri prevádzke 58 Ω (α = 3,93·10⁻³ K⁻¹). Aká je teplota vinutia?", o: ["asi 61 °C", "asi 41 °C", "asi 81 °C", "asi 28 °C"], e: "ϑ = 20 + (58/50 − 1)/3,93·10⁻³ = 20 + 40,7 ≈ 61 °C.", h: "ϑ = ϑ₀ + (R/R₀ − 1)/α.", lv: "l5" }
+]
 });
 
 GEN.mte = {
+ l13: [
+  () => { const a = rnd([0.1, 0.15, 0.2]), b = rnd([0.15, 0.18, 0.25]), h1 = rnd([0.2, 0.3, 0.5]) * 1e-3, e1 = rnd([2.6, 3.0, 4.0]), h2 = rnd([25, 40, 50]) * 1e-6, e2 = rnd([2.1, 3.2, 3.8]), S = a * b, e0 = 8.854e-12, C1 = e0 * e1 * S / h1, C2 = e0 * e2 * S / h2, C = 1 / (1 / C1 + 1 / C2);
+    return hint("C<sub>i</sub> = ε₀ε<sub>r</sub>S/h<sub>i</sub>, vrstvy v sérii: 1/C = 1/C₁ + 1/C₂.", mk(`Medzi doskami ${num(a * 100)} × ${num(b * 100)} cm je vrstva hrúbky ${num(h1 * 1000)} mm (ε<sub>r</sub> = ${num(e1)}) a fólia ${num(h2 * 1e6)} μm (ε<sub>r</sub> = ${num(e2)}). Aká je kapacita?`, C, "F", [C1 + C2, C1, C2], `S = ${num(S)} m²; C₁ = ${num(C1)} F, C₂ = ${num(C2)} F; C = ${num(C)} F.`)); },
+  () => { const S = rnd([0.5, 0.8, 1, 1.5]) * 1e-6, d = rnd([1, 1.5, 2, 3]) * 1e-3, er = rnd([2.1, 2.3, 3.5]), l = rnd([1, 1.2, 5, 10]), r1 = Math.sqrt(S / Math.PI), r2 = r1 + d, C = 2 * Math.PI * 8.854e-12 * er * l / Math.log(r2 / r1);
+    return hint("r₁ = √(S/π), r₂ = r₁ + hrúbka, C = 2πε₀ε<sub>r</sub>l/ln(r₂/r₁).", mk(`Koaxiálny kábel dĺžky ${num(l)} m má vnútorný vodič s prierezom ${num(S * 1e6)} mm² a izoláciu hrúbky ${num(d * 1000)} mm (ε<sub>r</sub> = ${num(er)}). Aká je kapacita?`, C, "F", [2 * Math.PI * 8.854e-12 * er * l / Math.log10(r2 / r1), 2 * Math.PI * 8.854e-12 * er * l / Math.log(d / r1), C * er], `r₁ = ${num(r1)} m, r₂ = ${num(r2)} m, ln(r₂/r₁) = ${num(Math.log(r2 / r1))}; C = ${num(C)} F.`)); },
+  () => { const U = rnd([500, 1000, 2000]), h = rnd([2, 4, 5]) * 1e-3, er = rnd([2.5, 5.4, 6, 8]), con = rnd([true, false]), E0 = U / h, D0 = 8.854e-12 * E0, val = con ? D0 * er : E0 / er;
+    return hint(con ? "Zdroj pripojený: E ostáva, D = ε₀ε<sub>r</sub>E narastie." : "Zdroj odpojený: D ostáva, E = D/(ε₀ε<sub>r</sub>) klesne.", mk(`Vákuový doskový kondenzátor (h = ${num(h * 1000)} mm) je na napätí ${U} V. ${con ? "Zdroj ostane pripojený" : "Zdroj odpojíš"} a medzeru vyplníš dielektrikom s ε<sub>r</sub> = ${num(er)}. Aká je potom ${con ? "elektrická indukcia" : "intenzita poľa"}?`, val, con ? "C·m⁻²" : "V·m⁻¹", con ? [D0, D0 / er, D0 * (er - 1)] : [E0, E0 * er, E0 / (er - 1)], `E₀ = U/h = ${num(E0)} V/m, D₀ = ε₀E₀ = ${num(D0)} C/m²; ${con ? `D = ε<sub>r</sub>D₀ = ${num(val)} C/m²` : `E = E₀/ε<sub>r</sub> = ${num(val)} V/m`}.`)); },
+  () => { const er = rnd([2.1, 3, 4, 5.4, 8]), E = rnd([1, 2, 5, 10]) * 1e6, P = 8.854e-12 * (er - 1) * E;
+    return hint("P = ε₀(ε<sub>r</sub> − 1)E.", mk(`Aká je polarizácia dielektrika s ε<sub>r</sub> = ${num(er)} v poli ${num(E)} V·m⁻¹?`, P, "C·m⁻²", [8.854e-12 * er * E, 8.854e-12 * E, P * 10], `P = 8,854·10⁻¹²·(${num(er)} − 1)·${num(E)} = ${num(P)} C/m².`)); }
+ ],
+ l14: [
+  () => { const C = rnd([10, 47, 100, 220, 1000]) * 1e-9, tg = rnd([1, 2, 5, 10]) * 1e-3, U = rnd([230, 400, 1000]), f = rnd([50, 1000]), P = U * U * 2 * Math.PI * f * C * tg;
+    return hint("P = U²·ω·C·tg δ, ω = 2πf.", mk(`Kondenzátor ${num(C)} F s tg δ = ${num(tg)} je na efektívnom napätí ${U} V, ${f} Hz. Aký je stratový výkon?`, P, "W", [U * U * f * C * tg, P * 2, U * U * 2 * Math.PI * f * C], `ω = ${num(2 * Math.PI * f)} s⁻¹; P = ${U}²·${num(2 * Math.PI * f)}·${num(C)}·${num(tg)} = ${num(P)} W.`)); },
+  () => { const C = rnd([10, 100, 1000]) * 1e-9, R = rnd([1, 10, 100]) * 1e6, f = rnd([50, 1000]), tg = 1 / (2 * Math.PI * f * R * C);
+    return hint("Paralelné zapojenie: tg δ = 1/(ω·R<sub>p</sub>·C<sub>p</sub>).", mk(`Stratový kondenzátor má v paralelnom náhradnom zapojení C<sub>p</sub> = ${num(C)} F a R<sub>p</sub> = ${num(R)} Ω. Aký je stratový činiteľ pri ${f} Hz?`, tg, "", [2 * Math.PI * f * R * C, 1 / (f * R * C), tg * 10], `tg δ = 1/(2π·${f}·${num(R)}·${num(C)}) = ${num(tg)}.`)); },
+  () => { const h = rnd([20, 50, 100, 250]) * 1e-6, Up = rnd([2, 5, 10, 20]) * 1e3, Ep = Up / h;
+    return hint("E<sub>p</sub> = U<sub>p</sub>/h, h v metroch.", mk(`Izolačná fólia hrúbky ${num(h * 1e6)} μm prerazí pri napätí ${num(Up)} V. Aká je jej elektrická pevnosť?`, Ep, "V·m⁻¹", [Up * h, Ep / 1000, Ep / 1e6], `E<sub>p</sub> = ${num(Up)}/${num(h)} = ${num(Ep)} V/m.`)); }
+ ],
  l10: [
   () => { const [nm, Wg, NC, NV, mu] = rnd([["Si", 1.11, 2.8e25, 1.04e25, 0.183], ["Ge", 0.67, 1.04e25, 6.0e24, 0.58]]), t = rnd([20, 50, 100, 150, 200]), T = t + 273.15, x = Wg * 1.602e-19 / (2 * 1.38e-23 * T), ni = Math.sqrt(NC * NV) * Math.exp(-x);
     return hint("n<sub>i</sub> = √(N<sub>C</sub>N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>, W<sub>g</sub> v J, T v K.", mk(`Vlastný ${nm}: W<sub>g</sub> = ${num(Wg)} eV, N<sub>C</sub> = ${num(NC)} m⁻³, N<sub>V</sub> = ${num(NV)} m⁻³. Aká je koncentrácia nosičov pri ${t} °C podľa vzorca?`, ni, "m⁻³", [Math.sqrt(NC * NV) * Math.exp(-2 * x), ni * 100, ni / 100], `√(N<sub>C</sub>N<sub>V</sub>) = ${num(Math.sqrt(NC * NV))}; W<sub>g</sub>/2kT = ${num(x, 4)}; n<sub>i</sub> = ${num(ni)} m⁻³.`)); },

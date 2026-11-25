@@ -1,6 +1,6 @@
 # Študijný Quest
 
-Gamifikovaná študijná hra na prípravu na písomky: levely s výkladom, vzorcami a kvízmi, skúšobný test na čas a opakovanie chýb. Obsahuje predmety **Fyzika 1** (BPC-FY1, FEKT VUT) a **Materiály v elektrotechnike** (MTD, FEKT VUT, podľa skrípt a numerických cvičení, postupne pribúdajú kapitoly). Predmet sa prepína tlačidlami na mape.
+Gamifikovaná študijná hra na prípravu na písomky: levely s výkladom, vzorcami a kvízmi, skúšobný test na čas a opakovanie chýb. Obsahuje predmety **Fyzika 1** (BPC-FY1, FEKT VUT) a **Materiály v elektrotechnike** (MTD, FEKT VUT, 14 levelov podľa skrípt a numerických cvičení). Predmet sa prepína tlačidlami na mape.
 
 **Hrať:** https://opicajuro.github.io/Stuok/
 
