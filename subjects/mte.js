@@ -8,8 +8,9 @@ name: "Materiály v elektrotechnike",
 note: "MTD · skriptá a numerické cvičenia · kalkulačka povolená",
 chapters: [
  { name: "Kapitola 1 · Zloženie a štruktúra látok", note: "Atómy, väzby, kryštály, poruchy, pásový model.", exam: null },
- { name: "Kapitola 2 · Vodivé a odporové materiály", note: "Vodivosť kovov, supravodivosť, termoelektrina, kovy v praxi. Skúšobný test je z celého predmetu.",
-   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4", "l5", "l6", "l7"] } }
+ { name: "Kapitola 2 · Vodivé a odporové materiály", note: "Vodivosť kovov, supravodivosť, termoelektrina, kovy v praxi.", exam: null },
+ { name: "Kapitola 3 · Magnetické materiály", note: "Magnetizácia, permeabilita, hysterézia a straty. Skúšobný test je z celého predmetu.",
+   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9"] } }
 ],
 levels: [
 
@@ -458,13 +459,145 @@ quiz: [
  { q: "Prečo hrozí korózia pri spojení hliníka s meďou vo vlhku?", o: ["vzniká galvanický článok (elektrolytická korózia)", "hliník je mäkší", "meď oxiduje rýchlejšie", "hliník sa rozpúšťa vo vode"], e: "Dva rôzne kovy a elektrolyt tvoria článok, menej ušľachtilý hliník sa rozpúšťa.", h: "Dva kovy + elektrolyt = …" },
  { q: "Na čo sa používa elektrografit?", o: ["kefky elektrických strojov a smykové zberače", "vinutia transformátorov", "pájky", "odporové normály"], e: "Má malé trenie, je mazivý, vodivý a nezvárateľný.", h: "Kĺzavý kontakt na rotujúcom komutátore.", b: true }
 ]
-}
+},
+/* ---------- L8 ---------- */
+{
+id: "l8", ch: 2, title: "Magnetizácia a permeabilita", sub: "B, H, M, J, κ, μr a domény",
+lesson: [
+ { h: "1. Odkiaľ sa berie magnetizmus látok", p: [
+  "Vodivosť kovov sme vysvetlili pohybom elektrónov. Rovnaké elektróny robia aj magnetizmus: každý elektrón má <b>spinový</b> magnetický moment (otáčanie okolo vlastnej osi) a <b>dráhový</b> (orbitálny) moment z obehu okolo jadra. Jadrové momenty sú o niekoľko rádov menšie.",
+  "Podľa toho, či sa momenty v atóme vykompenzujú, delíme látky: <b>diamagnetiká</b> majú spinové aj dráhové momenty vykompenzované (meď, zlato, zinok, voda, vzácne plyny), <b>paramagnetiká</b> nevykompenzované (platina, hliník, mangán), <b>feromagnetiká</b> majú nevykompenzované spinové momenty na niektorej vnútornej vrstve obalu (železo, kobalt, nikel, gadolínium a ich zliatiny)."
+ ]},
+ { h: "2. Základné vzťahy", p: [
+  "Látka v poli s intenzitou H (A/m) sa zmagnetizuje. Indukcia B (T) je súčet časti od samotného poľa a časti, ktorú pridá látka, <b>magnetickú polarizáciu</b> J<sub>m</sub> (T):<span class=\"fm\">B = μ₀H + J<sub>m</sub> = μ₀H + μ₀M</span>M je <b>magnetizácia</b> (A/m). Je to obdoba D = ε₀E + P pri dielektrikách.",
+  "Magnetizácia je úmerná poľu, konštanta je <b>magnetická susceptibilita</b> κ (v niektorých textoch χ):<span class=\"fm\">M = κ·H,   B = μ₀(1 + κ)H = μ₀μ<sub>r</sub>H,   μ<sub>r</sub> = 1 + κ</span>μ₀ = 4π·10⁻⁷ H/m. Diamagnetiká majú κ malé záporné (μ<sub>r</sub> tesne pod 1), paramagnetiká malé kladné, feromagnetiká obrovské a závislé od H.",
+  "Polarizácia J<sub>m</sub> sa píše s indexom, aby sa nepomýlila s prúdovou hustotou ani s momentom zotrvačnosti. Jednotka J<sub>m</sub> je tesla, jednotka M je A/m."
+ ], c: "Pole H = 10 A/m vytvorí v látke polarizáciu J<sub>m</sub> = 3·10⁻⁶ T. Aká je susceptibilita?", a: "κ = J<sub>m</sub>/(μ₀H) = 3·10⁻⁶/(1,2566·10⁻⁶·10) = 0,24, teda μ<sub>r</sub> = 1,24." },
+ { h: "3. Domény a Curieov bod", p: [
+  "Feromagnetikum sa skladá z <b>domén</b> (Weissových oblastí), v ktorých sú spinové momenty vďaka výmenným silám spontánne rovnobežné. Domény oddeľujú <b>Blochove steny</b>, v ktorých sa smer momentov postupne stáča. Bez vonkajšieho poľa sú domény orientované tak, že sa navonok vyrušia.",
+  "Pri <b>antiferomagnetikách</b> sú momenty dvoch rovnakých podmriežok A a B antiparalelné a vyrušia sa. <b>Ferimagnetiká</b> (ferity, oxidové polovodiče) majú podmriežky s rôznymi iónmi, momenty sa vyrušia len čiastočne: je to nevykompenzovaný antiferomagnetizmus.",
+  "Nad <b>Curieovým bodom</b> tepelný pohyb rozbije rovnobežné usporiadanie a látka prejde do paramagnetického stavu: Fe 768 °C, Ni 358 °C, Co 1 131 °C. Pri feritoch sa používa <b>technický Curieov bod</b>, teplota, pri ktorej počiatočná permeabilita klesne na 50 % hodnoty pri 20 °C.",
+  "Susceptibilita paramagnetika klesá s teplotou podľa <b>Curieho zákona</b> κ = C/T (T v kelvinoch), teda κ₂ = κ₁·T₁/T₂. Cvičenie ho používa na Fe₂O₃; hematit je v skutočnosti pri izbovej teplote slabý feromagnet, v úlohe ho berieme ako paramagnet."
+ ]},
+ { h: "4. Krivka prvotnej magnetizácie a permeabilita", p: [
+  "Ak dáš odmagnetovaný feromagnet do rastúceho poľa, B(H) opisuje <b>krivka prvotnej magnetizácie</b>. Má štyri oblasti: I. vratné posuny Blochových stien, II. nevratné posuny stien (strmý nárast), III. stáčanie polarizácie domén do smeru poľa, IV. <b>nasýtenie</b>.",
+  "Permeabilita feromagnetika preto nie je konštanta. <b>Počiatočná</b> μ<sub>r poč</sub> je sklon krivky v počiatku, <b>maximálna</b> μ<sub>r max</sub> sklon dotyčnice z počiatku ku krivke, <b>diferenciálna</b> μ<sub>r dif</sub> strmosť krivky v danom bode. Teplotnú závislosť opisuje teplotný súčiniteľ permeability α<sub>μ</sub>."
+ ]}
+],
+theory: [
+ { h: "Rozdelenie", items: ["Diamagnetiká (Cu, Au, Zn, voda): momenty vykompenzované, κ < 0 malé.", "Paramagnetiká (Pt, Al, Mn): κ > 0 malé, Curieho zákon κ = C/T.", "Feromagnetiká (Fe, Co, Ni, Gd): domény, Blochove steny, κ veľké.", "Antiferomagnetiká a ferimagnetiká (ferity)."] },
+ { h: "Vzťahy", items: ["B = μ₀H + J<sub>m</sub>, J<sub>m</sub> = μ₀M, M = κH.", "μ<sub>r</sub> = 1 + κ = B/(μ₀H), μ₀ = 4π·10⁻⁷ H/m.", "Curieov bod: Fe 768 °C, Ni 358 °C, Co 1 131 °C; technický Curieov bod feritov (50 % μ<sub>r poč</sub>).", "Krivka prvotnej magnetizácie: vratné a nevratné posuny stien, stáčanie, nasýtenie; μ<sub>r poč</sub>, μ<sub>r max</sub>, μ<sub>r dif</sub>."] }
+],
+traps: ["J<sub>m</sub> je v tesla, M v A/m: J<sub>m</sub> = μ₀M.", "μ<sub>r</sub> = 1 + κ, nie κ.", "V Curieho zákone treba teplotu v kelvinoch.", "Permeabilita feromagnetika závisí od H, nie je to jedna konštanta."],
+examples: [
+ { t: "Magnetické materiály, cvičenie 1: J<sub>m</sub> = 3,00·10⁻⁶ T, H = 10,0 A·m⁻¹. Urč B, κ<sub>m</sub> a μ<sub>r</sub>.", s: [
+  "Vzorce <b>Indukcia a polarizácia</b>, <b>Susceptibilita</b>.",
+  "μ₀H = 4π·10⁻⁷·10 = 1,257·10⁻⁵ T; B = 1,257·10⁻⁵ + 0,300·10⁻⁵ = 1,557·10⁻⁵ T.",
+  "κ<sub>m</sub> = J<sub>m</sub>/(μ₀H) = 3·10⁻⁶/1,257·10⁻⁵ = 0,24.",
+  "μ<sub>r</sub> = 1 + κ = 1,24. Kontrola: B/(μ₀H) = 1,557/1,257 = 1,24."] },
+ { t: "Magnetické materiály, cvičenie 2: Fe₂O₃ (v úlohe paramagnetikum), κ = 1,4·10⁻³ pri 20 °C, H = 10⁶ A·m⁻¹. B, M, J<sub>m</sub> pri 20 °C a pri 77,3 K.", s: [
+  "Vzorec <b>Curieho zákon</b>: κ₂ = κ₁·T₁/T₂ = 1,4·10⁻³·293/77,3 = 5,31·10⁻³.",
+  "20 °C: M = κH = 1,40·10³ A/m; J<sub>m</sub> = μ₀M = 1,76·10⁻³ T; B = μ₀(1 + κ)H = 1,258 T.",
+  "77,3 K: M = 5,31·10³ A/m; J<sub>m</sub> = 6,67·10⁻³ T; B = 1,263 T.",
+  "B sa mení len na 3. desatinnom mieste, lebo κ je malé a B ≈ μ₀H."] }
+],
+formulas: [
+ { n: "Indukcia a polarizácia", f: "B = μ₀H + J<sub>m</sub>,   J<sub>m</sub> = μ₀M", w: "J<sub>m</sub> v T, M v A/m" },
+ { n: "Susceptibilita", f: "M = κ·H,   κ = J<sub>m</sub>/(μ₀H)", w: "v niektorých textoch χ" },
+ { n: "Permeabilita", f: "B = μ₀μ<sub>r</sub>H,   μ<sub>r</sub> = 1 + κ = B/(μ₀H)", w: "lineárne látky" },
+ { n: "Curieho zákon", f: "κ = C/T  →  κ₂ = κ₁·T₁/T₂", w: "paramagnetiká, T v K" },
+ { n: "Curieove body", f: "Fe 768 °C · Ni 358 °C · Co 1 131 °C", w: "nad nimi paramagnetický stav" },
+ { n: "Konštanty", f: "μ₀ = 4π·10⁻⁷ H/m = 1,2566·10⁻⁶ H/m", w: "permeabilita vákua" }
+],
+explain: { q: "Vysvetli, čo sa deje v železe, keď ho vložíš do rastúceho magnetického poľa, až kým sa nenasýti.", keys: ["Železo má domény so spontánne rovnobežnými spinmi, navonok sa vyrušia", "Najprv sa vratne posúvajú Blochove steny, potom nevratne", "Potom sa polarizácia domén stáča do smeru poľa", "Keď sú všetky momenty v smere poľa, nastane nasýtenie"] },
+quiz: [
+ { q: "Aký je vzťah medzi B, H a magnetickou polarizáciou J<sub>m</sub>?", o: ["B = μ₀H + J<sub>m</sub>", "B = μ₀(H + J<sub>m</sub>)", "B = J<sub>m</sub>/μ₀ + H", "B = μ₀H·J<sub>m</sub>"], e: "J<sub>m</sub> je v tesla a pripočíta sa k μ₀H. S magnetizáciou: B = μ₀(H + M).", h: "Všetky sčítané členy musia byť v tesla." },
+ { q: "Ako súvisí relatívna permeabilita so susceptibilitou?", o: ["μ<sub>r</sub> = 1 + κ", "μ<sub>r</sub> = κ", "μ<sub>r</sub> = 1 − κ", "μ<sub>r</sub> = 1/κ"], e: "B = μ₀(1 + κ)H = μ₀μ<sub>r</sub>H.", h: "Vákuum má κ = 0 a μ<sub>r</sub> = 1." },
+ { q: "Ktorá látka je diamagnetická?", o: ["meď", "hliník", "platina", "železo"], e: "Diamagnetiká: Cu, Au, Zn, voda. Al a Pt sú paramagnetiká, Fe feromagnetikum.", h: "Momenty má vykompenzované." },
+ { q: "Čo sú Blochove steny?", o: ["hraničné vrstvy medzi doménami, v ktorých sa stáča smer spinov", "hranice zŕn v polykryštáli", "podmriežky feritu", "oblasti s nulovou indukciou"], e: "Domény oddeľujú Blochove steny; ich posun je prvá fáza magnetizácie.", h: "Súvisí s doménami." },
+ { q: "Čo sa stane s feromagnetikom nad Curieovým bodom?", o: ["prejde do paramagnetického stavu", "stane sa supravodičom", "stane sa diamagnetikom", "zvýši sa mu permeabilita"], e: "Tepelný pohyb rozbije rovnobežnú orientáciu spinov v doménach. Fe 768 °C.", h: "Tepelný pohyb vs. výmenné sily." },
+ { q: "Paramagnetikum má pri 300 K susceptibilitu 1,5·10⁻³. Aká bude pri 150 K podľa Curieho zákona?", o: ["3,0·10⁻³", "0,75·10⁻³", "1,5·10⁻³", "6,0·10⁻³"], e: "κ₂ = κ₁·T₁/T₂ = 1,5·10⁻³·2.", h: "κ je nepriamo úmerná T." },
+ { q: "Čím sa ferimagnetikum (ferit) líši od antiferomagnetika?", o: ["momenty podmriežok sa vyrušia len čiastočne, lebo podmriežky sú z rôznych iónov", "momenty sú všetky rovnobežné", "nemá žiadne podmriežky", "je to vždy kov"], e: "Antiferomagnetikum má podmriežky rovnaké a momenty sa vyrušia; ferit má rôzne, ostane výsledný moment.", h: "Nevykompenzovaný antiferomagnetizmus." },
+ { q: "Čo opisuje oblasť IV na krivke prvotnej magnetizácie?", o: ["nasýtenie", "vratné posuny Blochových stien", "nevratné posuny stien", "stáčanie polarizácie domén"], e: "I vratné posuny, II nevratné posuny, III stáčanie, IV nasýtenie.", h: "Posledná oblasť krivky.", b: true }
+]
+},
 
+/* ---------- L9 ---------- */
+{
+id: "l9", ch: 2, title: "Hysterézia a straty", sub: "mäkké a tvrdé materiály, straty pri striedavom poli",
+lesson: [
+ { h: "1. Hysterézna slučka", p: [
+  "V predošlom leveli sme magnetovali od nuly po nasýtenie. Keď pole znova zmenšíš, B sa nevracia po tej istej krivke: nevratné posuny stien si materiál „pamätá“. Závislosť B(H) pri striedavom magnetovaní tvorí <b>hysteréznu slučku</b>. Pri veľmi pomalých zmenách je to statická slučka, pri striedavom poli dynamická; jej tvar závisí od frekvencie a priebehu B a H.",
+  "Dôležité body slučky: <b>remanentná indukcia</b> B<sub>r</sub> (ostane pri H = 0), <b>koercitívna sila</b> H<sub>c</sub> (pole, ktoré treba na zníženie B na nulu), <b>indukcia nasýtenia</b> B<sub>s</sub>."
+ ]},
+ { h: "2. Mäkké a tvrdé materiály", p: [
+  "Hlavné kritérium je koercitívna sila: H<sub>c</sub> &lt; 10³ A/m znamená <b>magneticky mäkký</b> materiál (úzka slučka), H<sub>c</sub> &gt; 10³ A/m <b>magneticky tvrdý</b> (široká slučka).",
+  "<b>Mäkké</b> chcú malú H<sub>c</sub>, veľkú počiatočnú aj maximálnu permeabilitu, malé hysterézne straty a ľahké nasýtenie. Použitie: transformátory, stroje, tlmivky, relé, jadrá cievok. Kompaktné: čisté železo, oceľ s kremíkom (transformátorové a dynamové plechy, Si zvyšuje rezistivitu), zliatiny Fe–Ni–Co (μ<sub>r poč</sub> až 300 000, B<sub>s</sub> až 2,4 T). <b>Mäkké ferity</b> (kubická mriežka) majú veľkú rezistivitu, preto malé straty vírivými prúdmi a hodia sa na vysoké frekvencie, ale B<sub>s</sub> len do 0,3 T.",
+  "<b>Tvrdé</b> sú permanentné magnety: veľká H<sub>c</sub>, veľká B<sub>r</sub>, malá permeabilita a veľký <b>maximálny energetický súčin (BH)<sub>max</sub></b> (J/m³), energia poľa v okolí jednotkového objemu magnetu. Oceľ s W, Cr, Mo, Co (1–2,5 kJ/m³), Al–Ni(–Co) (15–45 kJ/m³), zlúčeniny vzácnych zemín RCo₅, R₂Co₁₇, najčastejšie samárium (H<sub>c</sub> stovky kA/m, okolo 300 kJ/m³), bárnaté ferity s hexagonálnou mriežkou (28–35 kJ/m³). Pre pamäťové médiá sa chce <b>pravouhlá</b> slučka."
+ ], c: "Prečo sa jadro transformátora robí z mäkkého materiálu?", a: "Jadro sa každú periódu premagnetuje. Úzka slučka (malá H<sub>c</sub>) znamená malú plochu slučky, teda malé hysterézne straty, a veľká permeabilita dá veľký tok pri malom prúde." },
+ { h: "3. Straty pri striedavom poli", p: [
+  "Pri každom premagnetovaní sa časť energie mení na teplo. Straty sa udávajú ako <b>merné straty</b> (W/kg) alebo <b>stratové číslo</b> (merné straty pri B<sub>m</sub> = 1 T alebo 1,5 T a 50 Hz). Celkové straty sú súčtom troch zložiek: P = P<sub>h</sub> + P<sub>v</sub> + P<sub>z</sub>.",
+  "<b>Hysterézne straty</b> sú úmerné ploche statickej slučky. Za jeden cyklus sa stratí stále rovnaká energia, takže straty rastú priamo s frekvenciou: P<sub>h</sub> ~ f·B<sub>m</sub><sup>1,6</sup>.",
+  "<b>Straty vírivými prúdmi</b>: striedavý tok indukuje v materiáli prúdy, ktoré ho zahrievajú. Rastú s druhou mocninou frekvencie aj hrúbky: P<sub>v</sub> ~ f²·d²·B<sub>m</sub>²·γ. Znižujú sa väčšou rezistivitou (kremík v oceli, ferity) a rozdelením materiálu na tenké izolované plechy. <b>Straty magnetickým oneskorením</b> P<sub>z</sub> sa prejavia pri slabých poliach v mäkkých materiáloch, najmä feritoch.",
+  "Pri rovnakej amplitúde B a sínusovom priebehu teda platí pre novú frekvenciu f₂:<span class=\"fm\">p(f₂) = (f₂/f₁)·p<sub>h1</sub> + (f₂/f₁)²·p<sub>v1</sub></span>Ak poznáš len celkové straty pri dvoch frekvenciách, máš dve rovnice o dvoch neznámych p<sub>h</sub> a p<sub>v</sub>."
+ ], c: "Pri 50 Hz sú hysterézne straty 1 W/kg a vírivé 0,5 W/kg. Aké budú celkové pri 100 Hz?", a: "2·1 + 4·0,5 = 4 W/kg. Hysterézne sa zdvojnásobia, vírivé zoštvornásobia." }
+],
+theory: [
+ { h: "Slučka", items: ["B<sub>r</sub> remanentná indukcia, H<sub>c</sub> koercitívna sila, B<sub>s</sub> nasýtenie.", "Mäkké H<sub>c</sub> &lt; 10³ A/m (úzka slučka), tvrdé H<sub>c</sub> &gt; 10³ A/m (široká).", "(BH)<sub>max</sub> kritérium permanentných magnetov.", "Pravouhlá slučka pre pamäte."] },
+ { h: "Materiály", items: ["Mäkké: Fe, Fe–Si plechy, Fe–Ni–Co (μ<sub>r poč</sub> do 300 000, B<sub>s</sub> do 2,4 T), mäkké ferity (B<sub>s</sub> do 0,3 T, vysoké f).", "Tvrdé: oceľ s W, Cr, Mo, Co (1–2,5 kJ/m³), AlNi(Co) (15–45), SmCo (~300 kJ/m³), Ba ferity (28–35)."] },
+ { h: "Straty", items: ["P = P<sub>h</sub> + P<sub>v</sub> + P<sub>z</sub>; merné straty W/kg, stratové číslo pri 1 T / 1,5 T a 50 Hz.", "P<sub>h</sub> ~ f·B<sub>m</sub><sup>1,6</sup> (plocha slučky).", "P<sub>v</sub> ~ f²d²B<sub>m</sub>²γ; znižujú plechy a ferity.", "p(f₂) = (f₂/f₁)p<sub>h1</sub> + (f₂/f₁)²p<sub>v1</sub>."] }
+],
+traps: ["Hysterézne straty rastú s f, vírivé s f². Netreba ich obe násobiť rovnako.", "Mäkký materiál nemá malú remanenciu, ale malú koercitívnu silu.", "Ferity majú malé vírivé straty vďaka veľkej rezistivite, ale nízke nasýtenie.", "Vzťah p(f₂) platí len pri rovnakej amplitúde B."],
+examples: [
+ { t: "Magnetické materiály, cvičenie 3: plechy 0,10 mm (p<sub>h</sub> = 1,1, p<sub>v</sub> = 0,10 W/kg) a 0,35 mm (p<sub>h</sub> = 0,50, p<sub>v</sub> = 0,30 W/kg) pri 50 Hz. Celkové straty pri 50, 150 a 400 Hz.", s: [
+  "Vzorec <b>Straty pri inej frekvencii</b>, x = f/50.",
+  "0,10 mm: 50 Hz 1,1 + 0,1 = 1,2 W/kg; 150 Hz (x = 3) 3·1,1 + 9·0,1 = 4,2 W/kg; 400 Hz (x = 8) 8·1,1 + 64·0,1 = 15,2 W/kg.",
+  "0,35 mm: 0,8 W/kg; 3·0,5 + 9·0,3 = 4,2 W/kg; 8·0,5 + 64·0,3 = 23,2 W/kg.",
+  "Pri 400 Hz je hrubší plech horší, lebo vírivé straty (∝ d²f²) prevládnu."] },
+ { t: "Magnetické materiály, cvičenie 4: celkové merné straty 2,00 W/kg pri 100 Hz a 7,00 W/kg pri 200 Hz. Aké budú pri 400 Hz?", s: [
+  "Vzorec <b>Rozdelenie strát</b>: dve rovnice o dvoch neznámych.",
+  "100 Hz: p<sub>h</sub> + p<sub>v</sub> = 2. 200 Hz (x = 2): 2p<sub>h</sub> + 4p<sub>v</sub> = 7.",
+  "Z prvej p<sub>h</sub> = 2 − p<sub>v</sub>; 4 − 2p<sub>v</sub> + 4p<sub>v</sub> = 7 → p<sub>v</sub> = 1,5 W/kg, p<sub>h</sub> = 0,5 W/kg.",
+  "400 Hz (x = 4): 4·0,5 + 16·1,5 = 26 W/kg."] }
+],
+formulas: [
+ { n: "Delenie mäkké/tvrdé", f: "H<sub>c</sub> &lt; 10³ A/m mäkký · H<sub>c</sub> &gt; 10³ A/m tvrdý", w: "skriptá" },
+ { n: "Celkové straty", f: "P = P<sub>h</sub> + P<sub>v</sub> + P<sub>z</sub>", w: "hysterézne, vírivé, oneskorením" },
+ { n: "Hysterézne straty", f: "P<sub>h</sub> ~ f·B<sub>m</sub><sup>1,6</sup>", w: "úmerné ploche slučky" },
+ { n: "Straty vírivými prúdmi", f: "P<sub>v</sub> ~ f²·d²·B<sub>m</sub>²·γ", w: "d hrúbka plechu, γ konduktivita" },
+ { n: "Straty pri inej frekvencii", f: "p(f₂) = (f₂/f₁)·p<sub>h1</sub> + (f₂/f₁)²·p<sub>v1</sub>", w: "rovnaká amplitúda B, sínus" },
+ { n: "Rozdelenie strát", f: "p₁ = p<sub>h</sub> + p<sub>v</sub>;  p₂ = x·p<sub>h</sub> + x²·p<sub>v</sub>", w: "x = f₂/f₁, dve rovnice" },
+ { n: "Energetický súčin", f: "(BH)<sub>max</sub> [J/m³]: oceľ 1–2,5 · AlNiCo 15–45 · Ba ferit 28–35 · SmCo ~300 kJ/m³", w: "permanentné magnety" }
+],
+explain: { q: "Vysvetli, prečo sa jadro transformátora skladá z tenkých izolovaných plechov z kremíkovej ocele, a nie z jedného kusa železa.", keys: ["Striedavý tok indukuje v jadre vírivé prúdy, ktoré ho zahrievajú", "Vírivé straty rastú s druhou mocninou hrúbky", "Tenké izolované plechy prerušia dráhu vírivých prúdov", "Kremík zvyšuje rezistivitu, tým vírivé prúdy ďalej klesnú"] },
+quiz: [
+ { q: "Čo je koercitívna sila?", o: ["intenzita poľa, pri ktorej indukcia na slučke klesne na nulu", "indukcia, ktorá ostane pri H = 0", "maximálna indukcia materiálu", "energia na jeden cyklus"], e: "H<sub>c</sub> je priesečník slučky s osou H. Indukcia pri H = 0 je remanencia B<sub>r</sub>.", h: "Priesečník s osou H." },
+ { q: "Ktorý materiál je magneticky mäkký?", o: ["materiál s H<sub>c</sub> &lt; 10³ A/m", "materiál s H<sub>c</sub> &gt; 10³ A/m", "materiál s veľkým (BH)<sub>max</sub>", "materiál s malou permeabilitou"], e: "Skriptá: H<sub>c</sub> &lt; 10³ A/m mäkké, nad 10³ A/m tvrdé.", h: "Úzka slučka." },
+ { q: "Ako rastú straty vírivými prúdmi s frekvenciou pri rovnakej amplitúde B?", o: ["s f²", "s f", "s √f", "nezávisia od f"], e: "P<sub>v</sub> ~ f²d²B<sub>m</sub>²γ. Hysterézne rastú s f.", h: "Indukované napätie aj prúd rastú s f." },
+ { q: "Prečo sa mäkké ferity používajú pri vysokých frekvenciách?", o: ["majú veľkú rezistivitu, preto malé straty vírivými prúdmi", "majú najväčšiu indukciu nasýtenia", "majú najväčšiu koercitívnu silu", "sú lacnejšie ako oceľ"], e: "Ferity sú oxidové polovodiče s veľkou ρ. B<sub>s</sub> majú naopak nízke, do 0,3 T.", h: "Vírivé straty ~ γ." },
+ { q: "Pri 50 Hz sú p<sub>h</sub> = 0,6 W/kg a p<sub>v</sub> = 0,2 W/kg. Aké sú celkové straty pri 150 Hz?", o: ["3,6 W/kg", "2,4 W/kg", "7,2 W/kg", "1,8 W/kg"], e: "x = 3: 3·0,6 + 9·0,2 = 1,8 + 1,8 = 3,6 W/kg.", h: "Hysterézne ×3, vírivé ×9." },
+ { q: "Ktorý materiál má najväčší energetický súčin (BH)<sub>max</sub>?", o: ["SmCo (vzácne zeminy)", "bárnatý ferit", "AlNiCo", "uhlíková oceľ s W"], e: "SmCo okolo 300 kJ/m³, AlNiCo 15–45, Ba ferit 28–35, oceľ 1–2,5.", h: "Moderné silné magnety." },
+ { q: "Čo je stratové číslo?", o: ["merné straty pri B<sub>m</sub> = 1 T (alebo 1,5 T) a 50 Hz", "plocha hysteréznej slučky", "pomer hysteréznych a vírivých strát", "straty pri nasýtení"], e: "Merné straty v W/kg pri dohodnutých podmienkach.", h: "Porovnávacia hodnota plechov." },
+ { q: "Ako sa znížia straty vírivými prúdmi v jadre?", o: ["tenkými izolovanými plechmi a väčšou rezistivitou materiálu", "hrubším plechom", "nižšou rezistivitou", "väčšou koercitívnou silou"], e: "P<sub>v</sub> ~ d²γ: menšia hrúbka a menšia konduktivita.", h: "Pozri, od čoho závisí P<sub>v</sub>.", b: true }
+]
+}
 ],
 boss: []
 });
 
 GEN.mte = {
+ l8: [
+  () => { const H = rnd([5, 10, 20, 50, 100]), Jm = rnd([1, 2, 3, 5, 8]) * 1e-6, mu0 = 4 * Math.PI * 1e-7, k = Jm / (mu0 * H), B = mu0 * H + Jm;
+    return hint("κ = J<sub>m</sub>/(μ₀H), μ<sub>r</sub> = 1 + κ.", mk(`V poli H = ${H} A·m⁻¹ má látka magnetickú polarizáciu ${num(Jm)} T. Aká je jej relatívna permeabilita?`, 1 + k, "", [k, B / mu0, 1 - k], `μ₀H = ${num(mu0 * H)} T; κ = ${num(Jm)}/${num(mu0 * H)} = ${num(k)}; μ<sub>r</sub> = 1 + κ = ${num(1 + k, 4)}.`, 4)); },
+  () => { const k1 = rnd([0.8, 1.0, 1.4, 2.0]) * 1e-3, t1 = rnd([20, 25]), T1 = t1 + 273.15, T2 = rnd([77.3, 150, 200, 373.15]), H = rnd([1e5, 5e5, 1e6]), k2 = k1 * T1 / T2, M = k2 * H;
+    return hint("Curieho zákon κ₂ = κ₁T₁/T₂ (K), potom M = κH.", mk(`Paramagnetikum má pri ${t1} °C susceptibilitu ${num(k1)}. Aká je jeho magnetizácia v poli ${num(H)} A·m⁻¹ pri ${num(T2, 4)} K?`, M, "A·m⁻¹", [k1 * H, k1 * t1 / T2 * H, M * 4 * Math.PI * 1e-7], `κ₂ = ${num(k1)}·${num(T1, 5)}/${num(T2, 4)} = ${num(k2)}; M = κ₂H = ${num(M)} A·m⁻¹.`)); }
+ ],
+ l9: [
+  () => { const ph = rnd([0.5, 0.8, 1.1, 1.5]), pv = rnd([0.1, 0.2, 0.3, 0.5]), f1 = 50, f2 = rnd([100, 150, 200, 400]), x = f2 / f1, p = x * ph + x * x * pv;
+    return hint("p(f₂) = (f₂/f₁)·p<sub>h</sub> + (f₂/f₁)²·p<sub>v</sub>.", mk(`Plech má pri 50 Hz hysterézne straty ${num(ph)} W/kg a straty vírivými prúdmi ${num(pv)} W/kg. Aké sú celkové merné straty pri ${f2} Hz (rovnaká amplitúda B)?`, p, "W/kg", [x * (ph + pv), x * x * (ph + pv), ph + pv], `x = ${f2}/50 = ${x}; p = ${x}·${num(ph)} + ${x * x}·${num(pv)} = ${num(p)} W/kg.`)); },
+  () => { const ph = rnd([0.5, 1, 1.5, 2]), pv = rnd([0.5, 1, 1.5]), f1 = 100, f2 = 200, f3 = rnd([300, 400, 500]), p1 = ph + pv, p2 = 2 * ph + 4 * pv, x = f3 / f1, p3 = x * ph + x * x * pv;
+    return hint("Dve rovnice: p₁ = p<sub>h</sub> + p<sub>v</sub>, p₂ = 2p<sub>h</sub> + 4p<sub>v</sub>; potom p₃ = x·p<sub>h</sub> + x²·p<sub>v</sub>.", mk(`Celkové merné straty ocele sú ${num(p1)} W/kg pri 100 Hz a ${num(p2)} W/kg pri 200 Hz. Aké budú pri ${f3} Hz?`, p3, "W/kg", [p1 * x, p1 * x * x, p2 * x / 2], `p<sub>v</sub> = (p₂ − 2p₁)/2 = ${num(pv)}, p<sub>h</sub> = ${num(ph)} W/kg; p₃ = ${x}·${num(ph)} + ${x * x}·${num(pv)} = ${num(p3)} W/kg.`)); }
+ ],
  l5: [
   () => { const n = rnd([5.0e28, 5.86e28, 8.42e28, 8.5e28]), S = rnd([0.5, 1, 1.5, 2.5, 4]), v = rnd([1.0e-4, 1.5e-4, 2.0e-4, 3.0e-4]), I = n * 1.602e-19 * S * 1e-6 * v, Ss = String(S).replace(".", ",");
     return hint("I = n·q·S·v, prierez v m².", mk(`Vodič s prierezom ${Ss} mm² má ${num(n)} voľných elektrónov v m³ a driftová rýchlosť je ${num(v)} m·s⁻¹. Aký tečie prúd?`, I, "A", [I * 1e6, I / 1000, I * 1000], `I = ${num(n)}·1,602·10⁻¹⁹·${Ss}·10⁻⁶·${num(v)} = ${num(I)} A.`)); },
