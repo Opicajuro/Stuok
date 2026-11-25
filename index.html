@@ -17,10 +17,11 @@
 
   {
     id: "ma1",                      // krátke unikátne id (kľúč pre uložený postup)
+    open: true,                     // voliteľné: všetky kvízy a testy otvorené bez odomykania
     name: "Matematika 1",
     note: "krátky popis",
     chapters: [{ name: "Kapitola 1 · názov testu", note: "rozsah",
-                 exam: { n: 15, minutes: 35, points: [0, ..., 11] } }],   // exam: null = kapitola bez skúšobného testu; points[i] = body za i správnych
+                 exam: { n: 15, minutes: 35, points: [0, ..., 11] } }],   // exam: null = kapitola bez skúšobného testu; points[i] = body za i správnych; levels: [...] = test z iných levelov než z tejto kapitoly
     levels: [{
       id: "l1", ch: 0,              // ch = index do chapters
       title: "Názov levelu", sub: "podtitul",
@@ -50,6 +51,7 @@
 <main id="app"></main>
 <script src="core.js"></script>
 <script src="subjects/fyzika1.js"></script>
+<script src="subjects/mte.js"></script>
 <script src="game.js"></script>
 </body>
 </html>

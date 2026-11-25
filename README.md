@@ -1,6 +1,6 @@
 # Študijný Quest
 
-Gamifikovaná študijná hra na prípravu na písomky: levely s výkladom, vzorcami a kvízmi, skúšobný test na čas a opakovanie chýb. Zatiaľ obsahuje predmet **Fyzika 1** (BPC-FY1, FEKT VUT).
+Gamifikovaná študijná hra na prípravu na písomky: levely s výkladom, vzorcami a kvízmi, skúšobný test na čas a opakovanie chýb. Obsahuje predmety **Fyzika 1** (BPC-FY1, FEKT VUT) a **Materiály v elektrotechnike** (MTD, FEKT VUT, podľa skrípt a numerických cvičení, postupne pribúdajú kapitoly). Predmet sa prepína tlačidlami na mape.
 
 **Hrať:** https://opicajuro.github.io/Stuok/
 
@@ -11,6 +11,7 @@ Gamifikovaná študijná hra na prípravu na písomky: levely s výkladom, vzorc
 - **Nápoveda** v kvíze ukáže postup bez výsledku. Správna odpoveď s ňou dá polovicu XP, neráta sa do 100 % a otázka sa vráti v opakovaní.
 - **Kvíz** je pri každom pokuse iný: časť otázok sa losuje a počítacie úlohy dostanú nové čísla. Po každej odpovedi vidíš vysvetlenie. Na predošlé otázky sa dá vrátiť a pozrieť si odpoveď aj vysvetlenie.
 - **Výklad a vzorce** všetkých levelov sú otvorené od začiatku. **Kvíz ďalšieho levelu** sa odomkne, keď kvíz predošlého spravíš aspoň na **75 %**. **100 %** v jednom pokuse bez nápovedy je zlatá značka „zvládnuté“.
+- **Materiály v elektrotechnike** nemajú odomykanie: všetky kvízy aj skúšobný test sú otvorené hneď. Skúšobný test má 5 otázok zo všetkých tém a 45 minút, počíta sa s kalkulačkou.
 - **Skúšobný test kapitoly** sa odomkne, keď máš kvízy všetkých jej levelov aspoň na 75 %. Beží na čas, bez vysvetlení, s počtom otázok a bodmi ako na ostrom teste. Na otázky sa dá vrátiť a odpoveď zmeniť až do odovzdania.
 - **Denník chýb** zbiera otázky, v ktorých si sa pomýlil. **Opakovanie na dnes** ich vracia hneď, na druhý deň a po troch dňoch, kým nemajú tri správne odpovede.
 - **Vlastný tréning**: vyber si témy a počet otázok, bez vplyvu na odomykanie.

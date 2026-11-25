@@ -33,9 +33,9 @@ function lvlMax(l){ return l.quiz.reduce((a, q) => a + (q.b ? 20 : 10), 0); }
 function lvlPct(l){ return sd().best[l.id] || 0; }
 function isDone(l){ return lvlPct(l) >= 100; }
 function passed(l){ return lvlPct(l) >= PASS; }
-function unlocked(l){ const ls = subj().levels, i = ls.indexOf(l); return i <= 0 || passed(ls[i - 1]); }
+function unlocked(l){ const s = subj(), ls = s.levels, i = ls.indexOf(l); return s.open || i <= 0 || passed(ls[i - 1]); }
 function exam(ci){ const s = subj(), c = s.chapters[ci]; return Object.assign({ levels: s.levels.filter(l => l.ch === +ci).map(l => l.id) }, c.exam); }
-function bossUnlocked(ci){ return subj().levels.filter(l => l.ch === +ci).every(passed); }
+function bossUnlocked(ci){ const s = subj(); return s.open || s.levels.filter(l => l.ch === +ci).every(passed); }
 function clock(ms){ const t = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); }
 function totals(){
   const s = subj(), d = sd();
