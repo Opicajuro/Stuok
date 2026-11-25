@@ -174,7 +174,7 @@ function renderMap(){
       const ex = c.exam, best = Math.min(d.exam[ci] || 0, ex.n);
       h += bossUnlocked(ci) ? `<button class="lvl boss" data-act="boss" data-id="${ci}">
         <span class="no">T</span>
-        <span><span class="t">Skúšobný test</span><br><span class="muted small">${ex.n} otázok, ${ex.minutes} minút, body ako na ostrom teste</span></span>
+        <span><span class="t">Skúšobný test</span><br><span class="muted small">${ex.n} otázok, ${ex.minutes} minút${ex.points ? ", body ako na ostrom teste" : ""}</span></span>
         <span class="pct num">${best}/${ex.n}</span></button>`
       : `<button class="lvl boss locked" disabled>
         <span class="no">T</span>
@@ -190,7 +190,7 @@ function renderMap(){
         <button class="btn sec" data-act="go" data-id="trening">Nastaviť</button></div>`;
   h += `<div class="card row spread"><div><h3>Denník chýb</h3><p class="muted small">${d.miss.length ? d.miss.length + " otázok na zopakovanie" : "Zatiaľ prázdny. Sem padnú otázky, v ktorých sa pomýliš."}</p></div>
         <button class="btn sec" data-act="go" data-id="chyby">Otvoriť</button></div>`;
-  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Výklad a vzorce všetkých levelov sú otvorené. Kvíz ďalšieho levelu sa odomkne, keď kvíz predošlého spravíš aspoň na 75 %. 100 % v jednom pokuse bez nápovedy je zlatá značka „zvládnuté“. Skúšobný test kapitoly sa odomkne, keď máš kvízy všetkých jej levelov aspoň na 75 %, a beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš, a v každom kvíze sa môžeš vrátiť na predošlé otázky. Nápoveda v kvíze ukáže postup, správna odpoveď s ňou dá polovicu XP a neráta sa do 100 %. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
+  h += `<div class="card small"><h3>Pravidlá</h3><p class="muted">Správna odpoveď dáva 10 XP, boss otázka 20 XP. Výklad a vzorce všetkých levelov sú otvorené. ${s.open ? "Kvízy aj skúšobný test sú otvorené hneď, bez odomykania." : "Kvíz ďalšieho levelu sa odomkne, keď kvíz predošlého spravíš aspoň na 75 %."} 100 % v jednom pokuse bez nápovedy je zlatá značka „zvládnuté“. Skúšobný test ${s.open ? "" : "kapitoly sa odomkne, keď máš kvízy všetkých jej levelov aspoň na 75 %, a "}beží na čas, bez vysvetlení počas testu. Kvíz môžeš opakovať, koľkokrát chceš, a v každom kvíze sa môžeš vrátiť na predošlé otázky. Nápoveda v kvíze ukáže postup, správna odpoveď s ňou dá polovicu XP a neráta sa do 100 %. Pokazená otázka sa vráti v Opakovaní na dnes: hneď, na druhý deň a po troch dňoch. Po troch správnych odpovediach z neho vypadne.</p></div>`;
   h += `<div class="card small"><h3>Ďalší predmet</h3><p class="muted">Priamo v hre sa prednášky nahrať nedajú. Pošli ich Claudovi do chatu a nový predmet sa tu objaví ako ďalšie tlačidlo hore.</p></div>`;
   app.innerHTML = h;
 }
@@ -305,7 +305,7 @@ function renderResult(){
   } else {
     const l = subj().levels.find(x => x.id === z.lid), full = z.right === n && !z.hinted, p = Math.floor(100 * z.xp / qMax(z));
     h += `<div class="day">${l.title}</div><div class="big num">${p} %</div><h2>${full ? "Level zvládnutý" : p >= PASS ? "Kvíz prejdený" : "Ešte to chce tréning"}</h2>
-      <p>${z.right} z ${n} správne. ${full ? "Kvíz ďalšieho levelu je odomknutý." : p >= PASS ? "Kvíz ďalšieho levelu je odomknutý. Na zlatú značku treba 100 % bez nápovedy." : "Kvíz ďalšieho levelu sa odomkne pri 75 %. Pozri si chyby v denníku a skús to znova."}</p>`;
+      <p>${z.right} z ${n} správne. ${subj().open ? (full ? "Zlatá značka." : "Na zlatú značku treba 100 % bez nápovedy.") : full ? "Kvíz ďalšieho levelu je odomknutý." : p >= PASS ? "Kvíz ďalšieho levelu je odomknutý. Na zlatú značku treba 100 % bez nápovedy." : "Kvíz ďalšieho levelu sa odomkne pri 75 %. Pozri si chyby v denníku a skús to znova."}</p>`;
   }
   if (z.hinted) h += `<p class="muted small">S nápovedou: ${z.hinted}. Tieto otázky sa vrátia v opakovaní, aby si ich skúsil sám.</p>`;
   if (z.wrong.length && z.kind !== "chyby") h += `<p class="muted small">${z.wrong.length} otázok je v denníku chýb.</p>`;

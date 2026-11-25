@@ -7,8 +7,9 @@ open: true,
 name: "Materiály v elektrotechnike",
 note: "MTD · skriptá a numerické cvičenia · kalkulačka povolená",
 chapters: [
- { name: "Kapitola 1 · Zloženie a štruktúra látok", note: "Atómy, väzby, kryštály, poruchy, pásový model.",
-   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4"] } }
+ { name: "Kapitola 1 · Zloženie a štruktúra látok", note: "Atómy, väzby, kryštály, poruchy, pásový model.", exam: null },
+ { name: "Kapitola 2 · Vodivé a odporové materiály", note: "Vodivosť kovov, supravodivosť, termoelektrina, kovy v praxi. Skúšobný test je z celého predmetu.",
+   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4", "l5", "l6", "l7"] } }
 ],
 levels: [
 
@@ -261,12 +262,227 @@ quiz: [
  { q: "Na koľko hladín sa rozštiepi jedna hladina v kryštáli s N atómami?", o: ["na N", "na 2", "na 2N", "nerozštiepi sa"], e: "Každá hladina dá N blízkych hladín, na každú sa zmestia 2 elektróny.", h: "Jedna hladina od každého atómu." },
  { q: "Prečo majú elektróny vo vodivostnom páse väčšiu pohyblivosť než diery vo valenčnom?", o: ["Vodivostný pás má veľa voľných hladín a málo elektrónov.", "Elektrón je ťažší než diera.", "Diera sa nepohybuje vôbec.", "Valenčný pás je prázdny."], e: "Skriptá: elektrónová vodivosť – veľa hladín, málo elektrónov, vyššia pohyblivosť; dierová – veľa elektrónov, málo dier, nižšia pohyblivosť.", h: "Kde je viac miesta na pohyb?", b: true }
 ]
+},
+/* ---------- L5 ---------- */
+{
+id: "l5", ch: 1, title: "Vodivosť kovov", sub: "drift, pohyblivosť, rezistivita a teplota",
+lesson: [
+ { h: "1. Vodiče a dôkazy elektrónovej vodivosti", p: [
+  "Pásový model z kapitoly 1 povedal, že kov má voľné elektróny. Teraz z toho spravíme čísla. Vodiče delíme na <b>vodiče I. triedy</b> s elektrónovou vodivosťou (kovy) a <b>vodiče II. triedy</b> s iónovou vodivosťou (elektrolyty). Vodivé sú aj roztavené kovy, ortuť a ionizované plyny (plazma).",
+  "Klasická predstava (Drude, Lorentz): v uzloch mriežky sú kladné ióny, medzi nimi elektrónový plyn. Dôkazy, že prúd v kove nesú elektróny: pri prúde sa neprenáša látka, existuje termoemisia, magnetorezistencia a Tolmanov pokus (prúd v rotujúcej slučke po jej zabrzdení).",
+  "Typické vlastnosti kovov: rezistivita 10⁻⁸ až 10⁻⁵ Ω·m, s teplotou rastie (nad Debyeovou teplotou lineárne), pod asi 20 K je úmerná T⁵, s tlakom väčšinou klesá a niektoré kovy sú pri teplotách blízko 0 K supravodivé."
+ ]},
+ { h: "2. Prúd z pohybu elektrónov", p: [
+  "Pole E posúva elektróny malou <b>driftovou rýchlosťou</b> v (v cvičeniach v<sub>D</sub>). Za 1 s prejdú prierezom S elektróny z „valca“ s dĺžkou v, je ich n·S·v a každý nesie náboj q:<span class=\"fm\">I = n·q·S·v,   i = I/S = n·q·v</span>i je <b>prúdová hustota</b> (A·m⁻², v cvičeniach J), n koncentrácia voľných elektrónov.",
+  "Driftová rýchlosť je úmerná poľu, konštanta úmernosti je <b>pohyblivosť</b> μ = v/E (m²·V⁻¹·s⁻¹). Dosadením dostaneme Ohmov zákon v diferenciálnom tvare:<span class=\"fm\">i = n·q·μ·E = γ·E,   γ = n·q·μ,   ρ = 1/γ</span>γ je <b>konduktivita</b> (S·m⁻¹), ρ <b>rezistivita</b> (Ω·m).",
+  "Koncentrácia voľných elektrónov je n = z·N, kde z je počet valenčných elektrónov na atóm a N = ρ<sub>h</sub>·N<sub>A</sub>/A koncentrácia atómov z kapitoly 1 (ρ<sub>h</sub> hustota, A atómová hmotnosť v kg/kmol). Meď má jeden voľný elektrón na atóm: n ≈ 8,4·10²⁸ m⁻³.",
+  "Driftová rýchlosť vychádza prekvapivo malá, desatiny milimetra za sekundu. Svetlo sa napriek tomu rozsvieti hneď: pole sa šíri vodičom takmer rýchlosťou svetla a pohne naraz všetkými elektrónmi."
+ ], c: "Prečo je v kove driftová rýchlosť taká malá, keď prúd je veľký?", a: "Lebo voľných elektrónov je obrovské množstvo (asi 10²⁹ v m³). Veľký prúd dá aj malá rýchlosť, keď sa pohne veľa nábojov naraz." },
+ { h: "3. Odpor, rezistivita a jednotky", p: [
+  "Pre drôt s dĺžkou l a prierezom S platí:<span class=\"fm\">R = ρ·l/S</span>V praxi sa rezistivita kovov udáva v Ω·mm²·m⁻¹ (prierez v mm², dĺžka v m). Platí 1 Ω·m = 10⁶ Ω·mm²·m⁻¹ = 10² Ω·cm a 1 μΩ·m = 1 Ω·mm²·m⁻¹.",
+  "Medzinárodný štandard je vzorne vyžíhaná meď: ρ = 1/58 Ω·mm²·m⁻¹ = 0,0172 μΩ·m pri 20 °C. Relatívna vodivosť (meď = 100): striebro 106, meď 100, hliník 62, zinok 31."
+ ], c: "Koľko je 1,72·10⁻⁸ Ω·m v Ω·mm²·m⁻¹?", a: "0,0172 Ω·mm²·m⁻¹, lebo 1 Ω·m = 10⁶ Ω·mm²·m⁻¹." },
+ { h: "4. Rezistivita a teplota", p: [
+  "Rezistivita kovu rastie s teplotou, lebo kmitajúca mriežka elektróny viac rozptyľuje. Všeobecne ρ = ρ₀·[1 + α(T − T₀) + β(T − T₀)² + …]. V užšom rozsahu stačia dva členy:<span class=\"fm\">ρ = ρ₀·[1 + α·(ϑ − ϑ₀)],   α = (1/ρ₀)·dρ/dT</span>α je <b>teplotný súčiniteľ rezistivity</b> (K⁻¹), ρ₀ rezistivita pri vzťažnej teplote ϑ₀. Pre meď pri 20 °C α ≈ 3,93·10⁻³ K⁻¹. Rovnako sa mení odpor: R = R₀[1 + α(ϑ − ϑ₀)].",
+  "Z toho sa dá zmerať teplota vinutia: ak odpor cievky vzrástol na R, je ϑ = ϑ₀ + (R/R₀ − 1)/α. α vždy patrí k určitej vzťažnej teplote ϑ₀; α vzťahované na 0 °C je pre meď asi 4,3·10⁻³ K⁻¹.",
+  "Pri teplote topenia sa rezistivita zmení skokom. <b>Prímesi a nečistoty</b> rezistivitu vždy zvyšujú, preto má elektrovodná meď čistotu 99,9 % a viac. Rezistivita závisí aj od spôsobu spracovania a mechanického namáhania (ρ<sub>p</sub> = ρ(1 + a·σ))."
+ ], c: "Odpor medenej cievky vzrástol o 10 %. O koľko stúpla teplota (α = 3,93·10⁻³ K⁻¹)?", a: "Δϑ = (R/R₀ − 1)/α = 0,1/3,93·10⁻³ ≈ 25 °C." },
+ { h: "5. Zmesi kovov a tepelná vodivosť", p: [
+  "<b>Heterogénna sústava</b> dvoch nemiešateľných kovov: rezistivitu odhadne <b>Lichteneckerov logaritmický vzťah</b> log ρ = v₁·log ρ₁ + v₂·log ρ₂, kde v₁ + v₂ = 1 sú objemové podiely. <b>Homogénna sústava</b> (tuhý roztok, zliatina): atómy podobnej veľkosti (rozdiel do 15 %) a rovnaký typ mriežky; rezistivita sa s koncentráciou mení spojite. Intermetalické zlúčeniny majú zložitý priebeh s extrémami.",
+  "<b>Wiedemannov–Franzov zákon</b>: dobré elektrické vodiče sú aj dobré tepelné vodiče, lebo teplo aj náboj nesú tie isté voľné elektróny. Pomer tepelnej a elektrickej vodivosti je úmerný teplote:<span class=\"fm\">λ/γ = (π²k²/3e²)·T</span>"
+ ]}
+],
+theory: [
+ { h: "Prúd v kove", items: ["Vodiče I. triedy (elektróny) a II. triedy (ióny).", "I = n·q·S·v, i = n·q·v, μ = v/E.", "γ = n·q·μ, ρ = 1/γ, i = γE.", "n = z·N, N = ρ<sub>h</sub>N<sub>A</sub>/A; meď n ≈ 8,4·10²⁸ m⁻³."] },
+ { h: "Rezistivita", items: ["R = ρl/S; 1 Ω·m = 10⁶ Ω·mm²/m = 10² Ω·cm.", "Meď: 1/58 Ω·mm²/m = 0,0172 μΩ·m pri 20 °C; Ag 106, Cu 100, Al 62, Zn 31 (relatívna vodivosť).", "ρ = ρ₀[1 + α(ϑ − ϑ₀)], Cu α ≈ 3,93·10⁻³ K⁻¹ (20 °C).", "Prímesi rezistivitu zvyšujú; Lichtenecker pre heterogénne zmesi.", "Wiedemann–Franz: λ/γ = (π²k²/3e²)T."] }
+],
+traps: ["Driftová rýchlosť nie je rýchlosť šírenia signálu.", "Prierez v mm² treba previesť na m² (1 mm² = 10⁻⁶ m²).", "α patrí k vzťažnej teplote ϑ₀; nemiešaj α pri 20 °C s R₀ pri 0 °C.", "Pri J = U/(ρl) sa prierez vykráti, netreba ho."],
+examples: [
+ { t: "Cvičenie 1: vodič s prierezom 1,00 mm², n = 5,00·10²⁸ m⁻³, v<sub>D</sub> = 1,50·10⁻⁴ m·s⁻¹. Aký tečie prúd?", s: [
+  "Vzorec <b>Prúd a drift</b>: I = n·q·S·v.",
+  "S = 1 mm² = 1·10⁻⁶ m².",
+  "I = 5·10²⁸·1,602·10⁻¹⁹·10⁻⁶·1,5·10⁻⁴ = 1,20 A."] },
+ { t: "Cvičenie 2: medený vodič l = 15,0 m, S = 0,100 mm², R = 2,58 Ω pri 20 °C. Rezistivita a prevod jednotiek.", s: [
+  "Vzorec <b>Odpor drôtu</b>: ρ = R·S/l, S v m².",
+  "ρ = 2,58·0,1·10⁻⁶/15 = 1,72·10⁻⁸ Ω·m.",
+  "= 1,72·10⁻² Ω·mm²·m⁻¹ = 1,72·10⁻⁶ Ω·cm (1 Ω·m = 10⁶ Ω·mm²·m⁻¹ = 10² Ω·cm)."] },
+ { t: "Cvičenie 3: striebro, ρ = 1,54·10⁻⁸ Ω·m (dané v zadaní), E = 100 V·m⁻¹, n = 5,80·10²⁸ m⁻³. Prúdová hustota, pohyblivosť, driftová rýchlosť.", s: [
+  "Vzorce <b>Ohmov zákon v bode</b> a <b>Konduktivita</b>.",
+  "i = E/ρ = 100/1,54·10⁻⁸ = 6,49·10⁹ A·m⁻².",
+  "μ = 1/(n·q·ρ) = 1/(5,8·10²⁸·1,602·10⁻¹⁹·1,54·10⁻⁸) = 6,99·10⁻³ m²V⁻¹s⁻¹.",
+  "v = μ·E = 0,699 m·s⁻¹. (Skriptá uvádzajú pre Ag 0,016 μΩ·m; v úlohe platí zadaná hodnota.)"] },
+ { t: "Cvičenie 4: medený vodič 1,50 km, 5,00 mm², U = 100 V, ρ<sub>h</sub> = 8 890 kg·m⁻³, A = 63,57 kg/kmol, ρ = 1,724·10⁻⁸ Ω·m.", s: [
+  "i = I/S = U/(ρ·l) = 100/(1,724·10⁻⁸·1500) = 3,87·10⁶ A·m⁻²; prierez sa vykráti.",
+  "E = U/l = 100/1500 = 6,67·10⁻² V·m⁻¹.",
+  "n = ρ<sub>h</sub>N<sub>A</sub>/A = 8,42·10²⁸ m⁻³ (1 voľný elektrón na atóm).",
+  "μ = 1/(nqρ) = 4,30·10⁻³ m²V⁻¹s⁻¹; v = μE = 2,87·10⁻⁴ m·s⁻¹."] },
+ { t: "Cvičenie 5: cievka z medi má pri 20 °C odpor 41,8 Ω, po prevádzke 49,2 Ω, α = 3,93·10⁻³ K⁻¹. Aká je teplota vinutia?", s: [
+  "Vzorec <b>Teplotná závislosť</b>: R = R₀[1 + α(ϑ − ϑ₀)] → ϑ = ϑ₀ + (R/R₀ − 1)/α.",
+  "ϑ = 20 + (49,2/41,8 − 1)/3,93·10⁻³ = 20 + 45,0 = 65,0 °C.",
+  "Riešenie v cvičeniach ešte robí priemer (20 + 65)/2 = 42,5 °C. Na písomke uveď obe hodnoty; fyzikálne je 65 °C priemerná teplota vinutia."] }
+],
+formulas: [
+ { n: "Prúd a drift", f: "I = n·q·S·v,   i = I/S = n·q·v", w: "v driftová rýchlosť, i prúdová hustota (v cvičeniach J)" },
+ { n: "Pohyblivosť", f: "μ = v/E", w: "m²·V⁻¹·s⁻¹" },
+ { n: "Konduktivita", f: "γ = n·q·μ,   ρ = 1/γ", w: "μ = 1/(n·q·ρ)" },
+ { n: "Ohmov zákon v bode", f: "i = γ·E = E/ρ", w: "E = U/l v drôte" },
+ { n: "Koncentrácia voľných elektrónov", f: "n = z·N = z·ρ<sub>h</sub>·N<sub>A</sub>/A", w: "z valenčné elektróny na atóm; Cu z = 1" },
+ { n: "Odpor drôtu", f: "R = ρ·l/S", w: "S v m²" },
+ { n: "Jednotky rezistivity", f: "1 Ω·m = 10⁶ Ω·mm²·m⁻¹ = 10² Ω·cm;  1 μΩ·m = 1 Ω·mm²·m⁻¹", w: "prevod" },
+ { n: "Teplotná závislosť", f: "ρ = ρ₀[1 + α(ϑ − ϑ₀)],  R = R₀[1 + α(ϑ − ϑ₀)]", w: "ϑ = ϑ₀ + (R/R₀ − 1)/α" },
+ { n: "Lichteneckerov vzťah", f: "log ρ = v₁·log ρ₁ + v₂·log ρ₂,  v₁ + v₂ = 1", w: "heterogénna zmes dvoch kovov" },
+ { n: "Wiedemannov–Franzov zákon", f: "λ/γ = (π²k²/3e²)·T", w: "tepelná a elektrická vodivosť kovov" },
+ { n: "Údaje zo skrípt (20 °C)", f: "Cu 0,0172 · Al 0,0294 · Ag 0,016 · W 0,055 · Fe 0,098 μΩ·m;  Cu α ≈ 3,93·10⁻³ K⁻¹", w: "tabuľka 2.2" },
+ { n: "Konštanty", f: "q = 1,602·10⁻¹⁹ C,  N<sub>A</sub> = 6,022·10²⁶ kmol⁻¹,  k = 1,38·10⁻²³ J/K", w: "" }
+],
+explain: { q: "Vysvetli, prečo sa medený drôt pri zahriatí stane horším vodičom a ako sa z toho dá zmerať teplota vinutia.", keys: ["Počet voľných elektrónov v kove sa s teplotou nemení", "Mriežka viac kmitá a elektróny viac rozptyľuje, pohyblivosť klesá", "Rezistivita rastie približne lineárne: ρ = ρ₀[1 + α(ϑ − ϑ₀)]", "Zo zmeny odporu vyjde ϑ = ϑ₀ + (R/R₀ − 1)/α"] },
+quiz: [
+ { q: "Ako súvisí konduktivita kovu s koncentráciou a pohyblivosťou elektrónov?", o: ["γ = n·q·μ", "γ = n·q/μ", "γ = μ/(n·q)", "γ = n·μ/q"], e: "i = n·q·v a v = μE, teda i = nqμE = γE.", h: "Začni od i = n·q·v." },
+ { q: "Aká je rezistivita medzinárodného štandardu medi pri 20 °C?", o: ["1/58 Ω·mm²·m⁻¹ = 0,0172 μΩ·m", "1/62 Ω·mm²·m⁻¹", "0,0294 μΩ·m", "1,72 Ω·m"], e: "Vzorne vyžíhaná meď 1/58 Ω·mm²/m. 0,0294 μΩ·m je hliník.", h: "Konduktivita 58 MS/m." },
+ { q: "Koľko Ω·mm²·m⁻¹ je 1 Ω·m?", o: ["10⁶", "10³", "10⁻⁶", "10²"], e: "1 m² = 10⁶ mm², preto sa číslo vynásobí 10⁶. 10² platí pre Ω·cm.", h: "Koľko mm² má 1 m²?" },
+ { q: "Čo je dôkazom, že prúd v kove nesú elektróny?", o: ["Tolmanov pokus, termoemisia, pri prúde sa neprenáša látka", "Kov sa pri prúde rozpúšťa", "Kov vedie len pri vysokej teplote", "Rezistivita s teplotou klesá"], e: "Skriptá: neprenáša sa látka, termoemisia, magnetorezistencia, Tolmanov pokus.", h: "Keby prúd niesli ióny, prenášal by sa materiál." },
+ { q: "Ako sa mení rezistivita kovu pri bežných teplotách?", o: ["rastie približne lineárne s teplotou", "klesá exponenciálne", "nemení sa", "rastie s T⁵"], e: "Nad Debyeovou teplotou lineárne; T⁵ platí pod asi 20 K.", h: "Ako polovodič sa kov nespráva." },
+ { q: "Ako ovplyvnia prímesi a nečistoty rezistivitu kovu?", o: ["zvýšia ju", "znížia ju", "nezmenia ju", "zvýšia ju len pri nízkej teplote"], e: "Cudzie atómy rozptyľujú elektróny. Preto má elektrovodná meď čistotu aspoň 99,9 %.", h: "Cudzí atóm je porucha mriežky." },
+ { q: "Čo vyjadruje Wiedemannov–Franzov zákon?", o: ["pomer tepelnej a elektrickej vodivosti kovu je úmerný T", "rezistivita je úmerná T⁵", "odpor rastie lineárne s teplotou", "rezistivita zmesi je vážený priemer logaritmov"], e: "λ/γ = (π²k²/3e²)T: teplo aj náboj nesú tie isté voľné elektróny.", h: "Týka sa tepelnej vodivosti λ." },
+ { q: "Zoraď kovy podľa relatívnej vodivosti od najlepšieho.", o: ["Ag > Cu > Al > Zn", "Cu > Ag > Al > Zn", "Al > Cu > Ag > Zn", "Ag > Al > Cu > Zn"], e: "Ag 106, Cu 100, Al 62, Zn 31.", h: "Striebro je o kúsok lepšie než meď.", b: true }
+]
+},
+
+/* ---------- L6 ---------- */
+{
+id: "l6", ch: 1, title: "Supravodivosť a termoelektrina", sub: "nulový odpor, dotykové a termoelektrické napätie",
+lesson: [
+ { h: "1. Supravodivosť", p: [
+  "V predošlom leveli rezistivita kovu s klesajúcou teplotou klesala. Pri niektorých kovoch sa pri <b>kritickej teplote T<sub>k</sub></b> zrazu prepadne na nemerateľnú hodnotu. To je <b>supravodivosť</b> (supravodivost). Objavil ju Kamerlingh Onnes v roku 1911 na ortuti pri 4,12 K, krátko po skvapalnení hélia.",
+  "Supravodivosť ničí <b>magnetické pole</b>. Kritická intenzita, pri ktorej pri danej teplote zanikne, je<span class=\"fm\">H<sub>k</sub> = H₀·[1 − (T/T<sub>k</sub>)²]</span>Pri T = 0 je H<sub>k</sub> = H₀, pri T = T<sub>k</sub> je nulová. Krivka H<sub>k</sub>(T) je hranica supravodivého stavu.",
+  "Príklady T<sub>k</sub>: Hg 4,12 K, Pb 7,26 K, Nb 9,25 K, Sn 3,69 K, Al 1,14 K; zliatiny a zlúčeniny Nb₃Sn (18 K), Nb–Zr, V₃Ga. <b>Ideálne (mäkké) supravodiče</b> (Pb, Sn, Hg) majú H<sub>k</sub> = 10³–10⁴ A/m, <b>neideálne (tvrdé)</b> (V, Nb, Nb₃Sn, Nb–Zr) 10⁵–10⁶ A/m a hodia sa na magnety.",
+  "<b>Vysokoteplotné supravodiče</b> sú keramické oxidy: YBa₂Cu₃O₇ (90 K, 1987) supravodí už v kvapalnom dusíku (77 K). Ďalšie míľniky: Meissnerov jav (1934, supravodič vytlačí magnetické pole), BCS teória (1957). <b>Supervodivosť</b> (hypervodivosť) je naopak len veľmi malá, ale merateľná rezistivita veľmi čistých kovov pri nízkej teplote."
+ ], c: "Supravodič s T<sub>k</sub> = 9 K a H₀ = 1·10⁵ A/m chladíš na 4,5 K. Aké pole ešte znesie?", a: "H<sub>k</sub> = H₀[1 − (4,5/9)²] = 1·10⁵·0,75 = 7,5·10⁴ A/m." },
+ { h: "2. Dotykové napätie", p: [
+  "Keď sa dotknú dva rôzne kovy, elektróny prechádzajú z jedného do druhého, kým sa nevyrovná energia. Na styku vznikne <b>dotykový rozdiel potenciálov</b> U₁₂. Závisí od rozdielu výstupných prác a od pomeru koncentrácií elektrónov, nie od veľkosti styku:<span class=\"fm\">U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁),   V = W<sub>v</sub>/e</span>W<sub>v</sub> je výstupná práca elektrónu z kovu, V výstupný potenciál, n koncentrácia elektrónov.",
+  "Pri izbovej teplote je kT/e ≈ 0,025 V. Rozhoduje teda rozdiel výstupných potenciálov (desatiny voltu), logaritmický člen je len malá korekcia."
+ ]},
+ { h: "3. Termoelektrické napätie", p: [
+  "V uzavretom obvode z dvoch kovov sú dva styky. Ak majú rovnakú teplotu, ich dotykové napätia sú opačné a vyrušia sa. Ak má jeden styk teplotu T a druhý T₀, rozdiely výstupných potenciálov sa stále odčítajú, ale logaritmické členy nie:<span class=\"fm\">U<sub>T</sub> = U₁₂ + U₂₁ = (k/e)·(T − T₀)·ln(n₁/n₂) = α<sub>T</sub>·(T − T₀)</span>α<sub>T</sub> je <b>súčiniteľ termoelektrického napätia</b> (V/K). Toto je <b>Seebeckov jav</b>; na ňom funguje termočlánok. Rozdiel teplôt je v °C aj v K rovnaký.",
+  "Opačný jav, keď prúd cez styk ho ohrieva alebo chladí, je <b>Peltierov jav</b>; termoelektrický jav v rôznych častiach toho istého vodiča je <b>Thomsonov jav</b>.",
+  "Pozor na mieru: vzorec s ln(n₁/n₂) je klasický model. Dáva správny tvar (napätie úmerné rozdielu teplôt), ale pre čisté kovy preceňuje skutočné hodnoty. Namerané súčinitele voči platine sú rádovo μV/K: meď +7,2 až +7,7, železo +18,7, konštantán −34,7 až −30,4, kremík +448 μV/K. Preto sa termočlánky robia z dvojíc s veľmi odlišným α<sub>T</sub>, napríklad meď–konštantán."
+ ], c: "Prečo termočlánok s oboma spojmi pri rovnakej teplote nedáva žiadne napätie?", a: "Dotykové napätia dvoch spojov sú rovnako veľké a opačné, súčet je nulový. Napätie vznikne len pri rozdiele teplôt T − T₀." }
+],
+theory: [
+ { h: "Supravodivosť", items: ["Pod T<sub>k</sub> rezistivita prudko klesne na nemerateľnú hodnotu (Hg 4,12 K, 1911).", "H<sub>k</sub> = H₀[1 − (T/T<sub>k</sub>)²].", "Ideálne (Pb, Sn, Hg; H<sub>k</sub> 10³–10⁴ A/m) a neideálne (Nb, V, Nb₃Sn; 10⁵–10⁶ A/m).", "Vysokoteplotné: YBa₂Cu₃O₇ 90 K."] },
+ { h: "Termoelektrina", items: ["U₁₂ = V₂ − V₁ + (kT/e)ln(n₂/n₁), V = W<sub>v</sub>/e.", "U<sub>T</sub> = (k/e)(T − T₀)ln(n₁/n₂) = α<sub>T</sub>(T − T₀) (klasický model).", "Seebeckov, Peltierov, Thomsonov jav.", "α<sub>T</sub> voči Pt: Cu ≈ +7,5, Fe ≈ +18,8, konštantán ≈ −32 μV/K."] }
+],
+traps: ["Dotykové napätie nezávisí od veľkosti styku.", "V termočlánku sa výstupné potenciály odčítajú, ostane len logaritmický člen.", "Rozdiel teplôt v K a v °C je rovnaký, samotná teplota v exponente či v kT nie.", "Pri T = T<sub>k</sub> je kritické pole nulové, nie H₀."],
+examples: [
+ { t: "Cvičenie 6: výstupný potenciál medi 4,29 V, tantalu 4,14 V (dané v zadaní), n<sub>Cu</sub> = 8,42·10²⁸ m⁻³, n<sub>Ta</sub> = 5,53·10²⁸ m⁻³, 20 °C. Aké je dotykové napätie?", s: [
+  "Vzorec <b>Dotykové napätie</b>, index 2 = meď, 1 = tantal.",
+  "V₂ − V₁ = 4,29 − 4,14 = 0,15 V.",
+  "kT/e = 1,38·10⁻²³·293,15/1,602·10⁻¹⁹ = 0,02525 V; ln(8,42/5,53) = 0,420.",
+  "U₁₂ = 0,15 + 0,02525·0,420 = 0,15 + 0,0106 = 0,16 V. Rozhoduje rozdiel potenciálov."] },
+ { t: "Cvičenie 7: termočlánok meď–tantal, rozdiel teplôt spojov 65,0 °C. Teoretické termoelektrické napätie?", s: [
+  "Vzorec <b>Termoelektrické napätie</b>: výstupné potenciály sa odčítajú.",
+  "U<sub>T</sub> = (k/e)·ΔT·ln(n₂/n₁) = (1,38·10⁻²³·65/1,602·10⁻¹⁹)·0,420 = 2,35 mV.",
+  "Podľa klasického modelu. Skutočný článok Cu–Ta dáva len rádovo 0,1–0,2 mV (súčinitele asi 7 a 4,5 μV/K voči Pt); vzorec ber ako skúškový tvar."] },
+ { t: "Kritické pole supravodiča: olovo, T<sub>k</sub> = 7,26 K, H₀ = 6,4·10⁴ A/m. Aké pole znesie pri 4,2 K (kvapalné hélium)?", s: [
+  "Vzorec <b>Kritické pole</b>.",
+  "(T/T<sub>k</sub>)² = (4,2/7,26)² = 0,335.",
+  "H<sub>k</sub> = 6,4·10⁴·(1 − 0,335) = 4,3·10⁴ A/m."] }
+],
+formulas: [
+ { n: "Kritické pole supravodiča", f: "H<sub>k</sub> = H₀·[1 − (T/T<sub>k</sub>)²]", w: "nad H<sub>k</sub> supravodivosť zanikne" },
+ { n: "Dotykové napätie", f: "U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁)", w: "V = W<sub>v</sub>/e výstupný potenciál" },
+ { n: "Termoelektrické napätie", f: "U<sub>T</sub> = (k/e)·(T − T₀)·ln(n₁/n₂) = α<sub>T</sub>·(T − T₀)", w: "klasický model; ΔT v K = v °C" },
+ { n: "Tepelné napätie", f: "kT/e ≈ 0,0253 V pri 20 °C", w: "k = 1,38·10⁻²³ J/K, e = 1,602·10⁻¹⁹ C" },
+ { n: "Kritické teploty", f: "Hg 4,12 · Pb 7,26 · Nb 9,25 · Sn 3,69 · Al 1,14 K · Nb₃Sn 18 K · YBa₂Cu₃O₇ 90 K", w: "skriptá" },
+ { n: "α<sub>T</sub> voči platine", f: "Cu +7,2…+7,7 · Fe +18,7 · konštantán −34,7…−30,4 · Si +448 μV/K", w: "tabuľka 2.1" }
+],
+explain: { q: "Vysvetli, prečo termočlánok meria teplotu a prečo potrebuje dva rôzne kovy.", keys: ["Na styku dvoch kovov vzniká dotykové napätie", "V uzavretom obvode sú dva styky s opačným napätím", "Pri rovnakej teplote sa vyrušia, pri rozdiele teplôt ostane U<sub>T</sub> = α<sub>T</sub>(T − T₀)", "Pri rovnakom kove by bol súčiniteľ nulový, napätie by nevzniklo"] },
+quiz: [
+ { q: "Čo sa stane so supravodivosťou, ak pri teplote pod T<sub>k</sub> zvýšiš magnetické pole nad H<sub>k</sub>?", o: ["zanikne", "zosilnie", "nezmení sa", "T<sub>k</sub> stúpne"], e: "H<sub>k</sub> = H₀[1 − (T/T<sub>k</sub>)²] je hranica supravodivého stavu.", h: "Magnetické pole supravodivosť ničí." },
+ { q: "Aké je kritické pole pri T = T<sub>k</sub>?", o: ["nulové", "H₀", "H₀/2", "nekonečné"], e: "[1 − (T<sub>k</sub>/T<sub>k</sub>)²] = 0.", h: "Dosaď T = T<sub>k</sub>." },
+ { q: "Ktoré supravodiče sa hodia na silné magnety?", o: ["neideálne (tvrdé), napr. Nb₃Sn, Nb–Zr", "ideálne (mäkké), napr. Pb, Hg", "všetky rovnako", "len vysokoteplotné"], e: "Neideálne znesú H<sub>k</sub> 10⁵–10⁶ A/m, ideálne len 10³–10⁴ A/m.", h: "Potrebuješ veľké kritické pole." },
+ { q: "Od čoho nezávisí dotykové napätie dvoch kovov?", o: ["od veľkosti stykovej plochy", "od rozdielu výstupných prác", "od pomeru koncentrácií elektrónov", "od teploty"], e: "Skriptá: na veľkosti stykového miesta nezávisí.", h: "Pozri vzorec, čo v ňom chýba." },
+ { q: "Prečo sa vo vzorci pre termoelektrické napätie neobjavia výstupné potenciály?", o: ["V dvoch spojoch sa odčítajú.", "Sú pri všetkých kovoch rovnaké.", "Závisia od teploty.", "Sú zanedbateľné."], e: "U<sub>T</sub> = U₁₂ + U₂₁; rozdiel V₂ − V₁ je v jednom spoji kladný, v druhom záporný.", h: "Obvod má dva spoje s opačným poradím kovov." },
+ { q: "Ako sa volá jav, keď prúd prechádzajúci stykom dvoch kovov ho ohrieva alebo chladí?", o: ["Peltierov", "Seebeckov", "Thomsonov", "Meissnerov"], e: "Seebeck: rozdiel teplôt dá napätie; Peltier: prúd dá teplo alebo chlad; Thomson: v rôznych častiach toho istého vodiča.", h: "Je to opak termočlánku." },
+ { q: "U ortuti objavil supravodivosť Kamerlingh Onnes pri teplote…", o: ["4,12 K", "77 K", "90 K", "0,52 K"], e: "1911, ortuť 4,12 K. 90 K je YBa₂Cu₃O₇, 77 K bod varu dusíka.", h: "Krátko po skvapalnení hélia.", b: true }
+]
+},
+
+/* ---------- L7 ---------- */
+{
+id: "l7", ch: 1, title: "Kovy v praxi", sub: "vodiče, odpory, pájky, kontakty, termočlánky, uhlík",
+lesson: [
+ { h: "1. Elektrovodné kovy", p: [
+  "Z predošlých levelov vieme, čo rezistivitu zväčšuje. Teraz to použijeme pri výbere materiálu. Elektrovodný kov má mať malú rezistivitu, dobrú spracovateľnosť, odolnosť voči korózii, mechanickú pevnosť, ľahké spájanie a pájanie, dostupnosť a nízku cenu.",
+  "<b>Meď</b>: štandard je vzorne vyžíhaná meď 1/58 Ω·mm²/m. Vodivosť zhoršujú najmä Fe, Si, P a kyslík (Cu₂O). <b>Vodíková choroba medi</b>: Cu₂O + H₂ → 2 Cu + H₂O, vznikajúca para meď rozrušuje. Preto sa na vákuové účely používa bezkyslíkatá meď. Použitie: vodiče, drôty, troleje, plošné spoje (leptajú sa chloridom železitým). Zliatiny: bronzy (Cu–Sn), mosadze (Cu–Zn), Cu–Ni (odporové).",
+  "<b>Hliník</b> (62 % vodivosti medi, ale ľahší): na vzduchu oxiduje, chráni ho vrstva Al₂O₃ (eloxovanie = anodická oxidácia). Pri styku s inými kovmi v prítomnosti elektrolytu hrozí elektrolytická korózia. Použitie: vonkajšie vedenia, vinutia, káble, elektrolytické kondenzátory. Elektrovodné zliatiny Aldrey, Condal; konštrukčný Dural."
+ ]},
+ { h: "2. Odporové materiály", p: [
+  "Odporový materiál chce opak: <b>veľkú rezistivitu</b>, <b>malý teplotný súčiniteľ rezistivity</b> (odpor sa s teplotou nemení), malú tepelnú rozťažnosť, pevnosť pri vysokých teplotách, stálosť a nízku cenu.",
+  "Na <b>meracie prístroje a odporové normály</b>: 0,4–0,5 Ω·mm²/m, takmer nulové α a malé termoelektrické napätie voči medi. Typicky <b>manganín</b> (86 Cu, 12 Mn, 2 Ni; 0,43 μΩ·m, α ≈ ±2,5·10⁻⁶ K⁻¹) a <b>konštantán</b> (54 Cu, 45 Ni; 0,5 μΩ·m, ale −40 μV/K voči medi, preto sa hodí do termočlánkov).",
+  "Na <b>elektrotepelné zariadenia</b> (500–1 350 °C) zliatiny Cr–Ni–Fe (<b>chromnikl</b>, nichróm; 0,85–1,1 Ω·mm²/m) a Fe–Cr–Al (<b>kanthal</b>, fechral; 1,25–1,45 Ω·mm²/m, na povrchu ochranná vrstva Al₂O₃). Pre vyššie teploty Mo, W v inertnej atmosfére, nekovové silit (SiC) a grafit."
+ ], c: "Prečo je na odporový normál vhodný manganín a nie meď?", a: "Manganín má asi 25× väčšiu rezistivitu a takmer nulový teplotný súčiniteľ, takže odpor sa s teplotou nemení. Meď má α ≈ 3,9·10⁻³ K⁻¹." },
+ { h: "3. Pájky, kontakty, termočlánky a uhlík", p: [
+  "<b>Pájky</b>: mäkké (teplota topenia do 500 °C), tvrdé (nad 500 °C) a špeciálne nízkotaviteľné (Woodov kov). Mäkké sú olovnaté (Pb, Sn) alebo bezolovnaté (Sn s Ag, Cu, Zn, Bi, Sb). <b>Tavidlo</b> očistí povrch od oxidov, zlepší zmáčavosť a zabráni oxidácii; obsahuje nosič (kolofónia, organické kyseliny), aktivátory, aditíva a rozpúšťadlá.",
+  "<b>Kontakty (doteky)</b> majú mať malý prechodový odpor, odolnosť voči opaľovaniu a zváraniu oblúkom a voči korózii. Pre slabé prúdy drahé kovy (Au, Pt, Ag), pre stredné a veľké zaťaženie W a spekané materiály W–Cu, W–Ag, Ag–Ni, Ag–grafit.",
+  "<b>Termočlánky</b> (podľa tabuľky skrípt): meď–konštantán −200 až +400 °C, železo–konštantán −200 až +600 °C, NiCr–Ni (chromel–alumel) 0 až 900 °C (krátkodobo 1 200 °C), PtRh–Pt 0 až 1 300 °C (krátkodobo 1 600 °C). Požaduje sa veľká citlivosť, čo najlineárnejšia U<sub>T</sub>(T) a stálosť.",
+  "<b>Elektrotechnický uhlík</b>: pevný, s malým trením, mazivý, dobre vodivý a nezvárateľný. Elektrografit (1,5–6·10⁻⁵ Ω·m) na kefky elektrických strojov a zberače, kovografit (impregnovaný kovmi), ďalej elektródy do oblúkových pecí, batérie a súčasti vákuovej techniky."
+ ]}
+],
+theory: [
+ { h: "Elektrovodné kovy", items: ["Požiadavky: malá ρ, spracovateľnosť, korózia, pevnosť, spájanie, cena.", "Meď 1/58 Ω·mm²/m; nečistoty Fe, Si, P, O₂; vodíková choroba Cu₂O + H₂.", "Hliník 62 % vodivosti, Al₂O₃, eloxovanie, elektrolytická korózia; Aldrey, Dural."] },
+ { h: "Odporové materiály", items: ["Veľká ρ, malé α, stálosť.", "Normály: manganín, konštantán (0,4–0,5 Ω·mm²/m).", "Teplo: chromnikl (0,85–1,1), kanthal/fechral (1,25–1,45 Ω·mm²/m).", "Vysoké teploty: Mo, W, SiC, grafit."] },
+ { h: "Ostatné", items: ["Pájky mäkké do 500 °C, tvrdé nad 500 °C; tavidlo.", "Kontakty: Au, Pt, Ag; W, W–Cu, Ag–Ni.", "Termočlánky: Cu–Ko do 400 °C, Fe–Ko do 600 °C, NiCr–Ni do 900 °C, PtRh–Pt do 1 300 °C.", "Uhlík: kefky, zberače, elektródy."] }
+],
+traps: ["Odporový materiál potrebuje malý teplotný súčiniteľ, nie len veľkú rezistivitu.", "Konštantán má malé α, ale veľké termoelektrické napätie voči medi (preto termočlánok Cu–Ko).", "Mäkká pájka je do 500 °C, nie do 300 °C."],
+examples: [
+ { t: "Vyber materiál: odporový normál, vykurovacia špirála do 1 200 °C a termočlánok do 1 500 °C.", s: [
+  "Normál: manganín, lebo má takmer nulové α a malé termoelektrické napätie voči medi.",
+  "Špirála: kanthal (Fe–Cr–Al, do 1 350 °C), chráni ho vrstva Al₂O₃.",
+  "Termočlánok: PtRh–Pt, krátkodobo do 1 600 °C."] }
+],
+formulas: [
+ { n: "Relatívna vodivosť", f: "Ag 106 · Cu 100 · Al 62 · Zn 31", w: "meď = 100" },
+ { n: "Odporové materiály", f: "manganín 0,43 · konštantán 0,5 · chromnikl 1,1 · kanthal 1,39–1,45 μΩ·m", w: "tabuľka 2.11" },
+ { n: "Pájky", f: "mäkké < 500 °C < tvrdé", w: "podľa teploty topenia" },
+ { n: "Termočlánky – rozsah", f: "Cu–Ko −200…400 · Fe–Ko −200…600 · NiCr–Ni 0…900 · PtRh–Pt 0…1300 °C", w: "tabuľka 2.13" },
+ { n: "Vodíková choroba medi", f: "Cu₂O + H₂ → 2 Cu + H₂O", w: "preto bezkyslíkatá meď do vákua" }
+],
+explain: { q: "Vysvetli, prečo sa na vodič berie čistá meď, ale na rezistor zliatina, napríklad manganín.", keys: ["Vodič má mať čo najmenšiu rezistivitu, preto čistý kov", "Prímesi rezistivitu zvyšujú", "Rezistor potrebuje veľkú rezistivitu a odpor nezávislý od teploty", "Zliatina ako manganín má veľkú ρ a takmer nulové α"] },
+quiz: [
+ { q: "Ktorú vlastnosť musí mať materiál na odporový normál?", o: ["takmer nulový teplotný súčiniteľ rezistivity", "čo najmenšiu rezistivitu", "veľké termoelektrické napätie voči medi", "nízku teplotu topenia"], e: "Odpor normálu sa nesmie meniť s teplotou a nesmie vytvárať termoelektrické napätie na prípojkách z medi.", h: "Normál má mať stálu hodnotu." },
+ { q: "Čo je vodíková choroba medi?", o: ["Cu₂O s vodíkom vytvorí vodnú paru, ktorá meď rozruší", "rozpúšťanie medi vo vode", "korózia medi v styku s hliníkom", "zvýšenie vodivosti vodíkom"], e: "Cu₂O + H₂ → 2 Cu + H₂O; preto bezkyslíkatá meď pre vákuum.", h: "Problémom je kyslík viazaný v medi." },
+ { q: "Do akej teploty sa používa termočlánok meď–konštantán?", o: ["asi do 400 °C (krátkodobo 600 °C)", "do 1 300 °C", "do 900 °C", "len pod 0 °C"], e: "Cu–Ko −200 až +400 °C. Vysoké teploty zvládne PtRh–Pt.", h: "Meď pri vyšších teplotách oxiduje." },
+ { q: "Ktorá zliatina sa hodí na vykurovacie telesá do 1 300 °C?", o: ["kanthal (Fe–Cr–Al)", "manganín", "mosadz", "bronz"], e: "Kanthal má veľkú rezistivitu a chráni ho vrstva Al₂O₃.", h: "Potrebuješ žiaruvzdornosť." },
+ { q: "Mäkké pájky sú tie, ktoré sa tavia…", o: ["do 500 °C", "nad 500 °C", "do 100 °C", "nad 1 000 °C"], e: "Skriptá: mäkké do 500 °C, tvrdé nad 500 °C.", h: "Hranica je 500 °C." },
+ { q: "Prečo hrozí korózia pri spojení hliníka s meďou vo vlhku?", o: ["vzniká galvanický článok (elektrolytická korózia)", "hliník je mäkší", "meď oxiduje rýchlejšie", "hliník sa rozpúšťa vo vode"], e: "Dva rôzne kovy a elektrolyt tvoria článok, menej ušľachtilý hliník sa rozpúšťa.", h: "Dva kovy + elektrolyt = …" },
+ { q: "Na čo sa používa elektrografit?", o: ["kefky elektrických strojov a smykové zberače", "vinutia transformátorov", "pájky", "odporové normály"], e: "Má malé trenie, je mazivý, vodivý a nezvárateľný.", h: "Kĺzavý kontakt na rotujúcom komutátore.", b: true }
+]
 }
+
 ],
 boss: []
 });
 
 GEN.mte = {
+ l5: [
+  () => { const n = rnd([5.0e28, 5.86e28, 8.42e28, 8.5e28]), S = rnd([0.5, 1, 1.5, 2.5, 4]), v = rnd([1.0e-4, 1.5e-4, 2.0e-4, 3.0e-4]), I = n * 1.602e-19 * S * 1e-6 * v, Ss = String(S).replace(".", ",");
+    return hint("I = n·q·S·v, prierez v m².", mk(`Vodič s prierezom ${Ss} mm² má ${num(n)} voľných elektrónov v m³ a driftová rýchlosť je ${num(v)} m·s⁻¹. Aký tečie prúd?`, I, "A", [I * 1e6, I / 1000, I * 1000], `I = ${num(n)}·1,602·10⁻¹⁹·${Ss}·10⁻⁶·${num(v)} = ${num(I)} A.`)); },
+  () => { const l = rnd([10, 15, 20, 25, 50]), S = rnd([0.1, 0.25, 0.5, 0.75, 1]), rho = rnd([1.72e-8, 2.94e-8, 1.6e-8]), R = rho * l / (S * 1e-6), Ss = String(S).replace(".", ",");
+    return hint("ρ = R·S/l, S v m².", mk(`Drôt dĺžky ${l} m s prierezom ${Ss} mm² má odpor ${num(R, 3)} Ω. Aká je jeho rezistivita?`, rho, "Ω·m", [rho * 1e6, rho * 1e3, rho / 1e2], `ρ = ${num(R, 3)}·${Ss}·10⁻⁶/${l} = ${num(rho)} Ω·m = ${num(rho * 1e6)} Ω·mm²·m⁻¹.`)); },
+  () => { const [nm, rho, n] = rnd([["meď", 1.72e-8, 8.42e28], ["striebro", 1.6e-8, 5.86e28], ["hliník", 2.94e-8, 1.81e29], ["zlato", 2.2e-8, 5.9e28]]), E = rnd([0.05, 0.1, 1, 10, 100]), mu = 1 / (n * 1.602e-19 * rho), v = mu * E;
+    return hint("μ = 1/(n·q·ρ), v = μ·E.", mk(`V kove ${nm} (ρ = ${num(rho)} Ω·m, n = ${num(n)} m⁻³) je pole ${num(E)} V·m⁻¹. Aká je driftová rýchlosť elektrónov?`, v, "m·s⁻¹", [mu, v * 1000, n * 1.602e-19 * rho * E], `μ = 1/(${num(n)}·1,602·10⁻¹⁹·${num(rho)}) = ${num(mu)} m²V⁻¹s⁻¹; v = μE = ${num(v)} m·s⁻¹.`)); },
+  () => { const R0 = rnd([20, 30, 41.8, 50, 100]), dt = rnd([20, 30, 45, 60, 80]), a = 3.93e-3, R = R0 * (1 + a * dt), t = 20 + dt;
+    return hint("R = R₀[1 + α(ϑ − ϑ₀)] → ϑ = ϑ₀ + (R/R₀ − 1)/α.", mk(`Medená cievka má pri 20 °C odpor ${num(R0, 4)} Ω, po zahriatí ${num(R, 4)} Ω (α = 3,93·10⁻³ K⁻¹). Aká je teplota vinutia?`, t, "°C", [dt, 20 + dt / 2, 20 + dt * 2], `ϑ = 20 + (${num(R, 4)}/${num(R0, 4)} − 1)/3,93·10⁻³ = ${num(t, 3)} °C.`)); }
+ ],
+ l6: [
+  () => { const V2 = rnd([4.29, 4.5, 4.65]), V1 = rnd([4.14, 4.25, 4.3, 4.0]), n2 = rnd([8.42e28, 8.47e28]), n1 = rnd([5.53e28, 5.86e28, 1.81e29]), t = rnd([20, 25, 100]), T = t + 273.15, U = V2 - V1 + 1.38e-23 * T / 1.602e-19 * Math.log(n2 / n1);
+    return hint("U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁), T v K.", mk(`Kov 2 má výstupný potenciál ${num(V2, 3)} V a n₂ = ${num(n2)} m⁻³, kov 1 má ${num(V1, 3)} V a n₁ = ${num(n1)} m⁻³. Aké je dotykové napätie U₁₂ pri ${t} °C?`, U, "V", [V2 - V1, U + 0.1, V2 - V1 + 1.38e-23 * t / 1.602e-19 * Math.log(n2 / n1) + 0.05], `kT/e = ${num(1.38e-23 * T / 1.602e-19, 4)} V; U₁₂ = ${num(V2 - V1, 3)} + ${num(1.38e-23 * T / 1.602e-19, 4)}·(${num(Math.log(n2 / n1), 3)}) = ${num(U, 3)} V.`)); },
+  () => { const n2 = rnd([8.42e28, 8.47e28]), n1 = rnd([5.53e28, 5.86e28, 2.6e28]), dT = rnd([20, 50, 65, 100, 150]), U = 1.38e-23 * dT / 1.602e-19 * Math.log(n2 / n1);
+    return hint("U<sub>T</sub> = (k/e)·ΔT·ln(n₂/n₁), výstupné potenciály sa odčítajú.", mk(`Termočlánok z dvoch kovov s koncentráciami elektrónov ${num(n2)} a ${num(n1)} m⁻³ má rozdiel teplôt spojov ${dT} °C. Aké je termoelektrické napätie podľa klasického modelu?`, U, "V", [U * 1000, 1.38e-23 * (dT + 273.15) / 1.602e-19 * Math.log(n2 / n1), U * 10], `U<sub>T</sub> = (1,38·10⁻²³·${dT}/1,602·10⁻¹⁹)·ln(${num(n2 / n1, 3)}) = ${num(U)} V.`)); },
+  () => { const [nm, Tk, H0] = rnd([["olovo", 7.26, 6.4e4], ["cín", 3.69, 2.4e4], ["niób", 9.25, 1.6e5], ["ortuť", 4.12, 3.3e4]]), T = rnd([0.25, 0.5, 0.6, 0.8]) * Tk, Hk = H0 * (1 - (T / Tk) ** 2);
+    return hint("H<sub>k</sub> = H₀[1 − (T/T<sub>k</sub>)²].", mk(`Supravodič ${nm} má T<sub>k</sub> = ${num(Tk, 3)} K a H₀ = ${num(H0)} A·m⁻¹. Aké je kritické pole pri ${num(T, 3)} K?`, Hk, "A·m⁻¹", [H0 * (1 - T / Tk), H0, H0 * (T / Tk) ** 2], `H<sub>k</sub> = ${num(H0)}·[1 − (${num(T, 3)}/${num(Tk, 3)})²] = ${num(Hk)} A·m⁻¹.`)); }
+ ],
  l2: [
   () => { const [nm, st, N, rho, M] = rnd([["meď", "FCC", 4, 8890, 63.57], ["hliník", "FCC", 4, 2699, 26.98], ["striebro", "FCC", 4, 10500, 107.87], ["nikel", "FCC", 4, 8900, 58.69], ["železo α", "BCC", 2, 7870, 55.85], ["volfrám", "BCC", 2, 19300, 183.84]]);
     const a = Math.cbrt(N * M / (rho * 6.022e26)), fcc = st === "FCC", r = fcc ? a * Math.SQRT2 / 4 : a * Math.sqrt(3) / 4, Ms = String(M).replace(".", ",");
