@@ -11,6 +11,7 @@
 - V kvíze je správna odpoveď vždy prvá v poli `o`. Nové otázky pridávaj na koniec zoznamu, lebo id otázky je jej poradie a používa ho uložený postup (denník chýb, opakovanie).
 - Texty po slovensky, české odborné termíny v zátvorke, značenie ako v prednáškach (φ potenciál, J moment zotrvačnosti, ε uhlové zrýchlenie, f trenie, ε<sub>r</sub> relatívna permitivita).
 - Každý vzorec a každá konštanta, ktorú level používa vo výklade, kvíze, príkladoch alebo generátoroch, musí byť na karte Vzorce toho levelu. Značky sú vždy tie z prednášky (napr. τ dĺžková hustota, β odpor prostredia, r\* hmotný stred).
-- Počítacie úlohy majú čísla počítateľné z hlavy, na teste nie je kalkulačka.
+- Počítacie úlohy majú čísla počítateľné z hlavy, na teste nie je kalkulačka (platí pre Fyziku 1; v Materiáloch v elektrotechnike je kalkulačka povolená).
+- Vysvetlenie každej počítacej úlohy (aj generovanej) je postup po krokoch: ktorá karta zo Vzorcov, prevody jednotiek, dosadenie s číslami, výsledok.
 - Nový predmet a každú várku materiálov over cez `/deep-research` a skill `fact-check`. Študentove materiály majú prednosť pri značení a rozsahu.
 - O študentovi píš ako o „študentovi“, nie menom.
