@@ -518,7 +518,7 @@ quiz: [
  { q: "Ktorá látka je diamagnetická?", o: ["meď", "hliník", "platina", "železo"], e: "Diamagnetiká: Cu, Au, Zn, voda. Al a Pt sú paramagnetiká, Fe feromagnetikum.", h: "Momenty má vykompenzované." },
  { q: "Čo sú Blochove steny?", o: ["hraničné vrstvy medzi doménami, v ktorých sa stáča smer spinov", "hranice zŕn v polykryštáli", "podmriežky feritu", "oblasti s nulovou indukciou"], e: "Domény oddeľujú Blochove steny; ich posun je prvá fáza magnetizácie.", h: "Súvisí s doménami." },
  { q: "Čo sa stane s feromagnetikom nad Curieovým bodom?", o: ["prejde do paramagnetického stavu", "stane sa supravodičom", "stane sa diamagnetikom", "zvýši sa mu permeabilita"], e: "Tepelný pohyb rozbije rovnobežnú orientáciu spinov v doménach. Fe 768 °C.", h: "Tepelný pohyb vs. výmenné sily." },
- { q: "Paramagnetikum má pri 300 K susceptibilitu 1,5·10⁻³. Aká bude pri 150 K podľa Curieho zákona?", o: ["3,0·10⁻³", "0,75·10⁻³", "1,5·10⁻³", "6,0·10⁻³"], e: "κ₂ = κ₁·T₁/T₂ = 1,5·10⁻³·2.", h: "κ je nepriamo úmerná T." },
+ { q: "Paramagnetikum má pri 300 K susceptibilitu 1,5·10⁻³. Aká bude pri 150 K podľa Curieho zákona?", o: ["3,0·10⁻³", "0,75·10⁻³", "1,5·10⁻³", "6,0·10⁻³"], e: "<b>1.</b> Vzorec <b>Curieho zákon</b>: κ = C/T, teda κ₂ = κ₁·T₁/T₂.<br><b>2.</b> T₁/T₂ = 300/150 = 2 (teploty sú už v K).<br><b>3.</b> κ₂ = 1,5·10⁻³ · 2 = 3,0·10⁻³. Pri nižšej teplote je susceptibilita väčšia.", h: "κ je nepriamo úmerná T." },
  { q: "Čím sa ferimagnetikum (ferit) líši od antiferomagnetika?", o: ["momenty podmriežok sa vyrušia len čiastočne, lebo podmriežky sú z rôznych iónov", "momenty sú všetky rovnobežné", "nemá žiadne podmriežky", "je to vždy kov"], e: "Antiferomagnetikum má podmriežky rovnaké a momenty sa vyrušia; ferit má rôzne, ostane výsledný moment.", h: "Nevykompenzovaný antiferomagnetizmus." },
  { q: "Čo opisuje oblasť IV na krivke prvotnej magnetizácie?", o: ["nasýtenie", "vratné posuny Blochových stien", "nevratné posuny stien", "stáčanie polarizácie domén"], e: "I vratné posuny, II nevratné posuny, III stáčanie, IV nasýtenie.", h: "Posledná oblasť krivky.", b: true }
 ]
@@ -577,7 +577,7 @@ quiz: [
  { q: "Ktorý materiál je magneticky mäkký?", o: ["materiál s H<sub>c</sub> &lt; 10³ A/m", "materiál s H<sub>c</sub> &gt; 10³ A/m", "materiál s veľkým (BH)<sub>max</sub>", "materiál s malou permeabilitou"], e: "Skriptá: H<sub>c</sub> &lt; 10³ A/m mäkké, nad 10³ A/m tvrdé.", h: "Úzka slučka." },
  { q: "Ako rastú straty vírivými prúdmi s frekvenciou pri rovnakej amplitúde B?", o: ["s f²", "s f", "s √f", "nezávisia od f"], e: "P<sub>v</sub> ~ f²d²B<sub>m</sub>²γ. Hysterézne rastú s f.", h: "Indukované napätie aj prúd rastú s f." },
  { q: "Prečo sa mäkké ferity používajú pri vysokých frekvenciách?", o: ["majú veľkú rezistivitu, preto malé straty vírivými prúdmi", "majú najväčšiu indukciu nasýtenia", "majú najväčšiu koercitívnu silu", "sú lacnejšie ako oceľ"], e: "Ferity sú oxidové polovodiče s veľkou ρ. B<sub>s</sub> majú naopak nízke, do 0,3 T.", h: "Vírivé straty ~ γ." },
- { q: "Pri 50 Hz sú p<sub>h</sub> = 0,6 W/kg a p<sub>v</sub> = 0,2 W/kg. Aké sú celkové straty pri 150 Hz?", o: ["3,6 W/kg", "2,4 W/kg", "7,2 W/kg", "1,8 W/kg"], e: "x = 3: 3·0,6 + 9·0,2 = 1,8 + 1,8 = 3,6 W/kg.", h: "Hysterézne ×3, vírivé ×9." },
+ { q: "Pri 50 Hz sú p<sub>h</sub> = 0,6 W/kg a p<sub>v</sub> = 0,2 W/kg. Aké sú celkové straty pri 150 Hz?", o: ["3,6 W/kg", "2,4 W/kg", "7,2 W/kg", "1,8 W/kg"], e: "<b>1.</b> Vzorec <b>Straty pri inej frekvencii</b>: p = x·p<sub>h</sub> + x²·p<sub>v</sub>.<br><b>2.</b> x = 150/50 = 3.<br><b>3.</b> Hysterézne: 3 · 0,6 = 1,8 W/kg; vírivé: 3² · 0,2 = 9 · 0,2 = 1,8 W/kg.<br><b>4.</b> Spolu 1,8 + 1,8 = 3,6 W/kg.", h: "Hysterézne ×3, vírivé ×9." },
  { q: "Ktorý materiál má najväčší energetický súčin (BH)<sub>max</sub>?", o: ["SmCo (vzácne zeminy)", "bárnatý ferit", "AlNiCo", "uhlíková oceľ s W"], e: "SmCo okolo 300 kJ/m³, AlNiCo 15–45, Ba ferit 28–35, oceľ 1–2,5.", h: "Moderné silné magnety." },
  { q: "Čo je stratové číslo?", o: ["merné straty pri B<sub>m</sub> = 1 T (alebo 1,5 T) a 50 Hz", "plocha hysteréznej slučky", "pomer hysteréznych a vírivých strát", "straty pri nasýtení"], e: "Merné straty v W/kg pri dohodnutých podmienkach.", h: "Porovnávacia hodnota plechov." },
  { q: "Ako sa znížia straty vírivými prúdmi v jadre?", o: ["tenkými izolovanými plechmi a väčšou rezistivitou materiálu", "hrubším plechom", "nižšou rezistivitou", "väčšou koercitívnou silou"], e: "P<sub>v</sub> ~ d²γ: menšia hrúbka a menšia konduktivita.", h: "Pozri, od čoho závisí P<sub>v</sub>.", b: true }
@@ -647,7 +647,7 @@ quiz: [
  { q: "Ako závisí n<sub>i</sub> od šírky zakázaného pásu?", o: ["n<sub>i</sub> ~ e<sup>−W<sub>g</sub>/2kT</sup>", "n<sub>i</sub> ~ e<sup>−W<sub>g</sub>/kT</sup>", "n<sub>i</sub> ~ W<sub>g</sub>", "n<sub>i</sub> ~ 1/W<sub>g</sub>"], e: "n<sub>i</sub>² = N<sub>C</sub>N<sub>V</sub>e<sup>−W<sub>g</sub>/kT</sup>, po odmocnení dvojka v menovateli.", h: "Najprv n<sub>i</sub>², potom odmocnina." },
  { q: "Kde leží Fermiho hladina vlastného polovodiča pri 0 K?", o: ["v strede zakázaného pásu", "pri dne vodivostného pásu", "pri vrchole valenčného pásu", "vo vodivostnom páse"], e: "W<sub>i</sub> = (W<sub>C</sub> + W<sub>V</sub>)/2 + člen úmerný T, ktorý pri 0 K zmizne.", h: "Člen s kT je pri 0 K nulový." },
  { q: "Kedy môžeš namiesto Fermiho–Diracovej funkcie použiť Maxwellovu–Boltzmannovu?", o: ["keď je W − W<sub>F</sub> &gt; 3kT (nedegenerovaný polovodič)", "vždy", "len pri 0 K", "len v kovoch"], e: "Chyba je potom pod 5 %. Degenerované polovodiče vyžadujú Fermiho–Diracovu funkciu.", h: "Ďaleko od W<sub>F</sub> je 1 v menovateli zanedbateľná." },
- { q: "Čisté Ge má ρ = 0,47 Ω·m a μ<sub>n</sub> + μ<sub>p</sub> = 0,58 m²V⁻¹s⁻¹. Aká je n<sub>i</sub>?", o: ["2,29·10¹⁹ m⁻³", "4,58·10¹⁹ m⁻³", "1,45·10¹⁶ m⁻³", "2,29·10¹⁶ m⁻³"], e: "n<sub>i</sub> = 1/(ρq(μ<sub>n</sub> + μ<sub>p</sub>)) = 1/(0,47·1,602·10⁻¹⁹·0,58).", h: "γ = 1/ρ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>)." },
+ { q: "Čisté Ge má ρ = 0,47 Ω·m a μ<sub>n</sub> + μ<sub>p</sub> = 0,58 m²V⁻¹s⁻¹. Aká je n<sub>i</sub>?", o: ["2,29·10¹⁹ m⁻³", "4,58·10¹⁹ m⁻³", "1,45·10¹⁶ m⁻³", "2,29·10¹⁶ m⁻³"], e: "<b>1.</b> Vzorec <b>Konduktivita vlastného polovodiča</b>: 1/ρ = q·n<sub>i</sub>·(μ<sub>n</sub> + μ<sub>p</sub>).<br><b>2.</b> Vyjadri n<sub>i</sub> = 1/(ρ·q·(μ<sub>n</sub> + μ<sub>p</sub>)).<br><b>3.</b> Menovateľ: 0,47 · 1,602·10⁻¹⁹ · 0,58 = 4,37·10⁻²⁰.<br><b>4.</b> n<sub>i</sub> = 1/4,37·10⁻²⁰ = 2,29·10¹⁹ m⁻³.", h: "γ = 1/ρ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>)." },
  { q: "Do akej teploty sú použiteľné súčiastky z kremíka podľa skrípt?", o: ["asi 400 K", "asi 330 K", "asi 670 K", "asi 1 000 K"], e: "Si 400 K, Ge 330 K, GaAs 670 K. Súvisí so šírkou zakázaného pásu.", h: "Ge má užší pás, vydrží menej." },
  { q: "Ktorý polovodič z A<sup>III</sup>B<sup>V</sup> je najpoužívanejší?", o: ["GaAs", "InSb", "SiC", "GaN"], e: "Skriptá: arzenid gália, sfaleritová mriežka.", h: "Druhý najpoužívanejší polovodič vôbec.", b: true }
 ]
@@ -709,7 +709,7 @@ explain: { q: "Vysvetli, prečo pridanie fosforu do kremíka zvýši počet elek
 quiz: [
  { q: "Ktorý prvok je v kremíku donorom?", o: ["fosfor", "bór", "hliník", "gálium"], e: "Donory sú z 5. skupiny (P, As, Sb), akceptory z 3. skupiny (B, Al, Ga, In).", h: "Donor má o elektrón viac než Si." },
  { q: "Aký náboj nesie ionizovaný akceptor?", o: ["záporný, nepohyblivý", "kladný, nepohyblivý", "záporný, pohyblivý", "žiadny"], e: "Akceptor prijal elektrón z valenčného pásu, je záporný a sedí v mriežke.", h: "Akceptor elektrón prijíma." },
- { q: "V N type pri plnej ionizácii je n<sub>n</sub> = 10²² m⁻³ a n<sub>i</sub> = 10¹⁶ m⁻³. Koľko je dier?", o: ["10¹⁰ m⁻³", "10¹⁶ m⁻³", "10²² m⁻³", "10⁶ m⁻³"], e: "p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub> = 10³²/10²² = 10¹⁰.", h: "n·p = n<sub>i</sub>²." },
+ { q: "V N type pri plnej ionizácii je n<sub>n</sub> = 10²² m⁻³ a n<sub>i</sub> = 10¹⁶ m⁻³. Koľko je dier?", o: ["10¹⁰ m⁻³", "10¹⁶ m⁻³", "10²² m⁻³", "10⁶ m⁻³"], e: "<b>1.</b> Vzorec <b>Rovnováha</b> n·p = n<sub>i</sub>², teda p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>.<br><b>2.</b> n<sub>i</sub>² = (10¹⁶)² = 10³² m⁻⁶.<br><b>3.</b> p<sub>n</sub> = 10³²/10²² = 10¹⁰ m⁻³.", h: "n·p = n<sub>i</sub>²." },
  { q: "Koľko je 0,01 atómového percenta ako podiel atómov?", o: ["10⁻⁴", "10⁻²", "10⁻⁶", "10⁻³"], e: "0,01/100 = 10⁻⁴.", h: "Percentá deľ 100." },
  { q: "Čo je kompenzovaný polovodič?", o: ["obsahuje donory aj akceptory", "obsahuje len donory", "je bez prímesí", "má Fermiho hladinu vo vodivostnom páse"], e: "Pri N<sub>D</sub> = N<sub>A</sub> je úplne kompenzovaný.", h: "Prímesi sa navzájom vyrovnávajú." },
  { q: "Kedy je polovodič degenerovaný?", o: ["keď je Fermiho hladina bližšie než 3kT k pásu", "keď nemá prímesi", "keď je úplne kompenzovaný", "pri 0 K"], e: "N⁺ pri priblížení k vodivostnému pásu, P⁺ k valenčnému.", h: "Súvisí s hranicou 3kT pre Maxwellovu–Boltzmannovu funkciu." },
@@ -848,7 +848,7 @@ quiz: [
  { q: "Ktorá polarizácia je u všetkých dielektrík a prebieha bez strát?", o: ["elektrónová", "dipólová", "medzivrstvová", "spontánna"], e: "Elektrónová: posun obalu voči jadru, 10⁻¹⁶–10⁻¹⁴ s, bez strát a nezávislá od teploty.", h: "Každý atóm má elektrónový obal." },
  { q: "Ktorá polarizácia je najpomalšia a prejaví sa len pri veľmi nízkych frekvenciách?", o: ["medzivrstvová (migračná)", "elektrónová", "iónová pružná", "rezonančná"], e: "Je podmienená pohybom voľných nábojov k rozhraniam nehomogénnej látky.", h: "Vyskytuje sa v laminátoch a plnených látkach." },
  { q: "Čím sa líši elektrostrikcia od piezoelektrického javu?", o: ["elektrostrikcia je u všetkých dielektrík a Δl ~ E², piezo len u acentrických kryštálov a Δl ~ E", "nijako", "elektrostrikcia je len u kovov", "piezo je u všetkých dielektrík"], e: "Piezoelektrický jav má aj obrátený smer (deformácia → náboj).", h: "Závislosť od E a výskyt." },
- { q: "Dve rovnaké vrstvy s kapacitou po 2 nF sú v sérii. Aká je celková kapacita?", o: ["1 nF", "4 nF", "2 nF", "0,5 nF"], e: "1/C = 1/2 + 1/2 = 1 → C = 1 nF.", h: "Sériovo sa sčítajú prevrátené hodnoty." },
+ { q: "Dve rovnaké vrstvy s kapacitou po 2 nF sú v sérii. Aká je celková kapacita?", o: ["1 nF", "4 nF", "2 nF", "0,5 nF"], e: "<b>1.</b> Vzorec <b>Vrstvy v sérii</b>: 1/C = 1/C₁ + 1/C₂.<br><b>2.</b> 1/C = 1/2 + 1/2 = 1 nF⁻¹.<br><b>3.</b> C = 1 nF. V sérii je výsledok menší než každá vrstva.", h: "Sériovo sa sčítajú prevrátené hodnoty." },
  { q: "Aký rozsah dielektrickej susceptibility majú feroelektriká?", o: ["10² až 10⁴", "do 1", "do 100", "záporný"], e: "Paraelektriká do asi 100, feroelektriká 10²–10⁴ (napr. titaničitan bárnatý).", h: "Feroelektriká majú obrovskú permitivitu.", b: true }
 ]
 },
@@ -919,97 +919,264 @@ quiz: [
 }
 ],
 boss: [
- { q: "Kremík (diamantová mriežka, a = 0,543 nm) má 5,0·10²⁸ atómov/m³. Pridáš 10⁻⁶ % fosforu (plná ionizácia). Aká je koncentrácia elektrónov?", o: ["5,0·10²⁰ m⁻³", "5,0·10²² m⁻³", "1,45·10¹⁶ m⁻³", "5,0·10¹⁸ m⁻³"], e: "N<sub>D</sub> = (10⁻⁶/100)·5·10²⁸ = 5·10²⁰ m⁻³ ≫ n<sub>i</sub>, teda n<sub>n</sub> ≈ N<sub>D</sub>.", h: "Percentá deľ 100, potom plná ionizácia.", lv: "l11" },
+ { q: "Kremík (diamantová mriežka, a = 0,543 nm) má 5,0·10²⁸ atómov/m³. Pridáš 10⁻⁶ % fosforu (plná ionizácia). Aká je koncentrácia elektrónov?", o: ["5,0·10²⁰ m⁻³", "5,0·10²² m⁻³", "1,45·10¹⁶ m⁻³", "5,0·10¹⁸ m⁻³"], e: "<b>1.</b> Fosfor je donor (5. skupina), typ N.<br><b>2.</b> Atómové percentá: 10⁻⁶ % = 10⁻⁶/100 = 10⁻⁸ zo všetkých atómov.<br><b>3.</b> N<sub>D</sub> = 10⁻⁸ · 5·10²⁸ = 5·10²⁰ m⁻³.<br><b>4.</b> Plná ionizácia a N<sub>D</sub> ≫ n<sub>i</sub> (1,45·10¹⁶): n<sub>n</sub> ≈ N<sub>D</sub> = 5·10²⁰ m⁻³.", h: "Percentá deľ 100, potom plná ionizácia.", lv: "l11" },
  { q: "Prečo rezistivita kovu s teplotou rastie, ale rezistivita čistého polovodiča klesá?", o: ["v kove sa počet nosičov nemení a klesá pohyblivosť; v polovodiči exponenciálne rastie počet nosičov", "v kove rastie počet nosičov", "v polovodiči klesá šírka zakázaného pásu na nulu", "kov je supravodič"], e: "Kov: n = konšt., rozptyl na mriežke rastie. Polovodič: n<sub>i</sub> ~ e<sup>−W<sub>g</sub>/2kT</sup>.", h: "Čo sa mení s teplotou: počet nosičov alebo pohyblivosť?", lv: "l10" },
- { q: "Jadro transformátora pri 50 Hz má hysterézne straty 1,0 W/kg a vírivé 0,4 W/kg. Pri 100 Hz (rovnaké B) to bude…", o: ["3,6 W/kg", "2,8 W/kg", "5,6 W/kg", "1,4 W/kg"], e: "2·1,0 + 4·0,4 = 3,6 W/kg.", h: "Hysterézne ×2, vírivé ×4.", lv: "l9" },
+ { q: "Jadro transformátora pri 50 Hz má hysterézne straty 1,0 W/kg a vírivé 0,4 W/kg. Pri 100 Hz (rovnaké B) to bude…", o: ["3,6 W/kg", "2,8 W/kg", "5,6 W/kg", "1,4 W/kg"], e: "<b>1.</b> Vzorec <b>Straty pri inej frekvencii</b>, x = 100/50 = 2.<br><b>2.</b> Hysterézne ×x: 2 · 1,0 = 2,0 W/kg.<br><b>3.</b> Vírivé ×x²: 4 · 0,4 = 1,6 W/kg.<br><b>4.</b> Spolu 3,6 W/kg.", h: "Hysterézne ×2, vírivé ×4.", lv: "l9" },
  { q: "Vrstva vzduchu a vrstva sľudy rovnakej hrúbky sú v sérii medzi doskami. Kde je väčšie elektrické pole?", o: ["vo vzduchu", "v sľude", "rovnaké", "nulové v oboch"], e: "D je spojité, E = D/(ε₀ε<sub>r</sub>), takže väčšie pole je vo vrstve s menšou permitivitou.", h: "D je vo vrstvách rovnaké.", lv: "l13" },
- { q: "Medená cievka má pri 20 °C odpor 50 Ω a pri prevádzke 58 Ω (α = 3,93·10⁻³ K⁻¹). Aká je teplota vinutia?", o: ["asi 61 °C", "asi 41 °C", "asi 81 °C", "asi 28 °C"], e: "ϑ = 20 + (58/50 − 1)/3,93·10⁻³ = 20 + 40,7 ≈ 61 °C.", h: "ϑ = ϑ₀ + (R/R₀ − 1)/α.", lv: "l5" }
+ { q: "Medená cievka má pri 20 °C odpor 50 Ω a pri prevádzke 58 Ω (α = 3,93·10⁻³ K⁻¹). Aká je teplota vinutia?", o: ["asi 61 °C", "asi 41 °C", "asi 81 °C", "asi 28 °C"], e: "<b>1.</b> Vzorec <b>Teplotná závislosť</b>: ϑ = ϑ₀ + (R/R₀ − 1)/α.<br><b>2.</b> R/R₀ = 58/50 = 1,16, teda R/R₀ − 1 = 0,16.<br><b>3.</b> Δϑ = 0,16/3,93·10⁻³ = 40,7 °C.<br><b>4.</b> ϑ = 20 + 40,7 ≈ 61 °C.", h: "ϑ = ϑ₀ + (R/R₀ − 1)/α.", lv: "l5" }
 ]
 });
+
+/* postup výpočtu po krokoch: každý krok na vlastný riadok */
+const mteKroky = (...a) => a.map((s, i) => `<b>${i + 1}.</b> ${s}`).join("<br>");
+const mteC = x => String(x).replace(".", ",");
 
 GEN.mte = {
  l13: [
   () => { const a = rnd([0.1, 0.15, 0.2]), b = rnd([0.15, 0.18, 0.25]), h1 = rnd([0.2, 0.3, 0.5]) * 1e-3, e1 = rnd([2.6, 3.0, 4.0]), h2 = rnd([25, 40, 50]) * 1e-6, e2 = rnd([2.1, 3.2, 3.8]), S = a * b, e0 = 8.854e-12, C1 = e0 * e1 * S / h1, C2 = e0 * e2 * S / h2, C = 1 / (1 / C1 + 1 / C2);
-    return hint("C<sub>i</sub> = ε₀ε<sub>r</sub>S/h<sub>i</sub>, vrstvy v sérii: 1/C = 1/C₁ + 1/C₂.", mk(`Medzi doskami ${num(a * 100)} × ${num(b * 100)} cm je vrstva hrúbky ${num(h1 * 1000)} mm (ε<sub>r</sub> = ${num(e1)}) a fólia ${num(h2 * 1e6)} μm (ε<sub>r</sub> = ${num(e2)}). Aká je kapacita?`, C, "F", [C1 + C2, C1, C2], `S = ${num(S)} m²; C₁ = ${num(C1)} F, C₂ = ${num(C2)} F; C = ${num(C)} F.`)); },
-  () => { const S = rnd([0.5, 0.8, 1, 1.5]) * 1e-6, d = rnd([1, 1.5, 2, 3]) * 1e-3, er = rnd([2.1, 2.3, 3.5]), l = rnd([1, 1.2, 5, 10]), r1 = Math.sqrt(S / Math.PI), r2 = r1 + d, C = 2 * Math.PI * 8.854e-12 * er * l / Math.log(r2 / r1);
-    return hint("r₁ = √(S/π), r₂ = r₁ + hrúbka, C = 2πε₀ε<sub>r</sub>l/ln(r₂/r₁).", mk(`Koaxiálny kábel dĺžky ${num(l)} m má vnútorný vodič s prierezom ${num(S * 1e6)} mm² a izoláciu hrúbky ${num(d * 1000)} mm (ε<sub>r</sub> = ${num(er)}). Aká je kapacita?`, C, "F", [2 * Math.PI * 8.854e-12 * er * l / Math.log10(r2 / r1), 2 * Math.PI * 8.854e-12 * er * l / Math.log(d / r1), C * er], `r₁ = ${num(r1)} m, r₂ = ${num(r2)} m, ln(r₂/r₁) = ${num(Math.log(r2 / r1))}; C = ${num(C)} F.`)); },
+    return hint("C<sub>i</sub> = ε₀ε<sub>r</sub>S/h<sub>i</sub>, vrstvy v sérii: 1/C = 1/C₁ + 1/C₂.", mk(`Medzi doskami ${num(a * 100)} × ${num(b * 100)} cm je vrstva hrúbky ${num(h1 * 1000)} mm (ε<sub>r</sub> = ${num(e1)}) a fólia ${num(h2 * 1e6)} μm (ε<sub>r</sub> = ${num(e2)}). Aká je kapacita?`, C, "F", [C1 + C2, C1, C2], mteKroky(
+      "Vzorce: <b>Doskový kondenzátor</b> C = ε₀ε<sub>r</sub>S/h pre každú vrstvu a <b>Vrstvy v sérii</b> 1/C = 1/C₁ + 1/C₂. Vrstvy ležia nad sebou, preto sú v sérii.",
+      `Prevody na SI: S = ${num(a)} · ${num(b)} = ${num(S)} m²; h₁ = ${num(h1)} m; h₂ = ${num(h2)} m.`,
+      `C₁ = 8,854·10⁻¹² · ${num(e1)} · ${num(S)} / ${num(h1)} = ${num(C1)} F.`,
+      `C₂ = 8,854·10⁻¹² · ${num(e2)} · ${num(S)} / ${num(h2)} = ${num(C2)} F.`,
+      `1/C = 1/${num(C1)} + 1/${num(C2)} → C = ${num(C)} F.`,
+      "Kontrola: v sérii je výsledok vždy menší než najmenšia z kapacít. Súčet C₁ + C₂ by platil pre paralelné zapojenie.")));
+  },
+  () => { const S = rnd([0.5, 0.8, 1, 1.5]) * 1e-6, d = rnd([1, 1.5, 2, 3]) * 1e-3, er = rnd([2.1, 2.3, 3.5]), l = rnd([1, 1.2, 5, 10]), r1 = Math.sqrt(S / Math.PI), r2 = r1 + d, L = Math.log(r2 / r1), C = 2 * Math.PI * 8.854e-12 * er * l / L;
+    return hint("r₁ = √(S/π), r₂ = r₁ + hrúbka, C = 2πε₀ε<sub>r</sub>l/ln(r₂/r₁).", mk(`Koaxiálny kábel dĺžky ${num(l)} m má vnútorný vodič s prierezom ${num(S * 1e6)} mm² a izoláciu hrúbky ${num(d * 1000)} mm (ε<sub>r</sub> = ${num(er)}). Aká je kapacita?`, C, "F", [2 * Math.PI * 8.854e-12 * er * l / Math.log10(r2 / r1), 2 * Math.PI * 8.854e-12 * er * l / Math.log(d / r1), C * er], mteKroky(
+      "Vzorec: <b>Koaxiálny kábel</b> C = 2πε₀ε<sub>r</sub>l / ln(r₂/r₁). Kábel je valcový kondenzátor: vnútorný vodič a tienenie.",
+      `Polomer vnútorného vodiča z prierezu S = πr₁²: r₁ = √(S/π) = √(${num(S)}/π) = ${num(r1)} m (prierez ${num(S * 1e6)} mm² = ${num(S)} m²).`,
+      `Vonkajší polomer = r₁ + hrúbka izolácie: r₂ = ${num(r1)} + ${num(d)} = ${num(r2)} m.`,
+      `ln(r₂/r₁) = ln(${num(r2 / r1)}) = ${num(L)} (prirodzený logaritmus).`,
+      `C = 2π · 8,854·10⁻¹² · ${num(er)} · ${num(l)} / ${num(L)} = ${num(C)} F.`)));
+  },
   () => { const U = rnd([500, 1000, 2000]), h = rnd([2, 4, 5]) * 1e-3, er = rnd([2.5, 5.4, 6, 8]), con = rnd([true, false]), E0 = U / h, D0 = 8.854e-12 * E0, val = con ? D0 * er : E0 / er;
-    return hint(con ? "Zdroj pripojený: E ostáva, D = ε₀ε<sub>r</sub>E narastie." : "Zdroj odpojený: D ostáva, E = D/(ε₀ε<sub>r</sub>) klesne.", mk(`Vákuový doskový kondenzátor (h = ${num(h * 1000)} mm) je na napätí ${U} V. ${con ? "Zdroj ostane pripojený" : "Zdroj odpojíš"} a medzeru vyplníš dielektrikom s ε<sub>r</sub> = ${num(er)}. Aká je potom ${con ? "elektrická indukcia" : "intenzita poľa"}?`, val, con ? "C·m⁻²" : "V·m⁻¹", con ? [D0, D0 / er, D0 * (er - 1)] : [E0, E0 * er, E0 / (er - 1)], `E₀ = U/h = ${num(E0)} V/m, D₀ = ε₀E₀ = ${num(D0)} C/m²; ${con ? `D = ε<sub>r</sub>D₀ = ${num(val)} C/m²` : `E = E₀/ε<sub>r</sub> = ${num(val)} V/m`}.`)); },
+    return hint(con ? "Zdroj pripojený: E ostáva, D = ε₀ε<sub>r</sub>E narastie." : "Zdroj odpojený: D ostáva, E = D/(ε₀ε<sub>r</sub>) klesne.", mk(`Vákuový doskový kondenzátor (h = ${num(h * 1000)} mm) je na napätí ${U} V. ${con ? "Zdroj ostane pripojený" : "Zdroj odpojíš"} a medzeru vyplníš dielektrikom s ε<sub>r</sub> = ${num(er)}. Aká je potom ${con ? "elektrická indukcia" : "intenzita poľa"}?`, val, con ? "C·m⁻²" : "V·m⁻¹", con ? [D0, D0 / er, D0 * (er - 1)] : [E0, E0 * er, E0 / (er - 1)], mteKroky(
+      "Vzorce: E = U/h, D = ε₀ε<sub>r</sub>E a karta <b>Vloženie dielektrika</b>.",
+      `Vo vákuu: E₀ = U/h = ${U} / ${num(h)} = ${num(E0)} V/m; D₀ = ε₀E₀ = 8,854·10⁻¹² · ${num(E0)} = ${num(D0)} C/m².`,
+      con ? "Zdroj je pripojený, drží napätie U. Preto E = U/h ostane rovnaké a zdroj dodá náboj navyše." : "Zdroj je odpojený, náboj na doskách nemá kam ujsť. Preto σ = D ostane rovnaké.",
+      con ? `D = ε₀ε<sub>r</sub>E = ${num(er)} · ${num(D0)} = ${num(val)} C/m² (${num(er)}-krát viac).` : `E = D/(ε₀ε<sub>r</sub>) = E₀/ε<sub>r</sub> = ${num(E0)} / ${num(er)} = ${num(val)} V/m (${num(er)}-krát menej).`)));
+  },
   () => { const er = rnd([2.1, 3, 4, 5.4, 8]), E = rnd([1, 2, 5, 10]) * 1e6, P = 8.854e-12 * (er - 1) * E;
-    return hint("P = ε₀(ε<sub>r</sub> − 1)E.", mk(`Aká je polarizácia dielektrika s ε<sub>r</sub> = ${num(er)} v poli ${num(E)} V·m⁻¹?`, P, "C·m⁻²", [8.854e-12 * er * E, 8.854e-12 * E, P * 10], `P = 8,854·10⁻¹²·(${num(er)} − 1)·${num(E)} = ${num(P)} C/m².`)); }
+    return hint("P = ε₀(ε<sub>r</sub> − 1)E.", mk(`Aká je polarizácia dielektrika s ε<sub>r</sub> = ${num(er)} v poli ${num(E)} V·m⁻¹?`, P, "C·m⁻²", [8.854e-12 * er * E, 8.854e-12 * E, P * 10], mteKroky(
+      "Vzorec: <b>Polarizácia</b> P = D − ε₀E = ε₀(ε<sub>r</sub> − 1)E. Od indukcie odčítame časť, ktorú by bolo aj vo vákuu.",
+      `ε<sub>r</sub> − 1 = ${num(er)} − 1 = ${num(er - 1)}.`,
+      `P = 8,854·10⁻¹² · ${num(er - 1)} · ${num(E)} = ${num(P)} C/m².`,
+      "Pozor: ε₀ε<sub>r</sub>E by bola indukcia D, nie polarizácia.")));
+  }
  ],
  l14: [
-  () => { const C = rnd([10, 47, 100, 220, 1000]) * 1e-9, tg = rnd([1, 2, 5, 10]) * 1e-3, U = rnd([230, 400, 1000]), f = rnd([50, 1000]), P = U * U * 2 * Math.PI * f * C * tg;
-    return hint("P = U²·ω·C·tg δ, ω = 2πf.", mk(`Kondenzátor ${num(C)} F s tg δ = ${num(tg)} je na efektívnom napätí ${U} V, ${f} Hz. Aký je stratový výkon?`, P, "W", [U * U * f * C * tg, P * 2, U * U * 2 * Math.PI * f * C], `ω = ${num(2 * Math.PI * f)} s⁻¹; P = ${U}²·${num(2 * Math.PI * f)}·${num(C)}·${num(tg)} = ${num(P)} W.`)); },
-  () => { const C = rnd([10, 100, 1000]) * 1e-9, R = rnd([1, 10, 100]) * 1e6, f = rnd([50, 1000]), tg = 1 / (2 * Math.PI * f * R * C);
-    return hint("Paralelné zapojenie: tg δ = 1/(ω·R<sub>p</sub>·C<sub>p</sub>).", mk(`Stratový kondenzátor má v paralelnom náhradnom zapojení C<sub>p</sub> = ${num(C)} F a R<sub>p</sub> = ${num(R)} Ω. Aký je stratový činiteľ pri ${f} Hz?`, tg, "", [2 * Math.PI * f * R * C, 1 / (f * R * C), tg * 10], `tg δ = 1/(2π·${f}·${num(R)}·${num(C)}) = ${num(tg)}.`)); },
+  () => { const C = rnd([10, 47, 100, 220, 1000]) * 1e-9, tg = rnd([1, 2, 5, 10]) * 1e-3, U = rnd([230, 400, 1000]), f = rnd([50, 1000]), w = 2 * Math.PI * f, P = U * U * w * C * tg;
+    return hint("P = U²·ω·C·tg δ, ω = 2πf.", mk(`Kondenzátor ${num(C)} F s tg δ = ${num(tg)} je na efektívnom napätí ${U} V, ${f} Hz. Aký je stratový výkon?`, P, "W", [U * U * f * C * tg, P * 2, U * U * w * C], mteKroky(
+      "Vzorec: <b>Stratový výkon</b> P<sub>z</sub> = U²·ω·C·tg δ (U je efektívna hodnota).",
+      `Uhlová frekvencia: ω = 2πf = 2π · ${f} = ${num(w)} s⁻¹.`,
+      `U² = ${U}² = ${num(U * U)} V².`,
+      `P<sub>z</sub> = ${num(U * U)} · ${num(w)} · ${num(C)} · ${num(tg)} = ${num(P)} W.`,
+      "Bez tg δ by to bol jalový výkon kondenzátora; stratový je z neho len podiel tg δ.")));
+  },
+  () => { const C = rnd([10, 100, 1000]) * 1e-9, R = rnd([1, 10, 100]) * 1e6, f = rnd([50, 1000]), w = 2 * Math.PI * f, tg = 1 / (w * R * C);
+    return hint("Paralelné zapojenie: tg δ = 1/(ω·R<sub>p</sub>·C<sub>p</sub>).", mk(`Stratový kondenzátor má v paralelnom náhradnom zapojení C<sub>p</sub> = ${num(C)} F a R<sub>p</sub> = ${num(R)} Ω. Aký je stratový činiteľ pri ${f} Hz?`, tg, "", [w * R * C, 1 / (f * R * C), tg * 10], mteKroky(
+      "Vzorec: <b>Stratový činiteľ</b> pre paralelné zapojenie tg δ = 1/(ω·R<sub>p</sub>·C<sub>p</sub>). Čím väčší paralelný odpor, tým menšie straty.",
+      `ω = 2πf = 2π · ${f} = ${num(w)} s⁻¹.`,
+      `ω·R<sub>p</sub>·C<sub>p</sub> = ${num(w)} · ${num(R)} · ${num(C)} = ${num(w * R * C)}.`,
+      `tg δ = 1 / ${num(w * R * C)} = ${num(tg)}.`,
+      "Pozor: ωRC (bez prevrátenia) platí pre sériové zapojenie.")));
+  },
   () => { const h = rnd([20, 50, 100, 250]) * 1e-6, Up = rnd([2, 5, 10, 20]) * 1e3, Ep = Up / h;
-    return hint("E<sub>p</sub> = U<sub>p</sub>/h, h v metroch.", mk(`Izolačná fólia hrúbky ${num(h * 1e6)} μm prerazí pri napätí ${num(Up)} V. Aká je jej elektrická pevnosť?`, Ep, "V·m⁻¹", [Up * h, Ep / 1000, Ep / 1e6], `E<sub>p</sub> = ${num(Up)}/${num(h)} = ${num(Ep)} V/m.`)); }
+    return hint("E<sub>p</sub> = U<sub>p</sub>/h, h v metroch.", mk(`Izolačná fólia hrúbky ${num(h * 1e6)} μm prerazí pri napätí ${num(Up)} V. Aká je jej elektrická pevnosť?`, Ep, "V·m⁻¹", [Up * h, Ep / 1000, Ep / 1e6], mteKroky(
+      "Vzorec: <b>Elektrická pevnosť</b> E<sub>p</sub> = U<sub>p</sub>/h.",
+      `Hrúbka v metroch: h = ${num(h * 1e6)} μm = ${num(h)} m.`,
+      `E<sub>p</sub> = ${num(Up)} / ${num(h)} = ${num(Ep)} V/m = ${num(Ep / 1e6)} kV/mm.`)));
+  }
  ],
  l10: [
-  () => { const [nm, Wg, NC, NV, mu] = rnd([["Si", 1.11, 2.8e25, 1.04e25, 0.183], ["Ge", 0.67, 1.04e25, 6.0e24, 0.58]]), t = rnd([20, 50, 100, 150, 200]), T = t + 273.15, x = Wg * 1.602e-19 / (2 * 1.38e-23 * T), ni = Math.sqrt(NC * NV) * Math.exp(-x);
-    return hint("n<sub>i</sub> = √(N<sub>C</sub>N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>, W<sub>g</sub> v J, T v K.", mk(`Vlastný ${nm}: W<sub>g</sub> = ${num(Wg)} eV, N<sub>C</sub> = ${num(NC)} m⁻³, N<sub>V</sub> = ${num(NV)} m⁻³. Aká je koncentrácia nosičov pri ${t} °C podľa vzorca?`, ni, "m⁻³", [Math.sqrt(NC * NV) * Math.exp(-2 * x), ni * 100, ni / 100], `√(N<sub>C</sub>N<sub>V</sub>) = ${num(Math.sqrt(NC * NV))}; W<sub>g</sub>/2kT = ${num(x, 4)}; n<sub>i</sub> = ${num(ni)} m⁻³.`)); },
+  () => { const [nm, Wg, NC, NV, mu] = rnd([["Si", 1.11, 2.8e25, 1.04e25, 0.183], ["Ge", 0.67, 1.04e25, 6.0e24, 0.58]]), t = rnd([20, 50, 100, 150, 200]), T = t + 273.15, x = Wg * 1.602e-19 / (2 * 1.38e-23 * T), sq = Math.sqrt(NC * NV), ni = sq * Math.exp(-x);
+    return hint("n<sub>i</sub> = √(N<sub>C</sub>N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>, W<sub>g</sub> v J, T v K.", mk(`Vlastný ${nm}: W<sub>g</sub> = ${num(Wg)} eV, N<sub>C</sub> = ${num(NC)} m⁻³, N<sub>V</sub> = ${num(NV)} m⁻³. Aká je koncentrácia nosičov pri ${t} °C podľa vzorca?`, ni, "m⁻³", [sq * Math.exp(-2 * x), ni * 100, ni / 100], mteKroky(
+      "Vzorec: <b>Vlastná koncentrácia</b> n<sub>i</sub> = √(N<sub>C</sub>·N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>.",
+      `Prevody: T = ${t} + 273,15 = ${num(T, 5)} K; W<sub>g</sub> = ${num(Wg)} · 1,602·10⁻¹⁹ = ${num(Wg * 1.602e-19)} J.`,
+      `Exponent: W<sub>g</sub>/(2kT) = ${num(Wg * 1.602e-19)} / (2 · 1,38·10⁻²³ · ${num(T, 5)}) = ${num(x, 4)}.`,
+      `√(N<sub>C</sub>N<sub>V</sub>) = √(${num(NC)} · ${num(NV)}) = ${num(sq)} m⁻³.`,
+      `n<sub>i</sub> = ${num(sq)} · e<sup>−${num(x, 4)}</sup> = ${num(ni)} m⁻³.`,
+      "Pozor na dvojku: bez nej by bol exponent dvojnásobný a výsledok úplne iný.")));
+  },
   () => { const [nm, rho, mu, mus] = rnd([["Ge", 0.47, 0.58, "0,39 + 0,19"], ["Si", 2350, 0.183, "0,135 + 0,048"], ["Ge", 0.5, 0.58, "0,39 + 0,19"], ["Si", 2300, 0.183, "0,135 + 0,048"]]), ni = 1 / (rho * 1.602e-19 * mu);
-    return hint("γ = 1/ρ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>).", mk(`Čistý ${nm} má rezistivitu ${num(rho)} Ω·m a pohyblivosti ${mus} m²V⁻¹s⁻¹. Aká je vlastná koncentrácia nosičov?`, ni, "m⁻³", [ni / 2, 2 * ni, ni * mu / 0.39], `n<sub>i</sub> = 1/(${num(rho)}·1,602·10⁻¹⁹·${num(mu)}) = ${num(ni)} m⁻³.`)); },
-  () => { const r = rnd([0.5, 0.55, 0.67, 0.8, 1.5]), Wg = rnd([1.11, 0.67, 1.43]), T = rnd([100, 200, 300, 400, 500]), W = Wg / 2 + 0.75 * 1.38e-23 * T * Math.log(r) / 1.602e-19;
-    return hint("W<sub>F</sub> − W<sub>V</sub> = W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>), kT prepočítaj na eV.", mk(`Vlastný polovodič má W<sub>g</sub> = ${num(Wg)} eV a pomer efektívnych hmotností m<sub>p</sub>/m<sub>n</sub> = ${num(r)}. Ako vysoko nad W<sub>V</sub> leží Fermiho hladina pri ${T} K?`, W, "eV", [Wg / 2, Wg / 2 - 0.75 * 1.38e-23 * T * Math.log(r) / 1.602e-19, Wg / 2 + 0.5 * 1.38e-23 * T * Math.log(r) / 1.602e-19 + 0.01], `kT = ${num(1.38e-23 * T / 1.602e-19, 3)} eV; W<sub>F</sub> − W<sub>V</sub> = ${num(Wg / 2, 4)} + ¾·${num(1.38e-23 * T / 1.602e-19, 3)}·ln ${num(r)} = ${num(W, 4)} eV.`, 4)); }
+    return hint("γ = 1/ρ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>).", mk(`Čistý ${nm} má rezistivitu ${num(rho)} Ω·m a pohyblivosti ${mus} m²V⁻¹s⁻¹. Aká je vlastná koncentrácia nosičov?`, ni, "m⁻³", [ni / 2, 2 * ni, ni * mu / 0.39], mteKroky(
+      "Vzorec: <b>Konduktivita vlastného polovodiča</b> γ = 1/ρ = q·n<sub>i</sub>·(μ<sub>n</sub> + μ<sub>p</sub>). Vo vlastnom polovodiči je n = p = n<sub>i</sub>, preto sa pohyblivosti sčítajú.",
+      `Vyjadri n<sub>i</sub>: n<sub>i</sub> = 1/(ρ·q·(μ<sub>n</sub> + μ<sub>p</sub>)).`,
+      `Súčet pohyblivostí: ${mus} = ${num(mu)} m²V⁻¹s⁻¹.`,
+      `n<sub>i</sub> = 1 / (${num(rho)} · 1,602·10⁻¹⁹ · ${num(mu)}) = ${num(ni)} m⁻³.`)));
+  },
+  () => { const r = rnd([0.5, 0.55, 0.67, 0.8, 1.5]), Wg = rnd([1.11, 0.67, 1.43]), T = rnd([100, 200, 300, 400, 500]), kT = 1.38e-23 * T / 1.602e-19, L = Math.log(r), W = Wg / 2 + 0.75 * kT * L;
+    return hint("W<sub>F</sub> − W<sub>V</sub> = W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>), kT prepočítaj na eV.", mk(`Vlastný polovodič má W<sub>g</sub> = ${num(Wg)} eV a pomer efektívnych hmotností m<sub>p</sub>/m<sub>n</sub> = ${num(r)}. Ako vysoko nad W<sub>V</sub> leží Fermiho hladina pri ${T} K?`, W, "eV", [Wg / 2, Wg / 2 - 0.75 * kT * L, Wg / 2 + 0.5 * kT * L + 0.01], mteKroky(
+      "Vzorec: <b>Fermiho hladina vlastného polovodiča</b> W<sub>F</sub> − W<sub>V</sub> = W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>).",
+      `Prvý člen: W<sub>g</sub>/2 = ${num(Wg)}/2 = ${num(Wg / 2, 4)} eV (pri 0 K by to bol celý výsledok).`,
+      `kT v eV: 1,38·10⁻²³ · ${T} / 1,602·10⁻¹⁹ = ${num(kT, 3)} eV.`,
+      `ln(${num(r)}) = ${num(L, 3)}; druhý člen ¾ · ${num(kT, 3)} · (${num(L, 3)}) = ${num(0.75 * kT * L, 3)} eV${r < 1 ? " (záporný, lebo m<sub>p</sub> &lt; m<sub>n</sub>)" : ""}.`,
+      `W<sub>F</sub> − W<sub>V</sub> = ${num(Wg / 2, 4)} + (${num(0.75 * kT * L, 3)}) = ${num(W, 4)} eV.`), 4));
+  }
  ],
  l11: [
-  () => { const [nm, N, ni, mn, mp, nmS] = rnd([["Ge", 4.41e28, 2.4e19, 0.39, 0.19, "germánia"], ["Si", 5.0e28, 1.45e16, 0.135, 0.048, "kremíka"]]), [pr, typ] = rnd([["antimónu", "N"], ["fosforu", "N"], ["arzénu", "N"], ["bóru", "P"], ["gália", "P"], ["india", "P"]]), at = rnd([0.001, 0.0001, 0.01, 0.00001]), Nd = at / 100 * N, min = ni * ni / Nd, g = 1.602e-19 * (typ === "N" ? Nd * mn + min * mp : Nd * mp + min * mn);
-    return hint(`${typ === "N" ? "Donor (5. skupina)" : "Akceptor (3. skupina)"}: väčšinové = (at. %/100)·N, menšinové = n<sub>i</sub>²/väčšinové, γ = q(nμ<sub>n</sub> + pμ<sub>p</sub>).`, mk(`Vzorka ${nmS} (N = ${num(N)} m⁻³, n<sub>i</sub> = ${num(ni)} m⁻³) obsahuje ${String(at).replace(".", ",")} at. % ${pr}, všetky ionizované. Aká je konduktivita?`, g, "S·m⁻¹", [1.602e-19 * Nd * (typ === "N" ? mp : mn), g * 100, 1.602e-19 * Nd * 100 * (typ === "N" ? mn : mp)], `Typ ${typ}; väčšinové ${num(Nd)} m⁻³, menšinové ${num(min)} m⁻³; γ = 1,602·10⁻¹⁹·(${num(Nd)}·${num(typ === "N" ? mn : mp)} + …) = ${num(g)} S·m⁻¹.`)); },
+  () => { const [nm, N, ni, mn, mp, nmS] = rnd([["Ge", 4.41e28, 2.4e19, 0.39, 0.19, "germánia"], ["Si", 5.0e28, 1.45e16, 0.135, 0.048, "kremíka"]]), [pr, typ, pn] = rnd([["antimónu", "N", "Antimón"], ["fosforu", "N", "Fosfor"], ["arzénu", "N", "Arzén"], ["bóru", "P", "Bór"], ["gália", "P", "Gálium"], ["india", "P", "Indium"]]), at = rnd([0.001, 0.0001, 0.01, 0.00001]), Nd = at / 100 * N, min = ni * ni / Nd, mu1 = typ === "N" ? mn : mp, mu2 = typ === "N" ? mp : mn, g = 1.602e-19 * (Nd * mu1 + min * mu2);
+    return hint(`${typ === "N" ? "Donor (5. skupina)" : "Akceptor (3. skupina)"}: väčšinové = (at. %/100)·N, menšinové = n<sub>i</sub>²/väčšinové, γ = q(nμ<sub>n</sub> + pμ<sub>p</sub>).`, mk(`Vzorka ${nmS} (N = ${num(N)} m⁻³, n<sub>i</sub> = ${num(ni)} m⁻³) obsahuje ${mteC(at)} at. % ${pr}, všetky ionizované. Aká je konduktivita?`, g, "S·m⁻¹", [1.602e-19 * Nd * mu2, g * 100, g / 100], mteKroky(
+      typ === "N" ? `Typ prímesi: ${pn} je v 5. skupine, má elektrón navyše → donor, polovodič typu N. Väčšinové nosiče sú elektróny.` : `Typ prímesi: ${pn} je v 3. skupine, má o elektrón menej → akceptor, polovodič typu P. Väčšinové nosiče sú diery.`,
+      `Atómové percentá: ${mteC(at)} % = ${num(at / 100)} zo všetkých atómov; ${typ === "N" ? "N<sub>D</sub>" : "N<sub>A</sub>"} = ${num(at / 100)} · ${num(N)} = ${num(Nd)} m⁻³.`,
+      `Plná ionizácia: väčšinové ${typ === "N" ? "n<sub>n</sub>" : "p<sub>p</sub>"} = ${num(Nd)} m⁻³.`,
+      `Menšinové z n·p = n<sub>i</sub>²: ${typ === "N" ? "p<sub>n</sub>" : "n<sub>p</sub>"} = (${num(ni)})² / ${num(Nd)} = ${num(min)} m⁻³.`,
+      `Vzorec <b>Konduktivita</b> γ = q(n·μ<sub>n</sub> + p·μ<sub>p</sub>) = 1,602·10⁻¹⁹ · (${num(Nd)} · ${mteC(mu1)} + ${num(min)} · ${mteC(mu2)}) = ${num(g)} S·m⁻¹.`,
+      `Väčšinové nosiče násob pohyblivosťou ${typ === "N" ? "elektrónov μ<sub>n</sub>" : "dier μ<sub>p</sub>"}; menšinový člen je zanedbateľný.`)));
+  },
   () => { const [nm, ni] = rnd([["Si", 1.45e16], ["Ge", 2.4e19], ["Si", 9.65e15]]), Nd = rnd([1e20, 1e21, 5e21, 1e22, 1e23]), p = ni * ni / Nd;
-    return hint("p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>, n<sub>n</sub> ≈ N<sub>D</sub>.", mk(`${nm} typu N má N<sub>D</sub> = ${num(Nd)} m⁻³ (plná ionizácia), n<sub>i</sub> = ${num(ni)} m⁻³. Aká je koncentrácia menšinových dier?`, p, "m⁻³", [ni, Nd, p * 1000], `p<sub>n</sub> = (${num(ni)})²/${num(Nd)} = ${num(p)} m⁻³.`)); }
+    return hint("p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>, n<sub>n</sub> ≈ N<sub>D</sub>.", mk(`${nm} typu N má N<sub>D</sub> = ${num(Nd)} m⁻³ (plná ionizácia), n<sub>i</sub> = ${num(ni)} m⁻³. Aká je koncentrácia menšinových dier?`, p, "m⁻³", [ni, Nd, p * 1000], mteKroky(
+      "Vzorce: <b>Plná ionizácia – N typ</b> n<sub>n</sub> ≈ N<sub>D</sub> a <b>Rovnováha</b> n·p = n<sub>i</sub>².",
+      `Väčšinové elektróny: n<sub>n</sub> = N<sub>D</sub> = ${num(Nd)} m⁻³.`,
+      `n<sub>i</sub>² = (${num(ni)})² = ${num(ni * ni)} m⁻⁶.`,
+      `p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub> = ${num(ni * ni)} / ${num(Nd)} = ${num(p)} m⁻³.`,
+      "Kontrola: dier je oveľa menej ako n<sub>i</sub>, lebo nadbytok elektrónov zvýši rekombináciu.")));
+  }
  ],
  l12: [
-  () => { const [nm, mu] = rnd([["elektrónov v Si", 0.135], ["dier v Si", 0.048], ["elektrónov v Ge", 0.39], ["dier v Ge", 0.19], ["elektrónov v GaAs", 0.95]]), T = rnd([250, 300, 350, 400]), D = mu * 1.38e-23 * T / 1.602e-19;
-    return hint("Einsteinov vzťah D = μ·kT/q.", mk(`Aký je difúzny koeficient ${nm} (μ = ${num(mu)} m²V⁻¹s⁻¹) pri ${T} K?`, D, "m²·s⁻¹", [mu * 1.602e-19 / (1.38e-23 * T), D * 100, mu / 0.0259], `kT/q = ${num(1.38e-23 * T / 1.602e-19, 3)} V; D = ${num(mu)}·${num(1.38e-23 * T / 1.602e-19, 3)} = ${num(D)} m²·s⁻¹.`)); },
+  () => { const [nm, mu] = rnd([["elektrónov v Si", 0.135], ["dier v Si", 0.048], ["elektrónov v Ge", 0.39], ["dier v Ge", 0.19], ["elektrónov v GaAs", 0.95]]), T = rnd([250, 300, 350, 400]), U = 1.38e-23 * T / 1.602e-19, D = mu * U;
+    return hint("Einsteinov vzťah D = μ·kT/q.", mk(`Aký je difúzny koeficient ${nm} (μ = ${num(mu)} m²V⁻¹s⁻¹) pri ${T} K?`, D, "m²·s⁻¹", [mu / U, D * 100, mu / 0.0259], mteKroky(
+      "Vzorec: <b>Einsteinov vzťah</b> D/μ = kT/q, teda D = μ·kT/q.",
+      `Tepelné napätie: kT/q = 1,38·10⁻²³ · ${T} / 1,602·10⁻¹⁹ = ${num(U, 3)} V.`,
+      `D = ${num(mu)} · ${num(U, 3)} = ${num(D)} m²/s (= ${num(D * 1e4)} cm²/s).`)));
+  },
   () => { const r = rnd([0.26, 0.5, 1, 0.067]), T = rnd([77, 300, 400]), m = r * 9.109e-31, v = Math.sqrt(3 * 1.38e-23 * T / m);
-    return hint("v<sub>t</sub> = √(3kT/m<sub>n</sub>).", mk(`Aká je tepelná rýchlosť elektrónu s efektívnou hmotnosťou ${num(r)}·m₀ pri ${T} K?`, v, "m·s⁻¹", [v * v / 1e5, Math.sqrt(1.38e-23 * T / m), v / 1000], `v<sub>t</sub> = √(3·1,38·10⁻²³·${T}/${num(m)}) = ${num(v)} m·s⁻¹.`)); }
+    return hint("v<sub>t</sub> = √(3kT/m<sub>n</sub>).", mk(`Aká je tepelná rýchlosť elektrónu s efektívnou hmotnosťou ${num(r)}·m₀ pri ${T} K?`, v, "m·s⁻¹", [v * v / 1e5, Math.sqrt(1.38e-23 * T / m), v / 1000], mteKroky(
+      "Vzorec: <b>Tepelná rýchlosť</b> v<sub>t</sub> = √(3kT/m<sub>n</sub>), z rovnosti ½m v² = 3/2·kT.",
+      `Efektívna hmotnosť: m<sub>n</sub> = ${num(r)} · 9,109·10⁻³¹ = ${num(m)} kg.`,
+      `3kT = 3 · 1,38·10⁻²³ · ${T} = ${num(3 * 1.38e-23 * T)} J.`,
+      `v<sub>t</sub> = √(${num(3 * 1.38e-23 * T)} / ${num(m)}) = ${num(v)} m/s.`)));
+  }
  ],
  l8: [
   () => { const H = rnd([5, 10, 20, 50, 100]), Jm = rnd([1, 2, 3, 5, 8]) * 1e-6, mu0 = 4 * Math.PI * 1e-7, k = Jm / (mu0 * H), B = mu0 * H + Jm;
-    return hint("κ = J<sub>m</sub>/(μ₀H), μ<sub>r</sub> = 1 + κ.", mk(`V poli H = ${H} A·m⁻¹ má látka magnetickú polarizáciu ${num(Jm)} T. Aká je jej relatívna permeabilita?`, 1 + k, "", [k, B / mu0, 1 - k], `μ₀H = ${num(mu0 * H)} T; κ = ${num(Jm)}/${num(mu0 * H)} = ${num(k)}; μ<sub>r</sub> = 1 + κ = ${num(1 + k, 4)}.`, 4)); },
+    return hint("κ = J<sub>m</sub>/(μ₀H), μ<sub>r</sub> = 1 + κ.", mk(`V poli H = ${H} A·m⁻¹ má látka magnetickú polarizáciu ${num(Jm)} T. Aká je jej relatívna permeabilita?`, 1 + k, "", [k, B / mu0, 1 - k], mteKroky(
+      "Vzorce: <b>Indukcia a polarizácia</b> J<sub>m</sub> = μ₀M, <b>Susceptibilita</b> M = κH, <b>Permeabilita</b> μ<sub>r</sub> = 1 + κ.",
+      `μ₀H = 4π·10⁻⁷ · ${H} = ${num(mu0 * H)} T (to by bola indukcia vo vákuu).`,
+      `κ = J<sub>m</sub>/(μ₀H) = ${num(Jm)} / ${num(mu0 * H)} = ${num(k)}.`,
+      `μ<sub>r</sub> = 1 + κ = ${num(1 + k, 4)}.`,
+      `Kontrola: B = μ₀H + J<sub>m</sub> = ${num(B)} T a B/(μ₀H) = ${num(B / (mu0 * H), 4)}.`), 4));
+  },
   () => { const k1 = rnd([0.8, 1.0, 1.4, 2.0]) * 1e-3, t1 = rnd([20, 25]), T1 = t1 + 273.15, T2 = rnd([77.3, 150, 200, 373.15]), H = rnd([1e5, 5e5, 1e6]), k2 = k1 * T1 / T2, M = k2 * H;
-    return hint("Curieho zákon κ₂ = κ₁T₁/T₂ (K), potom M = κH.", mk(`Paramagnetikum má pri ${t1} °C susceptibilitu ${num(k1)}. Aká je jeho magnetizácia v poli ${num(H)} A·m⁻¹ pri ${num(T2, 4)} K?`, M, "A·m⁻¹", [k1 * H, k1 * t1 / T2 * H, M * 4 * Math.PI * 1e-7], `κ₂ = ${num(k1)}·${num(T1, 5)}/${num(T2, 4)} = ${num(k2)}; M = κ₂H = ${num(M)} A·m⁻¹.`)); }
+    return hint("Curieho zákon κ₂ = κ₁T₁/T₂ (K), potom M = κH.", mk(`Paramagnetikum má pri ${t1} °C susceptibilitu ${num(k1)}. Aká je jeho magnetizácia v poli ${num(H)} A·m⁻¹ pri ${num(T2, 4)} K?`, M, "A·m⁻¹", [k1 * H, k1 * t1 / T2 * H, M * 4 * Math.PI * 1e-7], mteKroky(
+      "Vzorce: <b>Curieho zákon</b> κ = C/T, teda κ₂ = κ₁·T₁/T₂, a <b>Susceptibilita</b> M = κH.",
+      `Teplota v kelvinoch: T₁ = ${t1} + 273,15 = ${num(T1, 5)} K; T₂ = ${num(T2, 4)} K.`,
+      `κ₂ = ${num(k1)} · ${num(T1, 5)} / ${num(T2, 4)} = ${num(k2)} (${T2 < T1 ? "pri nižšej teplote väčšia" : "pri vyššej teplote menšia"}).`,
+      `M = κ₂·H = ${num(k2)} · ${num(H)} = ${num(M)} A/m.`)));
+  }
  ],
  l9: [
   () => { const ph = rnd([0.5, 0.8, 1.1, 1.5]), pv = rnd([0.1, 0.2, 0.3, 0.5]), f1 = 50, f2 = rnd([100, 150, 200, 400]), x = f2 / f1, p = x * ph + x * x * pv;
-    return hint("p(f₂) = (f₂/f₁)·p<sub>h</sub> + (f₂/f₁)²·p<sub>v</sub>.", mk(`Plech má pri 50 Hz hysterézne straty ${num(ph)} W/kg a straty vírivými prúdmi ${num(pv)} W/kg. Aké sú celkové merné straty pri ${f2} Hz (rovnaká amplitúda B)?`, p, "W/kg", [x * (ph + pv), x * x * (ph + pv), ph + pv], `x = ${f2}/50 = ${x}; p = ${x}·${num(ph)} + ${x * x}·${num(pv)} = ${num(p)} W/kg.`)); },
-  () => { const ph = rnd([0.5, 1, 1.5, 2]), pv = rnd([0.5, 1, 1.5]), f1 = 100, f2 = 200, f3 = rnd([300, 400, 500]), p1 = ph + pv, p2 = 2 * ph + 4 * pv, x = f3 / f1, p3 = x * ph + x * x * pv;
-    return hint("Dve rovnice: p₁ = p<sub>h</sub> + p<sub>v</sub>, p₂ = 2p<sub>h</sub> + 4p<sub>v</sub>; potom p₃ = x·p<sub>h</sub> + x²·p<sub>v</sub>.", mk(`Celkové merné straty ocele sú ${num(p1)} W/kg pri 100 Hz a ${num(p2)} W/kg pri 200 Hz. Aké budú pri ${f3} Hz?`, p3, "W/kg", [p1 * x, p1 * x * x, p2 * x / 2], `p<sub>v</sub> = (p₂ − 2p₁)/2 = ${num(pv)}, p<sub>h</sub> = ${num(ph)} W/kg; p₃ = ${x}·${num(ph)} + ${x * x}·${num(pv)} = ${num(p3)} W/kg.`)); }
+    return hint("p(f₂) = (f₂/f₁)·p<sub>h</sub> + (f₂/f₁)²·p<sub>v</sub>.", mk(`Plech má pri 50 Hz hysterézne straty ${num(ph)} W/kg a straty vírivými prúdmi ${num(pv)} W/kg. Aké sú celkové merné straty pri ${f2} Hz (rovnaká amplitúda B)?`, p, "W/kg", [x * (ph + pv), x * x * (ph + pv), ph + pv], mteKroky(
+      "Vzorec: <b>Straty pri inej frekvencii</b>. Hysterézne straty rastú s f (rovnaká energia na každý cyklus), vírivé s f².",
+      `Pomer frekvencií: x = f₂/f₁ = ${f2}/50 = ${x}.`,
+      `Hysterézne: x·p<sub>h</sub> = ${x} · ${num(ph)} = ${num(x * ph)} W/kg.`,
+      `Vírivé: x²·p<sub>v</sub> = ${x * x} · ${num(pv)} = ${num(x * x * pv)} W/kg.`,
+      `Spolu p = ${num(x * ph)} + ${num(x * x * pv)} = ${num(p)} W/kg.`)));
+  },
+  () => { const ph = rnd([0.5, 1, 1.5, 2]), pv = rnd([0.5, 1, 1.5]), f3 = rnd([300, 400, 500]), p1 = ph + pv, p2 = 2 * ph + 4 * pv, x = f3 / 100, p3 = x * ph + x * x * pv;
+    return hint("Dve rovnice: p₁ = p<sub>h</sub> + p<sub>v</sub>, p₂ = 2p<sub>h</sub> + 4p<sub>v</sub>; potom p₃ = x·p<sub>h</sub> + x²·p<sub>v</sub>.", mk(`Celkové merné straty ocele sú ${num(p1)} W/kg pri 100 Hz a ${num(p2)} W/kg pri 200 Hz. Aké budú pri ${f3} Hz?`, p3, "W/kg", [p1 * x, p1 * x * x, p2 * x / 2], mteKroky(
+      "Vzorec: <b>Rozdelenie strát</b>. Neznáme sú p<sub>h</sub> a p<sub>v</sub> pri 100 Hz; dve merania dajú dve rovnice.",
+      `100 Hz (x = 1): p<sub>h</sub> + p<sub>v</sub> = ${num(p1)}. 200 Hz (x = 2): 2p<sub>h</sub> + 4p<sub>v</sub> = ${num(p2)}.`,
+      `Z prvej p<sub>h</sub> = ${num(p1)} − p<sub>v</sub>; dosaď do druhej: 2·${num(p1)} − 2p<sub>v</sub> + 4p<sub>v</sub> = ${num(p2)} → 2p<sub>v</sub> = ${num(p2 - 2 * p1)} → p<sub>v</sub> = ${num(pv)} W/kg, p<sub>h</sub> = ${num(ph)} W/kg.`,
+      `Pri ${f3} Hz je x = ${x}: p = ${x}·${num(ph)} + ${x * x}·${num(pv)} = ${num(p3)} W/kg.`)));
+  }
  ],
  l5: [
-  () => { const n = rnd([5.0e28, 5.86e28, 8.42e28, 8.5e28]), S = rnd([0.5, 1, 1.5, 2.5, 4]), v = rnd([1.0e-4, 1.5e-4, 2.0e-4, 3.0e-4]), I = n * 1.602e-19 * S * 1e-6 * v, Ss = String(S).replace(".", ",");
-    return hint("I = n·q·S·v, prierez v m².", mk(`Vodič s prierezom ${Ss} mm² má ${num(n)} voľných elektrónov v m³ a driftová rýchlosť je ${num(v)} m·s⁻¹. Aký tečie prúd?`, I, "A", [I * 1e6, I / 1000, I * 1000], `I = ${num(n)}·1,602·10⁻¹⁹·${Ss}·10⁻⁶·${num(v)} = ${num(I)} A.`)); },
-  () => { const l = rnd([10, 15, 20, 25, 50]), S = rnd([0.1, 0.25, 0.5, 0.75, 1]), rho = rnd([1.72e-8, 2.94e-8, 1.6e-8]), R = rho * l / (S * 1e-6), Ss = String(S).replace(".", ",");
-    return hint("ρ = R·S/l, S v m².", mk(`Drôt dĺžky ${l} m s prierezom ${Ss} mm² má odpor ${num(R, 3)} Ω. Aká je jeho rezistivita?`, rho, "Ω·m", [rho * 1e6, rho * 1e3, rho / 1e2], `ρ = ${num(R, 3)}·${Ss}·10⁻⁶/${l} = ${num(rho)} Ω·m = ${num(rho * 1e6)} Ω·mm²·m⁻¹.`)); },
+  () => { const n = rnd([5.0e28, 5.86e28, 8.42e28, 8.5e28]), S = rnd([0.5, 1, 1.5, 2.5, 4]), v = rnd([1.0e-4, 1.5e-4, 2.0e-4, 3.0e-4]), I = n * 1.602e-19 * S * 1e-6 * v, Ss = mteC(S);
+    return hint("I = n·q·S·v, prierez v m².", mk(`Vodič s prierezom ${Ss} mm² má ${num(n)} voľných elektrónov v m³ a driftová rýchlosť je ${num(v)} m·s⁻¹. Aký tečie prúd?`, I, "A", [I * 1e6, I / 1000, I * 1000], mteKroky(
+      "Vzorec: <b>Prúd a drift</b> I = n·q·S·v. Za 1 s prejdú prierezom elektróny z valca s dĺžkou v.",
+      `Prierez v m²: S = ${Ss} mm² = ${num(S * 1e-6)} m² (1 mm² = 10⁻⁶ m²).`,
+      `I = ${num(n)} · 1,602·10⁻¹⁹ · ${num(S * 1e-6)} · ${num(v)} = ${num(I)} A.`)));
+  },
+  () => { const l = rnd([10, 15, 20, 25, 50]), S = rnd([0.1, 0.25, 0.5, 0.75, 1]), rho = rnd([1.72e-8, 2.94e-8, 1.6e-8]), R = rho * l / (S * 1e-6), Ss = mteC(S);
+    return hint("ρ = R·S/l, S v m².", mk(`Drôt dĺžky ${l} m s prierezom ${Ss} mm² má odpor ${num(R, 3)} Ω. Aká je jeho rezistivita?`, rho, "Ω·m", [rho * 1e6, rho * 1e3, rho / 1e2], mteKroky(
+      "Vzorec: <b>Odpor drôtu</b> R = ρ·l/S, vyjadríme ρ = R·S/l.",
+      `Prierez v m²: S = ${Ss} mm² = ${num(S * 1e-6)} m².`,
+      `ρ = ${num(R, 3)} · ${num(S * 1e-6)} / ${l} = ${num(rho)} Ω·m.`,
+      `Prevod: ${num(rho)} Ω·m = ${num(rho * 1e6)} Ω·mm²·m⁻¹ (krát 10⁶).`)));
+  },
   () => { const [nm, rho, n] = rnd([["meď", 1.72e-8, 8.42e28], ["striebro", 1.6e-8, 5.86e28], ["hliník", 2.94e-8, 1.81e29], ["zlato", 2.2e-8, 5.9e28]]), E = rnd([0.05, 0.1, 1, 10, 100]), mu = 1 / (n * 1.602e-19 * rho), v = mu * E;
-    return hint("μ = 1/(n·q·ρ), v = μ·E.", mk(`V kove ${nm} (ρ = ${num(rho)} Ω·m, n = ${num(n)} m⁻³) je pole ${num(E)} V·m⁻¹. Aká je driftová rýchlosť elektrónov?`, v, "m·s⁻¹", [mu, v * 1000, n * 1.602e-19 * rho * E], `μ = 1/(${num(n)}·1,602·10⁻¹⁹·${num(rho)}) = ${num(mu)} m²V⁻¹s⁻¹; v = μE = ${num(v)} m·s⁻¹.`)); },
+    return hint("μ = 1/(n·q·ρ), v = μ·E.", mk(`V kove ${nm} (ρ = ${num(rho)} Ω·m, n = ${num(n)} m⁻³) je pole ${num(E)} V·m⁻¹. Aká je driftová rýchlosť elektrónov?`, v, "m·s⁻¹", [mu, v * 1000, n * 1.602e-19 * rho * E], mteKroky(
+      "Vzorce: <b>Konduktivita</b> γ = 1/ρ = n·q·μ → μ = 1/(n·q·ρ), a <b>Pohyblivosť</b> v = μ·E.",
+      `μ = 1 / (${num(n)} · 1,602·10⁻¹⁹ · ${num(rho)}) = ${num(mu)} m²V⁻¹s⁻¹.`,
+      `v = μ·E = ${num(mu)} · ${num(E)} = ${num(v)} m/s.`)));
+  },
   () => { const R0 = rnd([20, 30, 41.8, 50, 100]), dt = rnd([20, 30, 45, 60, 80]), a = 3.93e-3, R = R0 * (1 + a * dt), t = 20 + dt;
-    return hint("R = R₀[1 + α(ϑ − ϑ₀)] → ϑ = ϑ₀ + (R/R₀ − 1)/α.", mk(`Medená cievka má pri 20 °C odpor ${num(R0, 4)} Ω, po zahriatí ${num(R, 4)} Ω (α = 3,93·10⁻³ K⁻¹). Aká je teplota vinutia?`, t, "°C", [dt, 20 + dt / 2, 20 + dt * 2], `ϑ = 20 + (${num(R, 4)}/${num(R0, 4)} − 1)/3,93·10⁻³ = ${num(t, 3)} °C.`)); }
+    return hint("R = R₀[1 + α(ϑ − ϑ₀)] → ϑ = ϑ₀ + (R/R₀ − 1)/α.", mk(`Medená cievka má pri 20 °C odpor ${num(R0, 4)} Ω, po zahriatí ${num(R, 4)} Ω (α = 3,93·10⁻³ K⁻¹). Aká je teplota vinutia?`, t, "°C", [dt, 20 + dt / 2, 20 + dt * 2], mteKroky(
+      "Vzorec: <b>Teplotná závislosť</b> R = R₀[1 + α(ϑ − ϑ₀)], ϑ₀ = 20 °C.",
+      `Pomer odporov: R/R₀ = ${num(R, 4)} / ${num(R0, 4)} = ${num(R / R0, 4)}.`,
+      `Oteplenie: Δϑ = (R/R₀ − 1)/α = ${num(R / R0 - 1, 3)} / 3,93·10⁻³ = ${num(dt, 3)} °C.`,
+      `Teplota: ϑ = 20 + ${num(dt, 3)} = ${num(t, 3)} °C. Nezabudni pripočítať východiskových 20 °C.`)));
+  }
  ],
  l6: [
-  () => { const V2 = rnd([4.29, 4.5, 4.65]), V1 = rnd([4.14, 4.25, 4.3, 4.0]), n2 = rnd([8.42e28, 8.47e28]), n1 = rnd([5.53e28, 5.86e28, 1.81e29]), t = rnd([20, 25, 100]), T = t + 273.15, U = V2 - V1 + 1.38e-23 * T / 1.602e-19 * Math.log(n2 / n1);
-    return hint("U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁), T v K.", mk(`Kov 2 má výstupný potenciál ${num(V2, 3)} V a n₂ = ${num(n2)} m⁻³, kov 1 má ${num(V1, 3)} V a n₁ = ${num(n1)} m⁻³. Aké je dotykové napätie U₁₂ pri ${t} °C?`, U, "V", [V2 - V1, U + 0.1, V2 - V1 + 1.38e-23 * t / 1.602e-19 * Math.log(n2 / n1) + 0.05], `kT/e = ${num(1.38e-23 * T / 1.602e-19, 4)} V; U₁₂ = ${num(V2 - V1, 3)} + ${num(1.38e-23 * T / 1.602e-19, 4)}·(${num(Math.log(n2 / n1), 3)}) = ${num(U, 3)} V.`)); },
-  () => { const n2 = rnd([8.42e28, 8.47e28]), n1 = rnd([5.53e28, 5.86e28, 2.6e28]), dT = rnd([20, 50, 65, 100, 150]), U = 1.38e-23 * dT / 1.602e-19 * Math.log(n2 / n1);
-    return hint("U<sub>T</sub> = (k/e)·ΔT·ln(n₂/n₁), výstupné potenciály sa odčítajú.", mk(`Termočlánok z dvoch kovov s koncentráciami elektrónov ${num(n2)} a ${num(n1)} m⁻³ má rozdiel teplôt spojov ${dT} °C. Aké je termoelektrické napätie podľa klasického modelu?`, U, "V", [U * 1000, 1.38e-23 * (dT + 273.15) / 1.602e-19 * Math.log(n2 / n1), U * 10], `U<sub>T</sub> = (1,38·10⁻²³·${dT}/1,602·10⁻¹⁹)·ln(${num(n2 / n1, 3)}) = ${num(U)} V.`)); },
+  () => { const V2 = rnd([4.29, 4.5, 4.65]), V1 = rnd([4.14, 4.25, 4.3, 4.0]), n2 = rnd([8.42e28, 8.47e28]), n1 = rnd([5.53e28, 5.86e28, 1.81e29]), t = rnd([20, 25, 100]), T = t + 273.15, kq = 1.38e-23 * T / 1.602e-19, L = Math.log(n2 / n1), U = V2 - V1 + kq * L;
+    return hint("U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁), T v K.", mk(`Kov 2 má výstupný potenciál ${num(V2, 3)} V a n₂ = ${num(n2)} m⁻³, kov 1 má ${num(V1, 3)} V a n₁ = ${num(n1)} m⁻³. Aké je dotykové napätie U₁₂ pri ${t} °C?`, U, "V", [V2 - V1, U + 0.1, U + 0.05], mteKroky(
+      "Vzorec: <b>Dotykové napätie</b> U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁).",
+      `Rozdiel výstupných potenciálov: V₂ − V₁ = ${num(V2, 3)} − ${num(V1, 3)} = ${num(V2 - V1, 3)} V.`,
+      `Tepelné napätie: kT/e = 1,38·10⁻²³ · ${num(T, 5)} / 1,602·10⁻¹⁹ = ${num(kq, 4)} V (T = ${t} + 273,15 K).`,
+      `ln(n₂/n₁) = ln(${num(n2 / n1, 3)}) = ${num(L, 3)}.`,
+      `U₁₂ = ${num(V2 - V1, 3)} + ${num(kq, 4)} · (${num(L, 3)}) = ${num(U, 3)} V. Rozhoduje rozdiel potenciálov, druhý člen je malá korekcia.`)));
+  },
+  () => { const n2 = rnd([8.42e28, 8.47e28]), n1 = rnd([5.53e28, 5.86e28, 2.6e28]), dT = rnd([20, 50, 65, 100, 150]), L = Math.log(n2 / n1), U = 1.38e-23 * dT / 1.602e-19 * L;
+    return hint("U<sub>T</sub> = (k/e)·ΔT·ln(n₂/n₁), výstupné potenciály sa odčítajú.", mk(`Termočlánok z dvoch kovov s koncentráciami elektrónov ${num(n2)} a ${num(n1)} m⁻³ má rozdiel teplôt spojov ${dT} °C. Aké je termoelektrické napätie podľa klasického modelu?`, U, "V", [U * 1000, 1.38e-23 * (dT + 273.15) / 1.602e-19 * L, U * 10], mteKroky(
+      "Vzorec: <b>Termoelektrické napätie</b> U<sub>T</sub> = (k/e)·ΔT·ln(n₂/n₁). Výstupné potenciály sa v dvoch spojoch odčítajú, ostane len logaritmický člen.",
+      `Rozdiel teplôt je v K aj v °C rovnaký: ΔT = ${dT} K (nepripočítavaj 273,15).`,
+      `k/e = 1,38·10⁻²³ / 1,602·10⁻¹⁹ = 8,61·10⁻⁵ V/K; ln(${num(n2 / n1, 3)}) = ${num(L, 3)}.`,
+      `U<sub>T</sub> = 8,61·10⁻⁵ · ${dT} · ${num(L, 3)} = ${num(U)} V = ${num(U * 1000)} mV.`)));
+  },
   () => { const [nm, Tk, H0] = rnd([["olovo", 7.26, 6.4e4], ["cín", 3.69, 2.4e4], ["niób", 9.25, 1.6e5], ["ortuť", 4.12, 3.3e4]]), T = rnd([0.25, 0.5, 0.6, 0.8]) * Tk, Hk = H0 * (1 - (T / Tk) ** 2);
-    return hint("H<sub>k</sub> = H₀[1 − (T/T<sub>k</sub>)²].", mk(`Supravodič ${nm} má T<sub>k</sub> = ${num(Tk, 3)} K a H₀ = ${num(H0)} A·m⁻¹. Aké je kritické pole pri ${num(T, 3)} K?`, Hk, "A·m⁻¹", [H0 * (1 - T / Tk), H0, H0 * (T / Tk) ** 2], `H<sub>k</sub> = ${num(H0)}·[1 − (${num(T, 3)}/${num(Tk, 3)})²] = ${num(Hk)} A·m⁻¹.`)); }
+    return hint("H<sub>k</sub> = H₀[1 − (T/T<sub>k</sub>)²].", mk(`Supravodič ${nm} má T<sub>k</sub> = ${num(Tk, 3)} K a H₀ = ${num(H0)} A·m⁻¹. Aké je kritické pole pri ${num(T, 3)} K?`, Hk, "A·m⁻¹", [H0 * (1 - T / Tk), H0, H0 * (T / Tk) ** 2], mteKroky(
+      "Vzorec: <b>Kritické pole supravodiča</b> H<sub>k</sub> = H₀·[1 − (T/T<sub>k</sub>)²].",
+      `Pomer teplôt: T/T<sub>k</sub> = ${num(T, 3)} / ${num(Tk, 3)} = ${num(T / Tk, 3)}; na druhú ${num((T / Tk) ** 2, 3)}.`,
+      `Zátvorka: 1 − ${num((T / Tk) ** 2, 3)} = ${num(1 - (T / Tk) ** 2, 3)}.`,
+      `H<sub>k</sub> = ${num(H0)} · ${num(1 - (T / Tk) ** 2, 3)} = ${num(Hk)} A/m.`)));
+  }
  ],
  l2: [
   () => { const [nm, st, N, rho, M] = rnd([["meď", "FCC", 4, 8890, 63.57], ["hliník", "FCC", 4, 2699, 26.98], ["striebro", "FCC", 4, 10500, 107.87], ["nikel", "FCC", 4, 8900, 58.69], ["železo α", "BCC", 2, 7870, 55.85], ["volfrám", "BCC", 2, 19300, 183.84]]);
-    const a = Math.cbrt(N * M / (rho * 6.022e26)), fcc = st === "FCC", r = fcc ? a * Math.SQRT2 / 4 : a * Math.sqrt(3) / 4, Ms = String(M).replace(".", ",");
-    return hint(`${st}: ${N} atómy v bunke. ρa³ = N·M/N<sub>A</sub>, potom dotyk ${fcc ? "a√2 = 4r" : "a√3 = 4r"}.`, mk(`Kov ${nm} (${st}) má hustotu ${rho} kg·m⁻³ a molárnu hmotnosť ${Ms} kg/kmol. Aký je polomer atómu, ak sa atómy dotýkajú?`, r, "m", [a, fcc ? a * Math.sqrt(3) / 4 : a * Math.SQRT2 / 4, r * 10], `a = ∛(${N}·${Ms}/(${rho}·6,022·10²⁶)) = ${num(a)} m; r = ${fcc ? "a√2/4" : "a√3/4"} = ${num(r)} m.`)); },
+    const V = N * M / (rho * 6.022e26), a = Math.cbrt(V), fcc = st === "FCC", r = fcc ? a * Math.SQRT2 / 4 : a * Math.sqrt(3) / 4, Ms = mteC(M);
+    return hint(`${st}: ${N} atómy v bunke. ρa³ = N·M/N<sub>A</sub>, potom dotyk ${fcc ? "a√2 = 4r" : "a√3 = 4r"}.`, mk(`Kov ${nm} (${st}) má hustotu ${rho} kg·m⁻³ a molárnu hmotnosť ${Ms} kg/kmol. Aký je polomer atómu, ak sa atómy dotýkajú?`, r, "m", [a, fcc ? a * Math.sqrt(3) / 4 : a * Math.SQRT2 / 4, r * 10], mteKroky(
+      `Počet atómov v bunke ${st}: ${fcc ? "8 rohov · 1/8 + 6 stien · 1/2 = 4" : "8 rohov · 1/8 + 1 v strede = 2"}.`,
+      "Vzorec <b>Hustota a bunka</b>: hmotnosť bunky ρ·a³ = hmotnosť jej atómov N·M/N<sub>A</sub>, teda a³ = N·M/(ρ·N<sub>A</sub>). M je v kg/kmol, preto N<sub>A</sub> = 6,022·10²⁶ kmol⁻¹.",
+      `a³ = ${N} · ${Ms} / (${rho} · 6,022·10²⁶) = ${num(V)} m³.`,
+      `a = ∛${num(V)} = ${num(a)} m.`,
+      `Vzorec <b>Dotyk atómov</b>: ${fcc ? "v FCC sa atómy dotýkajú na stenovej uhlopriečke, a√2 = 4r → r = a√2/4" : "v BCC sa atómy dotýkajú na telesovej uhlopriečke, a√3 = 4r → r = a√3/4"} = ${num(r)} m.`)));
+  },
   () => { const [nm, rho, M] = rnd([["meď", 8890, 63.57], ["hliník", 2699, 26.98], ["striebro", 10500, 107.87], ["zlato", 19300, 196.97], ["volfrám", 19300, 183.84]]);
-    const n = rho * 6.022e26 / M, Ms = String(M).replace(".", ",");
-    return hint("Koncentrácia atómov N = ρ·N<sub>A</sub>/M, M v kg/kmol a N<sub>A</sub> v kmol⁻¹.", mk(`Koľko atómov je v 1 m³ kovu ${nm} (ρ = ${rho} kg·m⁻³, M = ${Ms} kg/kmol)?`, n, "m⁻³", [n / 1000, M * 6.022e26 / rho, n * 1000], `N = ${rho}·6,022·10²⁶/${Ms} = ${num(n)} m⁻³.`)); },
-  () => { const [nm, D, w1, w2, w3] = rnd([["jednoduchej", 0.5236, 0.6802, 0.7405, 0.3401], ["priestorovo centrovanej", 0.6802, 0.5236, 0.7405, 0.3401], ["plošne centrovanej", 0.7405, 0.6802, 0.5236, 0.3401], ["diamantovej", 0.3401, 0.5236, 0.6802, 0.7405]]);
-    return hint("Zaplnenie D = N·(4/3)πr³/a³ s podmienkou dotyku.", mk(`Aké je zaplnenie priestoru v ${nm} kubickej mriežke tuhými guľami, ktoré sa dotýkajú?`, D, "", [w1, w2, w3], "SC π/6 ≈ 0,524; BCC π√3/8 ≈ 0,680; FCC π√2/6 ≈ 0,740; diamant π√3/16 ≈ 0,340.")); }
+    const n = rho * 6.022e26 / M, Ms = mteC(M);
+    return hint("Koncentrácia atómov N = ρ·N<sub>A</sub>/M, M v kg/kmol a N<sub>A</sub> v kmol⁻¹.", mk(`Koľko atómov je v 1 m³ kovu ${nm} (ρ = ${rho} kg·m⁻³, M = ${Ms} kg/kmol)?`, n, "m⁻³", [n / 1000, M * 6.022e26 / rho, n * 1000], mteKroky(
+      "Vzorec: <b>Koncentrácia atómov</b> N = ρ·N<sub>A</sub>/M. V 1 m³ je ρ kilogramov, to je ρ/M kilomólov, a každý kilomól má N<sub>A</sub> atómov.",
+      `Počet kilomólov v 1 m³: ρ/M = ${rho} / ${Ms} = ${num(rho / M)} kmol.`,
+      `N = ${num(rho / M)} · 6,022·10²⁶ = ${num(n)} m⁻³.`,
+      "Pozor na jednotky: s N<sub>A</sub> v mol⁻¹ (10²³) by vyšlo 1000-krát menej.")));
+  },
+  () => { const [nm, D, w1, w2, w3, N, dot, vz] = rnd([["jednoduchej", 0.5236, 0.6802, 0.7405, 0.3401, 1, "a = 2r (po hrane)", "π/6"], ["priestorovo centrovanej", 0.6802, 0.5236, 0.7405, 0.3401, 2, "a√3 = 4r (telesová uhlopriečka)", "π√3/8"], ["plošne centrovanej", 0.7405, 0.6802, 0.5236, 0.3401, 4, "a√2 = 4r (stenová uhlopriečka)", "π√2/6"], ["diamantovej", 0.3401, 0.5236, 0.6802, 0.7405, 8, "a√3/4 = 2r (štvrtina telesovej uhlopriečky)", "π√3/16"]]);
+    return hint("Zaplnenie D = N·(4/3)πr³/a³ s podmienkou dotyku.", mk(`Aké je zaplnenie priestoru v ${nm} kubickej mriežke tuhými guľami, ktoré sa dotýkajú?`, D, "", [w1, w2, w3], mteKroky(
+      "Vzorec: <b>Zaplnenie</b> D = N·(4/3)πr³ / a³ (objem guľí v bunke delený objemom bunky).",
+      `Počet atómov v bunke: N = ${N}.`,
+      `Podmienka dotyku: ${dot}; z nej vyjadri a pomocou r.`,
+      `Po dosadení sa r vykráti: D = ${vz} ≈ ${num(D, 3)}.`)));
+  }
  ],
  l3: [
-  () => { const W = rnd([0.6, 0.65, 0.7, 0.75, 0.8, 0.9, 1.0]), t = rnd([20, 25, 100, 200, 300, 400, 500]), T = t + 273.15, N = 6.02e28, x = W * 1.602e-19 / (1.38e-23 * T), nv = N * Math.exp(-x), Ws = String(W).replace(".", ",");
-    return hint("n<sub>v</sub> = N·e<sup>−W/kT</sup>, W v J, T v K.", mk(`Kov má 6,02·10²⁸ atómov v m³ a energia na vznik vakancie je ${Ws} eV. Aká je koncentrácia vakancií pri ${t} °C?`, nv, "m⁻³", [nv * 1000, nv / 1000, N * Math.exp(-x / 2)], `W/kT = ${Ws}·1,602·10⁻¹⁹/(1,38·10⁻²³·${num(T, 5)}) = ${num(x, 4)}; n<sub>v</sub> = 6,02·10²⁸·e<sup>−${num(x, 4)}</sup> = ${num(nv)} m⁻³.`)); },
-  () => { const W = rnd([0.6, 0.7, 0.75, 0.8, 1.0]), t1 = rnd([20, 25]), t2 = rnd([300, 400, 500, 600]), T1 = t1 + 273.15, T2 = t2 + 273.15, y = W * 1.602e-19 / 1.38e-23 * (1 / T1 - 1 / T2), r = Math.exp(y), Ws = String(W).replace(".", ",");
-    return hint("Pomer n₂/n₁ = e<sup>(W/k)(1/T₁ − 1/T₂)</sup>, N sa vykráti.", mk(`Koľkokrát vzrastie koncentrácia vakancií, ak teplota stúpne z ${t1} °C na ${t2} °C (W<sub>v</sub> = ${Ws} eV)?`, r, "-krát", [r * 100, r / 100, T2 / T1], `(W/k)(1/T₁ − 1/T₂) = ${num(y, 4)}; pomer = e<sup>${num(y, 4)}</sup> = ${num(r)}.`)); }
+  () => { const W = rnd([0.6, 0.65, 0.7, 0.75, 0.8, 0.9, 1.0]), t = rnd([20, 25, 100, 200, 300, 400, 500]), T = t + 273.15, N = 6.02e28, x = W * 1.602e-19 / (1.38e-23 * T), nv = N * Math.exp(-x), Ws = mteC(W);
+    return hint("n<sub>v</sub> = N·e<sup>−W/kT</sup>, W v J, T v K.", mk(`Kov má 6,02·10²⁸ atómov v m³ a energia na vznik vakancie je ${Ws} eV. Aká je koncentrácia vakancií pri ${t} °C?`, nv, "m⁻³", [nv * 1000, nv / 1000, N * Math.exp(-x / 2)], mteKroky(
+      "Vzorec: <b>Vakancie</b> n<sub>v</sub> = N·e<sup>−W<sub>v</sub>/kT</sup>.",
+      `Prevody: W = ${Ws} · 1,602·10⁻¹⁹ = ${num(W * 1.602e-19)} J; T = ${t} + 273,15 = ${num(T, 5)} K.`,
+      `Exponent: W/(kT) = ${num(W * 1.602e-19)} / (1,38·10⁻²³ · ${num(T, 5)}) = ${num(x, 4)}.`,
+      `e<sup>−${num(x, 4)}</sup> = ${num(Math.exp(-x))}.`,
+      `n<sub>v</sub> = 6,02·10²⁸ · ${num(Math.exp(-x))} = ${num(nv)} m⁻³.`)));
+  },
+  () => { const W = rnd([0.6, 0.7, 0.75, 0.8, 1.0]), t1 = rnd([20, 25]), t2 = rnd([300, 400, 500, 600]), T1 = t1 + 273.15, T2 = t2 + 273.15, y = W * 1.602e-19 / 1.38e-23 * (1 / T1 - 1 / T2), r = Math.exp(y), Ws = mteC(W);
+    return hint("Pomer n₂/n₁ = e<sup>(W/k)(1/T₁ − 1/T₂)</sup>, N sa vykráti.", mk(`Koľkokrát vzrastie koncentrácia vakancií, ak teplota stúpne z ${t1} °C na ${t2} °C (W<sub>v</sub> = ${Ws} eV)?`, r, "-krát", [r * 100, r / 100, T2 / T1], mteKroky(
+      "Vzorec: <b>Pomer pri dvoch teplotách</b>. Vydeľ n₂ = N·e<sup>−W/kT₂</sup> hodnotou n₁ = N·e<sup>−W/kT₁</sup>: N sa vykráti a ostane n₂/n₁ = e<sup>(W/k)(1/T₁ − 1/T₂)</sup>.",
+      `Prevody: T₁ = ${num(T1, 5)} K, T₂ = ${num(T2, 5)} K; W/k = ${Ws} · 1,602·10⁻¹⁹ / 1,38·10⁻²³ = ${num(W * 1.602e-19 / 1.38e-23)} K.`,
+      `1/T₁ − 1/T₂ = ${num(1 / T1, 4)} − ${num(1 / T2, 4)} = ${num(1 / T1 - 1 / T2, 4)} K⁻¹.`,
+      `Exponent: ${num(W * 1.602e-19 / 1.38e-23)} · ${num(1 / T1 - 1 / T2, 4)} = ${num(y, 4)}.`,
+      `Pomer: e<sup>${num(y, 4)}</sup> = ${num(r)}-krát.`)));
+  }
  ]
 };
