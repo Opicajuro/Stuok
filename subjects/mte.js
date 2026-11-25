@@ -9,8 +9,9 @@ note: "MTD · skriptá a numerické cvičenia · kalkulačka povolená",
 chapters: [
  { name: "Kapitola 1 · Zloženie a štruktúra látok", note: "Atómy, väzby, kryštály, poruchy, pásový model.", exam: null },
  { name: "Kapitola 2 · Vodivé a odporové materiály", note: "Vodivosť kovov, supravodivosť, termoelektrina, kovy v praxi.", exam: null },
- { name: "Kapitola 3 · Magnetické materiály", note: "Magnetizácia, permeabilita, hysterézia a straty. Skúšobný test je z celého predmetu.",
-   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9"] } }
+ { name: "Kapitola 3 · Magnetické materiály", note: "Magnetizácia, permeabilita, hysterézia a straty.", exam: null },
+ { name: "Kapitola 4 · Polovodiče", note: "Vlastný a prímesový polovodič, vedenie prúdu. Skúšobný test je z celého predmetu.",
+   exam: { n: 5, minutes: 45, levels: ["l1", "l2", "l3", "l4", "l5", "l6", "l7", "l8", "l9", "l10", "l11", "l12"] } }
 ],
 levels: [
 
@@ -580,12 +581,219 @@ quiz: [
  { q: "Čo je stratové číslo?", o: ["merné straty pri B<sub>m</sub> = 1 T (alebo 1,5 T) a 50 Hz", "plocha hysteréznej slučky", "pomer hysteréznych a vírivých strát", "straty pri nasýtení"], e: "Merné straty v W/kg pri dohodnutých podmienkach.", h: "Porovnávacia hodnota plechov." },
  { q: "Ako sa znížia straty vírivými prúdmi v jadre?", o: ["tenkými izolovanými plechmi a väčšou rezistivitou materiálu", "hrubším plechom", "nižšou rezistivitou", "väčšou koercitívnou silou"], e: "P<sub>v</sub> ~ d²γ: menšia hrúbka a menšia konduktivita.", h: "Pozri, od čoho závisí P<sub>v</sub>.", b: true }
 ]
+},
+/* ---------- L10 ---------- */
+{
+id: "l10", ch: 3, title: "Vlastný polovodič", sub: "n·p = n_i², Fermiho hladina, N_C a N_V",
+lesson: [
+ { h: "1. Polovodičové materiály", p: [
+  "V pásovom modeli z kapitoly 1 mal polovodič zakázaný pás asi 1 eV. Teraz z neho vypočítame počet nosičov. Polovodiče majú rezistivitu 10⁻⁶ až 10⁸ Ω·m a ich konduktivita s teplotou väčšinou rastie. Vyše 90 % súčiastok je z troch materiálov: kremík, arzenid gália a germánium.",
+  "<b>Elementárne polovodiče</b> Si a Ge kryštalizujú v diamantovej mriežke (každý atóm má 4 susedov, kovalentná väzba, 4 valenčné elektróny). Súčiastky zo Si sú použiteľné do asi 400 K, z Ge do 330 K. <b>Binárne A<sup>III</sup>B<sup>V</sup></b> (GaAs, InP, GaP) majú sfaleritovú mriežku a hodia sa na vyššie teploty, frekvencie a optoelektroniku (GaAs do 670 K). Ďalej sú tuhé roztoky (Ga<sub>x</sub>In<sub>1−x</sub>Sb, zložením sa nastaví W<sub>g</sub>), oxidové polovodiče (termistory, ferity) a organické polovodiče (OLED displeje).",
+  "<b>Vlastný (intrinzický)</b> polovodič má všetky uzly obsadené atómami základného prvku. <b>Prímesový</b> má časť uzlov obsadenú atómami s iným počtom valenčných elektrónov (pre Si a Ge prvky 3. a 5. skupiny)."
+ ]},
+ { h: "2. Generácia, rekombinácia a n·p = n<sub>i</sub>²", p: [
+  "Tepelná energia mriežky stále prenáša elektróny cez zakázaný pás: <b>generácia</b> G = g, nezávislá od počtu voľných elektrónov. Opačne elektrón padne späť do diery: <b>rekombinácia</b> R = n·p·r, úmerná koncentráciám oboch. V rovnováhe G = R, takže súčin n·p je pri danej teplote stály:<span class=\"fm\">n·p = n<sub>i</sub>²</span>To je <b>základný vzťah termodynamickej rovnováhy</b>. Vo vlastnom polovodiči n = p = n<sub>i</sub>. Platí aj v prímesovom polovodiči, preto z neho budeme počítať menšinové nosiče."
+ ], c: "Prečo generácia nezávisí od počtu voľných elektrónov, ale rekombinácia áno?", a: "Viazaných elektrónov vo valenčnom páse je o rády viac než voľných, takže zásoba na generáciu je prakticky stála. Rekombinácia potrebuje stretnutie elektrónu s dierou, preto rastie s n aj p." },
+ { h: "3. Fermiho–Diracova funkcia a hustota stavov", p: [
+  "Pravdepodobnosť, že hladina s energiou W je obsadená elektrónom, dáva <b>Fermiho–Diracova funkcia</b>:<span class=\"fm\">f(W) = 1 / [1 + e<sup>(W − W<sub>F</sub>)/kT</sup>]</span>W<sub>F</sub> je <b>Fermiho energia</b>; hladina W<sub>F</sub> je obsadená s pravdepodobnosťou 50 %. Pravdepodobnosť diery je 1 − f. Ak je W − W<sub>F</sub> &gt; 3kT, stačí Maxwellova–Boltzmannova funkcia e<sup>−(W − W<sub>F</sub>)/kT</sup> (chyba pod 5 %); takéto polovodiče sú <b>nedegenerované</b>.",
+  "<b>Hustota stavov</b> g(W) hovorí, koľko stavov na jednotku objemu je pri danej energii; v parabolickom páse rastie ako √(W − W<sub>C</sub>). Počet elektrónov je integrál hustoty stavov krát pravdepodobnosť obsadenia cez celý vodivostný pás."
+ ]},
+ { h: "4. Koncentrácia nosičov a Fermiho hladina", p: [
+  "Riešením integrálu pre nedegenerovaný polovodič:<span class=\"fm\">n = N<sub>C</sub>·e<sup>−(W<sub>C</sub> − W<sub>F</sub>)/kT</sup>,   p = N<sub>V</sub>·e<sup>−(W<sub>F</sub> − W<sub>V</sub>)/kT</sup></span>kde <b>efektívne hustoty stavov</b> sú<span class=\"fm\">N<sub>C</sub> = 2·(2π·m<sub>n</sub>·kT/h²)<sup>3/2</sup>,   N<sub>V</sub> = 2·(2π·m<sub>p</sub>·kT/h²)<sup>3/2</sup></span>m<sub>n</sub>, m<sub>p</sub> sú efektívne hmotnosti elektrónu a diery, h Planckova konštanta.",
+  "Vynásobením zmizne W<sub>F</sub> a ostane závislosť od teploty:<span class=\"fm\">n<sub>i</sub>² = N<sub>C</sub>·N<sub>V</sub>·e<sup>−W<sub>g</sub>/kT</sup>   →   n<sub>i</sub> = √(N<sub>C</sub>N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup></span>Pozor na dvojku v menovateli exponentu. Pri izbovej teplote má Ge (W<sub>g</sub> = 0,67 eV) asi o tri rády viac nosičov než Si (1,11 eV). S teplotou n<sub>i</sub> prudko rastie.",
+  "Z n = p vyjde poloha Fermiho hladiny vlastného polovodiča W<sub>i</sub>:<span class=\"fm\">W<sub>i</sub> = (W<sub>C</sub> + W<sub>V</sub>)/2 + ½kT·ln(N<sub>V</sub>/N<sub>C</sub>) = W<sub>V</sub> + W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>)</span>Pri 0 K leží presne v strede zakázaného pásu. S teplotou sa mierne posúva; pre Si, Ge a GaAs je posun zanedbateľný (pri Si okolo 10 meV).",
+  "Skriptá (tab. 4.1, 300 K): Si n<sub>i</sub> = 1,45·10¹⁶ m⁻³, Ge 2,4·10¹⁹ m⁻³. Tabuľkové n<sub>i</sub> sú namerané; ak ich dopočítaš z N<sub>C</sub>, N<sub>V</sub> a W<sub>g</sub>, vyjde o niečo iné číslo, lebo malá zmena W<sub>g</sub> v exponente veľa zmení. Cvičenia používajú Si 9,65·10¹⁵ a Ge 2,33·10¹⁹ m⁻³ (novšie merania); v úlohe ber zadanú hodnotu."
+ ], c: "Prečo má germánium pri izbovej teplote oveľa viac vlastných nosičov než kremík?", a: "Má užší zakázaný pás (0,67 eV vs 1,11 eV). V exponente e<sup>−W<sub>g</sub>/2kT</sup> je rozdiel 0,22 eV/0,026 eV ≈ 8,5, teda e<sup>8,5</sup> ≈ 5000-krát." }
+],
+theory: [
+ { h: "Materiály", items: ["Si, GaAs, Ge = 90 % súčiastok; Si do 400 K, Ge 330 K, GaAs 670 K.", "Si, Ge: diamantová mriežka; A<sup>III</sup>B<sup>V</sup>: sfaleritová.", "Tuhé roztoky (nastavenie W<sub>g</sub>), oxidové, organické polovodiče."] },
+ { h: "Rovnováha", items: ["G = R → n·p = n<sub>i</sub>².", "Fermi–Dirac f = 1/(1 + e<sup>(W−W<sub>F</sub>)/kT</sup>), f(W<sub>F</sub>) = 1/2.", "Nedegenerovaný: W − W<sub>F</sub> &gt; 3kT, Maxwell–Boltzmann."] },
+ { h: "Vzťahy", items: ["n = N<sub>C</sub>e<sup>−(W<sub>C</sub>−W<sub>F</sub>)/kT</sup>, p = N<sub>V</sub>e<sup>−(W<sub>F</sub>−W<sub>V</sub>)/kT</sup>.", "N<sub>C,V</sub> = 2(2πm<sub>n,p</sub>kT/h²)<sup>3/2</sup>.", "n<sub>i</sub> = √(N<sub>C</sub>N<sub>V</sub>)e<sup>−W<sub>g</sub>/2kT</sup>.", "W<sub>i</sub> = W<sub>V</sub> + W<sub>g</sub>/2 + ¾kT ln(m<sub>p</sub>/m<sub>n</sub>).", "γ<sub>i</sub> = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>)."] }
+],
+traps: ["V n<sub>i</sub> je exponent −W<sub>g</sub>/(2kT), nie −W<sub>g</sub>/kT.", "W<sub>g</sub> v eV treba previesť na J (alebo kT na eV).", "Vo vlastnom polovodiči sa pohyblivosti sčítajú: γ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>).", "n·p = n<sub>i</sub>² platí aj v prímesovom polovodiči."],
+examples: [
+ { t: "Polovodiče, cvičenie 2: čisté Ge má pri 20 °C rezistivitu 0,470 Ω·m, μ<sub>n</sub> = 0,39, μ<sub>p</sub> = 0,19 m²V⁻¹s⁻¹. Aká je n<sub>i</sub>? To isté pre Si: 2 350 Ω·m, 0,135 a 0,048.", s: [
+  "Vzorec <b>Konduktivita vlastného polovodiča</b>: γ = 1/ρ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>) → n<sub>i</sub> = 1/(ρ·q·(μ<sub>n</sub> + μ<sub>p</sub>)).",
+  "Ge: n<sub>i</sub> = 1/(0,47·1,602·10⁻¹⁹·0,58) = 2,29·10¹⁹ m⁻³.",
+  "Si: n<sub>i</sub> = 1/(2350·1,602·10⁻¹⁹·0,183) = 1,45·10¹⁶ m⁻³, presne hodnota zo skrípt."] },
+ { t: "Polovodiče, cvičenie 3: n<sub>i</sub> a γ vlastného Si (W<sub>g</sub> = 1,11 eV, N<sub>C</sub> = 2,8·10²⁵, N<sub>V</sub> = 1,04·10²⁵ m⁻³) pri 20, 100 a 200 °C; to isté pre Ge (0,67 eV, 1,04·10²⁵, 6,0·10²⁴).", s: [
+  "Vzorec <b>Vlastná koncentrácia</b> n<sub>i</sub> = √(N<sub>C</sub>N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>, potom γ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>).",
+  "Si: √(N<sub>C</sub>N<sub>V</sub>) = 1,71·10²⁵ m⁻³. Pri 293,15 K exponent −1,11·1,602·10⁻¹⁹/(2·1,38·10⁻²³·293,15) = −21,98 → n<sub>i</sub> = 4,87·10¹⁵ m⁻³, γ = 1,43·10⁻⁴ S/m.",
+  "Si pri 373,15 K: 5,41·10¹⁷ m⁻³, γ = 1,59·10⁻² S/m; pri 473,15 K: 2,08·10¹⁹ m⁻³, γ = 0,610 S/m.",
+  "Ge: 1,37·10¹⁹ (γ = 1,27 S/m), 2,35·10²⁰ (21,9 S/m), 2,13·10²¹ m⁻³ (198 S/m).",
+  "Kontrola: s teplotou n<sub>i</sub> prudko rastie; Ge má menší W<sub>g</sub>, preto viac nosičov."] },
+ { t: "Polovodiče, cvičenie 4: poloha Fermiho hladiny vo vlastnom Si pri 0, 100, 300 a 500 K, m<sub>p</sub>/m<sub>n</sub> = 0,67, W<sub>g</sub> = 1,11 eV.", s: [
+  "Vzorec <b>Fermiho hladina vlastného polovodiča</b>: W<sub>F</sub> − W<sub>V</sub> = W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>).",
+  "Prvý člen 0,555 eV; ln 0,67 = −0,400, druhý člen je záporný.",
+  "0 K: 0,555 eV; 100 K: 0,555 − ¾·0,00862·0,400 = 0,552 eV; 300 K: 0,547 eV; 500 K: 0,542 eV.",
+  "Hladina sa s teplotou posúva mierne k valenčnému pásu, lebo m<sub>p</sub> &lt; m<sub>n</sub>."] }
+],
+formulas: [
+ { n: "Rovnováha", f: "n·p = n<sub>i</sub>²", w: "generácia = rekombinácia; aj v prímesovom" },
+ { n: "Fermiho–Diracova funkcia", f: "f(W) = 1/[1 + e<sup>(W − W<sub>F</sub>)/kT</sup>]", w: "f(W<sub>F</sub>) = 0,5; nad 3kT Maxwell–Boltzmann" },
+ { n: "Koncentrácia elektrónov a dier", f: "n = N<sub>C</sub>·e<sup>−(W<sub>C</sub> − W<sub>F</sub>)/kT</sup>,  p = N<sub>V</sub>·e<sup>−(W<sub>F</sub> − W<sub>V</sub>)/kT</sup>", w: "nedegenerovaný polovodič" },
+ { n: "Efektívna hustota stavov", f: "N<sub>C</sub> = 2(2π·m<sub>n</sub>·kT/h²)<sup>3/2</sup>,  N<sub>V</sub> = 2(2π·m<sub>p</sub>·kT/h²)<sup>3/2</sup>", w: "~ T<sup>3/2</sup>" },
+ { n: "Vlastná koncentrácia", f: "n<sub>i</sub> = √(N<sub>C</sub>·N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>", w: "n<sub>i</sub>² = N<sub>C</sub>N<sub>V</sub>e<sup>−W<sub>g</sub>/kT</sup>" },
+ { n: "Fermiho hladina vlastného polovodiča", f: "W<sub>i</sub> = (W<sub>C</sub> + W<sub>V</sub>)/2 + ½kT·ln(N<sub>V</sub>/N<sub>C</sub>) = W<sub>V</sub> + W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>)", w: "pri 0 K v strede pásu" },
+ { n: "Konduktivita vlastného polovodiča", f: "γ = 1/ρ = q·n<sub>i</sub>·(μ<sub>n</sub> + μ<sub>p</sub>)", w: "n = p = n<sub>i</sub>" },
+ { n: "Si a Ge pri 300 K (skriptá)", f: "Si: W<sub>g</sub> 1,11 eV, n<sub>i</sub> 1,45·10¹⁶ m⁻³, N<sub>C</sub> 2,8·10²⁵, N<sub>V</sub> 1,04·10²⁵, μ<sub>n</sub> 0,135, μ<sub>p</sub> 0,048 · Ge: 0,67 eV, 2,4·10¹⁹, 1,04·10²⁵, 6,0·10²⁴, 0,39, 0,19", w: "tab. 4.1; cvičenia: n<sub>i</sub> Si 9,65·10¹⁵, Ge 2,33·10¹⁹" },
+ { n: "Konštanty", f: "k = 1,38·10⁻²³ J/K,  q = 1,602·10⁻¹⁹ C,  h = 6,626·10⁻³⁴ J·s,  kT(300 K) = 0,0259 eV", w: "" }
+],
+explain: { q: "Vysvetli, prečo počet voľných elektrónov v čistom kremíku s teplotou rastie exponenciálne a prečo je ich v germániu oveľa viac.", keys: ["Elektrón musí získať energiu aspoň W<sub>g</sub> a preskočiť zakázaný pás", "Pravdepodobnosť je úmerná e<sup>−W<sub>g</sub>/2kT</sup>", "S rastúcou T sa exponent zmenšuje a n<sub>i</sub> prudko rastie", "Ge má menší W<sub>g</sub> (0,67 eV) než Si (1,11 eV), preto viac nosičov"] },
+quiz: [
+ { q: "Aký je základný vzťah termodynamickej rovnováhy v polovodiči?", o: ["n·p = n<sub>i</sub>²", "n + p = n<sub>i</sub>", "n = p vždy", "n·p = N<sub>C</sub>·N<sub>V</sub>"], e: "Z rovnováhy generácie a rekombinácie g = n·p·r. Platí aj pre prímesový polovodič, kde n ≠ p.", h: "Generácia = rekombinácia." },
+ { q: "S akou pravdepodobnosťou je obsadená Fermiho hladina?", o: ["50 %", "100 %", "0 %", "závisí od teploty"], e: "f(W<sub>F</sub>) = 1/(1 + e⁰) = 1/2.", h: "Dosaď W = W<sub>F</sub>." },
+ { q: "Ako závisí n<sub>i</sub> od šírky zakázaného pásu?", o: ["n<sub>i</sub> ~ e<sup>−W<sub>g</sub>/2kT</sup>", "n<sub>i</sub> ~ e<sup>−W<sub>g</sub>/kT</sup>", "n<sub>i</sub> ~ W<sub>g</sub>", "n<sub>i</sub> ~ 1/W<sub>g</sub>"], e: "n<sub>i</sub>² = N<sub>C</sub>N<sub>V</sub>e<sup>−W<sub>g</sub>/kT</sup>, po odmocnení dvojka v menovateli.", h: "Najprv n<sub>i</sub>², potom odmocnina." },
+ { q: "Kde leží Fermiho hladina vlastného polovodiča pri 0 K?", o: ["v strede zakázaného pásu", "pri dne vodivostného pásu", "pri vrchole valenčného pásu", "vo vodivostnom páse"], e: "W<sub>i</sub> = (W<sub>C</sub> + W<sub>V</sub>)/2 + člen úmerný T, ktorý pri 0 K zmizne.", h: "Člen s kT je pri 0 K nulový." },
+ { q: "Kedy môžeš namiesto Fermiho–Diracovej funkcie použiť Maxwellovu–Boltzmannovu?", o: ["keď je W − W<sub>F</sub> &gt; 3kT (nedegenerovaný polovodič)", "vždy", "len pri 0 K", "len v kovoch"], e: "Chyba je potom pod 5 %. Degenerované polovodiče vyžadujú Fermiho–Diracovu funkciu.", h: "Ďaleko od W<sub>F</sub> je 1 v menovateli zanedbateľná." },
+ { q: "Čisté Ge má ρ = 0,47 Ω·m a μ<sub>n</sub> + μ<sub>p</sub> = 0,58 m²V⁻¹s⁻¹. Aká je n<sub>i</sub>?", o: ["2,29·10¹⁹ m⁻³", "4,58·10¹⁹ m⁻³", "1,45·10¹⁶ m⁻³", "2,29·10¹⁶ m⁻³"], e: "n<sub>i</sub> = 1/(ρq(μ<sub>n</sub> + μ<sub>p</sub>)) = 1/(0,47·1,602·10⁻¹⁹·0,58).", h: "γ = 1/ρ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>)." },
+ { q: "Do akej teploty sú použiteľné súčiastky z kremíka podľa skrípt?", o: ["asi 400 K", "asi 330 K", "asi 670 K", "asi 1 000 K"], e: "Si 400 K, Ge 330 K, GaAs 670 K. Súvisí so šírkou zakázaného pásu.", h: "Ge má užší pás, vydrží menej." },
+ { q: "Ktorý polovodič z A<sup>III</sup>B<sup>V</sup> je najpoužívanejší?", o: ["GaAs", "InSb", "SiC", "GaN"], e: "Skriptá: arzenid gália, sfaleritová mriežka.", h: "Druhý najpoužívanejší polovodič vôbec.", b: true }
+]
+},
+
+/* ---------- L11 ---------- */
+{
+id: "l11", ch: 3, title: "Prímesový polovodič", sub: "donory, akceptory, plná ionizácia",
+lesson: [
+ { h: "1. Donory a akceptory", p: [
+  "Vlastný polovodič z predošlého levelu má málo nosičov. Prímesi ich dodajú. Atóm 5. skupiny (P, As, Sb) v mriežke Si má o elektrón viac, než treba na štyri väzby. Piaty elektrón je viazaný slabo a už pri izbovej teplote odíde do vodivostného pásu. Taký atóm je <b>donor</b>, po ionizácii nesie kladný nepohyblivý náboj a polovodič je typu <b>N</b>.",
+  "Atóm 3. skupiny (B, Al, Ga, In) má o elektrón menej. Chýbajúcu väzbu doplní elektrón z valenčného pásu a po ňom ostane diera. Taký atóm je <b>akceptor</b>, ionizovaný nesie záporný náboj a polovodič je typu <b>P</b>.",
+  "Ionizačnú energiu donoru odhadneme podľa atómu vodíka (13,5 eV) zmenšeného prostredím kryštálu:<span class=\"fm\">W<sub>I</sub> = (m<sub>n</sub>/m₀)·W<sub>H</sub>/ε<sub>r</sub>²</span>Si (m<sub>n</sub> = 0,4m₀, ε<sub>r</sub> = 12): asi 0,04 eV; Ge (0,2m₀, 16): asi 0,01 eV. Je to porovnateľné s tepelnou energiou kT ≈ 0,026 eV, preto sú prímesi pri izbovej teplote prakticky všetky ionizované.",
+  "V pásovom modeli ležia donorové hladiny W<sub>D</sub> tesne pod vodivostným pásom, akceptorové W<sub>A</sub> tesne nad valenčným. Väčšinové nosiče v N type sú elektróny (n<sub>n</sub>), menšinové diery (p<sub>n</sub>); v P type naopak p<sub>p</sub> a n<sub>p</sub>."
+ ], c: "Prečo je antimón v germániu donor?", a: "Sb je z 5. skupiny, má 5 valenčných elektrónov. Štyri tvoria väzby s Ge, piaty je slabo viazaný a ľahko prejde do vodivostného pásu." },
+ { h: "2. Nábojová neutralita a plná ionizácia", p: [
+  "Homogénny polovodič v rovnováhe je navonok neutrálny:<span class=\"fm\">q·(p − n + N<sub>D</sub><sup>+</sup> − N<sub>A</sub><sup>−</sup>) = 0</span>Pri izbovej teplote sú v Si, Ge aj GaAs všetky prímesi ionizované (<b>stav plnej ionizácie</b>): N<sub>D</sub><sup>+</sup> = N<sub>D</sub>, N<sub>A</sub><sup>−</sup> = N<sub>A</sub>.",
+  "Spolu s n·p = n<sub>i</sub>² vyjde pre N typ kvadratická rovnica s riešením n<sub>n</sub> = ½[(N<sub>D</sub> − N<sub>A</sub>) + √((N<sub>D</sub> − N<sub>A</sub>)² + 4n<sub>i</sub>²)]. Obvykle je N<sub>D</sub> − N<sub>A</sub> ≫ n<sub>i</sub>, a potom stačí:<span class=\"fm\">n<sub>n</sub> ≈ N<sub>D</sub> − N<sub>A</sub>,   p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub></span>Pre P typ analogicky p<sub>p</sub> ≈ N<sub>A</sub> − N<sub>D</sub>, n<sub>p</sub> = n<sub>i</sub>²/p<sub>p</sub>.",
+  "Polovodič s donormi aj akceptormi je <b>kompenzovaný</b>; pri N<sub>D</sub> = N<sub>A</sub> úplne kompenzovaný."
+ ], c: "Prečo v N type klesne počet dier, keď pridáš donory?", a: "Súčin n·p = n<sub>i</sub>² je pri danej teplote stály. Viac elektrónov znamená viac rekombinácie, takže dier je menej: p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>." },
+ { h: "3. Ako počítať s atómovými percentami", p: [
+  "Prímes sa často zadáva v atómových percentách. 0,01 at. % znamená, že prímesou je 0,01/100 = 10⁻⁴ zo všetkých atómov:<span class=\"fm\">N<sub>D</sub> = (at. %/100)·N</span>N je koncentrácia atómov polovodiča (z kapitoly 1: N = 8/a³ alebo ρN<sub>A</sub>/M).",
+  "Konduktivita prímesového polovodiča:<span class=\"fm\">γ = q·(n·μ<sub>n</sub> + p·μ<sub>p</sub>)</span>V N type dominuje člen n·μ<sub>n</sub>, menšinové diery sú zanedbateľné, ale napíš ich. Pozor: v P type majú väčšinové diery pohyblivosť μ<sub>p</sub>."
+ ]},
+ { h: "4. Fermiho hladina a teplota", p: [
+  "V N type je Fermiho hladina nad W<sub>i</sub>, v hornej polovici zakázaného pásu; v plnej ionizácii W<sub>F</sub> = W<sub>C</sub> − kT·ln(N<sub>C</sub>/(N<sub>D</sub> − N<sub>A</sub>)). V P type je pod W<sub>i</sub>. Ak sa W<sub>F</sub> priblíži k pásu na menej než 3kT, polovodič je <b>degenerovaný</b> (N⁺ alebo P⁺).",
+  "Koncentrácia väčšinových nosičov v závislosti od teploty má tri oblasti: pri nízkej teplote postupná <b>ionizácia prímesí</b> (sklon úmerný ionizačnej energii), potom <b>plná ionizácia</b> (n ≈ N<sub>D</sub>, takmer konštantné), a pri vysokej teplote <b>vlastná vodivosť</b>, keď n<sub>i</sub> prekročí N<sub>D</sub> (sklon úmerný W<sub>g</sub>)."
+ ]}
+],
+theory: [
+ { h: "Prímesi", items: ["Donor (5. skupina: P, As, Sb) → N typ, ionizovaný +.", "Akceptor (3. skupina: B, Al, Ga, In) → P typ, ionizovaný −.", "W<sub>I</sub> = (m<sub>n</sub>/m₀)·13,5 eV/ε<sub>r</sub>²: Si ≈ 0,04 eV, Ge ≈ 0,01 eV.", "Väčšinové n<sub>n</sub>, p<sub>p</sub>; menšinové p<sub>n</sub>, n<sub>p</sub>."] },
+ { h: "Plná ionizácia", items: ["Neutralita p − n + N<sub>D</sub><sup>+</sup> − N<sub>A</sub><sup>−</sup> = 0.", "n<sub>n</sub> ≈ N<sub>D</sub> − N<sub>A</sub>, p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>; P typ analogicky.", "N<sub>D</sub> = (at. %/100)·N.", "γ = q(nμ<sub>n</sub> + pμ<sub>p</sub>).", "Kompenzovaný, degenerovaný (N⁺, P⁺)."] },
+ { h: "Teplota", items: ["Ionizácia prímesí → plná ionizácia → vlastná vodivosť."] }
+],
+traps: ["Atómové percentá deľ 100: 0,01 % = 10⁻⁴.", "Menšinové nosiče počítaj cez n<sub>i</sub>², nie ako N<sub>D</sub> − n<sub>i</sub>.", "V P type násob väčšinové diery μ<sub>p</sub>, nie μ<sub>n</sub>.", "Donor po ionizácii je kladný, nie záporný (odovzdal elektrón)."],
+examples: [
+ { t: "Polovodiče, cvičenie 5: Ge s 0,0100 at. % antimónu, 20 °C, všetky prímesi ionizované; N<sub>Ge</sub> = 4,506·10²⁸ m⁻³, n<sub>i</sub> = 2,33·10¹⁹ m⁻³ (dané v zadaní). Urč n<sub>n</sub>, p<sub>n</sub> a γ.", s: [
+  "Sb je v 5. skupine → donor, typ N.",
+  "N<sub>D</sub> = 10⁻⁴·4,506·10²⁸ = 4,506·10²⁴ m⁻³ = n<sub>n</sub> (plná ionizácia).",
+  "p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub> = (2,33·10¹⁹)²/4,506·10²⁴ = 1,205·10¹⁴ m⁻³.",
+  "γ = q(n<sub>n</sub>μ<sub>n</sub> + p<sub>n</sub>μ<sub>p</sub>) = 1,602·10⁻¹⁹·(4,506·10²⁴·0,39 + …) = 2,815·10⁵ S·m⁻¹."] },
+ { t: "Polovodiče, cvičenie 6: Ge s 0,0010 at. % bóru, 20 °C, rovnaké N a n<sub>i</sub>. Urč p<sub>p</sub>, n<sub>p</sub> a γ.", s: [
+  "B je v 3. skupine → akceptor, typ P.",
+  "p<sub>p</sub> = 10⁻⁵·4,506·10²⁸ = 4,506·10²³ m⁻³.",
+  "n<sub>p</sub> = n<sub>i</sub>²/p<sub>p</sub> = 1,205·10¹⁵ m⁻³.",
+  "γ = q(p<sub>p</sub>μ<sub>p</sub> + n<sub>p</sub>μ<sub>n</sub>) = 1,602·10⁻¹⁹·4,506·10²³·0,19 = 1,372·10⁴ S·m⁻¹. Pozor, diery majú pohyblivosť 0,19."] }
+],
+formulas: [
+ { n: "Ionizačná energia prímesi", f: "W<sub>I</sub> = (m<sub>n</sub>/m₀)·W<sub>H</sub>/ε<sub>r</sub>²,  W<sub>H</sub> = 13,5 eV", w: "Si ≈ 0,04 eV, Ge ≈ 0,01 eV" },
+ { n: "Nábojová neutralita", f: "p − n + N<sub>D</sub><sup>+</sup> − N<sub>A</sub><sup>−</sup> = 0", w: "homogénny polovodič" },
+ { n: "Plná ionizácia – N typ", f: "n<sub>n</sub> ≈ N<sub>D</sub> − N<sub>A</sub>,   p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>", w: "N<sub>D</sub> − N<sub>A</sub> ≫ n<sub>i</sub>" },
+ { n: "Plná ionizácia – P typ", f: "p<sub>p</sub> ≈ N<sub>A</sub> − N<sub>D</sub>,   n<sub>p</sub> = n<sub>i</sub>²/p<sub>p</sub>", w: "" },
+ { n: "Presné riešenie", f: "n<sub>n</sub> = ½[(N<sub>D</sub> − N<sub>A</sub>) + √((N<sub>D</sub> − N<sub>A</sub>)² + 4n<sub>i</sub>²)]", w: "keď prímesí nie je oveľa viac ako n<sub>i</sub>" },
+ { n: "Atómové percentá", f: "N<sub>D</sub> = (at. %/100)·N", w: "N koncentrácia atómov polovodiča" },
+ { n: "Konduktivita", f: "γ = q·(n·μ<sub>n</sub> + p·μ<sub>p</sub>)", w: "" },
+ { n: "Fermiho hladina N typu", f: "W<sub>F</sub> = W<sub>C</sub> − kT·ln(N<sub>C</sub>/(N<sub>D</sub> − N<sub>A</sub>))", w: "plná ionizácia; &lt; 3kT od pásu = degenerovaný" }
+],
+explain: { q: "Vysvetli, prečo pridanie fosforu do kremíka zvýši počet elektrónov a zároveň zníži počet dier.", keys: ["Fosfor má 5 valenčných elektrónov, štyri tvoria väzby, piaty je voľný", "Pri izbovej teplote sú všetky donory ionizované, n ≈ N<sub>D</sub>", "Súčin n·p = n<sub>i</sub>² je pri danej teplote stály", "Preto diery klesnú na p = n<sub>i</sub>²/N<sub>D</sub>"] },
+quiz: [
+ { q: "Ktorý prvok je v kremíku donorom?", o: ["fosfor", "bór", "hliník", "gálium"], e: "Donory sú z 5. skupiny (P, As, Sb), akceptory z 3. skupiny (B, Al, Ga, In).", h: "Donor má o elektrón viac než Si." },
+ { q: "Aký náboj nesie ionizovaný akceptor?", o: ["záporný, nepohyblivý", "kladný, nepohyblivý", "záporný, pohyblivý", "žiadny"], e: "Akceptor prijal elektrón z valenčného pásu, je záporný a sedí v mriežke.", h: "Akceptor elektrón prijíma." },
+ { q: "V N type pri plnej ionizácii je n<sub>n</sub> = 10²² m⁻³ a n<sub>i</sub> = 10¹⁶ m⁻³. Koľko je dier?", o: ["10¹⁰ m⁻³", "10¹⁶ m⁻³", "10²² m⁻³", "10⁶ m⁻³"], e: "p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub> = 10³²/10²² = 10¹⁰.", h: "n·p = n<sub>i</sub>²." },
+ { q: "Koľko je 0,01 atómového percenta ako podiel atómov?", o: ["10⁻⁴", "10⁻²", "10⁻⁶", "10⁻³"], e: "0,01/100 = 10⁻⁴.", h: "Percentá deľ 100." },
+ { q: "Čo je kompenzovaný polovodič?", o: ["obsahuje donory aj akceptory", "obsahuje len donory", "je bez prímesí", "má Fermiho hladinu vo vodivostnom páse"], e: "Pri N<sub>D</sub> = N<sub>A</sub> je úplne kompenzovaný.", h: "Prímesi sa navzájom vyrovnávajú." },
+ { q: "Kedy je polovodič degenerovaný?", o: ["keď je Fermiho hladina bližšie než 3kT k pásu", "keď nemá prímesi", "keď je úplne kompenzovaný", "pri 0 K"], e: "N⁺ pri priblížení k vodivostnému pásu, P⁺ k valenčnému.", h: "Súvisí s hranicou 3kT pre Maxwellovu–Boltzmannovu funkciu." },
+ { q: "Čo sa deje s koncentráciou elektrónov v N type pri veľmi vysokej teplote?", o: ["prudko rastie, prevládne vlastná vodivosť", "klesne na nulu", "ostane rovná N<sub>D</sub>", "klesá lineárne"], e: "Keď n<sub>i</sub> prekročí N<sub>D</sub>, rozhoduje generácia cez zakázaný pás; sklon je úmerný W<sub>g</sub>.", h: "n<sub>i</sub> s teplotou prudko rastie." },
+ { q: "V P type počítaš konduktivitu. Ktorou pohyblivosťou násobíš väčšinové nosiče?", o: ["μ<sub>p</sub> (diery)", "μ<sub>n</sub> (elektróny)", "súčtom μ<sub>n</sub> + μ<sub>p</sub>", "žiadnou"], e: "Väčšinové sú diery, γ ≈ q·p<sub>p</sub>·μ<sub>p</sub>.", h: "Čo sú väčšinové nosiče v P type?", b: true }
+]
+},
+
+/* ---------- L12 ---------- */
+{
+id: "l12", ch: 3, title: "Vedenie prúdu v polovodiči", sub: "drift, difúzia, pohyblivosť a teplota",
+lesson: [
+ { h: "1. Tepelný a driftový pohyb", p: [
+  "Nosiče z predošlých levelov sa bez poľa pohybujú chaoticky tepelným pohybom, medzi zrážkami s mriežkou. Ak sa všetka tepelná energia mení na kinetickú:<span class=\"fm\">v<sub>t</sub> = √(3kT/m<sub>n</sub>)</span>Pri 300 K je to rádovo 100 km/s.",
+  "Pole E k tomu pridá malý usmernený <b>drift</b>. Driftová rýchlosť je v<sub>dn</sub> = μ<sub>n</sub>·E, kde pohyblivosť<span class=\"fm\">μ<sub>n</sub> = q·t<sub>n</sub>/m<sub>n</sub></span>závisí od strednej doby medzi zrážkami t<sub>n</sub> a efektívnej hmotnosti. Energiu, ktorú nosič získa od poľa, odovzdá pri zrážkach mriežke: polovodič sa zahrieva."
+ ], c: "Prečo je driftová rýchlosť oveľa menšia než tepelná?", a: "Tepelný pohyb je chaotický a rýchly, ale bez smeru. Pole medzi zrážkami pridá len malú usmernenú zložku, ktorá sa po každej zrážke znova začína." },
+ { h: "2. Driftový a difúzny prúd", p: [
+  "Prúdová hustota sa skladá z príspevku elektrónov a dier, J = J<sub>n</sub> + J<sub>p</sub>. <b>Driftový prúd</b> spôsobuje pole:<span class=\"fm\">J<sub>drift</sub> = q·n·μ<sub>n</sub>·E + q·p·μ<sub>p</sub>·E,   γ = q(nμ<sub>n</sub> + pμ<sub>p</sub>)</span>",
+  "V polovodiči je ešte <b>difúzny prúd</b>: nosiče sa pohybujú z miesta s vyššou koncentráciou na miesto s nižšou, a keďže nesú náboj, tečie prúd aj bez poľa:<span class=\"fm\">J<sub>n dif</sub> = q·D<sub>n</sub>·grad n,   J<sub>p dif</sub> = −q·D<sub>p</sub>·grad p</span>D je <b>difúzny koeficient</b> (m²/s). Diery idú proti gradientu, preto mínus.",
+  "Difúzia a drift sú spojené <b>Einsteinovým vzťahom</b>:<span class=\"fm\">D<sub>n</sub>/μ<sub>n</sub> = D<sub>p</sub>/μ<sub>p</sub> = kT/q</span>Pri 300 K je kT/q ≈ 0,0259 V, takže pre Si elektróny D<sub>n</sub> = 0,135·0,0259 ≈ 3,5·10⁻³ m²/s. Celková prúdová hustota je súčet všetkých štyroch členov."
+ ], c: "Môže v polovodiči tiecť prúd bez elektrického poľa?", a: "Áno, difúzny prúd, ak je koncentrácia nosičov nerovnomerná (napríklad pri prechode PN)." },
+ { h: "3. Pohyblivosť a konduktivita s teplotou", p: [
+  "Pohyblivosť znižujú zrážky. Pri nízkej teplote prevláda <b>rozptyl na ionizovaných prímesiach</b>: pomalé nosiče sa dlho zdržia v Coulombovom poli iónu a vychýlia sa viac. Pri vysokej teplote prevláda <b>mriežkový rozptyl</b> na tepelných kmitoch. V prechodnej oblasti sa prevrátené hodnoty sčítajú:<span class=\"fm\">1/μ = 1/μ<sub>I</sub> + 1/μ<sub>L</sub></span>Zložka μ<sub>I</sub> s teplotou rastie (približne ~ T<sup>3/2</sup>), μ<sub>L</sub> klesá (~ T<sup>−3/2</sup>), preto má pohyblivosť pri strednej teplote maximum.",
+  "Konduktivita prímesového polovodiča γ = q·n·μ teda s teplotou najprv rastie (ionizácia prímesí), v oblasti plnej ionizácie je n stále a γ môže mierne klesať s pohyblivosťou, a pri vysokej teplote prudko rastie (vlastná vodivosť). Preto sa polovodiče hodia na termistory a súčiastky majú hornú pracovnú teplotu."
+ ]}
+],
+theory: [
+ { h: "Pohyb nosičov", items: ["Tepelná rýchlosť v<sub>t</sub> = √(3kT/m<sub>n</sub>) ≈ 100 km/s pri 300 K.", "Drift v = μE, μ = q·t/m.", "J = qnμ<sub>n</sub>E + qpμ<sub>p</sub>E + qD<sub>n</sub>grad n − qD<sub>p</sub>grad p.", "Einstein D/μ = kT/q."] },
+ { h: "Teplota", items: ["1/μ = 1/μ<sub>I</sub> + 1/μ<sub>L</sub>: prímesi pri nízkej T, mriežka pri vysokej T.", "γ(T): ionizácia → plná ionizácia (γ ~ μ) → vlastná vodivosť."] }
+],
+traps: ["Difúzny prúd tečie aj bez poľa.", "Pri difúzii dier je znamienko mínus.", "Pohyblivosť nie je monotónna funkcia teploty: rozptyl na prímesiach a na mriežke pôsobia opačne.", "Einsteinov vzťah: D = μ·kT/q, nie μ·q/kT."],
+examples: [
+ { t: "Difúzny koeficient elektrónov v Si pri 300 K (μ<sub>n</sub> = 0,135 m²V⁻¹s⁻¹).", s: [
+  "Vzorec <b>Einsteinov vzťah</b>: D<sub>n</sub> = μ<sub>n</sub>·kT/q.",
+  "kT/q = 1,38·10⁻²³·300/1,602·10⁻¹⁹ = 0,0258 V.",
+  "D<sub>n</sub> = 0,135·0,0258 = 3,49·10⁻³ m²/s (35 cm²/s)."] },
+ { t: "Tepelná rýchlosť elektrónu v Si pri 300 K, m<sub>n</sub> = 0,26·m₀.", s: [
+  "Vzorec <b>Tepelná rýchlosť</b>: v<sub>t</sub> = √(3kT/m<sub>n</sub>).",
+  "m<sub>n</sub> = 0,26·9,109·10⁻³¹ = 2,37·10⁻³¹ kg.",
+  "v<sub>t</sub> = √(3·1,38·10⁻²³·300/2,37·10⁻³¹) = 2,3·10⁵ m/s, rádovo 100 km/s ako v skriptách."] }
+],
+formulas: [
+ { n: "Tepelná rýchlosť", f: "v<sub>t</sub> = √(3kT/m<sub>n</sub>)", w: "≈ 10⁵ m/s pri 300 K" },
+ { n: "Driftová rýchlosť a pohyblivosť", f: "v<sub>dn</sub> = μ<sub>n</sub>·E,   μ<sub>n</sub> = q·t<sub>n</sub>/m<sub>n</sub>", w: "t<sub>n</sub> stredná doba medzi zrážkami" },
+ { n: "Driftový prúd", f: "J = q(nμ<sub>n</sub> + pμ<sub>p</sub>)·E = γE", w: "" },
+ { n: "Difúzny prúd", f: "J<sub>n dif</sub> = q·D<sub>n</sub>·grad n,   J<sub>p dif</sub> = −q·D<sub>p</sub>·grad p", w: "z vyššej koncentrácie do nižšej" },
+ { n: "Einsteinov vzťah", f: "D<sub>n</sub>/μ<sub>n</sub> = D<sub>p</sub>/μ<sub>p</sub> = kT/q", w: "kT/q ≈ 0,0259 V pri 300 K" },
+ { n: "Celková pohyblivosť", f: "1/μ = 1/μ<sub>I</sub> + 1/μ<sub>L</sub>", w: "I prímesi (nízka T), L mriežka (vysoká T)" },
+ { n: "Konštanty", f: "m₀ = 9,109·10⁻³¹ kg,  k = 1,38·10⁻²³ J/K,  q = 1,602·10⁻¹⁹ C", w: "" }
+],
+explain: { q: "Vysvetli, prečo konduktivita dotovaného kremíka pri zahrievaní najprv rastie, potom sa takmer nemení a nakoniec prudko rastie.", keys: ["Pri nízkej teplote sa postupne ionizujú prímesi, pribúdajú nosiče", "Keď sú všetky ionizované, n ≈ N<sub>D</sub> je stále; γ sleduje len pohyblivosť", "Pohyblivosť pri vyššej teplote klesá mriežkovým rozptylom", "Pri vysokej teplote prevládne vlastná vodivosť, n<sub>i</sub> prekročí N<sub>D</sub>"] },
+quiz: [
+ { q: "Čo spôsobuje difúzny prúd v polovodiči?", o: ["nerovnomerná koncentrácia nosičov", "elektrické pole", "magnetické pole", "rozptyl na mriežke"], e: "Nosiče sa pohybujú z miesta s vyššou koncentráciou na miesto s nižšou; prúd tečie aj bez poľa.", h: "grad n." },
+ { q: "Ako súvisí difúzny koeficient s pohyblivosťou?", o: ["D = μ·kT/q", "D = μ·q/kT", "D = kT/(qμ)", "D = μ²"], e: "Einsteinov vzťah D/μ = kT/q.", h: "kT/q je napätie asi 26 mV." },
+ { q: "Ktorý rozptyl prevláda pri nízkych teplotách?", o: ["na ionizovaných prímesiach", "na tepelných kmitoch mriežky", "na hraniciach zŕn", "na elektrónoch"], e: "Pomalé nosiče sa dlho zdržia v poli iónu. Mriežkový rozptyl prevláda pri vysokej teplote.", h: "Pri nízkej T sú nosiče pomalé." },
+ { q: "Ako sa skladajú pohyblivosti od dvoch rozptylových mechanizmov?", o: ["1/μ = 1/μ<sub>I</sub> + 1/μ<sub>L</sub>", "μ = μ<sub>I</sub> + μ<sub>L</sub>", "μ = μ<sub>I</sub>·μ<sub>L</sub>", "μ = √(μ<sub>I</sub>μ<sub>L</sub>)"], e: "Zrážky sa sčítajú, takže prevrátené hodnoty pohyblivostí sa sčítajú.", h: "Viac zrážok = menšia pohyblivosť." },
+ { q: "Aká je tepelná rýchlosť elektrónov v polovodiči pri 300 K?", o: ["rádovo 100 km/s", "rádovo mm/s", "rádovo m/s", "rýchlosť svetla"], e: "v<sub>t</sub> = √(3kT/m<sub>n</sub>) ≈ 10⁵ m/s. Drift je oveľa pomalší.", h: "Kinetická energia ≈ 3/2 kT." },
+ { q: "Kam ide energia, ktorú nosič získa od elektrického poľa?", o: ["pri zrážkach ju odovzdá mriežke, polovodič sa zahrieva", "nosič ju natrvalo uchová", "vyžiari sa ako svetlo vždy", "zmení sa na magnetické pole"], e: "To je Joulovo teplo.", h: "Prečo sa súčiastky zahrievajú?", b: true }
+]
 }
 ],
 boss: []
 });
 
 GEN.mte = {
+ l10: [
+  () => { const [nm, Wg, NC, NV, mu] = rnd([["Si", 1.11, 2.8e25, 1.04e25, 0.183], ["Ge", 0.67, 1.04e25, 6.0e24, 0.58]]), t = rnd([20, 50, 100, 150, 200]), T = t + 273.15, x = Wg * 1.602e-19 / (2 * 1.38e-23 * T), ni = Math.sqrt(NC * NV) * Math.exp(-x);
+    return hint("n<sub>i</sub> = √(N<sub>C</sub>N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>, W<sub>g</sub> v J, T v K.", mk(`Vlastný ${nm}: W<sub>g</sub> = ${num(Wg)} eV, N<sub>C</sub> = ${num(NC)} m⁻³, N<sub>V</sub> = ${num(NV)} m⁻³. Aká je koncentrácia nosičov pri ${t} °C podľa vzorca?`, ni, "m⁻³", [Math.sqrt(NC * NV) * Math.exp(-2 * x), ni * 100, ni / 100], `√(N<sub>C</sub>N<sub>V</sub>) = ${num(Math.sqrt(NC * NV))}; W<sub>g</sub>/2kT = ${num(x, 4)}; n<sub>i</sub> = ${num(ni)} m⁻³.`)); },
+  () => { const [nm, rho, mu, mus] = rnd([["Ge", 0.47, 0.58, "0,39 + 0,19"], ["Si", 2350, 0.183, "0,135 + 0,048"], ["Ge", 0.5, 0.58, "0,39 + 0,19"], ["Si", 2300, 0.183, "0,135 + 0,048"]]), ni = 1 / (rho * 1.602e-19 * mu);
+    return hint("γ = 1/ρ = q·n<sub>i</sub>(μ<sub>n</sub> + μ<sub>p</sub>).", mk(`Čistý ${nm} má rezistivitu ${num(rho)} Ω·m a pohyblivosti ${mus} m²V⁻¹s⁻¹. Aká je vlastná koncentrácia nosičov?`, ni, "m⁻³", [ni / 2, 2 * ni, ni * mu / 0.39], `n<sub>i</sub> = 1/(${num(rho)}·1,602·10⁻¹⁹·${num(mu)}) = ${num(ni)} m⁻³.`)); },
+  () => { const r = rnd([0.5, 0.55, 0.67, 0.8, 1.5]), Wg = rnd([1.11, 0.67, 1.43]), T = rnd([100, 200, 300, 400, 500]), W = Wg / 2 + 0.75 * 1.38e-23 * T * Math.log(r) / 1.602e-19;
+    return hint("W<sub>F</sub> − W<sub>V</sub> = W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>), kT prepočítaj na eV.", mk(`Vlastný polovodič má W<sub>g</sub> = ${num(Wg)} eV a pomer efektívnych hmotností m<sub>p</sub>/m<sub>n</sub> = ${num(r)}. Ako vysoko nad W<sub>V</sub> leží Fermiho hladina pri ${T} K?`, W, "eV", [Wg / 2, Wg / 2 - 0.75 * 1.38e-23 * T * Math.log(r) / 1.602e-19, Wg / 2 + 0.5 * 1.38e-23 * T * Math.log(r) / 1.602e-19 + 0.01], `kT = ${num(1.38e-23 * T / 1.602e-19, 3)} eV; W<sub>F</sub> − W<sub>V</sub> = ${num(Wg / 2, 4)} + ¾·${num(1.38e-23 * T / 1.602e-19, 3)}·ln ${num(r)} = ${num(W, 4)} eV.`, 4)); }
+ ],
+ l11: [
+  () => { const [nm, N, ni, mn, mp, nmS] = rnd([["Ge", 4.41e28, 2.4e19, 0.39, 0.19, "germánia"], ["Si", 5.0e28, 1.45e16, 0.135, 0.048, "kremíka"]]), [pr, typ] = rnd([["antimónu", "N"], ["fosforu", "N"], ["arzénu", "N"], ["bóru", "P"], ["gália", "P"], ["india", "P"]]), at = rnd([0.001, 0.0001, 0.01, 0.00001]), Nd = at / 100 * N, min = ni * ni / Nd, g = 1.602e-19 * (typ === "N" ? Nd * mn + min * mp : Nd * mp + min * mn);
+    return hint(`${typ === "N" ? "Donor (5. skupina)" : "Akceptor (3. skupina)"}: väčšinové = (at. %/100)·N, menšinové = n<sub>i</sub>²/väčšinové, γ = q(nμ<sub>n</sub> + pμ<sub>p</sub>).`, mk(`Vzorka ${nmS} (N = ${num(N)} m⁻³, n<sub>i</sub> = ${num(ni)} m⁻³) obsahuje ${String(at).replace(".", ",")} at. % ${pr}, všetky ionizované. Aká je konduktivita?`, g, "S·m⁻¹", [1.602e-19 * Nd * (typ === "N" ? mp : mn), g * 100, 1.602e-19 * Nd * 100 * (typ === "N" ? mn : mp)], `Typ ${typ}; väčšinové ${num(Nd)} m⁻³, menšinové ${num(min)} m⁻³; γ = 1,602·10⁻¹⁹·(${num(Nd)}·${num(typ === "N" ? mn : mp)} + …) = ${num(g)} S·m⁻¹.`)); },
+  () => { const [nm, ni] = rnd([["Si", 1.45e16], ["Ge", 2.4e19], ["Si", 9.65e15]]), Nd = rnd([1e20, 1e21, 5e21, 1e22, 1e23]), p = ni * ni / Nd;
+    return hint("p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>, n<sub>n</sub> ≈ N<sub>D</sub>.", mk(`${nm} typu N má N<sub>D</sub> = ${num(Nd)} m⁻³ (plná ionizácia), n<sub>i</sub> = ${num(ni)} m⁻³. Aká je koncentrácia menšinových dier?`, p, "m⁻³", [ni, Nd, p * 1000], `p<sub>n</sub> = (${num(ni)})²/${num(Nd)} = ${num(p)} m⁻³.`)); }
+ ],
+ l12: [
+  () => { const [nm, mu] = rnd([["elektrónov v Si", 0.135], ["dier v Si", 0.048], ["elektrónov v Ge", 0.39], ["dier v Ge", 0.19], ["elektrónov v GaAs", 0.95]]), T = rnd([250, 300, 350, 400]), D = mu * 1.38e-23 * T / 1.602e-19;
+    return hint("Einsteinov vzťah D = μ·kT/q.", mk(`Aký je difúzny koeficient ${nm} (μ = ${num(mu)} m²V⁻¹s⁻¹) pri ${T} K?`, D, "m²·s⁻¹", [mu * 1.602e-19 / (1.38e-23 * T), D * 100, mu / 0.0259], `kT/q = ${num(1.38e-23 * T / 1.602e-19, 3)} V; D = ${num(mu)}·${num(1.38e-23 * T / 1.602e-19, 3)} = ${num(D)} m²·s⁻¹.`)); },
+  () => { const r = rnd([0.26, 0.5, 1, 0.067]), T = rnd([77, 300, 400]), m = r * 9.109e-31, v = Math.sqrt(3 * 1.38e-23 * T / m);
+    return hint("v<sub>t</sub> = √(3kT/m<sub>n</sub>).", mk(`Aká je tepelná rýchlosť elektrónu s efektívnou hmotnosťou ${num(r)}·m₀ pri ${T} K?`, v, "m·s⁻¹", [v * v / 1e5, Math.sqrt(1.38e-23 * T / m), v / 1000], `v<sub>t</sub> = √(3·1,38·10⁻²³·${T}/${num(m)}) = ${num(v)} m·s⁻¹.`)); }
+ ],
  l8: [
   () => { const H = rnd([5, 10, 20, 50, 100]), Jm = rnd([1, 2, 3, 5, 8]) * 1e-6, mu0 = 4 * Math.PI * 1e-7, k = Jm / (mu0 * H), B = mu0 * H + Jm;
     return hint("κ = J<sub>m</sub>/(μ₀H), μ<sub>r</sub> = 1 + κ.", mk(`V poli H = ${H} A·m⁻¹ má látka magnetickú polarizáciu ${num(Jm)} T. Aká je jej relatívna permeabilita?`, 1 + k, "", [k, B / mu0, 1 - k], `μ₀H = ${num(mu0 * H)} T; κ = ${num(Jm)}/${num(mu0 * H)} = ${num(k)}; μ<sub>r</sub> = 1 + κ = ${num(1 + k, 4)}.`, 4)); },
