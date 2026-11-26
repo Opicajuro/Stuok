@@ -89,8 +89,10 @@ function drawCustom(sel, n){
 function formulaQ(l, k){
   const f = l.formulas[k]; if (!f) return null;
   const others = take(l.formulas.filter(x => x.f !== f.f), 3).map(x => x.f); if (others.length < 3) return null;
-  return { q: `Ktorý vzorec patrí k pojmu: <b>${f.n}</b>?`, o: [f.f].concat(others), e: `${f.n}: ${f.f}. Použitie: ${f.w}.` };
+  return { q: `Ktorý vzorec patrí k pojmu: <b>${f.n}</b>?`, o: [f.f].concat(others), e: `${f.n}: ${f.f}. ${f.v ? "Na čo" : "Použitie"}: ${f.w}${varList(f)}` };
 }
+/* veličiny vzorca: značka, význam, jednotka */
+function varList(f){ return f.v && f.v.length ? `<span class="vars">` + f.v.map(([z, m, u]) => `<span class="vz">${z}</span><span>${m}</span><span class="vu">${u}</span>`).join("") + `</span>` : ""; }
 function drawFormulas(l){
   const gen = {}, ids = [];
   l.formulas.forEach((f, k) => { const q = formulaQ(l, k); if (!q) return; const id = gid(l, "f" + k); gen[id] = q; ids.push(id); });
@@ -228,7 +230,7 @@ function renderLevel(l){
     h += `<div class="row spread"><p class="muted small">Na teste nebudeš mať žiadne pomôcky, vzorce treba vedieť naspamäť.</p><button class="btn sec" data-act="fquiz" data-id="${l.id}">Skúšať vzorce</button>
       </div><div class="fgrid">` +
       l.formulas.map((f, i) => {
-        return `<div class="fcard"><span class="n">${f.n}</span><span class="f">${f.f}</span><span class="w">${f.w}</span></div>`;
+        return `<div class="fcard"><span class="n">${f.n}</span><span class="f">${f.f}</span><span class="w">${f.v ? "<b>Na čo:</b> " : ""}${f.w}</span>${varList(f)}</div>`;
       }).join("") + `</div>`;
   } else if (!unlocked(l)) {
     const prev = subj().levels[n - 2];
