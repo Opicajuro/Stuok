@@ -25,3 +25,8 @@ Zvažované: (A) plné levely s výkladom, (B) len precvičovanie, (C) čakať n
 
 ## Necháva sa na stavbu
 Konkrétne otázky, nákresy (bunky, pásové modely, hysterézna slučka), generátory.
+
+## Zmena 26. 11. 2026: veličiny a jednotky na kartách Vzorce
+Študent: „Nemám ani tušenie čo je vzorec pre čo a aké majú jednotky“, rozsah „Len Materiály“.
+- Karta má voliteľné pole `v: [[značka, význam, jednotka]]`; ak je vyplnené, riadok `w` sa zobrazí ako „Na čo:“ a pod vzorcom je zoznam veličín.
+- Zoznam sa ukáže aj vo vysvetlení v režime „Skúšať vzorce“. Všetkých 104 kariet MTE ho má; Fyzika 1 bez zmeny.

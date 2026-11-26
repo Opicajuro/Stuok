@@ -58,11 +58,11 @@ examples: [
   "Hliník: kov + kov, kovová väzba s elektrónovým plynom, preto dobrý vodič."] }
 ],
 formulas: [
- { n: "Elektronegativita (relatívna)", f: "X = (ionizačná energia + elektrónová afinita) / (to isté pre Li)", w: "skriptá: vzťahuje sa k lítiu" },
- { n: "Elektronegativita – Pauling", f: "F 4,0 · O 3,5 · Cl 3,0 · H 2,1 · Si 1,8 · Na 0,9 · K 0,8", w: "väčší rozdiel = iónovejšia väzba" },
- { n: "Kvantové čísla", f: "n = 1, 2, 3 …;  l = 0 … n − 1;  m = −l … +l;  s = ±½", w: "stav elektrónu v atóme" },
- { n: "Väzba podľa prvkov", f: "kov + nekov → iónová;  nekov + nekov → kovalentná;  kov + kov → kovová", w: "prvé priblíženie" },
- { n: "Konštanty", f: "e = 1,602·10⁻¹⁹ C,  1 eV = 1,602·10⁻¹⁹ J,  m<sub>e</sub> = 9,109·10⁻³¹ kg", w: "tabuľka skrípt 1.1.1" }
+ { n: "Elektronegativita (relatívna)", f: "X = (ionizačná energia + elektrónová afinita) / (to isté pre Li)", w: "Porovnáš, ako silno atóm drží elektróny vo väzbe; vzťahuje sa k lítiu.", v: [["X", "relatívna elektronegativita", "bez jednotky"], ["ionizačná energia", "energia na odtrhnutie elektrónu", "eV"], ["elektrónová afinita", "energia uvoľnená pri pripojení elektrónu", "eV"]] },
+ { n: "Elektronegativita – Pauling", f: "F 4,0 · O 3,5 · Cl 3,0 · H 2,1 · Si 1,8 · Na 0,9 · K 0,8", w: "Podľa rozdielu elektronegativít dvoch atómov odhadneš typ väzby: veľký rozdiel = iónová.", v: [["číslo", "Paulingova elektronegativita prvku", "bez jednotky"]] },
+ { n: "Kvantové čísla", f: "n = 1, 2, 3 …;  l = 0 … n − 1;  m = −l … +l;  s = ±½", w: "Opíšeš stav elektrónu v atóme; dva elektróny nesmú mať všetky štyri rovnaké.", v: [["n", "hlavné (vrstva K, L, M…)", "celé číslo"], ["l", "vedľajšie (orbitál s, p, d, f)", "celé číslo"], ["m", "magnetické", "celé číslo"], ["s", "spinové", "±½"]] },
+ { n: "Väzba podľa prvkov", f: "kov + nekov → iónová;  nekov + nekov → kovalentná;  kov + kov → kovová", w: "Z toho, či sa spájajú kovy alebo nekovy, uhádneš typ väzby.", v: [] },
+ { n: "Konštanty", f: "e = 1,602·10⁻¹⁹ C,  1 eV = 1,602·10⁻¹⁹ J,  m<sub>e</sub> = 9,109·10⁻³¹ kg", w: "Hodnoty, ktoré dosadzuješ do výpočtov.", v: [["e", "elementárny náboj", "C"], ["eV", "elektrónvolt, jednotka energie", "1 eV = 1,602·10⁻¹⁹ J"], ["m<sub>e</sub>", "hmotnosť elektrónu", "kg"]] }
 ],
 explain: { q: "Vysvetli spolužiakovi, prečo meď vedie prúd a kuchynská soľ v kryštáli nie, hoci obe látky držia pokope elektrickými silami.", keys: ["V medi je kovová väzba, valenčné elektróny tvoria elektrónový plyn", "Voľné elektróny sa môžu pohybovať a prenášať náboj", "V NaCl je iónová väzba, elektróny sú pevne pri iónoch", "Ióny sú v kryštáli pevne v mriežke, preto nevedie; v roztoku sa pohnú"] },
 quiz: [
@@ -136,15 +136,15 @@ examples: [
   "Ge so zadaným a: N = 8/(5,62·10⁻¹⁰)³ = 4,51·10²⁸ m⁻³. So skriptovým a₀ = 0,566 nm by vyšlo 4,41·10²⁸ m⁻³; v úlohe počítaj so zadanou hodnotou."] }
 ],
 formulas: [
- { n: "Počet atómov v bunke", f: "N = (rohy)·1/8 + (steny)·1/2 + (vnútri)·1", w: "SC 1, BCC 2, FCC 4, diamant 8" },
- { n: "Dotyk atómov", f: "SC a = 2r · BCC a√3 = 4r · FCC a√2 = 4r · diamant a√3/4 = 2r", w: "kde sa gule dotýkajú" },
- { n: "Zaplnenie", f: "D = N·(4/3)πr³ / a³", w: "SC 0,52 · BCC 0,68 · FCC 0,74 · diamant 0,34" },
- { n: "Hustota a bunka", f: "ρ·a³ = N·M/N<sub>A</sub>  →  a = ∛(N·M/(ρN<sub>A</sub>))", w: "z hustoty hrana bunky" },
- { n: "Hmotnosť atómu", f: "m = M/N<sub>A</sub>", w: "M v kg/kmol, N<sub>A</sub> v kmol⁻¹" },
- { n: "Koncentrácia atómov", f: "n = N/a³ = ρ·N<sub>A</sub>/M", w: "počet atómov v 1 m³" },
- { n: "Millerove indexy", f: "(h k l) = prevrátené úseky na osiach, celé nesúdeliteľné", w: "rovnobežná os → index 0" },
- { n: "Konštanty", f: "N<sub>A</sub> = 6,022·10²⁶ kmol⁻¹ = 6,022·10²³ mol⁻¹ (skriptá 6,023·10²³)", w: "pozor na kmol" },
- { n: "Údaje zo skrípt", f: "Si a₀ = 0,543 nm · Ge a₀ = 0,566 nm · Cu ρ = 8 900 kg/m³", w: "tabuľka 4.1 a tabuľka kovov" }
+ { n: "Počet atómov v bunke", f: "N = (rohy)·1/8 + (steny)·1/2 + (vnútri)·1", w: "Spočítaš, koľko atómov patrí jednej elementárnej bunke.", v: [["N", "počet atómov v bunke", "bez jednotky"]] },
+ { n: "Dotyk atómov", f: "SC a = 2r · BCC a√3 = 4r · FCC a√2 = 4r · diamant a√3/4 = 2r", w: "Zo smeru, kde sa gule dotýkajú, dostaneš vzťah medzi hranou bunky a polomerom atómu.", v: [["a", "hrana elementárnej bunky", "m"], ["r", "polomer atómu", "m"]] },
+ { n: "Zaplnenie", f: "D = N·(4/3)πr³ / a³", w: "Zistíš, akú časť objemu bunky vyplnia atómy.", v: [["D", "zaplnenie (podiel objemu)", "bez jednotky"], ["N", "počet atómov v bunke", "—"], ["r", "polomer atómu", "m"], ["a", "hrana bunky", "m"]] },
+ { n: "Hustota a bunka", f: "ρ·a³ = N·M/N<sub>A</sub>  →  a = ∛(N·M/(ρN<sub>A</sub>))", w: "Z hustoty a molárnej hmotnosti vypočítaš hranu (objem) bunky.", v: [["ρ", "hustota", "kg·m⁻³"], ["a", "hrana bunky", "m"], ["N", "počet atómov v bunke", "—"], ["M", "molárna hmotnosť", "kg·kmol⁻¹"], ["N<sub>A</sub>", "Avogadrova konštanta", "kmol⁻¹"]] },
+ { n: "Hmotnosť atómu", f: "m = M/N<sub>A</sub>", w: "Hmotnosť jedného atómu z molárnej hmotnosti.", v: [["m", "hmotnosť atómu", "kg"], ["M", "molárna hmotnosť", "kg·kmol⁻¹"], ["N<sub>A</sub>", "Avogadrova konštanta", "kmol⁻¹"]] },
+ { n: "Koncentrácia atómov", f: "n = N/a³ = ρ·N<sub>A</sub>/M", w: "Počet atómov v 1 m³ látky.", v: [["n", "koncentrácia atómov", "m⁻³"], ["N", "počet atómov v bunke", "—"], ["a", "hrana bunky", "m"], ["ρ", "hustota", "kg·m⁻³"], ["M", "molárna hmotnosť", "kg·kmol⁻¹"]] },
+ { n: "Millerove indexy", f: "(h k l) = prevrátené úseky na osiach, celé nesúdeliteľné", w: "Pomenuješ rovinu v kryštáli.", v: [["h, k, l", "Millerove indexy", "celé čísla"]] },
+ { n: "Konštanty", f: "N<sub>A</sub> = 6,022·10²⁶ kmol⁻¹ = 6,022·10²³ mol⁻¹ (skriptá 6,023·10²³)", w: "Avogadrova konštanta; s M v kg/kmol ber verziu v kmol⁻¹.", v: [["N<sub>A</sub>", "počet častíc v jednom kilomóle", "kmol⁻¹"]] },
+ { n: "Údaje zo skrípt", f: "Si a₀ = 0,543 nm · Ge a₀ = 0,566 nm · Cu ρ = 8 900 kg/m³", w: "Hodnoty pre výpočty s kremíkom, germániom a meďou.", v: [["a₀", "mriežkový parameter (hrana bunky)", "nm"], ["ρ", "hustota", "kg·m⁻³"]] }
 ],
 explain: { q: "Vysvetli, ako z hustoty a molárnej hmotnosti medi zistíš veľkosť jej atómu.", keys: ["Bunka FCC obsahuje 4 atómy", "Hmotnosť bunky ρ·a³ sa rovná hmotnosti 4 atómov 4M/N<sub>A</sub>", "Z toho a³ a tretia odmocnina dá hranu", "Polomer z dotyku na stenovej uhlopriečke a√2 = 4r"] },
 quiz: [
@@ -201,12 +201,12 @@ examples: [
   "Pri 823,15 K: n<sub>m</sub> = 7,63·10¹⁰ m⁻³. Ak kalkulačka dá 0, počítaj e<sup>−118,8</sup> = (e<sup>−59,4</sup>)²."] }
 ],
 formulas: [
- { n: "Vakancie", f: "n<sub>v</sub> = N·e<sup>−W<sub>v</sub>/kT</sup>", w: "N = koncentrácia atómov; Al W<sub>v</sub> ≈ 0,76 eV (skriptá)" },
- { n: "Intersticiály", f: "n<sub>i</sub> = c·N·e<sup>−W<sub>i</sub>/kT</sup>", w: "v cvičeniach n<sub>m</sub> = c′·N·e<sup>−W<sub>m</sub>/kT</sup>" },
- { n: "Koncentrácia atómov", f: "N = ρ·N<sub>A</sub>/M", w: "M v kg/kmol, N<sub>A</sub> = 6,022·10²⁶ kmol⁻¹" },
- { n: "Prevody", f: "W[J] = W[eV]·1,602·10⁻¹⁹,  T[K] = ϑ[°C] + 273,15", w: "vždy pred dosadením do exponentu" },
- { n: "Pomer pri dvoch teplotách", f: "n₂/n₁ = e<sup>(W/k)·(1/T₁ − 1/T₂)</sup>", w: "N sa vykráti" },
- { n: "Konštanty", f: "k = 1,38·10⁻²³ J/K,  kT pri 300 K ≈ 0,0259 eV", w: "Boltzmannova konštanta" }
+ { n: "Vakancie", f: "n<sub>v</sub> = N·e<sup>−W<sub>v</sub>/kT</sup>", w: "Koľko chýbajúcich atómov je v 1 m³ pri danej teplote.", v: [["n<sub>v</sub>", "koncentrácia vakancií", "m⁻³"], ["N", "koncentrácia atómov", "m⁻³"], ["W<sub>v</sub>", "energia na vznik vakancie", "J (z eV ×1,602·10⁻¹⁹)"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["T", "teplota", "K"]] },
+ { n: "Intersticiály", f: "n<sub>i</sub> = c·N·e<sup>−W<sub>i</sub>/kT</sup>", w: "Koľko atómov v medzimriežkových polohách je v 1 m³.", v: [["n<sub>i</sub>", "koncentrácia intersticiálov", "m⁻³"], ["c", "počet medzimriežkových polôh na atóm", "—"], ["N", "koncentrácia atómov", "m⁻³"], ["W<sub>i</sub>", "energia na vznik intersticiálu", "J"], ["T", "teplota", "K"]] },
+ { n: "Koncentrácia atómov", f: "N = ρ·N<sub>A</sub>/M", w: "Počet atómov v 1 m³ (N do vzorca pre poruchy).", v: [["N", "koncentrácia atómov", "m⁻³"], ["ρ", "hustota", "kg·m⁻³"], ["N<sub>A</sub>", "Avogadrova konštanta", "kmol⁻¹"], ["M", "molárna hmotnosť", "kg·kmol⁻¹"]] },
+ { n: "Prevody", f: "W[J] = W[eV]·1,602·10⁻¹⁹,  T[K] = ϑ[°C] + 273,15", w: "Pred dosadením do exponentu prevedieš energiu na jouly a teplotu na kelviny.", v: [["W", "energia", "J alebo eV"], ["T", "termodynamická teplota", "K"], ["ϑ", "teplota v stupňoch Celzia", "°C"]] },
+ { n: "Pomer pri dvoch teplotách", f: "n₂/n₁ = e<sup>(W/k)·(1/T₁ − 1/T₂)</sup>", w: "Koľkokrát sa zmení počet porúch pri zmene teploty; N sa vykráti.", v: [["n₂/n₁", "pomer koncentrácií", "bez jednotky"], ["W", "energia vzniku poruchy", "J"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["T₁, T₂", "teploty", "K"]] },
+ { n: "Konštanty", f: "k = 1,38·10⁻²³ J/K,  kT pri 300 K ≈ 0,0259 eV", w: "Boltzmannova konštanta a tepelná energia pri izbovej teplote.", v: [["k", "Boltzmannova konštanta", "J·K⁻¹"], ["kT", "tepelná energia", "J alebo eV"]] }
 ],
 explain: { q: "Vysvetli, prečo počet vakancií v kove rastie s teplotou tak prudko, kým počet dislokácií sa nemení.", keys: ["Vakancia potrebuje energiu W rádovo 1 eV, dodajú ju tepelné kmity", "Pravdepodobnosť je Boltzmannov faktor e<sup>−W/kT</sup>", "Malá zmena kT v menovateli exponentu znamená obrovskú zmenu počtu", "Dislokácia vyžaduje oveľa viac energie, tepelne nevzniká"] },
 quiz: [
@@ -252,9 +252,9 @@ examples: [
   "Izolant: rovnaké usporiadanie, ale zakázaný pás niekoľko eV. Tepelná energia (kT ≈ 0,025 eV) nestačí."] }
 ],
 formulas: [
- { n: "Šírka zakázaného pásu", f: "Si W<sub>g</sub> = 1,11 eV · Ge 0,67 eV · izolanty niekoľko eV", w: "tabuľka 4.1 skrípt (300 K)" },
- { n: "Tepelná energia", f: "kT ≈ 0,025 eV pri izbovej teplote", w: "porovnaj s W<sub>g</sub>" },
- { n: "Štiepenie hladín", f: "N atómov → N hladín v páse, 2 elektróny na hladinu", w: "Pauliho princíp" }
+ { n: "Šírka zakázaného pásu", f: "Si W<sub>g</sub> = 1,11 eV · Ge 0,67 eV · izolanty niekoľko eV", w: "Podľa šírky zakázaného pásu rozlíšiš polovodič od izolantu.", v: [["W<sub>g</sub>", "šírka zakázaného pásu", "eV"]] },
+ { n: "Tepelná energia", f: "kT ≈ 0,025 eV pri izbovej teplote", w: "Porovnáš s W<sub>g</sub>, či tepelné kmity stačia preniesť elektrón.", v: [["k", "Boltzmannova konštanta", "J·K⁻¹"], ["T", "teplota", "K"], ["kT", "tepelná energia", "eV"]] },
+ { n: "Štiepenie hladín", f: "N atómov → N hladín v páse, 2 elektróny na hladinu", w: "Koľko hladín a elektrónov má pás v kryštáli s N atómami.", v: [["N", "počet atómov v kryštáli", "—"]] }
 ],
 explain: { q: "Pomocou pásového modelu vysvetli, prečo je meď vodič, kremík polovodič a sklo izolant.", keys: ["V medi je pás čiastočne zaplnený, elektróny majú voľné hladiny hneď nad sebou", "Kremík má plný valenčný pás a zakázaný pás asi 1 eV", "Tepelné kmity prenesú časť elektrónov cez 1 eV, vzniknú elektróny a diery", "Sklo má zakázaný pás niekoľko eV, ten tepelná energia neprekoná"] },
 quiz: [
@@ -325,18 +325,18 @@ examples: [
   "Riešenie v cvičeniach ešte robí priemer (20 + 65)/2 = 42,5 °C. Na písomke uveď obe hodnoty; fyzikálne je 65 °C priemerná teplota vinutia."] }
 ],
 formulas: [
- { n: "Prúd a drift", f: "I = n·q·S·v,   i = I/S = n·q·v", w: "v driftová rýchlosť, i prúdová hustota (v cvičeniach J)" },
- { n: "Pohyblivosť", f: "μ = v/E", w: "m²·V⁻¹·s⁻¹" },
- { n: "Konduktivita", f: "γ = n·q·μ,   ρ = 1/γ", w: "μ = 1/(n·q·ρ)" },
- { n: "Ohmov zákon v bode", f: "i = γ·E = E/ρ", w: "E = U/l v drôte" },
- { n: "Koncentrácia voľných elektrónov", f: "n = z·N = z·ρ<sub>h</sub>·N<sub>A</sub>/A", w: "z valenčné elektróny na atóm; Cu z = 1" },
- { n: "Odpor drôtu", f: "R = ρ·l/S", w: "S v m²" },
- { n: "Jednotky rezistivity", f: "1 Ω·m = 10⁶ Ω·mm²·m⁻¹ = 10² Ω·cm;  1 μΩ·m = 1 Ω·mm²·m⁻¹", w: "prevod" },
- { n: "Teplotná závislosť", f: "ρ = ρ₀[1 + α(ϑ − ϑ₀)],  R = R₀[1 + α(ϑ − ϑ₀)]", w: "ϑ = ϑ₀ + (R/R₀ − 1)/α" },
- { n: "Lichteneckerov vzťah", f: "log ρ = v₁·log ρ₁ + v₂·log ρ₂,  v₁ + v₂ = 1", w: "heterogénna zmes dvoch kovov" },
- { n: "Wiedemannov–Franzov zákon", f: "λ/γ = (π²k²/3e²)·T", w: "tepelná a elektrická vodivosť kovov" },
- { n: "Údaje zo skrípt (20 °C)", f: "Cu 0,0172 · Al 0,0294 · Ag 0,016 · W 0,055 · Fe 0,098 μΩ·m;  Cu α ≈ 3,93·10⁻³ K⁻¹", w: "tabuľka 2.2" },
- { n: "Konštanty", f: "q = 1,602·10⁻¹⁹ C,  N<sub>A</sub> = 6,022·10²⁶ kmol⁻¹,  k = 1,38·10⁻²³ J/K", w: "" }
+ { n: "Prúd a drift", f: "I = n·q·S·v,   i = I/S = n·q·v", w: "Prúd a prúdovú hustotu vypočítaš z počtu a rýchlosti elektrónov.", v: [["I", "prúd", "A"], ["n", "koncentrácia voľných elektrónov", "m⁻³"], ["q", "náboj elektrónu", "C"], ["S", "prierez vodiča", "m²"], ["v", "driftová rýchlosť", "m·s⁻¹"], ["i", "prúdová hustota", "A·m⁻²"]] },
+ { n: "Pohyblivosť", f: "μ = v/E", w: "Akou rýchlosťou sa elektrón posunie v poli 1 V/m.", v: [["μ", "pohyblivosť", "m²·V⁻¹·s⁻¹"], ["v", "driftová rýchlosť", "m·s⁻¹"], ["E", "intenzita elektrického poľa", "V·m⁻¹"]] },
+ { n: "Konduktivita", f: "γ = n·q·μ,   ρ = 1/γ", w: "Z počtu a pohyblivosti elektrónov zistíš, ako dobre materiál vedie.", v: [["γ", "konduktivita (měrná elektrická vodivost)", "S·m⁻¹"], ["n", "koncentrácia voľných elektrónov", "m⁻³"], ["q", "náboj elektrónu", "C"], ["μ", "pohyblivosť", "m²·V⁻¹·s⁻¹"], ["ρ", "rezistivita (měrný odpor)", "Ω·m"]] },
+ { n: "Ohmov zákon v bode", f: "i = γ·E = E/ρ", w: "Prúdová hustota z poľa a konduktivity.", v: [["i", "prúdová hustota", "A·m⁻²"], ["γ", "konduktivita", "S·m⁻¹"], ["E", "intenzita poľa (v drôte U/l)", "V·m⁻¹"], ["ρ", "rezistivita", "Ω·m"]] },
+ { n: "Koncentrácia voľných elektrónov", f: "n = z·N = z·ρ<sub>h</sub>·N<sub>A</sub>/A", w: "Počet voľných elektrónov v 1 m³ kovu.", v: [["n", "koncentrácia voľných elektrónov", "m⁻³"], ["z", "počet voľných elektrónov na atóm", "—"], ["N", "koncentrácia atómov", "m⁻³"], ["ρ<sub>h</sub>", "hustota", "kg·m⁻³"], ["A", "atómová hmotnosť", "kg·kmol⁻¹"]] },
+ { n: "Odpor drôtu", f: "R = ρ·l/S", w: "Odpor drôtu z rezistivity a rozmerov.", v: [["R", "odpor", "Ω"], ["ρ", "rezistivita", "Ω·m"], ["l", "dĺžka", "m"], ["S", "prierez", "m²"]] },
+ { n: "Jednotky rezistivity", f: "1 Ω·m = 10⁶ Ω·mm²·m⁻¹ = 10² Ω·cm;  1 μΩ·m = 1 Ω·mm²·m⁻¹", w: "Prevod medzi jednotkami rezistivity.", v: [["Ω·m", "základná jednotka SI", "—"], ["Ω·mm²·m⁻¹", "praktická jednotka pre drôty", "= μΩ·m"]] },
+ { n: "Teplotná závislosť", f: "ρ = ρ₀[1 + α(ϑ − ϑ₀)],  R = R₀[1 + α(ϑ − ϑ₀)]", w: "Rezistivitu alebo odpor pri inej teplote, alebo teplotu z nameraného odporu.", v: [["ρ, R", "rezistivita, odpor pri teplote ϑ", "Ω·m, Ω"], ["ρ₀, R₀", "rezistivita, odpor pri ϑ₀", "Ω·m, Ω"], ["α", "teplotný súčiniteľ rezistivity", "K⁻¹"], ["ϑ, ϑ₀", "teplota a vzťažná teplota", "°C"]] },
+ { n: "Lichteneckerov vzťah", f: "log ρ = v₁·log ρ₁ + v₂·log ρ₂,  v₁ + v₂ = 1", w: "Rezistivita zmesi dvoch nemiešateľných kovov.", v: [["ρ, ρ₁, ρ₂", "rezistivita zmesi a zložiek", "Ω·m"], ["v₁, v₂", "objemové podiely zložiek", "—"]] },
+ { n: "Wiedemannov–Franzov zákon", f: "λ/γ = (π²k²/3e²)·T", w: "Súvis tepelnej a elektrickej vodivosti kovu.", v: [["λ", "tepelná vodivosť", "W·m⁻¹·K⁻¹"], ["γ", "konduktivita", "S·m⁻¹"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["e", "náboj elektrónu", "C"], ["T", "teplota", "K"]] },
+ { n: "Údaje zo skrípt (20 °C)", f: "Cu 0,0172 · Al 0,0294 · Ag 0,016 · W 0,055 · Fe 0,098 μΩ·m;  Cu α ≈ 3,93·10⁻³ K⁻¹", w: "Rezistivity kovov na dosadenie.", v: [["ρ", "rezistivita", "μΩ·m = Ω·mm²·m⁻¹"], ["α", "teplotný súčiniteľ rezistivity", "K⁻¹"]] },
+ { n: "Konštanty", f: "q = 1,602·10⁻¹⁹ C,  N<sub>A</sub> = 6,022·10²⁶ kmol⁻¹,  k = 1,38·10⁻²³ J/K", w: "Konštanty pre výpočty vodivosti.", v: [["q", "náboj elektrónu", "C"], ["N<sub>A</sub>", "Avogadrova konštanta", "kmol⁻¹"], ["k", "Boltzmannova konštanta", "J·K⁻¹"]] }
 ],
 explain: { q: "Vysvetli, prečo sa medený drôt pri zahriatí stane horším vodičom a ako sa z toho dá zmerať teplota vinutia.", keys: ["Počet voľných elektrónov v kove sa s teplotou nemení", "Mriežka viac kmitá a elektróny viac rozptyľuje, pohyblivosť klesá", "Rezistivita rastie približne lineárne: ρ = ρ₀[1 + α(ϑ − ϑ₀)]", "Zo zmeny odporu vyjde ϑ = ϑ₀ + (R/R₀ − 1)/α"] },
 quiz: [
@@ -392,12 +392,12 @@ examples: [
   "H<sub>k</sub> = 6,4·10⁴·(1 − 0,335) = 4,3·10⁴ A/m."] }
 ],
 formulas: [
- { n: "Kritické pole supravodiča", f: "H<sub>k</sub> = H₀·[1 − (T/T<sub>k</sub>)²]", w: "nad H<sub>k</sub> supravodivosť zanikne" },
- { n: "Dotykové napätie", f: "U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁)", w: "V = W<sub>v</sub>/e výstupný potenciál" },
- { n: "Termoelektrické napätie", f: "U<sub>T</sub> = (k/e)·(T − T₀)·ln(n₁/n₂) = α<sub>T</sub>·(T − T₀)", w: "klasický model; ΔT v K = v °C" },
- { n: "Tepelné napätie", f: "kT/e ≈ 0,0253 V pri 20 °C", w: "k = 1,38·10⁻²³ J/K, e = 1,602·10⁻¹⁹ C" },
- { n: "Kritické teploty", f: "Hg 4,12 · Pb 7,26 · Nb 9,25 · Sn 3,69 · Al 1,14 K · Nb₃Sn 18 K · YBa₂Cu₃O₇ 90 K", w: "skriptá" },
- { n: "α<sub>T</sub> voči platine", f: "Cu +7,2…+7,7 · Fe +18,7 · konštantán −34,7…−30,4 · Si +448 μV/K", w: "tabuľka 2.1" }
+ { n: "Kritické pole supravodiča", f: "H<sub>k</sub> = H₀·[1 − (T/T<sub>k</sub>)²]", w: "Do akého magnetického poľa ostane materiál supravodivý pri teplote T.", v: [["H<sub>k</sub>", "kritická intenzita magnetického poľa", "A·m⁻¹"], ["H₀", "kritické pole pri 0 K", "A·m⁻¹"], ["T", "teplota", "K"], ["T<sub>k</sub>", "kritická teplota", "K"]] },
+ { n: "Dotykové napätie", f: "U₁₂ = V₂ − V₁ + (kT/e)·ln(n₂/n₁)", w: "Napätie, ktoré vznikne na styku dvoch kovov.", v: [["U₁₂", "dotykové napätie", "V"], ["V₁, V₂", "výstupné potenciály kovov", "V"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["T", "teplota", "K"], ["e", "náboj elektrónu", "C"], ["n₁, n₂", "koncentrácie elektrónov", "m⁻³"]] },
+ { n: "Termoelektrické napätie", f: "U<sub>T</sub> = (k/e)·(T − T₀)·ln(n₁/n₂) = α<sub>T</sub>·(T − T₀)", w: "Napätie termočlánku z rozdielu teplôt spojov.", v: [["U<sub>T</sub>", "termoelektrické napätie", "V"], ["T − T₀", "rozdiel teplôt spojov", "K (= °C)"], ["n₁, n₂", "koncentrácie elektrónov", "m⁻³"], ["α<sub>T</sub>", "súčiniteľ termoelektrického napätia", "V·K⁻¹"]] },
+ { n: "Tepelné napätie", f: "kT/e ≈ 0,0253 V pri 20 °C", w: "Pomocná hodnota kT/e do vzorca pre dotykové napätie.", v: [["kT/e", "tepelné napätie", "V"]] },
+ { n: "Kritické teploty", f: "Hg 4,12 · Pb 7,26 · Nb 9,25 · Sn 3,69 · Al 1,14 K · Nb₃Sn 18 K · YBa₂Cu₃O₇ 90 K", w: "Pod akou teplotou je materiál supravodivý.", v: [["T<sub>k</sub>", "kritická teplota", "K"]] },
+ { n: "α<sub>T</sub> voči platine", f: "Cu +7,2…+7,7 · Fe +18,7 · konštantán −34,7…−30,4 · Si +448 μV/K", w: "Ako silný termočlánok dá kov v dvojici s platinou.", v: [["α<sub>T</sub>", "súčiniteľ termoelektrického napätia", "μV·K⁻¹"]] }
 ],
 explain: { q: "Vysvetli, prečo termočlánok meria teplotu a prečo potrebuje dva rôzne kovy.", keys: ["Na styku dvoch kovov vzniká dotykové napätie", "V uzavretom obvode sú dva styky s opačným napätím", "Pri rovnakej teplote sa vyrušia, pri rozdiele teplôt ostane U<sub>T</sub> = α<sub>T</sub>(T − T₀)", "Pri rovnakom kove by bol súčiniteľ nulový, napätie by nevzniklo"] },
 quiz: [
@@ -445,11 +445,11 @@ examples: [
   "Termočlánok: PtRh–Pt, krátkodobo do 1 600 °C."] }
 ],
 formulas: [
- { n: "Relatívna vodivosť", f: "Ag 106 · Cu 100 · Al 62 · Zn 31", w: "meď = 100" },
- { n: "Odporové materiály", f: "manganín 0,43 · konštantán 0,5 · chromnikl 1,1 · kanthal 1,39–1,45 μΩ·m", w: "tabuľka 2.11" },
- { n: "Pájky", f: "mäkké < 500 °C < tvrdé", w: "podľa teploty topenia" },
- { n: "Termočlánky – rozsah", f: "Cu–Ko −200…400 · Fe–Ko −200…600 · NiCr–Ni 0…900 · PtRh–Pt 0…1300 °C", w: "tabuľka 2.13" },
- { n: "Vodíková choroba medi", f: "Cu₂O + H₂ → 2 Cu + H₂O", w: "preto bezkyslíkatá meď do vákua" }
+ { n: "Relatívna vodivosť", f: "Ag 106 · Cu 100 · Al 62 · Zn 31", w: "Porovnanie vodivosti kovov s meďou.", v: [["číslo", "vodivosť v percentách medi", "%"]] },
+ { n: "Odporové materiály", f: "manganín 0,43 · konštantán 0,5 · chromnikl 1,1 · kanthal 1,39–1,45 μΩ·m", w: "Rezistivity zliatin na rezistory a vykurovanie.", v: [["ρ", "rezistivita", "μΩ·m"]] },
+ { n: "Pájky", f: "mäkké < 500 °C < tvrdé", w: "Rozdelenie pájok podľa teploty topenia.", v: [["ϑ", "teplota topenia", "°C"]] },
+ { n: "Termočlánky – rozsah", f: "Cu–Ko −200…400 · Fe–Ko −200…600 · NiCr–Ni 0…900 · PtRh–Pt 0…1300 °C", w: "Ktorý termočlánok sa hodí na akú teplotu.", v: [["ϑ", "rozsah použitia", "°C"]] },
+ { n: "Vodíková choroba medi", f: "Cu₂O + H₂ → 2 Cu + H₂O", w: "Prečo meď s kyslíkom praská vo vodíku.", v: [] }
 ],
 explain: { q: "Vysvetli, prečo sa na vodič berie čistá meď, ale na rezistor zliatina, napríklad manganín.", keys: ["Vodič má mať čo najmenšiu rezistivitu, preto čistý kov", "Prímesi rezistivitu zvyšujú", "Rezistor potrebuje veľkú rezistivitu a odpor nezávislý od teploty", "Zliatina ako manganín má veľkú ρ a takmer nulové α"] },
 quiz: [
@@ -504,12 +504,12 @@ examples: [
   "B sa mení len na 3. desatinnom mieste, lebo κ je malé a B ≈ μ₀H."] }
 ],
 formulas: [
- { n: "Indukcia a polarizácia", f: "B = μ₀H + J<sub>m</sub>,   J<sub>m</sub> = μ₀M", w: "J<sub>m</sub> v T, M v A/m" },
- { n: "Susceptibilita", f: "M = κ·H,   κ = J<sub>m</sub>/(μ₀H)", w: "v niektorých textoch χ" },
- { n: "Permeabilita", f: "B = μ₀μ<sub>r</sub>H,   μ<sub>r</sub> = 1 + κ = B/(μ₀H)", w: "lineárne látky" },
- { n: "Curieho zákon", f: "κ = C/T  →  κ₂ = κ₁·T₁/T₂", w: "paramagnetiká, T v K" },
- { n: "Curieove body", f: "Fe 768 °C · Ni 358 °C · Co 1 131 °C", w: "nad nimi paramagnetický stav" },
- { n: "Konštanty", f: "μ₀ = 4π·10⁻⁷ H/m = 1,2566·10⁻⁶ H/m", w: "permeabilita vákua" }
+ { n: "Indukcia a polarizácia", f: "B = μ₀H + J<sub>m</sub>,   J<sub>m</sub> = μ₀M", w: "Celková indukcia = časť od poľa + časť, ktorú pridá látka.", v: [["B", "magnetická indukcia", "T"], ["μ₀", "permeabilita vákua", "H·m⁻¹"], ["H", "intenzita magnetického poľa", "A·m⁻¹"], ["J<sub>m</sub>", "magnetická polarizácia", "T"], ["M", "magnetizácia", "A·m⁻¹"]] },
+ { n: "Susceptibilita", f: "M = κ·H,   κ = J<sub>m</sub>/(μ₀H)", w: "Ako silno sa látka zmagnetizuje v danom poli.", v: [["M", "magnetizácia", "A·m⁻¹"], ["κ", "magnetická susceptibilita", "bez jednotky"], ["H", "intenzita poľa", "A·m⁻¹"], ["J<sub>m</sub>", "magnetická polarizácia", "T"]] },
+ { n: "Permeabilita", f: "B = μ₀μ<sub>r</sub>H,   μ<sub>r</sub> = 1 + κ = B/(μ₀H)", w: "Koľkokrát látka zosilní indukciu oproti vákuu.", v: [["B", "magnetická indukcia", "T"], ["μ<sub>r</sub>", "relatívna permeabilita", "bez jednotky"], ["κ", "susceptibilita", "bez jednotky"], ["H", "intenzita poľa", "A·m⁻¹"]] },
+ { n: "Curieho zákon", f: "κ = C/T  →  κ₂ = κ₁·T₁/T₂", w: "Susceptibilita paramagnetika pri inej teplote.", v: [["κ", "susceptibilita", "—"], ["C", "Curieho konštanta", "K"], ["T₁, T₂", "teploty", "K"]] },
+ { n: "Curieove body", f: "Fe 768 °C · Ni 358 °C · Co 1 131 °C", w: "Nad touto teplotou prestane byť látka feromagnetická.", v: [["ϑ", "Curieov bod", "°C"]] },
+ { n: "Konštanty", f: "μ₀ = 4π·10⁻⁷ H/m = 1,2566·10⁻⁶ H/m", w: "Permeabilita vákua do vzorcov s B a H.", v: [["μ₀", "permeabilita vákua", "H·m⁻¹ = T·m·A⁻¹"]] }
 ],
 explain: { q: "Vysvetli, čo sa deje v železe, keď ho vložíš do rastúceho magnetického poľa, až kým sa nenasýti.", keys: ["Železo má domény so spontánne rovnobežnými spinmi, navonok sa vyrušia", "Najprv sa vratne posúvajú Blochove steny, potom nevratne", "Potom sa polarizácia domén stáča do smeru poľa", "Keď sú všetky momenty v smere poľa, nastane nasýtenie"] },
 quiz: [
@@ -563,13 +563,13 @@ examples: [
   "400 Hz (x = 4): 4·0,5 + 16·1,5 = 26 W/kg."] }
 ],
 formulas: [
- { n: "Delenie mäkké/tvrdé", f: "H<sub>c</sub> &lt; 10³ A/m mäkký · H<sub>c</sub> &gt; 10³ A/m tvrdý", w: "skriptá" },
- { n: "Celkové straty", f: "P = P<sub>h</sub> + P<sub>v</sub> + P<sub>z</sub>", w: "hysterézne, vírivé, oneskorením" },
- { n: "Hysterézne straty", f: "P<sub>h</sub> ~ f·B<sub>m</sub><sup>1,6</sup>", w: "úmerné ploche slučky" },
- { n: "Straty vírivými prúdmi", f: "P<sub>v</sub> ~ f²·d²·B<sub>m</sub>²·γ", w: "d hrúbka plechu, γ konduktivita" },
- { n: "Straty pri inej frekvencii", f: "p(f₂) = (f₂/f₁)·p<sub>h1</sub> + (f₂/f₁)²·p<sub>v1</sub>", w: "rovnaká amplitúda B, sínus" },
- { n: "Rozdelenie strát", f: "p₁ = p<sub>h</sub> + p<sub>v</sub>;  p₂ = x·p<sub>h</sub> + x²·p<sub>v</sub>", w: "x = f₂/f₁, dve rovnice" },
- { n: "Energetický súčin", f: "(BH)<sub>max</sub> [J/m³]: oceľ 1–2,5 · AlNiCo 15–45 · Ba ferit 28–35 · SmCo ~300 kJ/m³", w: "permanentné magnety" }
+ { n: "Delenie mäkké/tvrdé", f: "H<sub>c</sub> &lt; 10³ A/m mäkký · H<sub>c</sub> &gt; 10³ A/m tvrdý", w: "Podľa koercitívnej sily zaradíš materiál.", v: [["H<sub>c</sub>", "koercitívna sila", "A·m⁻¹"]] },
+ { n: "Celkové straty", f: "P = P<sub>h</sub> + P<sub>v</sub> + P<sub>z</sub>", w: "Celkové straty v jadre ako súčet troch druhov.", v: [["P", "celkové straty", "W alebo W·kg⁻¹"], ["P<sub>h</sub>", "hysterézne straty", "W"], ["P<sub>v</sub>", "straty vírivými prúdmi", "W"], ["P<sub>z</sub>", "straty magnetickým oneskorením", "W"]] },
+ { n: "Hysterézne straty", f: "P<sub>h</sub> ~ f·B<sub>m</sub><sup>1,6</sup>", w: "Ako rastú hysterézne straty s frekvenciou a indukciou.", v: [["P<sub>h</sub>", "hysterézne straty", "W"], ["f", "frekvencia", "Hz"], ["B<sub>m</sub>", "amplitúda indukcie", "T"]] },
+ { n: "Straty vírivými prúdmi", f: "P<sub>v</sub> ~ f²·d²·B<sub>m</sub>²·γ", w: "Ako rastú vírivé straty s frekvenciou a hrúbkou plechu.", v: [["P<sub>v</sub>", "straty vírivými prúdmi", "W"], ["f", "frekvencia", "Hz"], ["d", "hrúbka plechu", "m"], ["B<sub>m</sub>", "amplitúda indukcie", "T"], ["γ", "konduktivita materiálu", "S·m⁻¹"]] },
+ { n: "Straty pri inej frekvencii", f: "p(f₂) = (f₂/f₁)·p<sub>h1</sub> + (f₂/f₁)²·p<sub>v1</sub>", w: "Merné straty pri novej frekvencii, keď poznáš obe zložky pri pôvodnej.", v: [["p(f₂)", "celkové merné straty pri f₂", "W·kg⁻¹"], ["f₁, f₂", "pôvodná a nová frekvencia", "Hz"], ["p<sub>h1</sub>", "hysterézne straty pri f₁", "W·kg⁻¹"], ["p<sub>v1</sub>", "vírivé straty pri f₁", "W·kg⁻¹"]] },
+ { n: "Rozdelenie strát", f: "p₁ = p<sub>h</sub> + p<sub>v</sub>;  p₂ = x·p<sub>h</sub> + x²·p<sub>v</sub>", w: "Z celkových strát pri dvoch frekvenciách zistíš obe zložky.", v: [["p₁, p₂", "celkové merné straty pri f₁ a f₂", "W·kg⁻¹"], ["x", "pomer frekvencií f₂/f₁", "—"], ["p<sub>h</sub>, p<sub>v</sub>", "hysterézne a vírivé straty pri f₁", "W·kg⁻¹"]] },
+ { n: "Energetický súčin", f: "(BH)<sub>max</sub> [J/m³]: oceľ 1–2,5 · AlNiCo 15–45 · Ba ferit 28–35 · SmCo ~300 kJ/m³", w: "Porovnanie sily permanentných magnetov.", v: [["(BH)<sub>max</sub>", "maximálny energetický súčin", "J·m⁻³"]] }
 ],
 explain: { q: "Vysvetli, prečo sa jadro transformátora skladá z tenkých izolovaných plechov z kremíkovej ocele, a nie z jedného kusa železa.", keys: ["Striedavý tok indukuje v jadre vírivé prúdy, ktoré ho zahrievajú", "Vírivé straty rastú s druhou mocninou hrúbky", "Tenké izolované plechy prerušia dráhu vírivých prúdov", "Kremík zvyšuje rezistivitu, tým vírivé prúdy ďalej klesnú"] },
 quiz: [
@@ -630,15 +630,15 @@ examples: [
   "Hladina sa s teplotou posúva mierne k valenčnému pásu, lebo m<sub>p</sub> &lt; m<sub>n</sub>."] }
 ],
 formulas: [
- { n: "Rovnováha", f: "n·p = n<sub>i</sub>²", w: "generácia = rekombinácia; aj v prímesovom" },
- { n: "Fermiho–Diracova funkcia", f: "f(W) = 1/[1 + e<sup>(W − W<sub>F</sub>)/kT</sup>]", w: "f(W<sub>F</sub>) = 0,5; nad 3kT Maxwell–Boltzmann" },
- { n: "Koncentrácia elektrónov a dier", f: "n = N<sub>C</sub>·e<sup>−(W<sub>C</sub> − W<sub>F</sub>)/kT</sup>,  p = N<sub>V</sub>·e<sup>−(W<sub>F</sub> − W<sub>V</sub>)/kT</sup>", w: "nedegenerovaný polovodič" },
- { n: "Efektívna hustota stavov", f: "N<sub>C</sub> = 2(2π·m<sub>n</sub>·kT/h²)<sup>3/2</sup>,  N<sub>V</sub> = 2(2π·m<sub>p</sub>·kT/h²)<sup>3/2</sup>", w: "~ T<sup>3/2</sup>" },
- { n: "Vlastná koncentrácia", f: "n<sub>i</sub> = √(N<sub>C</sub>·N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>", w: "n<sub>i</sub>² = N<sub>C</sub>N<sub>V</sub>e<sup>−W<sub>g</sub>/kT</sup>" },
- { n: "Fermiho hladina vlastného polovodiča", f: "W<sub>i</sub> = (W<sub>C</sub> + W<sub>V</sub>)/2 + ½kT·ln(N<sub>V</sub>/N<sub>C</sub>) = W<sub>V</sub> + W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>)", w: "pri 0 K v strede pásu" },
- { n: "Konduktivita vlastného polovodiča", f: "γ = 1/ρ = q·n<sub>i</sub>·(μ<sub>n</sub> + μ<sub>p</sub>)", w: "n = p = n<sub>i</sub>" },
- { n: "Si a Ge pri 300 K (skriptá)", f: "Si: W<sub>g</sub> 1,11 eV, n<sub>i</sub> 1,45·10¹⁶ m⁻³, N<sub>C</sub> 2,8·10²⁵, N<sub>V</sub> 1,04·10²⁵, μ<sub>n</sub> 0,135, μ<sub>p</sub> 0,048 · Ge: 0,67 eV, 2,4·10¹⁹, 1,04·10²⁵, 6,0·10²⁴, 0,39, 0,19", w: "tab. 4.1; cvičenia: n<sub>i</sub> Si 9,65·10¹⁵, Ge 2,33·10¹⁹" },
- { n: "Konštanty", f: "k = 1,38·10⁻²³ J/K,  q = 1,602·10⁻¹⁹ C,  h = 6,626·10⁻³⁴ J·s,  kT(300 K) = 0,0259 eV", w: "" }
+ { n: "Rovnováha", f: "n·p = n<sub>i</sub>²", w: "Z jednej koncentrácie a n<sub>i</sub> dopočítaš druhú.", v: [["n", "koncentrácia elektrónov", "m⁻³"], ["p", "koncentrácia dier", "m⁻³"], ["n<sub>i</sub>", "vlastná koncentrácia nosičov", "m⁻³"]] },
+ { n: "Fermiho–Diracova funkcia", f: "f(W) = 1/[1 + e<sup>(W − W<sub>F</sub>)/kT</sup>]", w: "Pravdepodobnosť, že hladina s energiou W je obsadená elektrónom.", v: [["f(W)", "pravdepodobnosť obsadenia", "0 až 1"], ["W", "energia hladiny", "J alebo eV"], ["W<sub>F</sub>", "Fermiho energia", "J alebo eV"], ["kT", "tepelná energia", "J alebo eV"]] },
+ { n: "Koncentrácia elektrónov a dier", f: "n = N<sub>C</sub>·e<sup>−(W<sub>C</sub> − W<sub>F</sub>)/kT</sup>,  p = N<sub>V</sub>·e<sup>−(W<sub>F</sub> − W<sub>V</sub>)/kT</sup>", w: "Koľko je elektrónov a dier podľa polohy Fermiho hladiny.", v: [["n, p", "koncentrácia elektrónov, dier", "m⁻³"], ["N<sub>C</sub>, N<sub>V</sub>", "efektívne hustoty stavov", "m⁻³"], ["W<sub>C</sub>", "dno vodivostného pásu", "eV"], ["W<sub>V</sub>", "vrchol valenčného pásu", "eV"], ["W<sub>F</sub>", "Fermiho energia", "eV"]] },
+ { n: "Efektívna hustota stavov", f: "N<sub>C</sub> = 2(2π·m<sub>n</sub>·kT/h²)<sup>3/2</sup>,  N<sub>V</sub> = 2(2π·m<sub>p</sub>·kT/h²)<sup>3/2</sup>", w: "Koľko stavov „efektívne“ ponúka pás pri danej teplote.", v: [["N<sub>C</sub>, N<sub>V</sub>", "efektívna hustota stavov", "m⁻³"], ["m<sub>n</sub>, m<sub>p</sub>", "efektívna hmotnosť elektrónu, diery", "kg"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["T", "teplota", "K"], ["h", "Planckova konštanta", "J·s"]] },
+ { n: "Vlastná koncentrácia", f: "n<sub>i</sub> = √(N<sub>C</sub>·N<sub>V</sub>)·e<sup>−W<sub>g</sub>/2kT</sup>", w: "Počet voľných elektrónov (= dier) v čistom polovodiči pri teplote T.", v: [["n<sub>i</sub>", "vlastná koncentrácia nosičov", "m⁻³"], ["N<sub>C</sub>, N<sub>V</sub>", "efektívne hustoty stavov", "m⁻³"], ["W<sub>g</sub>", "šírka zakázaného pásu", "J (z eV)"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["T", "teplota", "K"]] },
+ { n: "Fermiho hladina vlastného polovodiča", f: "W<sub>i</sub> = (W<sub>C</sub> + W<sub>V</sub>)/2 + ½kT·ln(N<sub>V</sub>/N<sub>C</sub>) = W<sub>V</sub> + W<sub>g</sub>/2 + ¾kT·ln(m<sub>p</sub>/m<sub>n</sub>)", w: "Kde v zakázanom páse leží Fermiho hladina čistého polovodiča.", v: [["W<sub>i</sub>", "Fermiho hladina vlastného polovodiča", "eV"], ["W<sub>V</sub>, W<sub>C</sub>", "okraje pásov", "eV"], ["W<sub>g</sub>", "šírka zakázaného pásu", "eV"], ["kT", "tepelná energia", "eV"], ["m<sub>p</sub>/m<sub>n</sub>", "pomer efektívnych hmotností", "—"]] },
+ { n: "Konduktivita vlastného polovodiča", f: "γ = 1/ρ = q·n<sub>i</sub>·(μ<sub>n</sub> + μ<sub>p</sub>)", w: "Vodivosť čistého polovodiča, alebo n<sub>i</sub> z rezistivity.", v: [["γ", "konduktivita", "S·m⁻¹"], ["ρ", "rezistivita", "Ω·m"], ["q", "náboj elektrónu", "C"], ["n<sub>i</sub>", "vlastná koncentrácia", "m⁻³"], ["μ<sub>n</sub>, μ<sub>p</sub>", "pohyblivosť elektrónov, dier", "m²·V⁻¹·s⁻¹"]] },
+ { n: "Si a Ge pri 300 K (skriptá)", f: "Si: W<sub>g</sub> 1,11 eV, n<sub>i</sub> 1,45·10¹⁶ m⁻³, N<sub>C</sub> 2,8·10²⁵, N<sub>V</sub> 1,04·10²⁵, μ<sub>n</sub> 0,135, μ<sub>p</sub> 0,048 · Ge: 0,67 eV, 2,4·10¹⁹, 1,04·10²⁵, 6,0·10²⁴, 0,39, 0,19", w: "Tabuľkové hodnoty na dosadenie.", v: [["W<sub>g</sub>", "šírka zakázaného pásu", "eV"], ["n<sub>i</sub>", "vlastná koncentrácia", "m⁻³"], ["N<sub>C</sub>, N<sub>V</sub>", "efektívne hustoty stavov", "m⁻³"], ["μ<sub>n</sub>, μ<sub>p</sub>", "pohyblivosti", "m²·V⁻¹·s⁻¹"]] },
+ { n: "Konštanty", f: "k = 1,38·10⁻²³ J/K,  q = 1,602·10⁻¹⁹ C,  h = 6,626·10⁻³⁴ J·s,  kT(300 K) = 0,0259 eV", w: "Konštanty pre polovodiče.", v: [["k", "Boltzmannova konštanta", "J·K⁻¹"], ["q", "náboj elektrónu", "C"], ["h", "Planckova konštanta", "J·s"], ["kT", "tepelná energia pri 300 K", "eV"]] }
 ],
 explain: { q: "Vysvetli, prečo počet voľných elektrónov v čistom kremíku s teplotou rastie exponenciálne a prečo je ich v germániu oveľa viac.", keys: ["Elektrón musí získať energiu aspoň W<sub>g</sub> a preskočiť zakázaný pás", "Pravdepodobnosť je úmerná e<sup>−W<sub>g</sub>/2kT</sup>", "S rastúcou T sa exponent zmenšuje a n<sub>i</sub> prudko rastie", "Ge má menší W<sub>g</sub> (0,67 eV) než Si (1,11 eV), preto viac nosičov"] },
 quiz: [
@@ -696,14 +696,14 @@ examples: [
   "γ = q(p<sub>p</sub>μ<sub>p</sub> + n<sub>p</sub>μ<sub>n</sub>) = 1,602·10⁻¹⁹·4,506·10²³·0,19 = 1,372·10⁴ S·m⁻¹. Pozor, diery majú pohyblivosť 0,19."] }
 ],
 formulas: [
- { n: "Ionizačná energia prímesi", f: "W<sub>I</sub> = (m<sub>n</sub>/m₀)·W<sub>H</sub>/ε<sub>r</sub>²,  W<sub>H</sub> = 13,5 eV", w: "Si ≈ 0,04 eV, Ge ≈ 0,01 eV" },
- { n: "Nábojová neutralita", f: "p − n + N<sub>D</sub><sup>+</sup> − N<sub>A</sub><sup>−</sup> = 0", w: "homogénny polovodič" },
- { n: "Plná ionizácia – N typ", f: "n<sub>n</sub> ≈ N<sub>D</sub> − N<sub>A</sub>,   p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>", w: "N<sub>D</sub> − N<sub>A</sub> ≫ n<sub>i</sub>" },
- { n: "Plná ionizácia – P typ", f: "p<sub>p</sub> ≈ N<sub>A</sub> − N<sub>D</sub>,   n<sub>p</sub> = n<sub>i</sub>²/p<sub>p</sub>", w: "" },
- { n: "Presné riešenie", f: "n<sub>n</sub> = ½[(N<sub>D</sub> − N<sub>A</sub>) + √((N<sub>D</sub> − N<sub>A</sub>)² + 4n<sub>i</sub>²)]", w: "keď prímesí nie je oveľa viac ako n<sub>i</sub>" },
- { n: "Atómové percentá", f: "N<sub>D</sub> = (at. %/100)·N", w: "N koncentrácia atómov polovodiča" },
- { n: "Konduktivita", f: "γ = q·(n·μ<sub>n</sub> + p·μ<sub>p</sub>)", w: "" },
- { n: "Fermiho hladina N typu", f: "W<sub>F</sub> = W<sub>C</sub> − kT·ln(N<sub>C</sub>/(N<sub>D</sub> − N<sub>A</sub>))", w: "plná ionizácia; &lt; 3kT od pásu = degenerovaný" }
+ { n: "Ionizačná energia prímesi", f: "W<sub>I</sub> = (m<sub>n</sub>/m₀)·W<sub>H</sub>/ε<sub>r</sub>²,  W<sub>H</sub> = 13,5 eV", w: "Koľko energie treba na uvoľnenie elektrónu z donoru.", v: [["W<sub>I</sub>", "ionizačná energia prímesi", "eV"], ["m<sub>n</sub>/m₀", "pomer efektívnej a pokojovej hmotnosti", "—"], ["W<sub>H</sub>", "ionizačná energia vodíka", "eV"], ["ε<sub>r</sub>", "relatívna permitivita polovodiča", "—"]] },
+ { n: "Nábojová neutralita", f: "p − n + N<sub>D</sub><sup>+</sup> − N<sub>A</sub><sup>−</sup> = 0", w: "Kladné a záporné náboje v polovodiči sú v rovnováhe.", v: [["p, n", "koncentrácia dier, elektrónov", "m⁻³"], ["N<sub>D</sub>⁺", "ionizované donory", "m⁻³"], ["N<sub>A</sub>⁻", "ionizované akceptory", "m⁻³"]] },
+ { n: "Plná ionizácia – N typ", f: "n<sub>n</sub> ≈ N<sub>D</sub> − N<sub>A</sub>,   p<sub>n</sub> = n<sub>i</sub>²/n<sub>n</sub>", w: "Väčšinové elektróny a menšinové diery v polovodiči typu N.", v: [["n<sub>n</sub>", "väčšinové elektróny", "m⁻³"], ["p<sub>n</sub>", "menšinové diery", "m⁻³"], ["N<sub>D</sub>, N<sub>A</sub>", "koncentrácia donorov, akceptorov", "m⁻³"], ["n<sub>i</sub>", "vlastná koncentrácia", "m⁻³"]] },
+ { n: "Plná ionizácia – P typ", f: "p<sub>p</sub> ≈ N<sub>A</sub> − N<sub>D</sub>,   n<sub>p</sub> = n<sub>i</sub>²/p<sub>p</sub>", w: "Väčšinové diery a menšinové elektróny v polovodiči typu P.", v: [["p<sub>p</sub>", "väčšinové diery", "m⁻³"], ["n<sub>p</sub>", "menšinové elektróny", "m⁻³"], ["N<sub>A</sub>, N<sub>D</sub>", "koncentrácia akceptorov, donorov", "m⁻³"]] },
+ { n: "Presné riešenie", f: "n<sub>n</sub> = ½[(N<sub>D</sub> − N<sub>A</sub>) + √((N<sub>D</sub> − N<sub>A</sub>)² + 4n<sub>i</sub>²)]", w: "Keď prímesí nie je oveľa viac ako n<sub>i</sub>.", v: [["n<sub>n</sub>", "väčšinové elektróny", "m⁻³"], ["N<sub>D</sub>, N<sub>A</sub>", "donory, akceptory", "m⁻³"], ["n<sub>i</sub>", "vlastná koncentrácia", "m⁻³"]] },
+ { n: "Atómové percentá", f: "N<sub>D</sub> = (at. %/100)·N", w: "Z atómových percent dostaneš koncentráciu prímesi v m⁻³.", v: [["N<sub>D</sub>", "koncentrácia prímesi", "m⁻³"], ["at. %", "podiel atómov prímesi", "%"], ["N", "koncentrácia atómov polovodiča", "m⁻³"]] },
+ { n: "Konduktivita", f: "γ = q·(n·μ<sub>n</sub> + p·μ<sub>p</sub>)", w: "Vodivosť dotovaného polovodiča z koncentrácií oboch nosičov.", v: [["γ", "konduktivita", "S·m⁻¹"], ["q", "náboj elektrónu", "C"], ["n, p", "koncentrácia elektrónov, dier", "m⁻³"], ["μ<sub>n</sub>, μ<sub>p</sub>", "pohyblivosti", "m²·V⁻¹·s⁻¹"]] },
+ { n: "Fermiho hladina N typu", f: "W<sub>F</sub> = W<sub>C</sub> − kT·ln(N<sub>C</sub>/(N<sub>D</sub> − N<sub>A</sub>))", w: "Ako ďaleko pod vodivostným pásom leží Fermiho hladina dotovaného polovodiča.", v: [["W<sub>F</sub>", "Fermiho energia", "eV"], ["W<sub>C</sub>", "dno vodivostného pásu", "eV"], ["kT", "tepelná energia", "eV"], ["N<sub>C</sub>", "efektívna hustota stavov", "m⁻³"], ["N<sub>D</sub> − N<sub>A</sub>", "čistá koncentrácia donorov", "m⁻³"]] }
 ],
 explain: { q: "Vysvetli, prečo pridanie fosforu do kremíka zvýši počet elektrónov a zároveň zníži počet dier.", keys: ["Fosfor má 5 valenčných elektrónov, štyri tvoria väzby, piaty je voľný", "Pri izbovej teplote sú všetky donory ionizované, n ≈ N<sub>D</sub>", "Súčin n·p = n<sub>i</sub>² je pri danej teplote stály", "Preto diery klesnú na p = n<sub>i</sub>²/N<sub>D</sub>"] },
 quiz: [
@@ -752,13 +752,13 @@ examples: [
   "v<sub>t</sub> = √(3·1,38·10⁻²³·300/2,37·10⁻³¹) = 2,3·10⁵ m/s, rádovo 100 km/s ako v skriptách."] }
 ],
 formulas: [
- { n: "Tepelná rýchlosť", f: "v<sub>t</sub> = √(3kT/m<sub>n</sub>)", w: "≈ 10⁵ m/s pri 300 K" },
- { n: "Driftová rýchlosť a pohyblivosť", f: "v<sub>dn</sub> = μ<sub>n</sub>·E,   μ<sub>n</sub> = q·t<sub>n</sub>/m<sub>n</sub>", w: "t<sub>n</sub> stredná doba medzi zrážkami" },
- { n: "Driftový prúd", f: "J = q(nμ<sub>n</sub> + pμ<sub>p</sub>)·E = γE", w: "" },
- { n: "Difúzny prúd", f: "J<sub>n dif</sub> = q·D<sub>n</sub>·grad n,   J<sub>p dif</sub> = −q·D<sub>p</sub>·grad p", w: "z vyššej koncentrácie do nižšej" },
- { n: "Einsteinov vzťah", f: "D<sub>n</sub>/μ<sub>n</sub> = D<sub>p</sub>/μ<sub>p</sub> = kT/q", w: "kT/q ≈ 0,0259 V pri 300 K" },
- { n: "Celková pohyblivosť", f: "1/μ = 1/μ<sub>I</sub> + 1/μ<sub>L</sub>", w: "I prímesi (nízka T), L mriežka (vysoká T)" },
- { n: "Konštanty", f: "m₀ = 9,109·10⁻³¹ kg,  k = 1,38·10⁻²³ J/K,  q = 1,602·10⁻¹⁹ C", w: "" }
+ { n: "Tepelná rýchlosť", f: "v<sub>t</sub> = √(3kT/m<sub>n</sub>)", w: "Ako rýchlo sa nosič chaoticky pohybuje len od tepla.", v: [["v<sub>t</sub>", "tepelná rýchlosť", "m·s⁻¹"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["T", "teplota", "K"], ["m<sub>n</sub>", "efektívna hmotnosť elektrónu", "kg"]] },
+ { n: "Driftová rýchlosť a pohyblivosť", f: "v<sub>dn</sub> = μ<sub>n</sub>·E,   μ<sub>n</sub> = q·t<sub>n</sub>/m<sub>n</sub>", w: "Rýchlosť usmerneného pohybu v poli a odkiaľ sa berie pohyblivosť.", v: [["v<sub>dn</sub>", "driftová rýchlosť elektrónov", "m·s⁻¹"], ["μ<sub>n</sub>", "pohyblivosť", "m²·V⁻¹·s⁻¹"], ["E", "intenzita poľa", "V·m⁻¹"], ["t<sub>n</sub>", "stredná doba medzi zrážkami", "s"], ["m<sub>n</sub>", "efektívna hmotnosť", "kg"]] },
+ { n: "Driftový prúd", f: "J = q(nμ<sub>n</sub> + pμ<sub>p</sub>)·E = γE", w: "Prúdová hustota, ktorú vyvolá elektrické pole.", v: [["J", "prúdová hustota", "A·m⁻²"], ["q", "náboj elektrónu", "C"], ["n, p", "koncentrácie", "m⁻³"], ["μ<sub>n</sub>, μ<sub>p</sub>", "pohyblivosti", "m²·V⁻¹·s⁻¹"], ["E", "intenzita poľa", "V·m⁻¹"], ["γ", "konduktivita", "S·m⁻¹"]] },
+ { n: "Difúzny prúd", f: "J<sub>n dif</sub> = q·D<sub>n</sub>·grad n,   J<sub>p dif</sub> = −q·D<sub>p</sub>·grad p", w: "Prúd z nerovnomernej koncentrácie nosičov, aj bez poľa.", v: [["J<sub>dif</sub>", "difúzna prúdová hustota", "A·m⁻²"], ["D<sub>n</sub>, D<sub>p</sub>", "difúzne koeficienty", "m²·s⁻¹"], ["grad n", "zmena koncentrácie na meter", "m⁻⁴"]] },
+ { n: "Einsteinov vzťah", f: "D<sub>n</sub>/μ<sub>n</sub> = D<sub>p</sub>/μ<sub>p</sub> = kT/q", w: "Difúzny koeficient z pohyblivosti.", v: [["D", "difúzny koeficient", "m²·s⁻¹"], ["μ", "pohyblivosť", "m²·V⁻¹·s⁻¹"], ["kT/q", "tepelné napätie", "V"]] },
+ { n: "Celková pohyblivosť", f: "1/μ = 1/μ<sub>I</sub> + 1/μ<sub>L</sub>", w: "Pohyblivosť, keď pôsobia oba rozptylové mechanizmy.", v: [["μ", "celková pohyblivosť", "m²·V⁻¹·s⁻¹"], ["μ<sub>I</sub>", "pohyblivosť od rozptylu na prímesiach", "m²·V⁻¹·s⁻¹"], ["μ<sub>L</sub>", "pohyblivosť od rozptylu na mriežke", "m²·V⁻¹·s⁻¹"]] },
+ { n: "Konštanty", f: "m₀ = 9,109·10⁻³¹ kg,  k = 1,38·10⁻²³ J/K,  q = 1,602·10⁻¹⁹ C", w: "Konštanty pre pohyb nosičov.", v: [["m₀", "pokojová hmotnosť elektrónu", "kg"], ["k", "Boltzmannova konštanta", "J·K⁻¹"], ["q", "náboj elektrónu", "C"]] }
 ],
 explain: { q: "Vysvetli, prečo konduktivita dotovaného kremíka pri zahrievaní najprv rastie, potom sa takmer nemení a nakoniec prudko rastie.", keys: ["Pri nízkej teplote sa postupne ionizujú prímesi, pribúdajú nosiče", "Keď sú všetky ionizované, n ≈ N<sub>D</sub> je stále; γ sleduje len pohyblivosť", "Pohyblivosť pri vyššej teplote klesá mriežkovým rozptylom", "Pri vysokej teplote prevládne vlastná vodivosť, n<sub>i</sub> prekročí N<sub>D</sub>"] },
 quiz: [
@@ -828,17 +828,17 @@ examples: [
   "μ<sub>celk</sub> = 8,854·10⁻¹²·7·10·0,04 = 2,48·10⁻¹¹ C·m."] }
 ],
 formulas: [
- { n: "Polarizácia", f: "P = D − ε₀E = ε₀(ε<sub>r</sub> − 1)E = κ·ε₀E", w: "κ = ε<sub>r</sub> − 1 dielektrická susceptibilita" },
- { n: "Indukcia", f: "D = ε₀ε<sub>r</sub>E = ε₀E + P", w: "ε<sub>r</sub> v skriptách ε′" },
- { n: "Clausiova rovnica", f: "μ<sub>i</sub> = α·E<sub>lok</sub>,   P = n·α·E<sub>lok</sub>", w: "α polarizovateľnosť" },
- { n: "Doskový kondenzátor", f: "C = ε₀ε<sub>r</sub>·S/h,   C = ε<sub>r</sub>·C₀", w: "" },
- { n: "Vrstvy v sérii", f: "1/C = Σ 1/C<sub>i</sub>", w: "D je vo vrstvách rovnaké" },
- { n: "Koaxiálny kábel", f: "C = 2π·ε₀ε<sub>r</sub>·l / ln(r₂/r₁)", w: "r₁ = √(S/π) z prierezu" },
- { n: "Vloženie dielektrika", f: "zdroj pripojený: U, E stále, D·ε<sub>r</sub> · odpojený: Q, D, σ stále, E/ε<sub>r</sub>", w: "dielektrikum vyplní celú medzeru" },
- { n: "Dipólový moment vrstvy", f: "μ<sub>celk</sub> = P·V = ε₀(ε<sub>r</sub> − 1)·U·S", w: "homogénna polarizácia" },
- { n: "Curieho–Weissov zákon", f: "ε = C<sub>CW</sub>/(T − T<sub>CW</sub>)", w: "feroelektriká nad Curieovým bodom" },
- { n: "Permitivity", f: "PTFE 2,1 · lepenka 2,6 · sľuda 5,4 · Al₂O₃ 8 · voda 80 · Si 11,7 · Ge 16,3", w: "zo zadaní a tab. 4.1" },
- { n: "Konštanty", f: "ε₀ = 8,854·10⁻¹² F/m,  1 D = ⅓·10⁻²⁹ C·m", w: "" }
+ { n: "Polarizácia", f: "P = D − ε₀E = ε₀(ε<sub>r</sub> − 1)E = κ·ε₀E", w: "Dipólový moment v 1 m³ dielektrika v danom poli.", v: [["P", "polarizácia", "C·m⁻²"], ["D", "elektrická indukcia", "C·m⁻²"], ["ε₀", "permitivita vákua", "F·m⁻¹"], ["ε<sub>r</sub>", "relatívna permitivita", "—"], ["E", "intenzita poľa", "V·m⁻¹"], ["κ", "dielektrická susceptibilita ε<sub>r</sub> − 1", "—"]] },
+ { n: "Indukcia", f: "D = ε₀ε<sub>r</sub>E = ε₀E + P", w: "Elektrická indukcia v dielektriku.", v: [["D", "elektrická indukcia", "C·m⁻²"], ["ε₀", "permitivita vákua", "F·m⁻¹"], ["ε<sub>r</sub>", "relatívna permitivita", "—"], ["E", "intenzita poľa", "V·m⁻¹"], ["P", "polarizácia", "C·m⁻²"]] },
+ { n: "Clausiova rovnica", f: "μ<sub>i</sub> = α·E<sub>lok</sub>,   P = n·α·E<sub>lok</sub>", w: "Polarizácia z vlastností jednotlivých častíc.", v: [["μ<sub>i</sub>", "indukovaný dipólový moment častice", "C·m"], ["α", "polarizovateľnosť", "C·m²·V⁻¹"], ["E<sub>lok</sub>", "lokálne pole", "V·m⁻¹"], ["n", "koncentrácia častíc", "m⁻³"], ["P", "polarizácia", "C·m⁻²"]] },
+ { n: "Doskový kondenzátor", f: "C = ε₀ε<sub>r</sub>·S/h,   C = ε<sub>r</sub>·C₀", w: "Kapacita kondenzátora z rozmerov a materiálu.", v: [["C", "kapacita", "F"], ["ε₀", "permitivita vákua", "F·m⁻¹"], ["ε<sub>r</sub>", "relatívna permitivita", "—"], ["S", "plocha dosky", "m²"], ["h", "hrúbka dielektrika", "m"], ["C₀", "kapacita s vákuom", "F"]] },
+ { n: "Vrstvy v sérii", f: "1/C = Σ 1/C<sub>i</sub>", w: "Celková kapacita, keď sú vrstvy dielektrika nad sebou.", v: [["C", "celková kapacita", "F"], ["C<sub>i</sub>", "kapacita jednej vrstvy", "F"]] },
+ { n: "Koaxiálny kábel", f: "C = 2π·ε₀ε<sub>r</sub>·l / ln(r₂/r₁)", w: "Kapacita koaxiálneho kábla.", v: [["C", "kapacita", "F"], ["ε₀", "permitivita vákua", "F·m⁻¹"], ["ε<sub>r</sub>", "permitivita izolácie", "—"], ["l", "dĺžka kábla", "m"], ["r₁", "polomer vnútorného vodiča", "m"], ["r₂", "vnútorný polomer tienenia", "m"]] },
+ { n: "Vloženie dielektrika", f: "zdroj pripojený: U, E stále, D·ε<sub>r</sub> · odpojený: Q, D, σ stále, E/ε<sub>r</sub>", w: "Čo ostane stále a čo sa zmení po vložení dielektrika.", v: [["U", "napätie", "V"], ["E", "intenzita poľa", "V·m⁻¹"], ["D", "indukcia", "C·m⁻²"], ["σ", "plošná hustota náboja", "C·m⁻²"], ["Q", "náboj", "C"]] },
+ { n: "Dipólový moment vrstvy", f: "μ<sub>celk</sub> = P·V = ε₀(ε<sub>r</sub> − 1)·U·S", w: "Celkový dipólový moment polarizovanej vrstvy.", v: [["μ<sub>celk</sub>", "celkový dipólový moment", "C·m"], ["P", "polarizácia", "C·m⁻²"], ["V", "objem vrstvy", "m³"], ["U", "napätie", "V"], ["S", "plocha", "m²"]] },
+ { n: "Curieho–Weissov zákon", f: "ε = C<sub>CW</sub>/(T − T<sub>CW</sub>)", w: "Permitivita feroelektrika nad Curieovým bodom.", v: [["ε", "permitivita", "—"], ["C<sub>CW</sub>", "Curieho–Weissova konštanta", "K"], ["T", "teplota", "K"], ["T<sub>CW</sub>", "Curieho–Weissova teplota", "K"]] },
+ { n: "Permitivity", f: "PTFE 2,1 · lepenka 2,6 · sľuda 5,4 · Al₂O₃ 8 · voda 80 · Si 11,7 · Ge 16,3", w: "Relatívne permitivity materiálov na dosadenie.", v: [["ε<sub>r</sub>", "relatívna permitivita", "bez jednotky"]] },
+ { n: "Konštanty", f: "ε₀ = 8,854·10⁻¹² F/m,  1 D = ⅓·10⁻²⁹ C·m", w: "Permitivita vákua a jednotka dipólového momentu.", v: [["ε₀", "permitivita vákua", "F·m⁻¹"], ["D", "debye", "C·m"]] }
 ],
 explain: { q: "Vysvetli, prečo vloženie dielektrika medzi dosky zväčší kapacitu kondenzátora.", keys: ["Pole posunie vázané náboje, dielektrikum sa polarizuje", "Na povrchu dielektrika vznikne vázaný náboj opačný k náboju dosky", "Ten čiastočne vyrovná pole od dosiek, pri rovnakom náboji je napätie menšie", "C = Q/U preto narastie ε<sub>r</sub>-krát"] },
 quiz: [
@@ -894,16 +894,16 @@ examples: [
   "E<sub>p</sub> = U<sub>p</sub>/h = 10⁴/50·10⁻⁶ = 2·10⁸ V/m = 200 kV/mm."] }
 ],
 formulas: [
- { n: "Vnútorná a povrchová vodivosť", f: "J<sub>v</sub> = γ<sub>v</sub>E, γ<sub>v</sub> = nqμ, ρ<sub>v</sub> = 1/γ<sub>v</sub> [Ω·m];  J<sub>p</sub> = γ<sub>p</sub>E, ρ<sub>p</sub> [Ω]", w: "" },
- { n: "Teplotná závislosť", f: "γ<sub>v</sub> = A·e<sup>−b/T</sup>", w: "tuhé izolanty" },
- { n: "Stratový uhol", f: "δ = 90° − φ", w: "φ fázový posun prúdu pred napätím" },
- { n: "Stratový činiteľ", f: "paralelne tg δ = 1/(ωR<sub>p</sub>C<sub>p</sub>) · sériovo tg δ = ωR<sub>s</sub>C<sub>s</sub>", w: "C<sub>s</sub> = C<sub>p</sub>(1 + tg²δ)" },
- { n: "Stratový výkon", f: "P<sub>z</sub> = U²·ω·C<sub>p</sub>·tg δ", w: "U efektívna hodnota" },
- { n: "Komplexná permitivita", f: "ε* = ε′ − jε″,  ε″ = ε′·tg δ", w: "ε″ stratové číslo" },
- { n: "Debyeho vzťah", f: "ε* = ε<sub>∞</sub> + (ε<sub>s</sub> − ε<sub>∞</sub>)/(1 + jωτ)", w: "jedna relaxačná doba τ" },
- { n: "Elektrická pevnosť", f: "E<sub>p</sub> = U<sub>p</sub>/h", w: "V/m" },
- { n: "Townsendova podmienka", f: "γ·(e<sup>αh</sup> − 1) = 1", w: "samostatný výboj v plyne" },
- { n: "Paschenov zákon", f: "U<sub>p</sub> = f(p·h)", w: "n-krát menšia vzdialenosť a n-krát väčší tlak → rovnaké U<sub>p</sub>" }
+ { n: "Vnútorná a povrchová vodivosť", f: "J<sub>v</sub> = γ<sub>v</sub>E, γ<sub>v</sub> = nqμ, ρ<sub>v</sub> = 1/γ<sub>v</sub> [Ω·m];  J<sub>p</sub> = γ<sub>p</sub>E, ρ<sub>p</sub> [Ω]", w: "Vodivosť izolantu cez objem a po povrchu.", v: [["J<sub>v</sub>", "vnútorná prúdová hustota", "A·m⁻²"], ["γ<sub>v</sub>", "vnútorná konduktivita", "S·m⁻¹"], ["ρ<sub>v</sub>", "vnútorná rezistivita", "Ω·m"], ["J<sub>p</sub>", "povrchová prúdová hustota", "A·m⁻¹"], ["γ<sub>p</sub>", "povrchová konduktivita", "S"], ["ρ<sub>p</sub>", "povrchová rezistivita", "Ω"]] },
+ { n: "Teplotná závislosť", f: "γ<sub>v</sub> = A·e<sup>−b/T</sup>", w: "Ako rastie vodivosť izolantu s teplotou.", v: [["γ<sub>v</sub>", "vnútorná konduktivita", "S·m⁻¹"], ["A", "konštanta materiálu", "S·m⁻¹"], ["b", "konštanta materiálu", "K"], ["T", "teplota", "K"]] },
+ { n: "Stratový uhol", f: "δ = 90° − φ", w: "O koľko sa fázový posun reálneho kondenzátora líši od 90°.", v: [["δ", "stratový uhol", "°"], ["φ", "fázový posun prúdu pred napätím", "°"]] },
+ { n: "Stratový činiteľ", f: "paralelne tg δ = 1/(ωR<sub>p</sub>C<sub>p</sub>) · sériovo tg δ = ωR<sub>s</sub>C<sub>s</sub>", w: "Mierka strát kondenzátora z náhradného zapojenia.", v: [["tg δ", "stratový činiteľ", "bez jednotky"], ["ω", "uhlová frekvencia 2πf", "s⁻¹"], ["R<sub>p</sub>, C<sub>p</sub>", "paralelný odpor a kapacita", "Ω, F"], ["R<sub>s</sub>, C<sub>s</sub>", "sériový odpor a kapacita", "Ω, F"]] },
+ { n: "Stratový výkon", f: "P<sub>z</sub> = U²·ω·C<sub>p</sub>·tg δ", w: "Koľko výkonu sa v dielektriku mení na teplo.", v: [["P<sub>z</sub>", "stratový výkon", "W"], ["U", "efektívne napätie", "V"], ["ω", "uhlová frekvencia 2πf", "s⁻¹"], ["C<sub>p</sub>", "kapacita", "F"], ["tg δ", "stratový činiteľ", "—"]] },
+ { n: "Komplexná permitivita", f: "ε* = ε′ − jε″,  ε″ = ε′·tg δ", w: "Permitivita aj straty v jednom čísle.", v: [["ε*", "komplexná permitivita", "—"], ["ε′", "reálna časť (relatívna permitivita)", "—"], ["ε″", "stratové číslo", "—"], ["tg δ", "stratový činiteľ", "—"]] },
+ { n: "Debyeho vzťah", f: "ε* = ε<sub>∞</sub> + (ε<sub>s</sub> − ε<sub>∞</sub>)/(1 + jωτ)", w: "Ako sa mení permitivita s frekvenciou pri relaxácii.", v: [["ε<sub>s</sub>", "statická permitivita (f → 0)", "—"], ["ε<sub>∞</sub>", "optická permitivita (f → ∞)", "—"], ["ω", "uhlová frekvencia", "s⁻¹"], ["τ", "relaxačná doba", "s"]] },
+ { n: "Elektrická pevnosť", f: "E<sub>p</sub> = U<sub>p</sub>/h", w: "Pri akom poli izolant prerazí.", v: [["E<sub>p</sub>", "elektrická pevnosť", "V·m⁻¹"], ["U<sub>p</sub>", "prierazné napätie", "V"], ["h", "hrúbka izolantu", "m"]] },
+ { n: "Townsendova podmienka", f: "γ·(e<sup>αh</sup> − 1) = 1", w: "Kedy výboj v plyne prejde na samostatný.", v: [["α", "prvý Townsendov činiteľ", "m⁻¹"], ["γ", "druhý Townsendov činiteľ", "—"], ["h", "vzdialenosť elektród", "m"]] },
+ { n: "Paschenov zákon", f: "U<sub>p</sub> = f(p·h)", w: "Prierazné napätie plynu závisí od súčinu tlaku a vzdialenosti elektród.", v: [["U<sub>p</sub>", "prierazné napätie", "V"], ["p", "tlak plynu", "Pa"], ["h", "vzdialenosť elektród", "m"]] }
 ],
 explain: { q: "Vysvetli, prečo sa kondenzátor so stratovým dielektrikom pri striedavom napätí zahrieva a od čoho tie straty závisia.", keys: ["Reálne dielektrikum má malú vodivosť: vodivostné straty", "Relaxačné polarizácie nestíhajú pole a energia sa mení na teplo", "Mierou je stratový činiteľ tg δ, δ = 90° − φ", "P = U²ωC·tg δ, závisí od frekvencie a teploty"] },
 quiz: [
