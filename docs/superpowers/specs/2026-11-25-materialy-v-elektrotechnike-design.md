@@ -30,3 +30,4 @@ Konkrétne otázky, nákresy (bunky, pásové modely, hysterézna slučka), gene
 Študent: „Nemám ani tušenie čo je vzorec pre čo a aké majú jednotky“, rozsah „Len Materiály“.
 - Karta má voliteľné pole `v: [[značka, význam, jednotka]]`; ak je vyplnené, riadok `w` sa zobrazí ako „Na čo:“ a pod vzorcom je zoznam veličín.
 - Zoznam sa ukáže aj vo vysvetlení v režime „Skúšať vzorce“. Všetkých 104 kariet MTE ho má; Fyzika 1 bez zmeny.
+- 26. 11. 2026 („Nie sú tam všetky vzorce pre každú veličinu“, voľba „Oboje“): pole `x` s tvarmi vyjadrenými pre ďalšie veličiny (zobrazí sa ako „Vyjadrené:“) na 61 kartách a 8 nových kariet pre vzorce, ktoré sa v leveli používali bez karty (polomer z hrany, objem bunky, prevody, koncentrácia atómov polovodiča, pole a náboj v kondenzátore, polomery koaxiálu, uhlová frekvencia). Nové karty sú na konci zoznamu, id skúšania vzorcov ostávajú.
